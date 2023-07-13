@@ -1,17 +1,21 @@
 import React from 'react';
 import {Text, View} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { LoginPage } from './view/LoginPage';
+import { DaftarPage } from './view/DaftarPage';
 
-const YourApp = () => {
+const Stack = createNativeStackNavigator();
+
+const App = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
-      <Text>hello world</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="LoginPage" component={LoginPage}/>
+        <Stack.Screen name="DaftarPage" component={DaftarPage}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
-export default YourApp;
+export default App;
