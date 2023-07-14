@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { LoginPage } from './src/view/LoginPage';
 import { DaftarPage } from './src/view/DaftarPage';
 import { COLORS } from './src/constant/theme';
+import { moderateScale } from './src/constant/responsive';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,9 +22,10 @@ const App = () => {
           headerTitleStyle: {
             color: 'white',
             fontWeight: '700',
-            fontSize: 24,
+            fontSize: moderateScale(24),
           },
           headerShadowVisible: false,
+          headerTintColor: 'white',
         }}
         />
         <Stack.Screen name="DaftarPage" component={DaftarPage}
@@ -36,9 +38,10 @@ const App = () => {
           headerTitleStyle: {
             color: 'white',
             fontWeight: '700',
-            fontSize: 24,
+            fontSize: moderateScale(24),
           },
           headerShadowVisible: false,
+          headerTintColor: 'white',
         }}
         />
       </Stack.Navigator>

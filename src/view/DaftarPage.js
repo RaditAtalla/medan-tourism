@@ -48,7 +48,7 @@ const Styles = StyleSheet.create({
     imgButton: {
         height: verticalScale(39),
         width: horizontalScale(40),
-        objectFit: 'cover',
+        objectFit: 'contain',
     },
     wrapper: {
         backgroundColor: 'white',
@@ -56,11 +56,13 @@ const Styles = StyleSheet.create({
         height: '100%',
         borderTopEndRadius: 50,
         borderTopStartRadius: 50,
-        paddingTop: verticalScale(60),
+        paddingTop: verticalScale(56),
+        paddingBottom: verticalScale(84),
         paddingHorizontal: horizontalScale(24),
         display: 'flex',
+        justifyContent: 'flex-start',
         gap: verticalScale(64),
-        // marginTop: verticalScale(201),
+        marginTop: verticalScale(63),
     },
     input: {
         backgroundColor: COLORS.gray5,
@@ -95,16 +97,16 @@ const Styles = StyleSheet.create({
     daftarContainer: {
         display: 'flex',
         gap: verticalScale(24),
+        marginBottom: verticalScale(73),
     },
     daftarImgBtn: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
-        gap: horizontalScale(10),
-        marginBottom: verticalScale(101),
+        gap: horizontalScale(40),
     },
     imgBtnWrapper: {
-        padding: moderateScale(6),
+        padding: moderateScale(10),
         borderRadius: 16,
         backgroundColor: COLORS.gray4,
     },
