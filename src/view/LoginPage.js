@@ -21,7 +21,7 @@ export const LoginPage = ({ navigation }) => {
                 <View style={Styles.bottomContent}>
                     <View style={Styles.logInContainer}>
                         <TouchableOpacity style={Styles.logInBtn}>
-                            <Text style={{textAlign: 'center', color: 'white', fontWeight: 600, fontSize: moderateScale(18),}}>Log In</Text>
+                            <Text style={{textAlign: 'center', color: 'white', fontWeight: 600, fontSize: moderateScale(18)}}>Log In</Text>
                         </TouchableOpacity>
                         <Text style={{textAlign: 'center', fontWeight: 600, fontSize: moderateScale(18), color: 'black'}}>Atau</Text>
                         <View style={Styles.loginImgBtn}>

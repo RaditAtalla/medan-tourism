@@ -19,4 +19,13 @@ const COLORS = {
     gray5: '#F7F7F7',
 }
 
-export { COLORS };
+const FONTS = {
+    thin: 'Poppins-Thin',
+    light: 'Poppins-Light',
+    regular: 'Poppins-Regular',
+    semiBold: 'Poppins-SemiBold',
+    bold: 'Poppins-Bold',
+
+}
+
+export { COLORS, FONTS };
