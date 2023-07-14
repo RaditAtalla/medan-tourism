@@ -62,7 +62,7 @@ const Styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'flex-start',
         gap: verticalScale(64),
-        marginTop: verticalScale(63),
+        marginTop: verticalScale(109),
     },
     input: {
         backgroundColor: COLORS.gray5,

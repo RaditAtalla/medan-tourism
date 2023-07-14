@@ -62,7 +62,7 @@ const Styles = StyleSheet.create({
         paddingHorizontal: horizontalScale(24),
         display: 'flex',
         gap: verticalScale(64),
-        marginTop: verticalScale(105),
+        marginTop: verticalScale(201),
     },
     input: {
         backgroundColor: COLORS.gray5,
