@@ -1,9 +1,10 @@
-import {Text, View, StyleSheet, TouchableOpacity, Image, StatusBar} from 'react-native';
+import {Text, View, StyleSheet, TouchableOpacity, Image, StatusBar,} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import { horizontalScale, verticalScale, moderateScale } from '../constant/responsive';
 import { InputGroup } from '../components/InputGroup';
+import { COLORS } from '../constant/theme';
 
-export const LoginPage = () => {
+export const LoginPage = ({ navigation }) => {
     return (
         <SafeAreaView style={Styles.container}>
             <StatusBar translucent backgroundColor={'transparent'} />
@@ -11,7 +12,7 @@ export const LoginPage = () => {
                 <View style={Styles.formContainer}>
                     <View style={Styles.inputForm}>
                         <InputGroup label='email' placeholder='example123@gmail.com' placeholderTextColor='#252525' />
-                        <InputGroup label='password' placeholder='password123' placeholderTextColor='#252525' />
+                        <InputGroup label='password' type='password' placeholder='password123' placeholderTextColor='#252525'/>
                     </View>
                     <TouchableOpacity style={{alignSelf: 'flex-end', fontSize: moderateScale(12)}}>
                         <Text>Lupa Password</Text>
@@ -32,7 +33,7 @@ export const LoginPage = () => {
                             </TouchableOpacity>
                         </View>
                     </View>
-                    <Text style={{textAlign: 'center'}}>Belum punya akun? <Text style={{color: '#36C9C1'}}>Daftar</Text></Text>
+                    <Text style={{textAlign: 'center'}}>Belum punya akun? <Text style={{color: '#36C9C1'}} onPress={() => navigation.navigate('DaftarPage')}>Daftar</Text></Text>
                 </View>
             </View>
         </SafeAreaView>
@@ -44,7 +45,7 @@ const Styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#36C9C1',
+        backgroundColor: COLORS.blue,
     },
     imgButton: {
         height: verticalScale(39),
@@ -64,7 +65,7 @@ const Styles = StyleSheet.create({
         marginTop: verticalScale(201),
     },
     input: {
-        backgroundColor: '#F7F7F7',
+        backgroundColor: COLORS.gray5,
         paddingVertical: verticalScale(12),
         paddingLeft: horizontalScale(24),
         borderRadius: 20,
@@ -72,7 +73,7 @@ const Styles = StyleSheet.create({
     },
     inputLabel: {
         fontSize: moderateScale(14),
-        color: '#3B4949',
+        color: COLORS.black3,
         marginLeft: horizontalScale(20),
     },
     inputForm: {
@@ -89,7 +90,7 @@ const Styles = StyleSheet.create({
     },
     logInBtn: {
         width: '100%',
-        backgroundColor: '#36C9C1',
+        backgroundColor: COLORS.blue,
         borderRadius: 12,
         paddingVertical: verticalScale(14),
     },
@@ -107,6 +108,6 @@ const Styles = StyleSheet.create({
     imgBtnWrapper: {
         padding: moderateScale(6),
         borderRadius: 16,
-        backgroundColor: '#EFEFEF',
+        backgroundColor: COLORS.gray4,
     },
 })

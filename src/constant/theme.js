@@ -8,15 +8,15 @@ const COLORS = {
 
     black1: '#000',
     black2: '#1D1D1D',
-    black3: '#282828',
+    black3: '#3B4949',
 
     white: '#fff',
 
     gray1: '#333',
     gray2: '#4F4f4F',
     gray3: '#828282',
-    gray4: '#BDBDBD',
-    gray5: '#E0E0E0',
+    gray4: '#EFEFEF',
+    gray5: '#F7F7F7',
 }
 
 export { COLORS };
