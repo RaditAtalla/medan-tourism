@@ -1,15 +1,7 @@
-import {Text, View, StyleSheet, TextInput, TouchableOpacity, Image, StatusBar} from 'react-native';
+import {Text, View, StyleSheet, TouchableOpacity, Image, StatusBar} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import { Dimensions } from 'react-native';
-
-const { width, height } = Dimensions.get('window');
-
-const guidelineBaseWidth = 430;
-const guidelineBaseHeight = 932;
-
-const horizontalScale = (size) => (width / guidelineBaseWidth) * size;
-const verticalScale = (size) => (height / guidelineBaseHeight) * size;
-const moderateScale = (size, factor = 0.5) => size + (horizontalScale(size) - size) * factor;
+import { horizontalScale, verticalScale, moderateScale } from '../constant/responsive';
+import { InputGroup } from '../components/InputGroup';
 
 export const LoginPage = () => {
     return (
@@ -18,14 +10,8 @@ export const LoginPage = () => {
             <View style={Styles.wrapper}>
                 <View style={Styles.formContainer}>
                     <View style={Styles.inputForm}>
-                        <View style={Styles.inputGroup}>
-                            <Text style={Styles.inputLabel}>Email</Text>
-                            <TextInput placeholder='example123@gmail.com' style={Styles.input} placeholderTextColor={'#252525'} />
-                        </View>
-                        <View style={Styles.inputGroup}>
-                            <Text style={Styles.inputLabel}>Password</Text>
-                            <TextInput placeholder='password123' style={Styles.input} placeholderTextColor={'#252525'} />
-                        </View>
+                        <InputGroup label='email' placeholder='example123@gmail.com' placeholderTextColor='#252525' />
+                        <InputGroup label='password' placeholder='password123' placeholderTextColor='#252525' />
                     </View>
                     <TouchableOpacity style={{alignSelf: 'flex-end', fontSize: moderateScale(12)}}>
                         <Text>Lupa Password</Text>
