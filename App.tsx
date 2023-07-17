@@ -3,6 +3,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { LoginPage } from './src/view/LoginPage';
 import { DaftarPage } from './src/view/DaftarPage';
+import { OnBoardingPage } from './src/view/OnBoardingPage';
+import { OBPTest } from './src/view/OBPTest';
 import { COLORS } from './src/constant/theme';
 import { moderateScale } from './src/constant/responsive';
 
@@ -12,6 +14,18 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="OBPTest" component={OBPTest} 
+        options={{
+          headerShown: false,
+          headerShadowVisible: false,
+        }}
+        />
+        <Stack.Screen name="onBoardingPage" component={OnBoardingPage} 
+        options={{
+          headerShown: false,
+          headerShadowVisible: false,
+        }}
+        />
         <Stack.Screen name="LoginPage" component={LoginPage}
         options={{
           title: "Login",
