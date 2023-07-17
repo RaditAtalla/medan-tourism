@@ -1,4 +1,4 @@
-import { Button, Image, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Button, Image, Text, TouchableOpacity, StyleSheet, View } from 'react-native';
 import { COLORS } from '../constant/theme';
 import { verticalScale, horizontalScale, moderateScale } from '../constant/responsive';
 import React from 'react';
@@ -42,6 +42,22 @@ const SubtitleText = ({ text }) => {
     );
 }
 
+const PaginationDot = ({ selected }) => {
+    let backgroundColor = selected ? COLORS.blue : '#D5D5D5'
+    let size = selected ? { width: 12, height: 12 } : { width: 10, height: 10 }
+    return(
+        <View 
+            style={{
+                width: size.width,
+                height: size.height,
+                marginHorizontal: horizontalScale(16),
+                borderRadius: 10,
+                backgroundColor,
+            }}
+        />
+    );
+}
+
 export const OBPTest = ({ navigation }) => (
     <Onboarding
         onDone={() => navigation.navigate('LoginPage')}
@@ -49,6 +65,8 @@ export const OBPTest = ({ navigation }) => (
         NextButtonComponent={PrimaryButton}
         SkipButtonComponent={SkipButton}
         DoneButtonComponent={PrimaryButton}
+        DotComponent={PaginationDot}
+        bottomBarColor={'#fff'}
         pages={[
         {
             backgroundColor: '#fff',
@@ -73,6 +91,11 @@ export const OBPTest = ({ navigation }) => (
     );
 
 const Styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
     image: {
         width: 309, 
         height: 309, 
