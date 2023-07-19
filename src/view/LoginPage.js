@@ -4,7 +4,7 @@ import { horizontalScale, verticalScale, moderateScale } from '../constant/respo
 import { InputGroup } from '../components/InputGroup';
 import { COLORS } from '../constant/theme';
 
-export const LoginPage = ({ navigation }) => {
+const LoginPage = ({ navigation }) => {
     return (
         <SafeAreaView style={Styles.container}>
             <StatusBar translucent backgroundColor={'transparent'} />
@@ -111,3 +111,5 @@ const Styles = StyleSheet.create({
         backgroundColor: COLORS.gray4,
     },
 })
+
+export default LoginPage;

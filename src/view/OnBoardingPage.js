@@ -1,52 +1,106 @@
-import { Image, Text, View, TouchableOpacity, StyleSheet, StatusBar } from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import { horizontalScale, verticalScale, moderateScale } from '../constant/responsive';
+import { Button, Image, Text, TouchableOpacity, StyleSheet, View } from 'react-native';
 import { COLORS } from '../constant/theme';
+import { verticalScale, horizontalScale, moderateScale } from '../constant/responsive';
+import React from 'react';
 
-export const OnBoardingPage = () => {
+import Onboarding from 'react-native-onboarding-swiper';
+
+const PrimaryButton = ({ ...props }) => {
     return(
-        <SafeAreaView style={Style.container}>
-            <Image source={require('../assets/img/onBoardingImg1.png')} style={Style.image} />
-            <View style={{gap: moderateScale(40)}}>
-                <View style={{gap: moderateScale(16)}}>
-                    <View>
-                        <Text style={{textAlign: 'center', fontSize: moderateScale(32), fontWeight: 700, color: COLORS.black3}}>Cari tempat</Text>
-                        <Text style={{textAlign: 'center', fontSize: moderateScale(32), fontWeight: 700, color: COLORS.black3}}>ternyamanmu!</Text>
-                    </View>
-                    <Text style={{marginHorizontal: horizontalScale(24), fontSize: moderateScale(16), textAlign: 'center'}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.</Text>
-                </View>
-                <View style={{gap: moderateScale(16)}}>
-                    <TouchableOpacity style={Style.button}>
-                        <Text style={{textAlign: 'center', color: 'white', fontSize: moderateScale(16)}}>Selanjutnya</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <Text style={{textAlign: 'center'}}>Nanti aja deh</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
-        </SafeAreaView>
+        <Button 
+            title='Selanjutnya'
+            style={{
+                backgroundColor: COLORS.blue,
+                paddingVertical: verticalScale(10),
+                paddingHorizontal: horizontalScale(40),
+                color: '#fff',
+            }}
+            {...props}
+        />
     );
 }
 
-const Style = StyleSheet.create({
+const SkipButton = ({ ...props }) => {
+    return(
+        <TouchableOpacity
+            { ...props }
+        >
+            <Text>Nanti dulu deh</Text>
+        </TouchableOpacity>
+    );
+}
+
+const TitleText = ({ textAbove, textBelow }) => {
+    return(
+        <Text style={{ fontWeight: '700', fontSize: 32, textAlign: 'center' }}>{textAbove}{'\n'}{textBelow}</Text>
+    );
+}
+
+const SubtitleText = ({ text }) => {
+    return(
+        <Text style={{ fontSize: 16, textAlign: 'center', width: 383 }}>{text}</Text>
+    );
+}
+
+const PaginationDot = ({ selected }) => {
+    let backgroundColor = selected ? COLORS.blue : '#D5D5D5'
+    let size = selected ? { width: 12, height: 12 } : { width: 10, height: 10 }
+    return(
+        <View 
+            style={{
+                width: size.width,
+                height: size.height,
+                marginHorizontal: horizontalScale(16),
+                borderRadius: 10,
+                backgroundColor,
+            }}
+        />
+    );
+}
+
+const OnBoardingPage = ({ navigation }) => (
+    <Onboarding
+        onDone={() => navigation.navigate('LoginPage')}
+        onSkip={() => navigation.navigate('LoginPage')}
+        NextButtonComponent={PrimaryButton}
+        SkipButtonComponent={SkipButton}
+        DoneButtonComponent={PrimaryButton}
+        DotComponent={PaginationDot}
+        bottomBarColor={'#fff'}
+        pages={[
+        {
+            backgroundColor: '#fff',
+            image: <Image source={require('../assets/img/onBoardingImg1.png')} style={Styles.image} />,
+            title: <TitleText textAbove='Cari tempat' textBelow='ternyamanmu!' />,
+            subtitle: <SubtitleText text='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.' />,
+        },
+        {
+            backgroundColor: '#fff',
+            image: <Image source={require('../assets/img/onBoardingImg2.png')} style={Styles.image} />,
+            title: <TitleText textAbove='Booking dengan' textBelow='mudah' />,
+            subtitle: <SubtitleText text='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.' />,
+        },
+        {
+            backgroundColor: '#fff',
+            image: <Image source={require('../assets/img/onBoardingImg3.png')} style={Styles.image} />,
+            title: <TitleText textAbove='Nikmati liburan' textBelow='anda' />,
+            subtitle: <SubtitleText text='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.' />,
+        },
+        ]}
+    />
+    );
+
+const Styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        paddingTop: 91,
-        paddingBottom: 80,
+        justifyContent: 'center',
     },
     image: {
-        width: moderateScale(309),
-        height: moderateScale(309),
-    },
-    button: {
-        paddingVertical: verticalScale(10),
-        paddingHorizontal: horizontalScale(40),
-        backgroundColor: COLORS.blue,
-        marginHorizontal: horizontalScale(126),
-        borderRadius: 10,
-    },
-
+        width: 309, 
+        height: 309, 
+        objectFit: 'contain',
+    }
 })
+
+export default OnBoardingPage;

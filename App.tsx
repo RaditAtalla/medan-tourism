@@ -1,12 +1,14 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { LoginPage } from './src/view/LoginPage';
-import { DaftarPage } from './src/view/DaftarPage';
-import { OnBoardingPage } from './src/view/OnBoardingPage';
-import { OBPTest } from './src/view/OBPTest';
 import { COLORS } from './src/constant/theme';
 import { moderateScale } from './src/constant/responsive';
+
+import LandingPage from './src/view/LandingPage';
+import OnBoardingPage from './src/view/OnBoardingPage';
+import LoginPage from './src/view/LoginPage';
+import DaftarPage from './src/view/DaftarPage';
+import ProfilePage from './src/view/ProfilePage';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,13 +16,12 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="OBPTest" component={OBPTest} 
+        <Stack.Screen name="LandingPage" component={LandingPage} 
         options={{
           headerShown: false,
-          headerShadowVisible: false,
         }}
         />
-        <Stack.Screen name="onBoardingPage" component={OnBoardingPage} 
+        <Stack.Screen name="OnBoardingPage" component={OnBoardingPage} 
         options={{
           headerShown: false,
           headerShadowVisible: false,
@@ -56,6 +57,19 @@ const App = () => {
           },
           headerShadowVisible: false,
           headerTintColor: 'white',
+        }}
+        />
+        <Stack.Screen name="Profil Saya" component={ProfilePage} 
+        options={{
+          headerShadowVisible: false,
+          headerStyle: {
+            backgroundColor: COLORS.gray5,
+          },
+          headerTitleStyle: {
+            color: '#252525',
+            fontSize: 20,
+            fontWeight: '700',
+          }
         }}
         />
       </Stack.Navigator>
