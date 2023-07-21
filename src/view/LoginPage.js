@@ -15,7 +15,7 @@ const LoginPage = ({ navigation }) => {
                         <InputGroup label='password' type='password' placeholder='password123' placeholderTextColor='#252525'/>
                     </View>
                     <TouchableOpacity style={{alignSelf: 'flex-end', fontSize: moderateScale(12)}}>
-                        <Text>Lupa Password</Text>
+                        <Text onPress={() => navigation.navigate('LupaPasswordPage')}>Lupa Password</Text>
                     </TouchableOpacity>
                 </View> 
                 <View style={Styles.bottomContent}>

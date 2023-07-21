@@ -1,12 +1,11 @@
 import { StyleSheet, TextInput, View, Text } from "react-native";
 import { horizontalScale, verticalScale, moderateScale } from "../constant/responsive";
 
-export const InputGroup = ({label, placeholder, placeholderTextColor, type}) => {
-    let isPassword = (type == 'password') ? true : false;
+export const InputGroup = ({label, placeholder, placeholderTextColor, type, value}) => {
     return(
         <View style={Styles.inputGroup}>
             <Text style={Styles.inputLabel}>{label}</Text>
-            <TextInput placeholder={placeholder} style={Styles.input} placeholderTextColor={placeholderTextColor} secureTextEntry={isPassword} />
+            <TextInput placeholder={placeholder} style={Styles.input} placeholderTextColor={placeholderTextColor} secureTextEntry={(type == 'password') ? true : false} value={value} />
         </View>
     );
 }
