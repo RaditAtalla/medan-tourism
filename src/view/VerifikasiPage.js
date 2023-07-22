@@ -34,12 +34,8 @@ export default function VerifikasiPage({navigation}) {
         <Text style={styles.verifikasiAlternativeText}>Kirim Ulang Kode</Text>
       </View>
       <View style={styles.buttonWrapper}>
-        <TouchableOpacity style={styles.verifikasiBtn}>
-          <Text
-            style={styles.verifikasiText}
-            onPress={() => navigation.navigate('UbahPasswordPage')}>
-            Verifikasi
-          </Text>
+        <TouchableOpacity style={styles.verifikasiBtn} onPress={() => navigation.navigate('UbahPasswordPage')}>
+          <Text style={styles.verifikasiText}>Verifikasi </Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

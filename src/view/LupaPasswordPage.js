@@ -1,7 +1,7 @@
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {styles} from '../styles/LupaPasswordPage.style';
-import {InputGroup} from '../components/InputGroup';
+import styles from '../styles/LupaPasswordPage.style';
+import InputGroup from '../components/atoms/InputGroup';
 
 export default function LupaPasswordPage({navigation}) {
   return (
@@ -31,12 +31,8 @@ export default function LupaPasswordPage({navigation}) {
           <Text style={styles.lupaPasswordAlternativeText}>Coba cara lain</Text>
         </View>
         <View style={styles.buttonWrapper}>
-          <TouchableOpacity style={styles.loginBtn}>
-            <Text
-              style={styles.loginText}
-              onPress={() => navigation.navigate('VerifikasiPage')}>
-              Kirim
-            </Text>
+          <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('VerifikasiPage')}>
+            <Text style={styles.loginText}>Kirim</Text>
           </TouchableOpacity>
         </View>
       </View>

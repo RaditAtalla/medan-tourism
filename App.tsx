@@ -1,8 +1,8 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {COLORS} from './src/constant/theme';
-import {moderateScale} from './src/constant/responsive';
+import {moderateScale} from './src/theme/responsive';
+import COLORS from './src/theme/colors';
 
 import LandingPage from './src/view/LandingPage';
 import OnBoardingPage from './src/view/OnBoardingPage';
@@ -12,6 +12,7 @@ import VerifikasiPage from './src/view/VerifikasiPage';
 import UbahPasswordPage from './src/view/UbahPasswordPage';
 import DaftarPage from './src/view/DaftarPage';
 import ProfilePage from './src/view/ProfilePage';
+import DaftarNomorHpPage from './src/view/DaftarNomorHpPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,23 +35,19 @@ const App = () => {
             headerShadowVisible: false,
           }}
         />
-        <Stack.Screen
-          name="LoginPage"
-          component={LoginPage}
-          options={{
-            title: 'Login',
-            headerStyle: {
-              backgroundColor: COLORS.blue,
-            },
-            headerTitleAlign: 'center',
-            headerTitleStyle: {
-              color: 'white',
-              fontWeight: '700',
-              fontSize: moderateScale(24),
-            },
-            headerShadowVisible: false,
-            headerTintColor: 'white',
-          }}
+        <Stack.Screen name="LoginPage" component={LoginPage}
+        options={{
+          title: "Login",
+          headerTransparent: true,
+          headerTitleAlign: 'center',
+          headerTitleStyle: {
+            color: 'white',
+            fontWeight: '700',
+            fontSize: moderateScale(24),
+          },
+          headerShadowVisible: false,
+          headerTintColor: 'white',
+        }}
         />
         <Stack.Screen
           name="LupaPasswordPage"
@@ -97,23 +94,33 @@ const App = () => {
             headerTintColor: '#252525',
           }}
         />
-        <Stack.Screen
-          name="DaftarPage"
-          component={DaftarPage}
-          options={{
-            title: 'Daftar',
-            headerStyle: {
-              backgroundColor: COLORS.blue,
-            },
-            headerTitleAlign: 'center',
-            headerTitleStyle: {
-              color: 'white',
-              fontWeight: '700',
-              fontSize: moderateScale(24),
-            },
-            headerShadowVisible: false,
-            headerTintColor: 'white',
-          }}
+        <Stack.Screen name="DaftarPage" component={DaftarPage}
+        options={{
+          title: "Daftar",
+          headerTransparent: true,
+          headerTitleAlign: 'center',
+          headerTitleStyle: {
+            color: 'white',
+            fontWeight: '700',
+            fontSize: moderateScale(24),
+          },
+          headerShadowVisible: false,
+          headerTintColor: 'white',
+        }}
+        />
+        <Stack.Screen name="DaftarNomorHpPage" component={DaftarNomorHpPage}
+        options={{
+          title: "Daftar",
+          headerTransparent: true,
+          headerTitleAlign: 'center',
+          headerTitleStyle: {
+            color: COLORS.black4,
+            fontWeight: '700',
+            fontSize: moderateScale(24),
+          },
+          headerShadowVisible: false,
+          headerTintColor: COLORS.black4,
+        }}
         />
         <Stack.Screen
           name="Profil Saya"
