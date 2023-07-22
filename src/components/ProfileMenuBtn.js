@@ -1,15 +1,14 @@
-import { View, Image, Text, StyleSheet } from 'react-native'
-import ICONS from '../assets/icons/icons';
+import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
-const ProfileMenuBtn = ({ icon, text }) => {
+const ProfileMenuBtn = ({ icon, text, action }) => {
     return (
-        <View style={Styles.menuBtn}>
+        <TouchableOpacity style={Styles.menuBtn} onPress={action}>
             <View style={Styles.leftSide}>
                 <Image source={icon} />
                 <Text style={Styles.menuFont}>{text}</Text>
             </View>
             <Image source={require('../assets/icons/next.png')} />
-        </View>
+        </TouchableOpacity>
     );
 };
 

@@ -5,7 +5,7 @@ import ProfileMenuBtn from '../components/ProfileMenuBtn';
 import Styles from '../styles/ProfilePageStyles';
 import ICONS from '../assets/icons/icons';
 
-const ProfilePage = () => (
+const ProfilePage = ({ navigation }) => (
     <SafeAreaView style={Styles.container}>
         <StatusBar barStyle='dark-content' backgroundColor={COLORS.gray5}/>
         <View style={Styles.wrapper}>
@@ -19,7 +19,7 @@ const ProfilePage = () => (
                 </View>
             </View>
             <View style={Styles.menuWrapper}>
-                <ProfileMenuBtn icon={ICONS.notifikasi} text='Notifikasi' />
+                <ProfileMenuBtn icon={ICONS.notifikasi} text='Notifikasi' action={() => navigation.navigate('NotifikasiTransaksiPage')} />
                 <ProfileMenuBtn icon={ICONS.perjalanan} text='Perjalanan' />
                 <ProfileMenuBtn icon={ICONS.aturAkun} text='Atur Akun' />
             </View>

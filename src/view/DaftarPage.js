@@ -10,7 +10,7 @@ import InputGroup from '../components/atoms/InputGroup';
 const DaftarPage = ({ navigation }) => {
     return (
         <View style={Styles.container}>
-        <StatusBar barStyle='light-content' backgroundColor={COLORS.blue} />
+        <StatusBar barStyle='light-content' translucent backgroundColor='transparent' />
             <ImageBackground style={ Styles.background } source={require('../assets/img/background.png')} />
             <View style={ Styles.actionContainer }>
                 <View>

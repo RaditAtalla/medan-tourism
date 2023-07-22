@@ -15,6 +15,7 @@ import ProfilePage from './src/view/ProfilePage';
 import DaftarNomorHpPage from './src/view/DaftarNomorHpPage';
 import VerifikasiHpPage from './src/view/VerfikasiHpPage';
 import HomePage from './src/view/HomePage';
+import NotifikasiTransaksi from './src/view/NotifikasiTransaksi';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,12 +35,12 @@ const App = () => {
           component={OnBoardingPage}
           options={{
             headerShown: false,
-            headerShadowVisible: false,
           }}
         />
         <Stack.Screen name="LoginPage" component={LoginPage}
         options={{
           title: "Login",
+          headerShadowVisible: false,
           headerTransparent: true,
           headerTitleAlign: 'center',
           headerTitleStyle: {
@@ -47,7 +48,6 @@ const App = () => {
             fontWeight: '700',
             fontSize: moderateScale(24),
           },
-          headerShadowVisible: false,
           headerTintColor: 'white',
         }}
         />
@@ -56,6 +56,7 @@ const App = () => {
           component={LupaPasswordPage}
           options={{
             title: 'Lupa password',
+            headerShadowVisible: false,
             headerTransparent: true,
             headerTitleAlign: 'center',
             headerTitleStyle: {
@@ -63,7 +64,6 @@ const App = () => {
               fontWeight: '700',
               fontSize: moderateScale(24),
             },
-            headerShadowVisible: false,
             headerTintColor: '#252525',
           }}
         />
@@ -72,6 +72,7 @@ const App = () => {
           component={VerifikasiPage}
           options={{
             title: 'Verifikasi',
+            headerShadowVisible: false,
             headerTransparent: true,
             headerTitleAlign: 'center',
             headerTitleStyle: {
@@ -79,7 +80,6 @@ const App = () => {
               fontWeight: '700',
               fontSize: moderateScale(24),
             },
-            headerShadowVisible: false,
             headerTintColor: '#252525',
           }}
         />
@@ -88,13 +88,13 @@ const App = () => {
           component={VerifikasiHpPage}
           options={{
             title: 'Verifikasi',
+            headerShadowVisible: false,
             headerTitleAlign: 'center',
             headerTitleStyle: {
               color: '#252525',
               fontWeight: '700',
               fontSize: moderateScale(24),
             },
-            headerShadowVisible: false,
             headerTintColor: '#252525',
           }}
         />
@@ -103,19 +103,20 @@ const App = () => {
           component={UbahPasswordPage}
           options={{
             title: 'Ubah Password',
+            headerShadowVisible: false,
             headerTitleAlign: 'center',
             headerTitleStyle: {
               color: '#252525',
               fontWeight: '700',
               fontSize: moderateScale(24),
             },
-            headerShadowVisible: false,
             headerTintColor: '#252525',
           }}
         />
         <Stack.Screen name="DaftarPage" component={DaftarPage}
         options={{
           title: "Daftar",
+          headerShadowVisible: false,
           headerTransparent: true,
           headerTitleAlign: 'center',
           headerTitleStyle: {
@@ -123,13 +124,13 @@ const App = () => {
             fontWeight: '700',
             fontSize: moderateScale(24),
           },
-          headerShadowVisible: false,
           headerTintColor: 'white',
         }}
         />
         <Stack.Screen name="DaftarNomorHpPage" component={DaftarNomorHpPage}
         options={{
           title: "Daftar",
+          headerShadowVisible: false,
           headerTransparent: true,
           headerTitleAlign: 'center',
           headerTitleStyle: {
@@ -137,7 +138,6 @@ const App = () => {
             fontWeight: '700',
             fontSize: moderateScale(24),
           },
-          headerShadowVisible: false,
           headerTintColor: COLORS.black4,
         }}
         />
@@ -155,6 +155,22 @@ const App = () => {
             headerShadowVisible: false,
             headerStyle: {
               backgroundColor: COLORS.gray5,
+            },
+            headerTitleStyle: {
+              color: '#252525',
+              fontSize: 20,
+              fontWeight: '700',
+            },
+          }}
+        />
+        <Stack.Screen
+          name="NotifikasiTransaksiPage"
+          component={NotifikasiTransaksi}
+          options={{
+            title: 'Notifikasi',
+            headerShadowVisible: false,
+            headerStyle: {
+              backgroundColor: COLORS.white,
             },
             headerTitleStyle: {
               color: '#252525',
