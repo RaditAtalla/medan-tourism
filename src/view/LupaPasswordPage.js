@@ -25,8 +25,6 @@ export default function LupaPasswordPage({navigation}) {
             label="email"
             placeholder="Masukkan email"
             placeholderTextColor="#252525"
-            type={'text'}
-            value={'ibnurusid17@gmail.com'}
           />
         </View>
         <View style={styles.lupaPasswordAlternativeWrapper}>

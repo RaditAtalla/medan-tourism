@@ -56,6 +56,7 @@ const App = () => {
           component={LupaPasswordPage}
           options={{
             title: 'Lupa password',
+            headerTransparent: true,
             headerTitleAlign: 'center',
             headerTitleStyle: {
               color: '#252525',
@@ -71,6 +72,7 @@ const App = () => {
           component={VerifikasiPage}
           options={{
             title: 'Verifikasi',
+            headerTransparent: true,
             headerTitleAlign: 'center',
             headerTitleStyle: {
               color: '#252525',

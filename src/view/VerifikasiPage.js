@@ -1,6 +1,7 @@
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Text, Image} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {styles} from '../styles/VerifikasiPage.style';
+import MyButton from '../components/atoms/MyButton';
 
 export default function VerifikasiPage({navigation}) {
   return (
@@ -34,9 +35,7 @@ export default function VerifikasiPage({navigation}) {
         <Text style={styles.verifikasiAlternativeText}>Kirim Ulang Kode</Text>
       </View>
       <View style={styles.buttonWrapper}>
-        <TouchableOpacity style={styles.verifikasiBtn} onPress={() => navigation.navigate('UbahPasswordPage')}>
-          <Text style={styles.verifikasiText}>Verifikasi </Text>
-        </TouchableOpacity>
+        <MyButton text='Verifikasi' action={() => navigation.navigate('UbahPassword')} />
       </View>
     </SafeAreaView>
   );
