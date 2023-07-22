@@ -1,5 +1,5 @@
-import { Button, Image, Text, TouchableOpacity, StyleSheet, View } from 'react-native';
-import { COLORS } from '../constant/theme';
+import { Button, Image, Text, TouchableOpacity, StyleSheet, View, StatusBar } from 'react-native';
+import COLORS from '../theme/colors';
 import { verticalScale, horizontalScale } from '../constant/responsive';
 import React from 'react';
 
@@ -59,35 +59,38 @@ const PaginationDot = ({ selected }) => {
 }
 
 const OnBoardingPage = ({ navigation }) => (
-    <Onboarding
-        onDone={() => navigation.navigate('LoginPage')}
-        onSkip={() => navigation.navigate('LoginPage')}
-        NextButtonComponent={PrimaryButton}
-        SkipButtonComponent={SkipButton}
-        DoneButtonComponent={PrimaryButton}
-        DotComponent={PaginationDot}
-        bottomBarColor={'#fff'}
-        pages={[
-        {
-            backgroundColor: '#fff',
-            image: <Image source={require('../assets/img/onBoardingImg1.png')} style={Styles.image} />,
-            title: <TitleText textAbove='Cari tempat' textBelow='ternyamanmu!' />,
-            subtitle: <SubtitleText text='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.' />,
-        },
-        {
-            backgroundColor: '#fff',
-            image: <Image source={require('../assets/img/onBoardingImg2.png')} style={Styles.image} />,
-            title: <TitleText textAbove='Booking dengan' textBelow='mudah' />,
-            subtitle: <SubtitleText text='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.' />,
-        },
-        {
-            backgroundColor: '#fff',
-            image: <Image source={require('../assets/img/onBoardingImg3.png')} style={Styles.image} />,
-            title: <TitleText textAbove='Nikmati liburan' textBelow='anda' />,
-            subtitle: <SubtitleText text='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.' />,
-        },
-        ]}
-    />
+    <>
+        <StatusBar barStyle={'dark-content'} backgroundColor={COLORS.white} />
+        <Onboarding
+            onDone={() => navigation.navigate('LoginPage')}
+            onSkip={() => navigation.navigate('LoginPage')}
+            NextButtonComponent={PrimaryButton}
+            SkipButtonComponent={SkipButton}
+            DoneButtonComponent={PrimaryButton}
+            DotComponent={PaginationDot}
+            bottomBarColor={'#fff'}
+            pages={[
+            {
+                backgroundColor: '#fff',
+                image: <Image source={require('../assets/img/onBoardingImg1.png')} style={Styles.image} />,
+                title: <TitleText textAbove='Cari tempat' textBelow='ternyamanmu!' />,
+                subtitle: <SubtitleText text='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.' />,
+            },
+            {
+                backgroundColor: '#fff',
+                image: <Image source={require('../assets/img/onBoardingImg2.png')} style={Styles.image} />,
+                title: <TitleText textAbove='Booking dengan' textBelow='mudah' />,
+                subtitle: <SubtitleText text='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.' />,
+            },
+            {
+                backgroundColor: '#fff',
+                image: <Image source={require('../assets/img/onBoardingImg3.png')} style={Styles.image} />,
+                title: <TitleText textAbove='Nikmati liburan' textBelow='anda' />,
+                subtitle: <SubtitleText text='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.' />,
+            },
+            ]}
+        />
+    </>
     );
 
 const Styles = StyleSheet.create({
