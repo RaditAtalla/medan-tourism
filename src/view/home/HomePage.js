@@ -1,5 +1,5 @@
 import { Text, StyleSheet, View, StatusBar } from 'react-native'
-import MyButton from '../components/atoms/MyButton'
+import MyButton from '../../components/atoms/MyButton'
 
 const HomePage = ({ navigation }) => {
     return(
@@ -7,6 +7,7 @@ const HomePage = ({ navigation }) => {
             <StatusBar barStyle={'dark-content'} backgroundColor='white' />
             <Text>Selamat datang di HOMEPAGE</Text>
             <MyButton text='To Profile' action={() => navigation.navigate('ProfilePage')} />
+            <MyButton text='To Landing' action={() => navigation.navigate('LandingPage')} />
         </View>
     )
 }

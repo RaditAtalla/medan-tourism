@@ -1,6 +1,6 @@
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {styles} from '../styles/VerifikasiPage.style';
+import {styles} from '../../styles/VerifikasiPage.style';
 
 export default function VerifikasiHpPage({navigation}) {
     return (

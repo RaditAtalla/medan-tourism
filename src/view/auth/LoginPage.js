@@ -1,12 +1,12 @@
 import { Text, View, StatusBar, ImageBackground } from 'react-native';
 
-import Styles from '../styles/LoginPageStyles';
-import COLORS from '../theme/colors';
+import Styles from '../../styles/LoginPageStyles';
+import COLORS from '../../theme/colors';
 
-import AltLogin from '../components/molecules/AltLogin';
-import LupaPasswordBtn from '../components/atoms/LupaPasswordBtn';
-import MyButton from '../components/atoms/MyButton';
-import InputGroup from '../components/atoms/InputGroup';
+import AltLogin from '../../components/molecules/AltLogin';
+import LupaPasswordBtn from '../../components/atoms/LupaPasswordBtn';
+import MyButton from '../../components/atoms/MyButton';
+import InputGroup from '../../components/atoms/InputGroup';
 
 const LoginPage = ({ navigation }) => {
     return (

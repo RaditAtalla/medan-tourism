@@ -1,8 +1,8 @@
 import { Text, View, Image, StatusBar } from 'react-native'
-import MyButton from '../components/atoms/MyButton'
-import Styles from '../styles/DaftarNomorHpStyles'
-import InputGroup from '../components/atoms/InputGroup'
-import COLORS from '../theme/colors'
+import MyButton from '../../components/atoms/MyButton'
+import Styles from '../../styles/DaftarNomorHpStyles'
+import InputGroup from '../../components/atoms/InputGroup'
+import COLORS from '../../theme/colors'
 
 const DaftarNomorHpPage = ({ navigation }) => {
     return(

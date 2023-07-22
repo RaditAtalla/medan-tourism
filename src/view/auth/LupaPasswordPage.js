@@ -1,8 +1,8 @@
 import {View, Text, Image, TouchableOpacity, StatusBar} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import styles from '../styles/LupaPasswordPage.style';
-import InputGroup from '../components/atoms/InputGroup';
-import COLORS from '../theme/colors'
+import styles from '../../styles/LupaPasswordPage.style';
+import InputGroup from '../../components/atoms/InputGroup';
+import COLORS from '../../theme/colors'
 
 export default function LupaPasswordPage({navigation}) {
   return (

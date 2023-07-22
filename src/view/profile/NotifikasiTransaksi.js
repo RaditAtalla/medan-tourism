@@ -1,12 +1,11 @@
 import { Text, SafeAreaView, StatusBar } from 'react-native'
-import Styles from '../styles/NotifikasiTransaksiStyles'
-import COLORS from '../theme/colors'
+import Styles from '../../styles/NotifikasiTransaksiStyles'
 
 const NotifikasiTransaksi = () => {
     return(
         <SafeAreaView style={Styles.container}>
-            <StatusBar barStyle={'dark-content'} backgroundColor={COLORS.white} />
-            <Text>halo tes tes</Text>
+            <StatusBar barStyle={'dark-content'} translucent backgroundColor='transparent' />
+            
         </SafeAreaView>
     )
 }

@@ -1,17 +1,18 @@
 import { Text, View, StatusBar, ImageBackground } from 'react-native';
 
-import Styles from '../styles/DaftarPageStyles';
-import COLORS from '../theme/colors';
+import Styles from '../../styles/DaftarPageStyles';
+import COLORS from '../../theme/colors';
+import IMAGES from '../../assets/img/images';
 
-import AltLogin from '../components/molecules/AltLogin';
-import MyButton from '../components/atoms/MyButton';
-import InputGroup from '../components/atoms/InputGroup';
+import AltLogin from '../../components/molecules/AltLogin';
+import MyButton from '../../components/atoms/MyButton';
+import InputGroup from '../../components/atoms/InputGroup';
 
 const DaftarPage = ({ navigation }) => {
     return (
         <View style={Styles.container}>
         <StatusBar barStyle='light-content' translucent backgroundColor='transparent' />
-            <ImageBackground style={ Styles.background } source={require('../assets/img/background.png')} />
+            <ImageBackground style={ Styles.background } source={IMAGES.background} />
             <View style={ Styles.actionContainer }>
                 <View>
                     <View style={ Styles.inputContainer }>

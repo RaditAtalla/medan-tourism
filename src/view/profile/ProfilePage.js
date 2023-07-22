@@ -1,9 +1,9 @@
 import { Text, View, StatusBar, Image, ImageBackground } from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import COLORS from '../theme/colors';
-import ProfileMenuBtn from '../components/ProfileMenuBtn';
-import Styles from '../styles/ProfilePageStyles';
-import ICONS from '../assets/icons/icons';
+import COLORS from '../../theme/colors';
+import ProfileMenuBtn from '../../components/ProfileMenuBtn';
+import Styles from '../../styles/ProfilePageStyles';
+import ICONS from '../../assets/icons/icons';
 
 const ProfilePage = ({ navigation }) => (
     <SafeAreaView style={Styles.container}>

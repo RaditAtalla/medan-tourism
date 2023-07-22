@@ -1,6 +1,6 @@
 import { Button, Image, Text, TouchableOpacity, StyleSheet, View, StatusBar } from 'react-native';
-import COLORS from '../theme/colors';
-import { verticalScale, horizontalScale } from '../theme/responsive';
+import COLORS from '../../theme/colors';
+import { verticalScale, horizontalScale } from '../../theme/responsive';
 import React from 'react';
 
 import Onboarding from 'react-native-onboarding-swiper';

@@ -4,18 +4,18 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {moderateScale} from './src/theme/responsive';
 import COLORS from './src/theme/colors';
 
-import LandingPage from './src/view/LandingPage';
-import OnBoardingPage from './src/view/OnBoardingPage';
-import LoginPage from './src/view/LoginPage';
-import LupaPasswordPage from './src/view/LupaPasswordPage';
-import VerifikasiPage from './src/view/VerifikasiPage';
-import UbahPasswordPage from './src/view/UbahPasswordPage';
-import DaftarPage from './src/view/DaftarPage';
-import ProfilePage from './src/view/ProfilePage';
-import DaftarNomorHpPage from './src/view/DaftarNomorHpPage';
-import VerifikasiHpPage from './src/view/VerfikasiHpPage';
-import HomePage from './src/view/HomePage';
-import NotifikasiTransaksi from './src/view/NotifikasiTransaksi';
+import LandingPage from './src/view/landing/LandingPage';
+import OnBoardingPage from './src/view/landing/OnBoardingPage';
+import LoginPage from './src/view/auth/LoginPage';
+import LupaPasswordPage from './src/view/auth/LupaPasswordPage';
+import VerifikasiPage from './src/view/auth/VerifikasiPage';
+import UbahPasswordPage from './src/view/auth/UbahPasswordPage';
+import DaftarPage from './src/view/auth/DaftarPage';
+import ProfilePage from './src/view/profile/ProfilePage';
+import DaftarNomorHpPage from './src/view/auth/DaftarNomorHpPage';
+import VerifikasiHpPage from './src/view/auth/VerfikasiHpPage';
+import HomePage from './src/view/home/HomePage';
+import NotifikasiTransaksi from './src/view/profile/NotifikasiTransaksi';
 
 const Stack = createNativeStackNavigator();
 

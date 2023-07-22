@@ -2,7 +2,7 @@ import { TouchableOpacity, Text, StyleSheet } from 'react-native'
 import { verticalScale, moderateScale } from '../../theme/responsive'
 import COLORS from '../../theme/colors';
 
-const MyButton = ({ text, width, action, color  }) => {
+const MyButton = ({ text, width, action  }) => {
     return(
         <TouchableOpacity onPress={action} style={[{ width: {width} }, Styles.container ]} >
             <Text style={Styles.text}>{text}</Text>
