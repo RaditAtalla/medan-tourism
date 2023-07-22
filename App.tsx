@@ -13,6 +13,7 @@ import UbahPasswordPage from './src/view/UbahPasswordPage';
 import DaftarPage from './src/view/DaftarPage';
 import ProfilePage from './src/view/ProfilePage';
 import DaftarNomorHpPage from './src/view/DaftarNomorHpPage';
+import VerifikasiHpPage from './src/view/VerfikasiHpPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -67,6 +68,21 @@ const App = () => {
         <Stack.Screen
           name="VerifikasiPage"
           component={VerifikasiPage}
+          options={{
+            title: 'Verifikasi',
+            headerTitleAlign: 'center',
+            headerTitleStyle: {
+              color: '#252525',
+              fontWeight: '700',
+              fontSize: moderateScale(24),
+            },
+            headerShadowVisible: false,
+            headerTintColor: '#252525',
+          }}
+        />
+        <Stack.Screen
+          name="VerifikasiHpPage"
+          component={VerifikasiHpPage}
           options={{
             title: 'Verifikasi',
             headerTitleAlign: 'center',
