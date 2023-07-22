@@ -8,7 +8,7 @@ export default function VerifikasiHpPage({navigation}) {
         <View style={styles.iconWrapper}>
             <Image
             style={styles.icon}
-            source={require('../assets/img/verifikasiPage.png')}
+            source={require('../../assets/img/verifikasiPage.png')}
             />
         </View>
         <View style={styles.informationWrapper}>

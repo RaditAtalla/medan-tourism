@@ -12,7 +12,7 @@ const LoginPage = ({ navigation }) => {
     return (
         <View style={Styles.container}>
         <StatusBar barStyle='light-content' translucent backgroundColor='transparent' />
-            <ImageBackground style={ Styles.background } source={require('../assets/img/background.png')} />
+            <ImageBackground style={ Styles.background } source={require('../../assets/img/background.png')} />
             <View style={ Styles.actionContainer }>
                 <View>
                     <View style={ Styles.inputContainer }>

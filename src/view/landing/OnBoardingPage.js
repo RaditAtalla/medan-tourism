@@ -72,19 +72,19 @@ const OnBoardingPage = ({ navigation }) => (
             pages={[
             {
                 backgroundColor: '#fff',
-                image: <Image source={require('../assets/img/onBoardingImg1.png')} style={Styles.image} />,
+                image: <Image source={require('../../assets/img/onBoardingImg1.png')} style={Styles.image} />,
                 title: <TitleText textAbove='Cari tempat' textBelow='ternyamanmu!' />,
                 subtitle: <SubtitleText text='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.' />,
             },
             {
                 backgroundColor: '#fff',
-                image: <Image source={require('../assets/img/onBoardingImg2.png')} style={Styles.image} />,
+                image: <Image source={require('../../assets/img/onBoardingImg2.png')} style={Styles.image} />,
                 title: <TitleText textAbove='Booking dengan' textBelow='mudah' />,
                 subtitle: <SubtitleText text='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.' />,
             },
             {
                 backgroundColor: '#fff',
-                image: <Image source={require('../assets/img/onBoardingImg3.png')} style={Styles.image} />,
+                image: <Image source={require('../../assets/img/onBoardingImg3.png')} style={Styles.image} />,
                 title: <TitleText textAbove='Nikmati liburan' textBelow='anda' />,
                 subtitle: <SubtitleText text='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.' />,
             },

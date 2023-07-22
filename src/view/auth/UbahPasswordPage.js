@@ -12,7 +12,7 @@ export default function VerifikasiPage({navigation}) {
       <View style={styles.iconWrapper}>
         <Image
           style={styles.icon}
-          source={require('../assets/img/ubahPassword.png')}
+          source={require('../../assets/img/ubahPassword.png')}
         />
       </View>
       <View style={styles.informationWrapper}>
@@ -44,8 +44,8 @@ export default function VerifikasiPage({navigation}) {
                     style={styles.eye}
                     source={
                       isSecureEntry
-                        ? require('../assets/img/eye.png')
-                        : require('../assets/img/eyeSlash.png')
+                        ? require('../../assets/img/eye.png')
+                        : require('../../assets/img/eyeSlash.png')
                     }
                   />
                 </TouchableOpacity>
@@ -74,8 +74,8 @@ export default function VerifikasiPage({navigation}) {
                     style={styles.eye}
                     source={
                       isSecureEntry2
-                        ? require('../assets/img/eye.png')
-                        : require('../assets/img/eyeSlash.png')
+                        ? require('../../assets/img/eye.png')
+                        : require('../../assets/img/eyeSlash.png')
                     }
                   />
                 </TouchableOpacity>
@@ -98,7 +98,7 @@ export default function VerifikasiPage({navigation}) {
           <View>
             <Image
               style={styles.ubahPasswordSuccess}
-              source={require('../assets/img/ubahPasswordSuccess.png')}
+              source={require('../../assets/img/ubahPasswordSuccess.png')}
             />
           </View>
           <View style={styles.heroWrapper}>

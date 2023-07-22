@@ -9,7 +9,7 @@ const DaftarNomorHpPage = ({ navigation }) => {
         <View style={Styles.container}>
             <StatusBar barStyle={'dark-content'} backgroundColor={COLORS.white} />
             <View style={Styles.top}>
-                <Image source={require('../assets/img/daftarNomorHpImg.png')} style={{ alignSelf: 'center'}} />
+                <Image source={require('../../assets/img/daftarNomorHpImg.png')} style={{ alignSelf: 'center'}} />
                 <Text style={[Styles.text, { alignSelf: 'center' }]}>Masukan nomor HP untuk{'\n'}mendapatkan kode verifikasi</Text>
                 <InputGroup label='Nomor HP' placeholder='62812456789'/>
             </View>

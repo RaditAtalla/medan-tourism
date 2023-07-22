@@ -11,7 +11,7 @@ export default function LupaPasswordPage({navigation}) {
       <View style={styles.iconWrapper}>
         <Image
           style={styles.icon}
-          source={require('../assets/img/lupaPassword.png')}
+          source={require('../../assets/img/lupaPassword.png')}
         />
       </View>
       <View style={styles.informationWrapper}>

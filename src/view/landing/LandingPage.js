@@ -14,7 +14,7 @@ const LandingPage = ({ navigation }) => {
 
         }}>
         <StatusBar barStyle={'dark-content'} backgroundColor={COLORS.white} />
-            <Image source={require('../assets/icons/plane.png')} />
+            <Image source={require('../../assets/icons/plane.png')} />
             <View>
                 <Text style={{ fontSize: 40, fontWeight: 700, color: COLORS.black3 }} onPress={() => navigation.navigate('OnBoardingPage')}>Medan</Text>
                 <Text style={{ fontSize: 40, fontWeight: 700, color: COLORS.blue }} onPress={() => navigation.navigate('OnBoardingPage')}>Tourism</Text>

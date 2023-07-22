@@ -10,8 +10,8 @@ const ProfilePage = ({ navigation }) => (
         <StatusBar barStyle='dark-content' backgroundColor={COLORS.gray5}/>
         <View style={Styles.wrapper}>
             <View style={Styles.info}>
-                <ImageBackground source={require('../assets/img/profilePic.png')} style={Styles.profilePic}>
-                    <Image source={require('../assets/img/editBtn.png')} style={Styles.editBtn} />
+                <ImageBackground source={require('../../assets/img/profilePic.png')} style={Styles.profilePic}>
+                    <Image source={require('../../assets/img/editBtn.png')} style={Styles.editBtn} />
                 </ImageBackground>
                 <View style={{gap: 4}}>
                     <Text style={Styles.username}>Ibnu Rusyid</Text>

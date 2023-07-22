@@ -1,6 +1,6 @@
 import {View, Text, Image} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {styles} from '../styles/VerifikasiPage.style';
+import {styles} from '../../styles/VerifikasiPage.style';
 import MyButton from '../../components/atoms/MyButton';
 
 export default function VerifikasiPage({navigation}) {
@@ -9,7 +9,7 @@ export default function VerifikasiPage({navigation}) {
       <View style={styles.iconWrapper}>
         <Image
           style={styles.icon}
-          source={require('../assets/img/verifikasiPage.png')}
+          source={require('../../assets/img/verifikasiPage.png')}
         />
       </View>
       <View style={styles.informationWrapper}>
@@ -35,7 +35,7 @@ export default function VerifikasiPage({navigation}) {
         <Text style={styles.verifikasiAlternativeText}>Kirim Ulang Kode</Text>
       </View>
       <View style={styles.buttonWrapper}>
-        <MyButton text='Verifikasi' action={() => navigation.navigate('UbahPassword')} />
+        <MyButton text='Verifikasi' action={() => navigation.navigate('UbahPasswordPage')} />
       </View>
     </SafeAreaView>
   );
