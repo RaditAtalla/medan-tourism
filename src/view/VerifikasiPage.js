@@ -38,7 +38,7 @@ export default function VerifikasiPage({navigation}) {
           <Text
             style={styles.verifikasiText}
             onPress={() => navigation.navigate('UbahPasswordPage')}>
-            Kirim
+            Verifikasi
           </Text>
         </TouchableOpacity>
       </View>

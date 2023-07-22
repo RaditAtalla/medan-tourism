@@ -1,10 +1,12 @@
 import {View, Text, Image, TouchableOpacity, TextInput} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {styles} from '../styles/UbahPasswordPage.style';
-import {InputGroup} from '../components/InputGroup';
-// import { TextInput } from 'react-native-gesture-handler';
+import {useState} from 'react';
 
 export default function VerifikasiPage({navigation}) {
+  const [isSecureEntry, setIsSecureEntry] = useState();
+  const [isSecureEntry2, setIsSecureEntry2] = useState();
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.iconWrapper}>
@@ -29,12 +31,24 @@ export default function VerifikasiPage({navigation}) {
                 <TextInput
                   style={styles.input}
                   placeholder="Masukan Password"
-                  secureTextEntry={true}
+                  secureTextEntry={isSecureEntry}
                   value="qwerty"
                 />
               </View>
               <View>
-                <Image style={styles.eye} source={require('../assets/img/eye.png')} />
+                <TouchableOpacity
+                  onPress={() => {
+                    setIsSecureEntry(prev => !prev);
+                  }}>
+                  <Image
+                    style={styles.eye}
+                    source={
+                      isSecureEntry
+                        ? require('../assets/img/eye.png')
+                        : require('../assets/img/eyeSlash.png')
+                    }
+                  />
+                </TouchableOpacity>
               </View>
             </View>
           </View>
@@ -47,25 +61,68 @@ export default function VerifikasiPage({navigation}) {
                 <TextInput
                   style={styles.input}
                   placeholder="Masukan Password"
-                  secureTextEntry={true}
+                  secureTextEntry={isSecureEntry2}
                   value="qwerty"
                 />
               </View>
               <View>
-                <Image style={styles.eye} source={require('../assets/img/eye.png')} />
+                <TouchableOpacity
+                  onPress={() => {
+                    setIsSecureEntry2(prev => !prev);
+                  }}>
+                  <Image
+                    style={styles.eye}
+                    source={
+                      isSecureEntry2
+                        ? require('../assets/img/eye.png')
+                        : require('../assets/img/eyeSlash.png')
+                    }
+                  />
+                </TouchableOpacity>
               </View>
             </View>
           </View>
         </View>
       </View>
       <View style={styles.buttonWrapper}>
-        <TouchableOpacity style={styles.ubahPasswordBtn}>
+        <TouchableOpacity style={styles.button}>
           <Text
-            style={styles.ubahPasswordText}
+            style={styles.buttonText}
             onPress={() => navigation.navigate('UbahPasswordPage')}>
             Ubah Password
           </Text>
         </TouchableOpacity>
+      </View>
+      <View style={styles.popUpWrapper}>
+        <View style={styles.popUp}>
+          <View>
+            <Image
+              style={styles.ubahPasswordSuccess}
+              source={require('../assets/img/ubahPasswordSuccess.png')}
+            />
+          </View>
+          <View style={styles.heroWrapper}>
+            <View style={styles.successInformationWrapper}>
+              <Text style={styles.successInformation}>
+                Password Berhasil Diubah!
+              </Text>
+            </View>
+            <View style={styles.nextStepWrapper}>
+              <Text style={styles.nextStep}>
+                Silahkan login kembali untuk melanjutkan
+              </Text>
+            </View>
+          </View>
+          <View style={styles.buttonWrapper2}>
+            <TouchableOpacity style={styles.button}>
+              <Text
+                style={styles.buttonText}
+                onPress={() => navigation.navigate('LoginPage')}>
+                Login
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
     </SafeAreaView>
   );

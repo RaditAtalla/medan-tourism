@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
   },
   icon: {
     width: 237,
@@ -48,27 +49,69 @@ const styles = StyleSheet.create({
     marginTop: 24,
   },
   input: {
-    fontSize: 20
-  },
-  eye: {
-    width: 14,
-    height: 14
+    fontSize: 20,
   },
   buttonWrapper: {
     width: 362,
     marginTop: 45,
   },
-  ubahPasswordBtn: {
+  button: {
     width: '100%',
     backgroundColor: COLORS.blue,
     borderRadius: 20,
     paddingVertical: verticalScale(14),
   },
-  ubahPasswordText: {
+  buttonText: {
     textAlign: 'center',
     color: 'white',
     fontWeight: '600',
     fontSize: moderateScale(18),
+  },
+
+  popUpWrapper: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    position: 'absolute',
+  },
+  popUp: {
+    width: '100%',
+    height: 330,
+    backgroundColor: 'white',
+    position: 'absolute',
+    bottom: 0,
+    alignItems: 'center',
+    borderTopStartRadius: 25,
+    borderTopEndRadius: 25,
+  },
+  ubahPasswordSuccess: {
+    width: 201,
+    marginTop: -55,
+  },
+  heroWrapper: {
+    alignItems: 'center',
+  },
+  successInformationWrapper: {
+    marginTop: 30,
+  },
+  successInformation: {
+    fontSize: 24,
+    fontWeight: '500',
+    color: 'rgba(59, 73, 73, 1)',
+  },
+  nextStepWrapper: {
+    marginTop: 16,
+    width: 230,
+  },
+  nextStep: {
+    textAlign: 'center',
+    fontSize: 16,
+    fontWeight: '400',
+    color: 'rgba(59, 73, 73, 1)',
+  },
+  buttonWrapper2: {
+    width: 321,
+    marginTop: 30
   },
 });
 
