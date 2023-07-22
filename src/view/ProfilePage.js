@@ -1,7 +1,9 @@
-import { Text, View, StyleSheet, StatusBar, Image, ImageBackground } from 'react-native';
+import { Text, View, StatusBar, Image, ImageBackground } from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import { COLORS } from '../constant/theme';
+import COLORS from '../theme/colors';
 import ProfileMenuBtn from '../components/ProfileMenuBtn';
+import Styles from '../styles/ProfilePageStyles';
+import ICONS from '../assets/icons/icons';
 
 const ProfilePage = () => (
     <SafeAreaView style={Styles.container}>
@@ -17,59 +19,12 @@ const ProfilePage = () => (
                 </View>
             </View>
             <View style={Styles.menuWrapper}>
-                <ProfileMenuBtn iconSrc="../assets/icons/notifikasi.png" text='Notifikasi' />
-                <ProfileMenuBtn iconSrc="../assets/icons/notifikasi.png" text='perjalanan' />
+                <ProfileMenuBtn icon={ICONS.notifikasi} text='Notifikasi' />
+                <ProfileMenuBtn icon={ICONS.perjalanan} text='Perjalanan' />
+                <ProfileMenuBtn icon={ICONS.aturAkun} text='Atur Akun' />
             </View>
         </View>
     </SafeAreaView>
 )
-
-const Styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: COLORS.gray5,
-    },
-    wrapper: {
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'flex-start',
-        gap: 24,
-    },
-    profilePic: {
-        width: 150,
-        height: 150,
-        objectFit: 'cover',
-    },
-    editBtn: {
-        position: 'absolute',
-        right: 10,
-        bottom: 0,
-    },
-    username: {
-        color: '#252525',
-        fontSize: 32,
-        fontWeight: '700',
-        textAlign: 'center'
-    },
-    email: {
-        color: COLORS.black3,
-        fontSize: 16,
-        textAlign: 'center',
-    },
-    info: {
-        display: 'flex',
-        alignItems: 'center',
-        marginTop: 48,
-        gap: 24,
-    },
-    menuWrapper: {
-        display: 'flex',
-        width: '100%',
-        height: '100%',
-        backgroundColor: '#fff',
-        borderTopEndRadius: 50,
-        borderTopStartRadius: 50,
-    },
-})
 
 export default ProfilePage;

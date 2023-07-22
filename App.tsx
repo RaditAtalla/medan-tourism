@@ -14,6 +14,7 @@ import DaftarPage from './src/view/DaftarPage';
 import ProfilePage from './src/view/ProfilePage';
 import DaftarNomorHpPage from './src/view/DaftarNomorHpPage';
 import VerifikasiHpPage from './src/view/VerfikasiHpPage';
+import HomePage from './src/view/HomePage';
 
 const Stack = createNativeStackNavigator();
 
@@ -139,7 +140,14 @@ const App = () => {
         }}
         />
         <Stack.Screen
-          name="Profil Saya"
+          name="HomePage"
+          component={HomePage}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="ProfilePage"
           component={ProfilePage}
           options={{
             headerShadowVisible: false,

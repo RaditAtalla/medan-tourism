@@ -1,10 +1,11 @@
 import { View, Image, Text, StyleSheet } from 'react-native'
+import ICONS from '../assets/icons/icons';
 
-const ProfileMenuBtn = ({ iconSrc, text }) => {
+const ProfileMenuBtn = ({ icon, text }) => {
     return (
         <View style={Styles.menuBtn}>
             <View style={Styles.leftSide}>
-                <Image source={iconSrc} />
+                <Image source={icon} />
                 <Text style={Styles.menuFont}>{text}</Text>
             </View>
             <Image source={require('../assets/icons/next.png')} />
@@ -22,8 +23,6 @@ const Styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginHorizontal: 24,
-        marginTop: 48,
     },
     leftSide: {
         display: 'flex',

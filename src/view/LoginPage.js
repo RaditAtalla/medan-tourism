@@ -23,7 +23,7 @@ const LoginPage = ({ navigation }) => {
                         <LupaPasswordBtn action={() => navigation.navigate('LupaPasswordPage')} />
                     </View>
                     <View style={ Styles.altLogin }>
-                        <MyButton text='Log in'  />
+                        <MyButton text='Log in' action={() => navigation.navigate('HomePage')} />
                         <Text style={ Styles.atau }>Atau</Text>
                         <AltLogin />
                     </View>
