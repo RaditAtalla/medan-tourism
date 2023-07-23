@@ -1,7 +1,13 @@
-import {View, Text, Image, TouchableOpacity, StatusBar} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StatusBar,
+  TextInput,
+} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import styles from '../../styles/LupaPasswordPage.style';
-import InputGroup from '../../components/atoms/InputGroup';
+import styles from '../../styles/LupaPasswordPageByPhoneNumber.style';
 import COLORS from '../../theme/colors';
 
 export default function LupaPasswordPage({navigation}) {
@@ -16,16 +22,35 @@ export default function LupaPasswordPage({navigation}) {
       </View>
       <View style={styles.informationWrapper}>
         <Text style={styles.information}>
-          Masukan email untuk mendapatkan kode verifikasi
+          Masukan nomor HP untuk mendapatkan kode verifikasi
         </Text>
       </View>
       <View style={styles.formWrapper}>
         <View style={styles.form}>
-          <InputGroup
-            label="email"
-            placeholder="Masukkan email"
-            placeholderTextColor="#252525"
-          />
+          <View style={styles.inputWrapper}>
+            <View>
+              <Text style={styles.inputLabel}>Nomor HP</Text>
+            </View>
+            <View style={styles.inputGroup}>
+              <View style={styles.regionWrapper}>
+                <View>
+                  <Image
+                    style={styles.regionFlag}
+                    source={require('../../assets/img/IconIndonesia.png')}
+                  />
+                </View>
+                <View style={styles.regionNationalPhoneNumWrapper}>
+                  <Text style={styles.regionNationalPhoneNum}>+62</Text>
+                </View>
+              </View>
+              <View style={styles.input}>
+                <TextInput style={{width: 255}}
+                  placeholder="Masukkan Nomor HP"
+                  value="812345678"
+                />
+              </View>
+            </View>
+          </View>
         </View>
         <View style={styles.lupaPasswordAlternativeWrapper}>
           <TouchableOpacity
