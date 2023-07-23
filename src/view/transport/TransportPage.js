@@ -1,11 +1,16 @@
-import { Text, View } from 'react-native'
+import { Image, View, Text, TextInput, TouchableOpacity, SafeAreaView } from 'react-native';
+import { styles } from '../../styles/Transport.style';
 
-const TransportPage = () => {
-    return(
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', }}>
-            <Text>Transport Page</Text>
-        </View>
-    )
+export default TransportPage = ({ navigation }) => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <View>
+        <View></View>
+        <View></View>
+      </View>
+      <View>
+        <View></View>
+      </View>
+    </SafeAreaView>
+  )
 }
-
-export default TransportPage

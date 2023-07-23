@@ -9,19 +9,24 @@ import LandingPage from './src/view/landing/LandingPage';
 import OnBoardingPage from './src/view/landing/OnBoardingPage';
 
 // auth
+import DaftarPage from './src/view/auth/DaftarPage';
+import DaftarNomorHpPage from './src/view/auth/DaftarNomorHpPage';
 import LoginPage from './src/view/auth/LoginPage';
 import LupaPasswordPage from './src/view/auth/LupaPasswordPage';
 import LupaPasswordPageByPhoneNumber from './src/view/auth/LupaPasswordPageByPhoneNumber';
 import VerifikasiPage from './src/view/auth/VerifikasiPage';
-import UbahPasswordPage from './src/view/auth/UbahPasswordPage';
-import DaftarPage from './src/view/auth/DaftarPage';
-import ProfilePage from './src/view/profile/ProfilePage';
-import DaftarNomorHpPage from './src/view/auth/DaftarNomorHpPage';
 import VerifikasiHpPage from './src/view/auth/VerfikasiHpPage';
+import UbahPasswordPage from './src/view/auth/UbahPasswordPage';
 
 // home
 import HomePage from './src/view/home/HomePage';
+
+// profil
+import ProfilePage from './src/view/profile/ProfilePage';
 import NotifikasiTransaksi from './src/view/profile/NotifikasiTransaksi';
+
+// transport
+import TransportPage from './src/view/transport/TransportPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -190,6 +195,22 @@ const App = () => {
           component={NotifikasiTransaksi}
           options={{
             title: 'Notifikasi',
+            headerShadowVisible: false,
+            headerStyle: {
+              backgroundColor: COLORS.white,
+            },
+            headerTitleStyle: {
+              color: '#252525',
+              fontSize: 20,
+              fontWeight: '700',
+            },
+          }}
+        />
+        <Stack.Screen
+          name="TransportPage"
+          component={TransportPage}
+          options={{
+            title: 'Transportasi',
             headerShadowVisible: false,
             headerStyle: {
               backgroundColor: COLORS.white,

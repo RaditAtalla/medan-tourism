@@ -8,6 +8,7 @@ const HomePage = ({ navigation }) => {
             <Text>Selamat datang di HOMEPAGE</Text>
             <MyButton text='To Profile' action={() => navigation.navigate('ProfilePage')} />
             <MyButton text='To Landing' action={() => navigation.navigate('LandingPage')} />
+            <MyButton text='To Transportasi' action={() => navigation.navigate('TransportPage')} />
         </View>
     )
 }
