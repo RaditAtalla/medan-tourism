@@ -44,9 +44,10 @@ export default function LupaPasswordPage({navigation}) {
                 </View>
               </View>
               <View style={styles.input}>
-                <TextInput style={{width: 255}}
+                <TextInput
+                  style={{width: 255}}
                   placeholder="Masukkan Nomor HP"
-                  value="812345678"
+                  value="812456789"
                 />
               </View>
             </View>
@@ -65,7 +66,7 @@ export default function LupaPasswordPage({navigation}) {
         <View style={styles.buttonWrapper}>
           <TouchableOpacity
             style={styles.loginBtn}
-            onPress={() => navigation.navigate('VerifikasiPage')}>
+            onPress={() => navigation.navigate('VerifikasiHpPage')}>
             <Text style={styles.loginText}>Kirim</Text>
           </TouchableOpacity>
         </View>
