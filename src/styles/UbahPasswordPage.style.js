@@ -71,12 +71,11 @@ const styles = StyleSheet.create({
   popUpWrapper: {
     width: '100%',
     height: '100%',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     position: 'absolute',
   },
   popUp: {
     width: '100%',
-    height: 330,
+    height: 350,
     backgroundColor: 'white',
     position: 'absolute',
     bottom: 0,
