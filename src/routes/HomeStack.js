@@ -40,6 +40,7 @@ const HomeStackScreen = () => {
             tabBarStyle: {
                 paddingVertical: 13,
                 paddingHorizontal: 26,
+                height: 77,
             },
             })}
         >
