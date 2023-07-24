@@ -13,7 +13,7 @@ export default TransportPage = ({navigation}) => {
     <SafeAreaView style={styles.body}>
       <View style={styles.container}>
         <View style={styles.content}>
-          <TransportInputGroup/>
+          <TransportInputGroup />
           <View style={styles.menuWrapper}>
             <View>
               <Text style={styles.menuTitle}>
@@ -36,7 +36,7 @@ export default TransportPage = ({navigation}) => {
                   </Text>
                   <TouchableOpacity
                     style={styles.button}
-                    onPress={navigation.navigate('TransportMetrodeliPage')}>
+                    onPress={() => navigation.navigate('TransportMetrodeliPage')}>
                     <Text style={styles.buttonText}>Lihat Jadwal</Text>
                   </TouchableOpacity>
                 </View>

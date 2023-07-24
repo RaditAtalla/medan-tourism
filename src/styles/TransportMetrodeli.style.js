@@ -24,27 +24,37 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#3b4949',
   },
+  menuTitleWrapper: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  moreInformationIcon: {
+    width: 25,
+    height: 25,
+  },
   menu: {
     marginTop: 24,
     width: 406,
-    height: 179,
+    height: 273,
     borderRadius: 8,
-    backgroundColor: '#DEFAFD',
+    backgroundColor: 'rgba(54, 201, 193, 0.5)',
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
     paddingLeft: 24,
     paddingVertical: 30,
   },
-  menuTitleBus: {
-    fontSize: 16,
+  koridorTextWrapper: {
+    width: 80
   },
-  menuTitleMetrodeli: {
+  koridorText: {
     fontSize: 20,
-  },
-  menuTitleBusMetrodeli: {
     fontWeight: '700',
-    color: COLORS.black4,
+    color: '#252525',
+  },
+  trekTextWrapper: {
+    marginTop: 20,
+    width: 130
   },
   button: {
     width: 102,
