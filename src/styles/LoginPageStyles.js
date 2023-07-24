@@ -35,7 +35,6 @@ const Styles = StyleSheet.create({
     altLogin: {
         gap: 34,
     }
-
 })
 
 export default Styles;
