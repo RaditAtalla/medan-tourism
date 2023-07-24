@@ -1,11 +1,11 @@
 import { Text, View } from 'react-native'
 
-const SearchPage = () => {
+const PerjalananPage = () => {
     return(
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', }}>
-            <Text>Search Page</Text>
+            <Text>Perjalanan Page</Text>
         </View>
     )
 }
 
-export default SearchPage
+export default PerjalananPage

@@ -1,11 +1,11 @@
 import { Text, View } from 'react-native'
 
-const HomeLainnyaPage = () => {
+const MicePage = () => {
     return(
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', }}>
-            <Text>Home Lainnya Page</Text>
+            <Text>Mice Page</Text>
         </View>
     )
 }
 
-export default HomeLainnyaPage
+export default MicePage

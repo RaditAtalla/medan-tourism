@@ -1,7 +1,7 @@
 import { Text, SafeAreaView, StatusBar } from 'react-native'
 import Styles from '../../styles/NotifikasiTransaksiStyles'
 
-const NotifikasiTransaksi = () => {
+const NotifikasiPage = () => {
     return(
         <SafeAreaView style={Styles.container}>
             <StatusBar barStyle={'dark-content'} translucent backgroundColor='transparent' />
@@ -10,4 +10,4 @@ const NotifikasiTransaksi = () => {
     )
 }
 
-export default NotifikasiTransaksi
+export default NotifikasiPage

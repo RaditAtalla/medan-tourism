@@ -62,8 +62,8 @@ const OnBoardingPage = ({ navigation }) => (
     <>
         <StatusBar barStyle={'dark-content'} backgroundColor={COLORS.white} />
         <Onboarding
-            onDone={() => navigation.navigate('LoginPage')}
-            onSkip={() => navigation.navigate('LoginPage')}
+            onDone={() => navigation.navigate('AuthStackScreen')}
+            onSkip={() => navigation.navigate('AuthStackScreen')}
             NextButtonComponent={PrimaryButton}
             SkipButtonComponent={SkipButton}
             DoneButtonComponent={PrimaryButton}
