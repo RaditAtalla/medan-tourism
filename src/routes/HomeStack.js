@@ -1,5 +1,8 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import ICONS from '../assets/icons/icons';
+import COLORS from '../theme/colors';
+import { Image } from 'react-native'
 
 import HomePage from '../view/home/HomePage';
 import SearchPage from '../view/search/SearchPage';
@@ -11,7 +14,35 @@ const HomeTabStack = createBottomTabNavigator()
 
 const HomeStackScreen = () => {
     return(
-        <HomeTabStack.Navigator>
+        <HomeTabStack.Navigator
+        screenOptions={({ route }) => ({
+            tabBarIcon: ({ focused, color, size }) => {
+                let iconName;
+
+                if (route.name === 'HomePage') {
+                    iconName = focused ? ICONS.homeActive : ICONS.home;
+                } else if (route.name === 'SearchPage') {
+                    iconName = focused ? ICONS.searchActive : ICONS.search;
+                } else if (route.name === 'PerjalananPage') {
+                    iconName = focused ? ICONS.perjalananActive : ICONS.perjalanan;
+                } else if (route.name === 'PromoPage') {
+                    iconName = focused ? ICONS.promoActive : ICONS.promo;
+                } else if (route.name === 'ProfilePage') {
+                    iconName = focused ? ICONS.profileActive : ICONS.profile;
+                }
+
+                // You can return any component that you like here!
+                return <Image source={iconName}  />;
+            },
+            tabBarActiveTintColor: COLORS.blue,
+            tabBarInactiveTintColor: 'gray',
+            tabBarShowLabel: false,
+            tabBarStyle: {
+                paddingVertical: 13,
+                paddingHorizontal: 26,
+            },
+            })}
+        >
             <HomeTabStack.Screen
             name="HomePage"
             component={HomePage}
