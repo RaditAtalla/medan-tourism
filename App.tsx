@@ -27,6 +27,7 @@ import NotifikasiTransaksi from './src/view/profile/NotifikasiTransaksi';
 
 // transport
 import TransportPage from './src/view/transport/TransportPage';
+import TransportMetrodeliPage from './src/view/transport/TransportMetrodeliPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -217,6 +218,20 @@ const App = () => {
           component={TransportPage}
           options={{
             title: 'Transportasi',
+            headerShadowVisible: false,
+            headerTransparent: true,
+            headerTitleStyle: {
+              color: '#252525',
+              fontSize: 20,
+              fontWeight: '700',
+            },
+          }}
+        />
+        <Stack.Screen
+          name="TransportMetrodeliPage"
+          component={TransportMetrodeliPage}
+          options={{
+            title: 'Bus Metrodeli',
             headerShadowVisible: false,
             headerTransparent: true,
             headerTitleStyle: {
