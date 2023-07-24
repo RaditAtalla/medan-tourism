@@ -48,19 +48,21 @@ const App = () => {
             headerShown: false,
           }}
         />
-        <Stack.Screen name="LoginPage" component={LoginPage}
-        options={{
-          title: "Login",
-          headerShadowVisible: false,
-          headerTransparent: true,
-          headerTitleAlign: 'center',
-          headerTitleStyle: {
-            color: 'white',
-            fontWeight: '700',
-            fontSize: moderateScale(24),
-          },
-          headerTintColor: 'white',
-        }}
+        <Stack.Screen
+          name="LoginPage"
+          component={LoginPage}
+          options={{
+            title: 'Login',
+            headerShadowVisible: false,
+            headerTransparent: true,
+            headerTitleAlign: 'center',
+            headerTitleStyle: {
+              color: 'white',
+              fontWeight: '700',
+              fontSize: moderateScale(24),
+            },
+            headerTintColor: 'white',
+          }}
         />
         <Stack.Screen
           name="LupaPasswordPage"
@@ -140,33 +142,37 @@ const App = () => {
             headerTintColor: '#252525',
           }}
         />
-        <Stack.Screen name="DaftarPage" component={DaftarPage}
-        options={{
-          title: "Daftar",
-          headerShadowVisible: false,
-          headerTransparent: true,
-          headerTitleAlign: 'center',
-          headerTitleStyle: {
-            color: 'white',
-            fontWeight: '700',
-            fontSize: moderateScale(24),
-          },
-          headerTintColor: 'white',
-        }}
+        <Stack.Screen
+          name="DaftarPage"
+          component={DaftarPage}
+          options={{
+            title: 'Daftar',
+            headerShadowVisible: false,
+            headerTransparent: true,
+            headerTitleAlign: 'center',
+            headerTitleStyle: {
+              color: 'white',
+              fontWeight: '700',
+              fontSize: moderateScale(24),
+            },
+            headerTintColor: 'white',
+          }}
         />
-        <Stack.Screen name="DaftarNomorHpPage" component={DaftarNomorHpPage}
-        options={{
-          title: "Daftar",
-          headerShadowVisible: false,
-          headerTransparent: true,
-          headerTitleAlign: 'center',
-          headerTitleStyle: {
-            color: COLORS.black4,
-            fontWeight: '700',
-            fontSize: moderateScale(24),
-          },
-          headerTintColor: COLORS.black4,
-        }}
+        <Stack.Screen
+          name="DaftarNomorHpPage"
+          component={DaftarNomorHpPage}
+          options={{
+            title: 'Daftar',
+            headerShadowVisible: false,
+            headerTransparent: true,
+            headerTitleAlign: 'center',
+            headerTitleStyle: {
+              color: COLORS.black4,
+              fontWeight: '700',
+              fontSize: moderateScale(24),
+            },
+            headerTintColor: COLORS.black4,
+          }}
         />
         <Stack.Screen
           name="HomePage"
@@ -212,9 +218,7 @@ const App = () => {
           options={{
             title: 'Transportasi',
             headerShadowVisible: false,
-            headerStyle: {
-              backgroundColor: COLORS.white,
-            },
+            headerTransparent: true,
             headerTitleStyle: {
               color: '#252525',
               fontSize: 20,
