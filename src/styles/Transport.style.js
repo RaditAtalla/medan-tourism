@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     justifyContent: 'flex-end',
+    paddingTop: 200,
   },
   content: {
     width: '100%',

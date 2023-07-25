@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-import {verticalScale} from '../theme/responsive';
+import { StyleSheet } from 'react-native';
+import COLORS from '../theme/colors';
 
 const styles = StyleSheet.create({
   container: {
@@ -57,6 +57,58 @@ const styles = StyleSheet.create({
   },
   menu5: {
     backgroundColor: '#defafd',
+  },
+
+  popUpWrapper: {
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  popUp: {
+    width: 300,
+    height: 300,
+    position: 'absolute',
+    backgroundColor: 'white',
+    borderRadius: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  popUpInformation: {
+    alignItems: 'center',
+  },
+  popUpIcon: {
+    width: 40,
+    height: 40,
+  },
+  popUpTitle: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: COLORS.black4,
+    textAlign: 'center',
+    marginVertical: 24
+  },
+  popUpJamOperasiDanTarif: {
+    width: 250,
+    fontSize: 17,
+    textAlign: 'center',
+    color: COLORS.black4,
+  },
+  popUpButtonWrapper: {
+    width: 240,
+    height: 48,
+    borderRadius: 12,
+    backgroundColor: COLORS.blue,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 32
+  },
+  popUpButtonText: {
+    fontSize: 16,
+    fontWeight: '700',
+    fontFamily: 'Poppins-Bold',
+    color: '#fff',
   },
 });
 

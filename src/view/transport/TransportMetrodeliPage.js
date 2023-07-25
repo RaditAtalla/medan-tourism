@@ -11,8 +11,13 @@ import {styles} from '../../styles/TransportMetrodeli.style';
 import TransportInputGroup from '../../components/atoms/TransportInputGroup.js';
 import IMAGES from '../../assets/img/images';
 import KoridorCard from '../../components/atoms/KoridorCard';
+import {useState} from 'react';
+import Modal from 'react-native-modal';
+import { SlideInDown } from 'react-native-reanimated';
 
 export default TransportMetrodeliPage = ({navigation}) => {
+  const [modal, setModal] = useState(false);
+
   return (
     <SafeAreaView>
       <KeyboardAvoidingView
@@ -20,7 +25,11 @@ export default TransportMetrodeliPage = ({navigation}) => {
         <ScrollView>
           <View style={styles.container}>
             <View style={styles.content}>
-              <TransportInputGroup />
+              <TransportInputGroup
+                HeroImage={IMAGES.city}
+                Placeholder={'Temukan transportasi'}
+                Value={'Halte, Stasiun, atau rute jalan'}
+              />
               <View style={styles.menuWrapper}>
                 <View style={styles.menuTitleWrapper}>
                   <View>
@@ -29,7 +38,7 @@ export default TransportMetrodeliPage = ({navigation}) => {
                     </Text>
                   </View>
                   <View>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => setModal(true)}>
                       <Image
                         style={styles.moreInformationIcon}
                         source={require('../../assets/icons/moreInformation.png')}
@@ -43,15 +52,14 @@ export default TransportMetrodeliPage = ({navigation}) => {
                       koridorNumber={'1'}
                       trekText={'Terminal Pinang Baris – Lapangan Merdeka'}
                       halteImage={IMAGES.greenHalte}
-                      props="red"
+                      action={() => navigation.navigate('TransportKoridorPage')}
                     />
                   </View>
                   <View style={[styles.menu, styles.menu2]}>
                     <KoridorCard
                       koridorNumber={'2'}
-                      trekText={'Terminal Pinang Baris – Lapangan Merdeka'}
+                      trekText={'Terminal Amplas – Lapangan Merdeka'}
                       halteImage={IMAGES.purpleHalte}
-                      props="red"
                     />
                   </View>
                   <View style={[styles.menu, styles.menu3]}>
@@ -59,23 +67,20 @@ export default TransportMetrodeliPage = ({navigation}) => {
                       koridorNumber={'3'}
                       trekText={'Terminal Pinang Baris – Lapangan Merdeka'}
                       halteImage={IMAGES.yellowHalte}
-                      props="red"
                     />
                   </View>
                   <View style={[styles.menu, styles.menu4]}>
                     <KoridorCard
                       koridorNumber={'4'}
-                      trekText={'Terminal Pinang Baris – Lapangan Merdeka'}
+                      trekText={'Medan Tuntungan – Lapangan Merdeka'}
                       halteImage={IMAGES.redHalte}
-                      props="red"
                     />
                   </View>
                   <View style={[styles.menu, styles.menu5]}>
                     <KoridorCard
                       koridorNumber={'5'}
-                      trekText={'Terminal Pinang Baris – Lapangan Merdeka'}
+                      trekText={'Tembung – Lapangan Merdeka'}
                       halteImage={IMAGES.blueHalte}
-                      props="red"
                     />
                   </View>
                 </View>
@@ -83,6 +88,37 @@ export default TransportMetrodeliPage = ({navigation}) => {
             </View>
           </View>
         </ScrollView>
+        <Modal
+          isVisible={modal}
+          animationIn={'slideInDown'}
+          animationInTiming={700}
+          animationOut={'slideOutUp'}
+          animationOutTiming={700}
+          style={{marginHorizontal: -20, marginVertical: 0}}>
+          <View style={styles.popUpWrapper}>
+            <View style={styles.popUp}>
+              <View>
+                <Image
+                  style={styles.popUpIcon}
+                  source={require('../../assets/icons/moreInformation.png')}
+                />
+              </View>
+              <View style={styles.popUpInformation}>
+                <Text style={styles.popUpTitle}>
+                  INFORMASI BUS/HALTE METRODELI
+                </Text>
+                <Text style={styles.popUpJamOperasiDanTarif}>
+                  Jam operasi : 04.30 WIB - 19.41 WIB Tarif : Rp 4.300
+                </Text>
+                <TouchableOpacity
+                  style={styles.popUpButtonWrapper}
+                  onPress={() => setModal(false)}>
+                  <Text style={styles.popUpButtonText}>Mengerti</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </View>
+        </Modal>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );

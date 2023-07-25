@@ -8,6 +8,7 @@ const IMAGES = {
     onBoardingImg2: require('../img/onBoardingImg2.png'),
     onBoardingImg3: require('../img/onBoardingImg3.png'),
     profilePic: require('./profilePic.png'),
+    city: require('./city.png'),
     greenHalte: require('./GreenHalte.png'),
     purpleHalte: require('./PurpleHalte.png'),
     yellowHalte: require('./YellowHalte.png'),

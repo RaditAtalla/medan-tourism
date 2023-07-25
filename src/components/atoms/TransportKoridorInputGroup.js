@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-export default function TransportInputGroup({HeroImage, Placeholder, Value}) {
+export default function TransportKoridorInputGroup({HeroImage, Placeholder, Value}) {
   return (
     <View style={styles.hero}>
       <View>
@@ -40,8 +40,8 @@ const styles = StyleSheet.create({
     marginTop: -200,
   },
   city: {
-    width: 184,
-    height: 183,
+    width: 304,
+    height: 157,
   },
   box: {
     width: '100%',

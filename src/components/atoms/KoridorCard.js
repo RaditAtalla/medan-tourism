@@ -5,6 +5,7 @@ export default function KoridorCard({
   koridorNumber,
   trekText,
   halteImage,
+  action,
 }) {
   const styles = StyleSheet.create({
     menu: {
@@ -54,7 +55,7 @@ export default function KoridorCard({
         <View style={styles.trekTextWrapper}>
           <Text style={styles.trekText}>{trekText}</Text>
         </View>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={action}>
           <Text style={styles.buttonText}>Lihat Halte</Text>
         </TouchableOpacity>
       </View>
