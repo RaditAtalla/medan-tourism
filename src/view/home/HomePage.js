@@ -16,7 +16,7 @@ const HomePage = ({navigation}) => {
       />
       <MyButton
         text="To Transportasi"
-        action={() => navigation.navigate('TransportPage')}
+        action={() => navigation.navigate('Transport')}
       />
     </View>
   );

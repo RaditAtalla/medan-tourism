@@ -56,7 +56,7 @@ export default function LupaPasswordPage({navigation}) {
         <View style={styles.lupaPasswordAlternativeWrapper}>
           <TouchableOpacity
             onPress={() =>
-              navigation.navigate('LupaPasswordPageByPhoneNumber')
+              navigation.navigate('LupaPasswordPage')
             }>
             <Text style={styles.lupaPasswordAlternativeText}>
               Coba cara lain

@@ -34,7 +34,7 @@ export default function VerifikasiHpPage({navigation}) {
             <Text style={styles.verifikasiAlternativeText}>Kirim Ulang Kode</Text>
         </View>
         <View style={styles.buttonWrapper}>
-            <TouchableOpacity style={styles.verifikasiBtn} onPress={() => navigation.navigate('UbahPasswordPage')}>
+            <TouchableOpacity style={styles.verifikasiBtn} onPress={() => navigation.navigate('HomeStackScreen')}>
             <Text style={styles.verifikasiText}>Verifikasi </Text>
             </TouchableOpacity>
         </View>

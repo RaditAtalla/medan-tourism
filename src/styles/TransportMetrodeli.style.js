@@ -1,16 +1,16 @@
 import {StyleSheet} from 'react-native';
 import {verticalScale} from '../theme/responsive';
-import COLORS from '../theme/colors';
 
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: '100%',
-    justifyContent: 'flex-end',
+    height: '200%',
+    paddingTop: 200,
+    paddingBottom: 50,
   },
   content: {
     width: '100%',
-    height: verticalScale(635),
+    height: '100%',
     backgroundColor: 'rgba(255,255,255,1)',
     borderTopStartRadius: 50,
     borderTopEndRadius: 50,
@@ -37,38 +37,26 @@ const styles = StyleSheet.create({
     width: 406,
     height: 273,
     borderRadius: 8,
-    backgroundColor: 'rgba(54, 201, 193, 0.5)',
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
     paddingLeft: 24,
     paddingVertical: 30,
   },
-  koridorTextWrapper: {
-    width: 80
+  menu1: {
+    backgroundColor: 'rgba(54, 201, 193, 0.5)',
   },
-  koridorText: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: '#252525',
+  menu2: {
+    backgroundColor: 'rgba(130, 148, 196, 0.5)',
   },
-  trekTextWrapper: {
-    marginTop: 20,
-    width: 130
+  menu3: {
+    backgroundColor: 'rgba(255, 192, 0, 0.5)',
   },
-  button: {
-    width: 102,
-    height: 34,
-    borderRadius: 4,
-    backgroundColor: 'rgba(54, 201, 193, 1)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 32,
+  menu4: {
+    backgroundColor: 'rgba(236, 140, 111, 0.5)',
   },
-  buttonText: {
-    fontSize: 12,
-    fontWeight: '700',
-    color: '#fff',
+  menu5: {
+    backgroundColor: '#defafd',
   },
 });
 
