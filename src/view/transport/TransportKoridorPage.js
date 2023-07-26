@@ -32,6 +32,7 @@ export default TransportMetrodeliPage = ({navigation}) => {
                 <KoridorLocationCard
                   halteName={'Terminal Pinang Baris`'}
                   halteLocation={'Lalang, Medan Sunggal'}
+                  space={24}
                 />
                 <KoridorLocationCard
                   halteName={'Terminal Pinang Baris`'}

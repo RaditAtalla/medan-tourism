@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   menuWrapper: {
-    marginTop: 68,
+    marginTop: 8,
     justifyContent: 'center',
     alignItems: 'center',
   },
