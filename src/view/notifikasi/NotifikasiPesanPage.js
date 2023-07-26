@@ -1,6 +1,7 @@
 import {View, Text, SafeAreaView, TouchableOpacity, Image} from 'react-native';
 import {styles} from '../../styles/NotifikasiPage.styles';
 import React, {useState} from 'react';
+import IMAGES from '../../assets/img/images';
 
 export default function NotifikasiPage({navigation}) {
   const [status, setStatus] = useState('All');
@@ -8,15 +9,9 @@ export default function NotifikasiPage({navigation}) {
   const tabContent = [
     {
       date: '13 Jul 2023',
-      status: 'Transaksi berhasil',
       informasi:
-        'Pembayaran hotel Aryaduta Medan sebesar IDR555,000 berhasil terkirim',
-    },
-    {
-      date: '13 Jul 2023',
-      status: 'Transaksi gagal',
-      informasi:
-        'Pembayaran hotel Aryaduta Medan sebesar IDR555,000 gagal di kirim',
+        'Gajian makin asyik karena ada promo QRIS UNLIMITED yang diperpanjang dari tanggal 25 Juni–9 Juli 2023.',
+      image: IMAGES.poster,
     },
   ];
 
@@ -25,12 +20,12 @@ export default function NotifikasiPage({navigation}) {
       <View style={styles.container}>
         <View style={styles.tabWrapper}>
           <TouchableOpacity
-            style={[styles.tab, styles.tabActive]}
+            style={styles.tab}
             onPress={() => navigation.navigate('NotifikasiPage')}>
             <Text style={styles.tabText}>Transaksi</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={styles.tab}
+            style={[styles.tab, , styles.tabActive]}
             onPress={() => navigation.navigate('NotifikasiPesanPage')}>
             <Text style={styles.tabText}>Pesan</Text>
           </TouchableOpacity>
@@ -49,11 +44,11 @@ export default function NotifikasiPage({navigation}) {
                   />
                 </View>
               </View>
-              <View style={styles.statusTransaksi}>
-                <Text style={styles.status}>{e.status}</Text>
-              </View>
               <View style={styles.informasiTransaksi}>
                 <Text style={styles.informasi}>{e.informasi}</Text>
+              </View>
+              <View style={styles.posterWrapper}>
+                <Image style={styles.poster} source={e.image} />
               </View>
             </View>
           ))}

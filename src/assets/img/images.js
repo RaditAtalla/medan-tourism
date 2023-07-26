@@ -14,6 +14,7 @@ const IMAGES = {
     yellowHalte: require('./YellowHalte.png'),
     redHalte: require('./RedHalte.png'),
     blueHalte: require('./BlueHalte.png'),
+    poster: require('./poster.png')
 }
 
 export default IMAGES;

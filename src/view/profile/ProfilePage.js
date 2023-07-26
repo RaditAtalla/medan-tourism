@@ -19,7 +19,7 @@ const ProfilePage = ({ navigation }) => (
                 </View>
             </View>
             <View style={Styles.menuWrapper}>
-                <ProfileMenuBtn icon={ICONS.notifikasi} text='Notifikasi' action={() => navigation.navigate('NotifikasiTransaksiPage')} />
+                <ProfileMenuBtn icon={ICONS.notifikasi} text='Notifikasi' action={() => navigation.navigate('HomeNavStackScreen', {screen: 'NotifikasiPage'})} />
                 <ProfileMenuBtn icon={ICONS.perjalanan} text='Perjalanan' />
                 <ProfileMenuBtn icon={ICONS.aturAkun} text='Atur Akun' />
             </View>
