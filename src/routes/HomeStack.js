@@ -13,7 +13,7 @@ import TransportPage from '../view/transport/TransportPage';
 import TransportMetrodeliPage from '../view/transport/TransportMetrodeliPage';
 import TransportKoridorPage from '../view/transport/TransportKoridorPage';
 import NotifikasiPage from '../view/notifikasi/NotifikasiPage';
-import NotifikasiPesanPage from '../view/notifikasi/NotifikasiPesanPage';
+import AturAkunPage from '../view/aturAkun/AturAkunPage';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 const HomeTabStack = createBottomTabNavigator();
@@ -43,9 +43,9 @@ export const HomeNavStackScreen = () => {
         options={{title: 'Notifikasi', headerShadowVisible: false}}
       />
       <HomeNavStack.Screen
-        name="NotifikasiPesanPage"
-        component={NotifikasiPesanPage}
-        options={{title: 'Notifikasi', headerShadowVisible: false}}
+        name="AturAkunPage"
+        component={AturAkunPage}
+        options={{title: 'Atur Akun', headerShadowVisible: false}}
       />
     </HomeNavStack.Navigator>
   );

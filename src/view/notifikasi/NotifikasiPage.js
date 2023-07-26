@@ -1,8 +1,8 @@
-import {View, Text, SafeAreaView, TouchableOpacity, Image} from 'react-native';
+import {View, Text, SafeAreaView, Image} from 'react-native';
 import {styles} from '../../styles/NotifikasiPage.styles';
 import React, {useState} from 'react';
 
-export default function NotifikasiPage({navigation}) {
+export default function NotifikasiPage() {
   const [status, setStatus] = useState('All');
 
   const tabContent = [
@@ -23,18 +23,6 @@ export default function NotifikasiPage({navigation}) {
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <View style={styles.tabWrapper}>
-          <TouchableOpacity
-            style={[styles.tab, styles.tabActive]}
-            onPress={() => navigation.navigate('NotifikasiPage')}>
-            <Text style={styles.tabText}>Transaksi</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.tab}
-            onPress={() => navigation.navigate('NotifikasiPesanPage')}>
-            <Text style={styles.tabText}>Pesan</Text>
-          </TouchableOpacity>
-        </View>
         <View style={styles.notifikasi}>
           {tabContent.map(e => (
             <View styles={styles.notifikasi}>

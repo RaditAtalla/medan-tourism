@@ -13,6 +13,11 @@ const ICONS = {
     perjalananActive: require('./perjalananActive.png'),
     profileActive: require('./akunActive.png'),
     promoActive: require('./promoActive.png'),
+    connect: require('./connect.png'),
+    caret: require('./caret.png'),
+    trashCan: require('./trachCan.png'),
+    logOut: require('./logOut.png'),
+    danger: require('./danger.png'),
 }
 
 export default ICONS

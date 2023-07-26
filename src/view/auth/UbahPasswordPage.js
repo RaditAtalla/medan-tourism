@@ -1,7 +1,8 @@
 import {View, Text, Image, TouchableOpacity, TextInput} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {styles} from '../../styles/UbahPasswordPage.style';
-import {useState} from 'react';
+import { useState } from 'react';
+import Modal from 'react-native-modal';
 
 export default function VerifikasiPage({navigation}) {
   const [isSecureEntry, setIsSecureEntry] = useState();

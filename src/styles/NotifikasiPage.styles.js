@@ -7,31 +7,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white'
   },
-  tabWrapper: {
-    marginTop: 32,
-    width: 360,
-    height: 41,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor: 'rgba(217, 217, 217, 1)',
-    borderRadius: 12,
-  },
-  tab: {
-    width: '48%',
-    height: 35,
-    borderRadius: 12,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  tabActive: {
-    backgroundColor: 'white',
-  },
-  tabText: {
-    fontSize: 16,
-    fontWeight: '500',
-    color: '#3b4949',
-  },
   notifikasi: {
     width: 360,
   },
@@ -39,7 +14,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 48
+    marginTop: 20
   },
   dateText: {
     fontSize: 14,
