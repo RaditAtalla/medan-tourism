@@ -33,11 +33,11 @@ const Routes = () => {
 			component={SearchStackScreen}
 			options={{headerShown: false}}
 			/>
-      <Stack.Screen
-       name="HomeNavStackScreen"
-       component={HomeNavStackScreen}
-       options={{headerShown: false}}
-        />
+			<Stack.Screen
+			name="HomeNavStackScreen"
+			component={HomeNavStackScreen}
+			options={{headerShown: false}}
+			/>
 		</Stack.Navigator>
 		</NavigationContainer>
 	);

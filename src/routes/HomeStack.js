@@ -19,7 +19,6 @@ import TransportMetrodeliPage from '../view/transport/TransportMetrodeliPage';
 import TransportKoridorPage from '../view/transport/TransportKoridorPage';
 import NotifikasiPage from '../view/notifikasi/NotifikasiPage';
 import AturAkunPage from '../view/aturAkun/AturAkunPage';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 const HomeTabStack = createBottomTabNavigator();
 const HomeNavStack = createNativeStackNavigator();
