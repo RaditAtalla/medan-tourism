@@ -29,11 +29,6 @@ const Routes = () => {
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="TransportStackScreen"
-          component={TransportStackScreen}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
           name="HomeNavStackScreen"
           component={HomeNavStackScreen}
           options={{headerShown: false}}
