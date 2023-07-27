@@ -1,12 +1,10 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {moderateScale} from '../theme/responsive';
-import COLORS from '../theme/colors';
 
 import LandingStackScreen from './LandingStack';
 import AuthStackScreen from './AuthStack';
-import HomeStackScreen from './HomeStack';
+import HomeStackScreen, { SearchStackScreen } from './HomeStack';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +25,11 @@ const Routes = () => {
 			<Stack.Screen
 			name="HomeStackScreen"
 			component={HomeStackScreen}
+			options={{headerShown: false}}
+			/>
+			<Stack.Screen
+			name="SearchStackScreen"
+			component={SearchStackScreen}
 			options={{headerShown: false}}
 			/>
 		</Stack.Navigator>

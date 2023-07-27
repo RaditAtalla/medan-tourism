@@ -8,6 +8,10 @@ const IMAGES = {
     onBoardingImg2: require('./onBoardingImg2.png'),
     onBoardingImg3: require('./onBoardingImg3.png'),
     profilePic: require('./profilePic.png'),
+
+    danauToba: require('./danauToba.png'),
+    bukitHolbung: require('./bukitHolbung.png'),
+    sipisoPiso: require('./sipisoPiso.png'),
 }
 
 export default IMAGES;

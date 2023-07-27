@@ -3,12 +3,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ICONS from '../assets/icons/icons';
 import COLORS from '../theme/colors';
 import { Image } from 'react-native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomePage from '../view/home/HomePage';
 import SearchPage from '../view/search/SearchPage';
 import PerjalananPage from '../view/perjalanan/PerjalananPage';
 import PromoPage from '../view/promo/PromoPage';
 import ProfilePage from '../view/profile/ProfilePage';
+import SearchHistoryPage from '../view/search/SeachHistoryPage';
 
 const HomeTabStack = createBottomTabNavigator()
 
@@ -16,7 +18,7 @@ const HomeStackScreen = () => {
     return(
         <HomeTabStack.Navigator
         screenOptions={({ route }) => ({
-            tabBarIcon: ({ focused, color, size }) => {
+            tabBarIcon: ({ focused }) => {
                 let iconName;
 
                 if (route.name === 'HomePage') {
@@ -38,9 +40,9 @@ const HomeStackScreen = () => {
             tabBarInactiveTintColor: 'gray',
             tabBarShowLabel: false,
             tabBarStyle: {
-                paddingVertical: 13,
+                // paddingVertical: 13,
                 paddingHorizontal: 26,
-                height: 77,
+                height: 69,
             },
             })}
         >
@@ -80,6 +82,16 @@ const HomeStackScreen = () => {
             }}
             />
         </HomeTabStack.Navigator>
+    )
+}
+
+const SearchStack = createNativeStackNavigator()
+
+export const SearchStackScreen = () => {
+    return(
+        <SearchStack.Navigator>
+            <SearchStack.Screen name='SearchHistoryPage' component={SearchHistoryPage} options={{ title: 'Pencarian', headerStyle: { backgroundColor: COLORS.white }, headerShadowVisible: false, headerTitleStyle: { color: COLORS.black4, fontSize: 20, fontWeight: '700' }  }} />
+        </SearchStack.Navigator>
     )
 }
 
