@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     backgroundColor: 'white',
-    alignItems: 'flex-end',
+    alignItems: 'flex-start',
     paddingTop: 20,
   },
   line: {
@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     width: '77%',
     height: 1,
     backgroundColor: 'rgba(130, 130, 130, 1)',
+    alignSelf: 'flex-end'
   },
 
   popUpWrapper: {

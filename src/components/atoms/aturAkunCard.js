@@ -10,7 +10,7 @@ export default function AturAkunCard({action, Icon, CardTitle, CardDescription})
       backgroundColor: 'white',
     },
     card: {
-      width: 382,
+      width: '100%',
       height: 74,
       flexDirection: 'row',
       justifyContent: 'space-evenly',
