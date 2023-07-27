@@ -33,7 +33,10 @@ const ProfilePage = ({navigation}) => (
             })
           }
         />
-        <ProfileMenuBtn icon={ICONS.perjalanan} text="Perjalanan" />
+        <ProfileMenuBtn 
+        icon={ICONS.perjalananCircle} 
+        text="Perjalanan" 
+        />
         <ProfileMenuBtn
           icon={ICONS.aturAkun}
           text="Atur Akun"
