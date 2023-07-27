@@ -28,7 +28,8 @@ const ICONS = {
     trashCan: require('./trachCan.png'),
     logOut: require('./logOut.png'),
     danger: require('./danger.png'),
-    perjalananCircle: require('./perjalananCircle.png')
+    perjalananCircle: require('./perjalananCircle.png'),
+    notif: require('./notif.png')
 
 }
 

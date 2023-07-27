@@ -23,7 +23,7 @@ const Item = ({ image, name, rating, raters }) => {
         <View style={{ paddingVertical: verticalScale(10), paddingHorizontal: horizontalScale(12), borderRadius: 12, backgroundColor: COLORS.white, width: horizontalScale(296), height: verticalScale(112), gap: 10, flexDirection: 'row', alignItems: 'flex-start', marginRight: verticalScale(24), }}>
             <Image source={image} style={{ width: horizontalScale(83), height: verticalScale(83), objectFit: 'cover', borderRadius: 12, }} /> 
             <View style={{ gap: verticalScale(16), }}>
-                <View style={{ gap: verticalScale(4) }}>
+                <View style={{ gap: verticalScale(4), width: '90%' }}>
                     <Text style={{ fontWeight: '700', color: COLORS.black3 }}>{name}</Text>
                     <StarDisplayDetail rating={rating} raters={raters} />
                 </View>

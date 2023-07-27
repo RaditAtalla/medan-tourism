@@ -23,6 +23,8 @@ const COLORS = {
     gray3: '#D9D9D9',
     gray4: '#EFEFEF',
     gray5: '#F7F7F7',
+
+    purple: '#8294C4'
 }
 
 export default COLORS;
