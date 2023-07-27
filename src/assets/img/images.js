@@ -8,6 +8,11 @@ const IMAGES = {
     onBoardingImg2: require('../img/onBoardingImg2.png'),
     onBoardingImg3: require('../img/onBoardingImg3.png'),
     profilePic: require('./profilePic.png'),
+
+    danauToba: require('./danauToba.png'),
+    bukitHolbung: require('./bukitHolbung.png'),
+    sipisoPiso: require('./sipisoPiso.png'),
+
     city: require('./city.png'),
     greenHalte: require('./GreenHalte.png'),
     purpleHalte: require('./PurpleHalte.png'),
