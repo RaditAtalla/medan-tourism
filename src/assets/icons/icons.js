@@ -12,6 +12,7 @@ const ICONS = {
     perjalananActive: require('./perjalananActive.png'),
     profileActive: require('./akunActive.png'),
     promoActive: require('./promoActive.png'),
+
     locationPin: require('./locationPin.png'),
     star: require('./star.png'),
     starEmpty: require('./starEmpty.png'),
@@ -21,6 +22,13 @@ const ICONS = {
     headphone: require('./headphone.png'),
     gedung: require('./gedung.png'),
     kereta: require('./kereta.png'),
+
+    connect: require('./connect.png'),
+    caret: require('./caret.png'),
+    trashCan: require('./trachCan.png'),
+    logOut: require('./logOut.png'),
+    danger: require('./danger.png'),
+
 }
 
 export default ICONS

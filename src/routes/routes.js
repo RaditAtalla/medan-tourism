@@ -4,7 +4,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import LandingStackScreen from './LandingStack';
 import AuthStackScreen from './AuthStack';
-import HomeStackScreen, { SearchStackScreen } from './HomeStack';
+
+import HomeStackScreen, { SearchStackScreen, HomeNavStackScreen } from './HomeStack';
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +33,11 @@ const Routes = () => {
 			component={SearchStackScreen}
 			options={{headerShown: false}}
 			/>
+      <Stack.Screen
+       name="HomeNavStackScreen"
+       component={HomeNavStackScreen}
+       options={{headerShown: false}}
+        />
 		</Stack.Navigator>
 		</NavigationContainer>
 	);
