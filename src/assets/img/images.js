@@ -20,7 +20,6 @@ const IMAGES = {
     redHalte: require('./RedHalte.png'),
     blueHalte: require('./BlueHalte.png'),
     poster: require('./poster.png'),
-    
 }
 
 export default IMAGES;
