@@ -40,7 +40,7 @@ const Item = ({ image, name, rating, raters }) => {
     )
 }
 
-const HotelCarousel = () => {
+const BandaraCarousel = () => {
     return(
         <FlatList
             data={DATA}
@@ -52,4 +52,4 @@ const HotelCarousel = () => {
     )
 }
 
-export default HotelCarousel
+export default BandaraCarousel

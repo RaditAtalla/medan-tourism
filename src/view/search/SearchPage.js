@@ -4,6 +4,7 @@ import ICONS from '../../assets/icons/icons'
 import CarouselTempatWisata from '../../components/atoms/CarouselTempatWisata'
 import BandaraCarousel from '../../components/atoms/BandaraCarousel'
 import HotelCarousel from '../../components/atoms/HotelCarousel'
+import { verticalScale } from '../../theme/responsive'
 
 const SearchPage = ({ navigation }) => {
     return(
@@ -32,7 +33,7 @@ const SearchPage = ({ navigation }) => {
                     </View>
                     <HotelCarousel />
                 </View>
-                <View style={Styles.sectionContainer}>
+                <View style={[Styles.sectionContainer, { marginBottom: verticalScale(30)}]}>
                     <View style={Styles.sectionTitleContainer}>
                         <Text style={Styles.sectionTitle} >Bandara</Text>
                         <TouchableOpacity>

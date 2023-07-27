@@ -1,4 +1,4 @@
-import { FlatList, Image } from 'react-native'
+import { FlatList, Image, View } from 'react-native'
 import { horizontalScale, verticalScale } from '../../theme/responsive'
 
 const DATA = [
@@ -30,6 +30,10 @@ const EventCarousel = () => {
             keyExtractor={item => item.image}
             horizontal={true}
             showsHorizontalScrollIndicator={false}
+            // ItemSeparatorComponent={() => <View style={{ width: horizontalScale(24) }} />}
+            style={{
+                paddingLeft: horizontalScale(24),
+            }}
         />
     )
 }

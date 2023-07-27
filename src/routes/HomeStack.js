@@ -21,6 +21,7 @@ import NotifikasiPage from '../view/notifikasi/NotifikasiPage';
 import AturAkunPage from '../view/aturAkun/AturAkunPage';
 import HubungkanAkunPage from '../view/aturAkun/HubungkanAkunPage';
 import HapusAkunPage from '../view/aturAkun/HapusAkunPage';
+import { horizontalScale, verticalScale } from '../theme/responsive';
 
 const HomeTabStack = createBottomTabNavigator();
 const HomeNavStack = createNativeStackNavigator();
@@ -81,11 +82,11 @@ const HomeStackScreen = () => {
           } else if (route.name === 'PerjalananPage') {
             iconName = focused ? ICONS.perjalananActive : ICONS.perjalanan;
           } else if (route.name === 'PromoPage') {
-            iconName = focused ? ICONS.promoActive : ICONS.promo;
+            iconName = focused ? ICONS.newsActive : ICONS.news;
           } else if (route.name === 'ProfilePage') {
             iconName = focused ? ICONS.profileActive : ICONS.profile;
           }
-                return <Image source={iconName}  />;
+                return <Image source={iconName} style={{ width: horizontalScale(30), height: verticalScale(30)}}  />;
             },
             tabBarActiveTintColor: COLORS.blue,
             tabBarInactiveTintColor: 'gray',

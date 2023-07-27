@@ -50,13 +50,13 @@ const Styles = StyleSheet.create({
   contentContainer: {
     // flex: 1,
     // height: Dimensions.get('window').height,
-    backgroundColor: COLORS.white,
+    backgroundColor: COLORS.gray5,
     borderTopStartRadius: 50,
     borderTopEndRadius: 50,
     position: 'relative',
     top: 40,
     paddingVertical: verticalScale(51),
-    paddingHorizontal: horizontalScale(30),
+    // paddingHorizontal: horizontalScale(30),
     gap: verticalScale(48),
   },
   menuContainer: {
@@ -64,14 +64,33 @@ const Styles = StyleSheet.create({
     columnGap: horizontalScale(40),
     rowGap: verticalScale(32),
     flexDirection: 'row',
+    paddingHorizontal: horizontalScale(24),
+    justifyContent: 'space-between',
   },
   sectionTitle: {
     fontFamily: 'Poppins-Bold',
     fontSize: moderateScale(20),
     color: COLORS.black4,
+    paddingHorizontal: horizontalScale(25),
   },
   eventContainer: {
     gap: verticalScale(16),
+  },
+  twitterTitle: {
+    flexDirection: 'row',
+    gap: horizontalScale(10),
+    alignItems: 'center',
+    color: COLORS.black3,
+    fontSize: moderateScale(20),
+    fontFamily: 'Poppins-Bold',
+    paddingHorizontal: horizontalScale(24)
+  },
+  twitterIcon: {
+    height: horizontalScale(20),
+  },
+  twitterContainer: {
+    gap: verticalScale(16),
+    marginBottom: verticalScale(30)
   }
 })
 

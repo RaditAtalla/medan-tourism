@@ -4,17 +4,18 @@ const ICONS = {
     aturAkun: require('./aturAkun.png'),
     home: require('./home.png'),
     search: require('./cari.png'),
-    perjalanan: require('./perjalanan.png'),
+    news: require('./news.png'),
     profile: require('./akun.png'),
     promo: require('./promo.png'),
     homeActive: require('./homeActive.png'),
     searchActive: require('./cariActive.png'),
-    perjalananActive: require('./perjalananActive.png'),
+    newsActive: require('./newsActive.png'),
     profileActive: require('./akunActive.png'),
     promoActive: require('./promoActive.png'),
     greenAddButton: require('./greenAddButton.png'),
     minusButton: require('./minusButton.png'),
     check: require('./check.png'),
+    perjalananActive: require('./perjalananActive.png'),
 
     locationPin: require('./locationPin.png'),
     star: require('./star.png'),
@@ -42,7 +43,8 @@ const ICONS = {
     miceIcon: require('./miceIcon.png'),
     stasiunIcon: require('./stasiunIcon.png'),
     lainnyaIcon: require('./lainnyaIcon.png'),
-
+    twitter: require('./twitter.png'),
+    facebook: require('./facebook.png'),
 }
 
 export default ICONS
