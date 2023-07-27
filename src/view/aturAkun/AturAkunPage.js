@@ -12,14 +12,21 @@ export default function AturAkunPage({navigation}) {
     <SafeAreaView>
       <View style={styles.container}>
         <AturAkunCard
-          Icon={ICONS.connect}
+          action={() => navigation.navigate('HubungkanAkunPage')}
+          iconWidth={31}
+          iconHeight={15}
+          LeftIcon={ICONS.connect}
+          RightIcon={ICONS.caret}
           CardTitle={'Hubungkan Akun'}
           CardDescription={'Hubungkan akun mu supaya lebih aman'}
         />
         <View style={styles.line}></View>
         <AturAkunCard
           action={() => setModal(true)}
-          Icon={ICONS.logOut}
+          iconWidth={25}
+          iconHeight={25}
+          LeftIcon={ICONS.logOut}
+          RightIcon={ICONS.caret}
           CardTitle={'Keluar'}
           CardDescription={
             'Kamu akan keluar dari akun dan kembali ke halaman login'
@@ -27,7 +34,11 @@ export default function AturAkunPage({navigation}) {
         />
         <View style={styles.line}></View>
         <AturAkunCard
-          Icon={ICONS.trashCan}
+          action={() => navigation.navigate('HapusAkunPage')}
+          iconWidth={25}
+          iconHeight={27}
+          LeftIcon={ICONS.trashCan}
+          RightIcon={ICONS.caret}
           CardTitle={'Hapus Akun'}
           CardDescription={
             'Seluruh informasi akun akan dihapus secara permanen'
@@ -43,8 +54,7 @@ export default function AturAkunPage({navigation}) {
             </Text>
             <View style={styles.buttonWrapper}>
               <View style={[styles.box, styles.nantiDuluWrapper]}>
-                <TouchableOpacity
-                  onPress={() => setModal(false)}>
+                <TouchableOpacity onPress={() => setModal(false)}>
                   <Text style={[styles.buttonText, styles.nantiDuluText]}>
                     Nanti dulu
                   </Text>

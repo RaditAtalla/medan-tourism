@@ -19,6 +19,8 @@ import TransportMetrodeliPage from '../view/transport/TransportMetrodeliPage';
 import TransportKoridorPage from '../view/transport/TransportKoridorPage';
 import NotifikasiPage from '../view/notifikasi/NotifikasiPage';
 import AturAkunPage from '../view/aturAkun/AturAkunPage';
+import HubungkanAkunPage from '../view/aturAkun/HubungkanAkunPage';
+import HapusAkunPage from '../view/aturAkun/HapusAkunPage';
 
 const HomeTabStack = createBottomTabNavigator();
 const HomeNavStack = createNativeStackNavigator();
@@ -50,6 +52,16 @@ export const HomeNavStackScreen = () => {
         name="AturAkunPage"
         component={AturAkunPage}
         options={{title: 'Atur Akun', headerShadowVisible: false}}
+      />
+      <HomeNavStack.Screen
+        name="HubungkanAkunPage"
+        component={HubungkanAkunPage}
+        options={{title: 'Hubungkan Akun', headerShadowVisible: false}}
+      />
+      <HomeNavStack.Screen
+        name="HapusAkunPage"
+        component={HapusAkunPage}
+        options={{title: 'Hapus Permanen Akun', headerShadowVisible: false}}
       />
     </HomeNavStack.Navigator>
   );

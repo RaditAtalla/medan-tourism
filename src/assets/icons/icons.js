@@ -12,6 +12,9 @@ const ICONS = {
     perjalananActive: require('./perjalananActive.png'),
     profileActive: require('./akunActive.png'),
     promoActive: require('./promoActive.png'),
+    greenAddButton: require('./greenAddButton.png'),
+    minusButton: require('./minusButton.png'),
+    check: require('./check.png'),
 
     locationPin: require('./locationPin.png'),
     star: require('./star.png'),

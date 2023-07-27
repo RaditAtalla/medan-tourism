@@ -1,8 +1,7 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import COLORS from '../../theme/colors';
-import ICONS from '../../assets/icons/icons';
 
-export default function AturAkunCard({action, Icon, CardTitle, CardDescription}) {
+export default function AturAkunCard({action, iconWidth, iconHeight, LeftIcon, CardTitle, CardDescription, RightIcon}) {
   const styles = StyleSheet.create({
     container: {
       width: '100%',
@@ -36,14 +35,14 @@ export default function AturAkunCard({action, Icon, CardTitle, CardDescription})
   return (
     <TouchableOpacity onPress={action} style={styles.card}>
       <View style={styles.connectIconWrapper}>
-        <Image style={styles.connectIcon} source={Icon} />
+        <Image style={{width: iconWidth, height: iconHeight}} source={LeftIcon} />
       </View>
       <View>
         <Text style={styles.cardTitle}>{CardTitle}</Text>
         <Text style={styles.cardDescription}>{CardDescription}</Text>
       </View>
       <View style={styles.caretWrapper}>
-        <Image source={ICONS.caret} />
+        <Image source={RightIcon} />
       </View>
     </TouchableOpacity>
   );
