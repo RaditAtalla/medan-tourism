@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 import { horizontalScale, verticalScale, moderateScale } from '../theme/responsive'
 import COLORS from '../theme/colors'
 
@@ -9,6 +9,7 @@ const Styles = StyleSheet.create({
   },
   headerContainer: {
     flex: 1,
+    height: "33%",
     paddingHorizontal: horizontalScale(24),
     paddingTop: verticalScale(54),
     gap: verticalScale(20),
@@ -19,7 +20,7 @@ const Styles = StyleSheet.create({
     objectFit: 'cover',
     position: 'absolute',
     right: 52,
-    bottom: 0,
+    bottom: verticalScale(-50),
   },
   headerButtons: {
     flexDirection: 'row',
@@ -47,10 +48,13 @@ const Styles = StyleSheet.create({
     color: COLORS.white
   },
   contentContainer: {
-    flex: 2,
+    flex: 1,
+    height: Dimensions.get('window').height,
     backgroundColor: COLORS.white,
     borderTopStartRadius: 50,
     borderTopEndRadius: 50,
+    position: 'relative',
+    top: 40,
   }
 })
 
