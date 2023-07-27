@@ -16,6 +16,54 @@ const StarDisplayDetail = ({ rating, raters }) => {
                 <Text style={{ color: COLORS.black3, fontSize: moderateScale(10), fontWeight: '500' }}>({raters})</Text>
             </View>
         )
+    } else if(rating == 2){
+        return(
+            <View style={{ flexDirection: 'row', gap: 4, alignItems: 'center', }}>
+                <Text style={{ color: COLORS.black3, fontSize: moderateScale(10), fontWeight: '500' }}>{rating}</Text>
+                <Image source={ICONS.star} />
+                <Image source={ICONS.star} />
+                <Image source={ICONS.starEmpty} />
+                <Image source={ICONS.starEmpty} />
+                <Image source={ICONS.starEmpty} />
+                <Text style={{ color: COLORS.black3, fontSize: moderateScale(10), fontWeight: '500' }}>({raters})</Text>
+            </View>
+        )
+    } else if(rating == 3){
+        return(
+            <View style={{ flexDirection: 'row', gap: 4, alignItems: 'center', }}>
+                <Text style={{ color: COLORS.black3, fontSize: moderateScale(10), fontWeight: '500' }}>{rating}</Text>
+                <Image source={ICONS.star} />
+                <Image source={ICONS.star} />
+                <Image source={ICONS.star} />
+                <Image source={ICONS.starEmpty} />
+                <Image source={ICONS.starEmpty} />
+                <Text style={{ color: COLORS.black3, fontSize: moderateScale(10), fontWeight: '500' }}>({raters})</Text>
+            </View>
+        )
+    } else if(rating == 4){
+        return(
+            <View style={{ flexDirection: 'row', gap: 4, alignItems: 'center', }}>
+                <Text style={{ color: COLORS.black3, fontSize: moderateScale(10), fontWeight: '500' }}>{rating}</Text>
+                <Image source={ICONS.star} />
+                <Image source={ICONS.star} />
+                <Image source={ICONS.star} />
+                <Image source={ICONS.star} />
+                <Image source={ICONS.starEmpty} />
+                <Text style={{ color: COLORS.black3, fontSize: moderateScale(10), fontWeight: '500' }}>({raters})</Text>
+            </View>
+        )
+    } else if(rating == 5){
+        return(
+            <View style={{ flexDirection: 'row', gap: 4, alignItems: 'center', }}>
+                <Text style={{ color: COLORS.black3, fontSize: moderateScale(10), fontWeight: '500' }}>{rating}</Text>
+                <Image source={ICONS.star} />
+                <Image source={ICONS.star} />
+                <Image source={ICONS.star} />
+                <Image source={ICONS.star} />
+                <Image source={ICONS.star} />
+                <Text style={{ color: COLORS.black3, fontSize: moderateScale(10), fontWeight: '500' }}>({raters})</Text>
+            </View>
+        )
     }
 }
 
