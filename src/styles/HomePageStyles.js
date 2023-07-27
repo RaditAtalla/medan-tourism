@@ -8,10 +8,10 @@ const Styles = StyleSheet.create({
     backgroundColor: COLORS.purple,
   },
   headerContainer: {
-    flex: 1,
-    height: "33%",
+    // flex: 2,
+    // height: "33%",
     paddingHorizontal: horizontalScale(24),
-    paddingTop: verticalScale(54),
+    paddingTop: verticalScale(74),
     gap: verticalScale(20),
   },
   background: {
@@ -48,13 +48,30 @@ const Styles = StyleSheet.create({
     color: COLORS.white
   },
   contentContainer: {
-    flex: 1,
-    height: Dimensions.get('window').height,
+    // flex: 1,
+    // height: Dimensions.get('window').height,
     backgroundColor: COLORS.white,
     borderTopStartRadius: 50,
     borderTopEndRadius: 50,
     position: 'relative',
     top: 40,
+    paddingVertical: verticalScale(51),
+    paddingHorizontal: horizontalScale(30),
+    gap: verticalScale(48),
+  },
+  menuContainer: {
+    flexWrap: 'wrap',
+    columnGap: horizontalScale(40),
+    rowGap: verticalScale(32),
+    flexDirection: 'row',
+  },
+  sectionTitle: {
+    fontFamily: 'Poppins-Bold',
+    fontSize: moderateScale(20),
+    color: COLORS.black4,
+  },
+  eventContainer: {
+    gap: verticalScale(16),
   }
 })
 

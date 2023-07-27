@@ -29,7 +29,16 @@ const ICONS = {
     logOut: require('./logOut.png'),
     danger: require('./danger.png'),
     perjalananCircle: require('./perjalananCircle.png'),
-    notif: require('./notif.png')
+    notif: require('./notif.png'),
+
+    travelIcon: require('./travelIcon.png'),
+    hotelIcon: require('./hotelIcon.png'),
+    transportIcon: require('./transportIcon.png'),
+    rekreasiIcon: require('./rekreasiIcon.png'),
+    layananIcon: require('./layananIcon.png'),
+    miceIcon: require('./miceIcon.png'),
+    stasiunIcon: require('./stasiunIcon.png'),
+    lainnyaIcon: require('./lainnyaIcon.png'),
 
 }
 

@@ -10,6 +10,8 @@ import {
 import COLORS from '../../theme/colors';
 import Styles from '../../styles/HomePageStyles';
 import ICONS from '../../assets/icons/icons';
+import MenuButton from '../../components/atoms/MenuButton';
+import EventCarousel from '../../components/atoms/EventCarousel';
 
 const HomePage = ({navigation}) => {
   return (
@@ -33,10 +35,26 @@ const HomePage = ({navigation}) => {
           </View>
         </View>
         <View style={Styles.contentContainer}>
-          <View style={Styles.menuContainer}></View>
-          <View style={Styles.eventContainer}></View>
-          <View style={Styles.twitterContainer}></View>
-          <View style={Styles.facebookContainer}></View>
+          <View style={Styles.menuContainer}>
+            <MenuButton icon={ICONS.travelIcon} label='Travel' action={() => navigation.navigate('TravelPage')} />
+            <MenuButton icon={ICONS.hotelIcon} label='Hotel' action={() => navigation.navigate('HotelPage')} />
+            <MenuButton icon={ICONS.transportIcon} label='Transport' action={() => navigation.navigate('TransportPage')} />
+            <MenuButton icon={ICONS.rekreasiIcon} label='Rekreasi' action={() => navigation.navigate('RekreasiPage')} />
+            <MenuButton icon={ICONS.layananIcon} label='Layanan' action={() => navigation.navigate('LayananPage')} />
+            <MenuButton icon={ICONS.miceIcon} label='M I C E' action={() => navigation.navigate('MicePage')} />
+            <MenuButton icon={ICONS.stasiunIcon} label='Stasiun' action={() => navigation.navigate('StasiunPage')} />
+            <MenuButton icon={ICONS.lainnyaIcon} label='Lainnya' action={() => navigation.navigate('LainnyaPage')} />
+          </View>
+          <View style={Styles.eventContainer}>
+            <Text style={Styles.sectionTitle}>Event</Text>
+            <EventCarousel />
+          </View>
+          <View style={Styles.twitterContainer}>
+          <Text>tes</Text>
+          </View>
+          <View style={Styles.facebookContainer}>
+          <Text>tes</Text>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
