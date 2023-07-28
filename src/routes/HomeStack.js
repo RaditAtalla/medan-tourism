@@ -8,7 +8,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import HomePage from '../view/home/HomePage';
 import SearchPage from '../view/search/SearchPage';
-import PerjalananPage from '../view/perjalanan/PerjalananPage';
+import AktifitasPage from '../view/aktifitas/AktifitasPage';
 import ProfilePage from '../view/profile/ProfilePage';
 import BeritaDanEventPage from '../view/beritaDanEvent/beritaDanEventPage';
 import BeritaDanEventPageMedanTourismEvent from '../view/beritaDanEvent/beritaDanEventMedanTourismEvent';
@@ -25,6 +25,7 @@ import HubungkanAkunPage from '../view/aturAkun/HubungkanAkunPage';
 import HapusAkunPage from '../view/aturAkun/HapusAkunPage';
 import { horizontalScale, moderateScale, verticalScale } from '../theme/responsive';
 import LainnyaPage from '../view/lainnya/LainnyaPage';
+import DisimpanPage from '../view/aktifitas/DisimpanPage'
 
 const HomeTabStack = createBottomTabNavigator();
 const HomeNavStack = createNativeStackNavigator();
@@ -87,6 +88,11 @@ export const HomeNavStackScreen = () => {
         component={BeritaDanEventPageMedanTourismBerita}
         options={{title: 'Lihat semua', headerShadowVisible: false}}
       />
+      <HomeNavStack.Screen
+        name="DisimpanPage"
+        component={DisimpanPage}
+        options={{title: 'Disimpan', headerShadowVisible: false}}
+      />
     </HomeNavStack.Navigator>
   );
 };
@@ -102,7 +108,7 @@ const HomeStackScreen = () => {
             iconName = focused ? ICONS.homeActive : ICONS.home;
           } else if (route.name === 'SearchPage') {
             iconName = focused ? ICONS.searchActive : ICONS.search;
-          } else if (route.name === 'PerjalananPage') {
+          } else if (route.name === 'AktifitasPage') {
             iconName = focused ? ICONS.perjalananActive : ICONS.perjalanan;
           } else if (route.name === 'BeritaDanEventPage') {
             iconName = focused ? ICONS.newsActive : ICONS.news;
@@ -137,10 +143,15 @@ const HomeStackScreen = () => {
             }}
             />
             <HomeTabStack.Screen
-            name="PerjalananPage"
-            component={PerjalananPage}
+            name="AktifitasPage"
+            component={AktifitasPage}
             options={{
-                headerShown: false,
+                title: 'Aktivitas',
+                headerTitleStyle: {
+                  fontFamily: 'Poppins-Bold',
+                  fontSize: moderateScale(20),
+                  color: COLORS.black4,
+                },
             }}
             />
             <HomeTabStack.Screen

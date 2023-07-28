@@ -60,6 +60,9 @@ const ICONS = {
     maimun: require('./maimun.png'),
     masjidRaya: require('./masjidRaya.png'),
     gedungLondon: require('./gedungLondon.png'),
+    nextLine: require('./nextLine.png'),
+    save: require('./save.png'),
+    globe: require('./globe.png'),
 }
 
 export default ICONS
