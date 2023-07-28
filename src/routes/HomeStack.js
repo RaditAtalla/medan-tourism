@@ -71,6 +71,7 @@ export const HomeNavStackScreen = () => {
         name="LainnyaPage"
         component={LainnyaPage}
         options={{title: 'Lainnya', headerShadowVisible: false, headerTitleStyle:{ fontSize: moderateScale(20), fontFamily: 'Poppins-Bold' }}}
+      />
       <HomeNavStack.Screen
         name="BeritaDanEventPage"
         component={BeritaDanEventPage}
