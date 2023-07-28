@@ -20,6 +20,15 @@ const IMAGES = {
     redHalte: require('./RedHalte.png'),
     blueHalte: require('./BlueHalte.png'),
     poster: require('./poster.png'),
+
+    news1: require('./news1.png'),
+    news2: require('./news2.png'),
+    news3: require('./news3.png'),
+    news4: require('./news4.png'),
+    event1: require('./secondEvent1.png'),
+    event2: require('./secondEvent2.png'),
+    event3: require('./secondEvent3.png'),
+    event4: require('./secondEvent4.png'),
 }
 
 export default IMAGES;

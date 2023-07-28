@@ -1,11 +1,11 @@
 import React from 'react'
-import { View, Text, Dimensions, Image, ImageBackground } from "react-native"
+import { View, Text, Dimensions, Image, ImageBackground, StyleSheet } from "react-native"
 import Carousel, { Pagination } from 'react-native-snap-carousel'
 import { verticalScale, horizontalScale } from '../../theme/responsive'
 import COLORS from '../../theme/colors'
 import ICONS from '../../assets/icons/icons'
 
-const SLIDER_WIDTH = Dimensions.get('window').width
+const SLIDER_WIDTH = Dimensions.get('window').width 
 const ITEM_WIDTH = horizontalScale(298)
 const ITEM_HEIGHT = verticalScale(173)
 
@@ -75,7 +75,7 @@ const CarouselTempatWisata = () => {
     const [index, setIndex] = React.useState(0)
 
     return (
-        <View>
+        <View style={{marginTop: 32}}>
             <Carousel
             layout="default"
             ref={isCarousel}

@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import COLORS from '../../theme/colors';
 import Styles from '../../styles/HomePageStyles';
 import ICONS from '../../assets/icons/icons';
 import MenuButton from '../../components/atoms/MenuButton';

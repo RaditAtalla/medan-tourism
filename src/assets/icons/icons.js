@@ -4,6 +4,7 @@ const ICONS = {
     aturAkun: require('./aturAkun.png'),
     home: require('./home.png'),
     search: require('./cari.png'),
+    search2: require('./search2.png'),
     news: require('./news.png'),
     profile: require('./akun.png'),
     promo: require('./promo.png'),
