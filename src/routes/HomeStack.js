@@ -23,7 +23,8 @@ import NotifikasiPage from '../view/notifikasi/NotifikasiPage';
 import AturAkunPage from '../view/aturAkun/AturAkunPage';
 import HubungkanAkunPage from '../view/aturAkun/HubungkanAkunPage';
 import HapusAkunPage from '../view/aturAkun/HapusAkunPage';
-import {horizontalScale, verticalScale} from '../theme/responsive';
+import { horizontalScale, moderateScale, verticalScale } from '../theme/responsive';
+import LainnyaPage from '../view/lainnya/LainnyaPage';
 
 const HomeTabStack = createBottomTabNavigator();
 const HomeNavStack = createNativeStackNavigator();
@@ -67,6 +68,10 @@ export const HomeNavStackScreen = () => {
         options={{title: 'Hapus Permanen Akun', headerShadowVisible: false}}
       />
       <HomeNavStack.Screen
+        name="LainnyaPage"
+        component={LainnyaPage}
+        options={{title: 'Lainnya', headerShadowVisible: false, headerTitleStyle:{ fontSize: moderateScale(20), fontFamily: 'Poppins-Bold' }}}
+      <HomeNavStack.Screen
         name="BeritaDanEventPage"
         component={BeritaDanEventPage}
         options={{title: 'Berita & Event', headerShadowVisible: false}}
@@ -103,61 +108,65 @@ const HomeStackScreen = () => {
           } else if (route.name === 'ProfilePage') {
             iconName = focused ? ICONS.profileActive : ICONS.profile;
           }
-          return (
-            <Image
-              source={iconName}
-              style={{width: horizontalScale(30), height: verticalScale(30)}}
+            return <Image source={iconName} style={{ width: horizontalScale(30), height: verticalScale(30)}}  />;
+            },
+            tabBarActiveTintColor: COLORS.blue,
+            tabBarInactiveTintColor: 'gray',
+            tabBarShowLabel: false,
+            tabBarStyle: {
+                // paddingVertical: 13,
+                paddingHorizontal: 26,
+                height: 69,
+                elevation: 0,
+            },
+            })}
+        >
+            <HomeTabStack.Screen
+            name="HomePage"
+            component={HomePage}
+            options={{
+                headerShown: false,
+            }}
             />
-          );
-        },
-        tabBarActiveTintColor: COLORS.blue,
-        tabBarInactiveTintColor: 'gray',
-        tabBarShowLabel: false,
-        tabBarStyle: {
-          // paddingVertical: 13,
-          paddingHorizontal: 26,
-          height: 69,
-        },
-      })}>
-      <HomeTabStack.Screen
-        name="HomePage"
-        component={HomePage}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <HomeTabStack.Screen
-        name="SearchPage"
-        component={SearchPage}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <HomeTabStack.Screen
-        name="PerjalananPage"
-        component={PerjalananPage}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <HomeTabStack.Screen
-        name="BeritaDanEventPage"
-        component={BeritaDanEventPage}
-        options={{
-          headerTitleStyle: {
-            fontFamily: 'Poppins-Bold'
-          },
-          title: 'Berita & Event',
-          headerShown: true,
-        }}
-      />
-      <HomeTabStack.Screen
-        name="ProfilePage"
-        component={ProfilePage}
-        options={{
-          headerShown: false,
-        }}
-      />
+            <HomeTabStack.Screen
+            name="SearchPage"
+            component={SearchPage}
+            options={{
+                headerShown: false,
+            }}
+            />
+            <HomeTabStack.Screen
+            name="PerjalananPage"
+            component={PerjalananPage}
+            options={{
+                headerShown: false,
+            }}
+            />
+            <HomeTabStack.Screen
+            name="PromoPage"
+            component={PromoPage}
+            options={{
+                headerShown: false,
+            }}
+            />
+            <HomeTabStack.Screen
+              name="BeritaDanEventPage"
+              component={BeritaDanEventPage}
+              options={{
+                headerTitleStyle: {
+                  fontFamily: 'Poppins-Bold'
+                },
+                title: 'Berita & Event',
+                headerShown: true,
+              }}
+            />
+            <HomeTabStack.Screen
+              name="ProfilePage"
+              component={ProfilePage}
+              options={{
+                headerShown: false,
+              }}
+            />
     </HomeTabStack.Navigator>
   );
 };

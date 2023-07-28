@@ -11,12 +11,14 @@ export default function NotifikasiPage() {
       status: 'Transaksi berhasil',
       informasi:
         'Pembayaran hotel Aryaduta Medan sebesar IDR555,000 berhasil terkirim',
+      id: 1,
     },
     {
       date: '13 Jul 2023',
       status: 'Transaksi gagal',
       informasi:
         'Pembayaran hotel Aryaduta Medan sebesar IDR555,000 gagal di kirim',
+      id: 2,
     },
   ];
 

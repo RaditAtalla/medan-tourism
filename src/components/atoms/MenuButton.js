@@ -22,6 +22,7 @@ const Styles = StyleSheet.create({
     icon: {
         width: horizontalScale(60),
         height: verticalScale(60),
+        objectFit: 'contain',
     }
 })
 

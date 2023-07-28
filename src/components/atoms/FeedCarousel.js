@@ -58,7 +58,7 @@ const Styles = StyleSheet.create({
   },
 })
 
-const TweetCardCarousel = () => {
+const FeedCarousel = () => {
   return(
     <FlatList
       data={DATA}
@@ -73,4 +73,4 @@ const TweetCardCarousel = () => {
   )
 }
 
-export default TweetCardCarousel
+export default FeedCarousel
