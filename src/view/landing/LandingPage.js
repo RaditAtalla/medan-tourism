@@ -3,9 +3,9 @@ import COLORS from '../../theme/colors';
 
 const LandingPage = ({ navigation }) => {
     setTimeout(() => {
-        navigation.navigate('OnBoardingPage')
-    }, 2000)
-    
+        navigation.navigate('TransitionPage')
+    }, 1000)
+
     return (
         <View
         style={{
