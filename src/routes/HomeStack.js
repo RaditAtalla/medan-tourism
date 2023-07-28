@@ -26,6 +26,7 @@ import HapusAkunPage from '../view/aturAkun/HapusAkunPage';
 import { horizontalScale, moderateScale, verticalScale } from '../theme/responsive';
 import LainnyaPage from '../view/lainnya/LainnyaPage';
 import DisimpanPage from '../view/aktifitas/DisimpanPage'
+import LayananPage from '../view/layanan/LayananPage';
 
 const HomeTabStack = createBottomTabNavigator();
 const HomeNavStack = createNativeStackNavigator();
@@ -92,6 +93,11 @@ export const HomeNavStackScreen = () => {
         name="DisimpanPage"
         component={DisimpanPage}
         options={{title: 'Disimpan', headerShadowVisible: false, headerTitleStyle: { color: COLORS.black4, fontSize: moderateScale(20), fontFamily: 'Poppins-Bold' }}}
+      />
+      <HomeNavStack.Screen
+        name="LayananPage"
+        component={LayananPage}
+        options={{title: 'Layanan', headerShadowVisible: false, headerTitleStyle: { color: COLORS.black4, fontSize: moderateScale(20), fontFamily: 'Poppins-Bold' }}}
       />
     </HomeNavStack.Navigator>
   );

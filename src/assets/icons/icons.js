@@ -63,7 +63,15 @@ const ICONS = {
     nextLine: require('./nextLine.png'),
     save: require('./save.png'),
     globe: require('./globe.png'),
-    saveCircle: require('./saveCircle.png')
+    saveCircle: require('./saveCircle.png'),
+    pmi: require('./pmi.png'),
+    polisi: require('./polisi.png'),
+    poskoBencanaAlam: require('./poskoBencanaAlam.png'),
+    poskoKomandoMedan: require('./poskoKomandoMedan.png'),
+    sar: require('./sar.png'),
+    pln: require('./pln.png'),
+    ambulans: require('./ambulans.png'),
+    pemadamKebakaran: require('./pemadamKebakaran.png')
 }
 
 export default ICONS

@@ -72,7 +72,7 @@ const HomePage = ({navigation}) => {
             <MenuButton
               icon={ICONS.layananIcon}
               label="Layanan"
-              action={() => navigation.navigate('LayananPage')}
+              action={() => navigation.navigate('HomeNavStackScreen', {screen: 'LayananPage'})}
             />
             <MenuButton
               icon={ICONS.miceIcon}
