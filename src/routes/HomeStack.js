@@ -21,7 +21,8 @@ import NotifikasiPage from '../view/notifikasi/NotifikasiPage';
 import AturAkunPage from '../view/aturAkun/AturAkunPage';
 import HubungkanAkunPage from '../view/aturAkun/HubungkanAkunPage';
 import HapusAkunPage from '../view/aturAkun/HapusAkunPage';
-import { horizontalScale, verticalScale } from '../theme/responsive';
+import { horizontalScale, moderateScale, verticalScale } from '../theme/responsive';
+import LainnyaPage from '../view/lainnya/LainnyaPage';
 
 const HomeTabStack = createBottomTabNavigator();
 const HomeNavStack = createNativeStackNavigator();
@@ -64,6 +65,11 @@ export const HomeNavStackScreen = () => {
         component={HapusAkunPage}
         options={{title: 'Hapus Permanen Akun', headerShadowVisible: false}}
       />
+      <HomeNavStack.Screen
+        name="LainnyaPage"
+        component={LainnyaPage}
+        options={{title: 'Lainnya', headerShadowVisible: false, headerTitleStyle:{ fontSize: moderateScale(20), fontFamily: 'Poppins-Bold' }}}
+      />
     </HomeNavStack.Navigator>
   );
 };
@@ -95,6 +101,7 @@ const HomeStackScreen = () => {
                 // paddingVertical: 13,
                 paddingHorizontal: 26,
                 height: 69,
+                elevation: 0,
             },
             })}
         >

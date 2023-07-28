@@ -8,8 +8,6 @@ const Styles = StyleSheet.create({
     backgroundColor: COLORS.purple,
   },
   headerContainer: {
-    // flex: 2,
-    // height: "33%",
     paddingHorizontal: horizontalScale(24),
     paddingTop: verticalScale(74),
     gap: verticalScale(20),
@@ -48,15 +46,12 @@ const Styles = StyleSheet.create({
     color: COLORS.white
   },
   contentContainer: {
-    // flex: 1,
-    // height: Dimensions.get('window').height,
     backgroundColor: COLORS.gray5,
     borderTopStartRadius: 50,
     borderTopEndRadius: 50,
     position: 'relative',
     top: 40,
     paddingVertical: verticalScale(51),
-    // paddingHorizontal: horizontalScale(30),
     gap: verticalScale(48),
   },
   menuContainer: {
@@ -76,7 +71,7 @@ const Styles = StyleSheet.create({
   eventContainer: {
     gap: verticalScale(16),
   },
-  twitterTitle: {
+  feedTitle: {
     flexDirection: 'row',
     gap: horizontalScale(10),
     alignItems: 'center',
@@ -85,12 +80,11 @@ const Styles = StyleSheet.create({
     fontFamily: 'Poppins-Bold',
     paddingHorizontal: horizontalScale(24)
   },
-  twitterIcon: {
+  feedIcon: {
     height: horizontalScale(20),
   },
-  twitterContainer: {
+  feedContainer: {
     gap: verticalScale(16),
-    marginBottom: verticalScale(30)
   }
 })
 

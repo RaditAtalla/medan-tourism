@@ -12,7 +12,8 @@ import Styles from '../../styles/HomePageStyles';
 import ICONS from '../../assets/icons/icons';
 import MenuButton from '../../components/atoms/MenuButton';
 import EventCarousel from '../../components/atoms/EventCarousel';
-import TweetCardCarousel from '../../components/atoms/TweetCardCarousel';
+import FeedCarousel from '../../components/atoms/FeedCarousel';
+import { verticalScale } from '../../theme/responsive';
 
 const HomePage = ({navigation}) => {
   return (
@@ -86,19 +87,26 @@ const HomePage = ({navigation}) => {
             <MenuButton
               icon={ICONS.lainnyaIcon}
               label="Lainnya"
-              action={() => navigation.navigate('LainnyaPage')}
+              action={() => navigation.navigate('HomeNavStackScreen', {screen: 'LainnyaPage'})}
             />
           </View>
           <View style={Styles.eventContainer}>
             <Text style={Styles.sectionTitle}>Event</Text>
             <EventCarousel />
           </View>
-          <View style={Styles.twitterContainer}>
-            <View style={Styles.twitterTitle}>
-              <Image source={ICONS.twitter} style={Styles.twitterIcon} />
+          <View style={Styles.feedContainer}>
+            <View style={Styles.feedTitle}>
+              <Image source={ICONS.twitter} style={Styles.feedIcon} />
               <Text style={[Styles.sectionTitle, { paddingHorizontal: 0}]}>Cuitan Twitter</Text>
             </View>
-            <TweetCardCarousel />
+            <FeedCarousel />
+          </View>
+          <View style={[Styles.feedContainer, { marginBottom: verticalScale(78) }]}>
+            <View style={Styles.feedTitle}>
+              <Image source={ICONS.facebook} style={Styles.feedIcon} />
+              <Text style={[Styles.sectionTitle, { paddingHorizontal: 0}]}>Postingan Facebook</Text>
+            </View>
+            <FeedCarousel />
           </View>
         </View>
       </ScrollView>

@@ -1,11 +1,31 @@
-import { Text, View } from 'react-native'
+import {
+  Text,
+  View,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+  SafeAreaView,
+  StatusBar,
+} from 'react-native';
+import { AccordionWisataLainnya, AccordionKuliner, AccordionHeritage } from '../../components/atoms/Accordion';
+import Styles from '../../styles/LainnyaPageStyles'
+import ICONS from '../../assets/icons/icons';
 
 const LainnyaPage = () => {
-    return(
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', }}>
-            <Text>Lainnya Page</Text>
-        </View>
-    )
-}
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <StatusBar
+        barStyle="light-content"
+        translucent
+        backgroundColor="transparent"
+      />
+      <ScrollView style={Styles.container}>
+        <AccordionWisataLainnya title='Wisata Lainnya' />
+        <AccordionKuliner title='Kuliner' />
+        <AccordionHeritage title='Kuliner' />
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
 
-export default LainnyaPage
+export default LainnyaPage;

@@ -45,6 +45,20 @@ const ICONS = {
     lainnyaIcon: require('./lainnyaIcon.png'),
     twitter: require('./twitter.png'),
     facebook: require('./facebook.png'),
+    downArrow: require('./downArrow.png'),
+    belanjaIcon: require('./belanjaIcon.png'),
+    wisataIcon: require('./wisataIcon.png'),
+    hiburanIcon: require('./hiburanIcon.png'),
+    edukasiIcon: require('./edukasiIcon.png'),
+    khasMedan: require('./khasMedan.png'),
+    khasPadang: require('./khasPadang.png'),
+    khasAceh: require('./khasAceh.png'),
+    khasPalembang: require('./khasPalembang.png'),
+    khasJambi: require('./khasJambi.png'),
+    tjongAFie: require('./tjongAFie.png'),
+    maimun: require('./maimun.png'),
+    masjidRaya: require('./masjidRaya.png'),
+    gedungLondon: require('./gedungLondon.png'),
 }
 
 export default ICONS
