@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Dimensions, Image, ImageBackground, StyleSheet } from "react-native"
+import { View, Text, Dimensions, Image, ImageBackground, TouchableOpacity } from "react-native"
 import Carousel, { Pagination } from 'react-native-snap-carousel'
 import { verticalScale, horizontalScale } from '../../theme/responsive'
 import COLORS from '../../theme/colors'
@@ -26,7 +26,7 @@ const dataTempatWisata = [
 
 const TempatWisataCarouselCard = ({ image, label }) => {
     return(
-        <View style={{
+        <TouchableOpacity style={{
             position: 'relative',
             width: ITEM_WIDTH,
             height: ITEM_HEIGHT,
@@ -48,7 +48,7 @@ const TempatWisataCarouselCard = ({ image, label }) => {
                 <Image source={ICONS.locationPin} />
                 <Text style={{ color: COLORS.white, fontSize: 10, fontWeight: 500, }}>{label}</Text>
             </ImageBackground>
-        </View>
+        </TouchableOpacity>
     )
 }
 

@@ -91,7 +91,7 @@ export const HomeNavStackScreen = () => {
       <HomeNavStack.Screen
         name="DisimpanPage"
         component={DisimpanPage}
-        options={{title: 'Disimpan', headerShadowVisible: false}}
+        options={{title: 'Disimpan', headerShadowVisible: false, headerTitleStyle: { color: COLORS.black4, fontSize: moderateScale(20), fontFamily: 'Poppins-Bold' }}}
       />
     </HomeNavStack.Navigator>
   );

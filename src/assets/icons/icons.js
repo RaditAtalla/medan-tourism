@@ -63,6 +63,7 @@ const ICONS = {
     nextLine: require('./nextLine.png'),
     save: require('./save.png'),
     globe: require('./globe.png'),
+    saveCircle: require('./saveCircle.png')
 }
 
 export default ICONS
