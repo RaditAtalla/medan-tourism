@@ -41,19 +41,17 @@ const Styles = StyleSheet.create({
     },
     contentContainer: {
         paddingTop: verticalScale(32),
-        paddingLeft: horizontalScale(23),
-        paddingRight: horizontalScale(25),
         backgroundColor: COLORS.gray5,
         flex: 1,
+        gap: verticalScale(32)
     },
     sectionTitle: {
         fontSize: moderateScale(20),
-        fontWeight: '700',
+        fontFamily: 'Poppins-Bold',
         color: COLORS.black3,
     },
     sectionContainer: {
         gap: verticalScale(16),
-        marginBottom: verticalScale(32)
     },
     lihatSemua: {
         color: COLORS.blue,
@@ -62,6 +60,8 @@ const Styles = StyleSheet.create({
     sectionTitleContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
+        paddingLeft: horizontalScale(24),
+        paddingRight: horizontalScale(25),
     }
 })
 

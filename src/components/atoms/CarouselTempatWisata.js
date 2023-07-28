@@ -31,7 +31,7 @@ const TempatWisataCarouselCard = ({ image, label }) => {
             width: ITEM_WIDTH,
             height: ITEM_HEIGHT,
             borderRadius: 12,
-            paddingRight: horizontalScale(24),
+            paddingLeft: horizontalScale(25)
         }}>
             <Image source={image} style={{ width: '100%', height: '100%', borderRadius: 12,}} />
             <ImageBackground source={require('../../assets/img/backgroundBlur.png')} style={{
@@ -75,7 +75,7 @@ const CarouselTempatWisata = () => {
     const [index, setIndex] = React.useState(0)
 
     return (
-        <View style={{marginTop: 32}}>
+        <View>
             <Carousel
             layout="default"
             ref={isCarousel}

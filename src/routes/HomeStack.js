@@ -144,13 +144,6 @@ const HomeStackScreen = () => {
             }}
             />
             <HomeTabStack.Screen
-            name="PromoPage"
-            component={PromoPage}
-            options={{
-                headerShown: false,
-            }}
-            />
-            <HomeTabStack.Screen
               name="BeritaDanEventPage"
               component={BeritaDanEventPage}
               options={{

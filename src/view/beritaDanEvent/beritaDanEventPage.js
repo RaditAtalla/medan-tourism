@@ -13,7 +13,7 @@ import IMAGES from '../../assets/img/images';
 export default function BeritaDanEventPage({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.header}>
           <Text style={styles.title}>MedanTourism Event</Text>
           <TouchableOpacity

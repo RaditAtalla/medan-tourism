@@ -39,9 +39,11 @@ const SearchPage = ({navigation}) => {
           />
         </TouchableOpacity>
       </View>
-      <ScrollView style={Styles.contentContainer}>
+      <ScrollView style={Styles.contentContainer} showsVerticalScrollIndicator={false}>
         <View style={Styles.sectionContainer}>
-          <Text style={Styles.sectionTitle}>Tempat Wisata</Text>
+          <View style={Styles.sectionTitleContainer}>
+            <Text style={Styles.sectionTitle}>Tempat Wisata</Text>
+          </View>
           <CarouselTempatWisata />
         </View>
         <View style={Styles.sectionContainer}>

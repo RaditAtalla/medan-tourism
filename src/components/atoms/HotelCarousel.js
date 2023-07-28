@@ -31,7 +31,7 @@ const Item = ({ image, name, distance, rating, price }) => {
     return(
         <View style={{ width: horizontalScale(199), height: verticalScale(274), borderRadius: 16, marginRight: horizontalScale(24) }}>
             <Image source={image} style={{ width: horizontalScale(199), height: verticalScale(156), objectFit: 'cover', borderTopLeftRadius: 16, borderTopRightRadius: 16 }} />
-            <View style={{ paddingHorizontal: horizontalScale(12), paddingVertical: verticalScale(12), backgroundColor: COLORS.white, gap: 10, borderBottomRightRadius: 16, borderBottomLeftRadius: 16}}>
+            <View style={{ paddingHorizontal: horizontalScale(12), paddingVertical: verticalScale(12), backgroundColor: COLORS.white, gap: 10, borderBottomRightRadius: 16, borderBottomLeftRadius: 16, width: horizontalScale(199) }}>
                 <View style={{ gap: verticalScale(4) }}>
                     <Text style={{ color: COLORS.secondary, fontSize: moderateScale(10) }}>{distance}</Text>
                     <Text style={{ color: COLORS.black3, fontWeight: '500' }}>{name}</Text>
@@ -51,6 +51,9 @@ const HotelCarousel = () => {
             keyExtractor={item => item.name}
             horizontal={true}
             showsHorizontalScrollIndicator={false}
+            style={{
+                paddingLeft: horizontalScale(24)
+            }}
         />
     )
 }

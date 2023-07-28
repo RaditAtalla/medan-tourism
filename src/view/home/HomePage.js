@@ -22,7 +22,7 @@ const HomePage = ({navigation}) => {
         translucent
         backgroundColor="transparent"
       />
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={Styles.headerContainer}>
           <Image
             source={require('../../assets/img/homeBackground.png')}
