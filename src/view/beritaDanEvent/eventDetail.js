@@ -61,7 +61,7 @@ export default function BeritaDanEventPageMedanTourismEvent({navigation}) {
               Buat kamu warga Kota Medan yang punya hobi jalan-jalan dan
               mengabadikan moment perjalanannya lewat video, kamu bisa ikuti
               Medan Tourism Video Contest dan menangkan Hadiah total hingga Rp.
-              50.000.000.
+              50.000.000
               {'\n'}
               {'\n'}
               Medan Tourism Video Contest ini merupakan lomba kreasi video objek
