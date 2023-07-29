@@ -28,6 +28,8 @@ import LainnyaPage from '../view/lainnya/LainnyaPage';
 import DisimpanPage from '../view/aktifitas/DisimpanPage'
 import LayananPage from '../view/layanan/LayananPage';
 import MicePage from '../view/mice/MicePage';
+import GlobalStyles from '../styles/GlobalStyles';
+import MiceHeader from '../components/atoms/MiceHeader';
 
 const HomeTabStack = createBottomTabNavigator();
 const HomeNavStack = createNativeStackNavigator();
@@ -38,72 +40,72 @@ export const HomeNavStackScreen = () => {
       <HomeNavStack.Screen
         name="TransportPage"
         component={TransportPage}
-        options={{title: 'Transportasi', headerShadowVisible: false}}
+        options={{title: 'Transportasi', headerShadowVisible: false, headerTitleStyle: GlobalStyles.HeaderBarTItle}}
       />
       <HomeNavStack.Screen
         name="TransportMetrodeliPage"
         component={TransportMetrodeliPage}
-        options={{title: 'Bus Metrodeli', headerShadowVisible: false}}
+        options={{title: 'Bus Metrodeli', headerShadowVisible: false, headerTitleStyle: GlobalStyles.HeaderBarTItle}}
       />
       <HomeNavStack.Screen
         name="TransportKoridorPage"
         component={TransportKoridorPage}
-        options={{title: 'Koridor 1', headerShadowVisible: false}}
+        options={{title: 'Koridor 1', headerShadowVisible: false, headerTitleStyle: GlobalStyles.HeaderBarTItle}}
       />
       <HomeNavStack.Screen
         name="NotifikasiPage"
         component={NotifikasiPage}
-        options={{title: 'Notifikasi', headerShadowVisible: false}}
+        options={{title: 'Notifikasi', headerShadowVisible: false, headerTitleStyle: GlobalStyles.HeaderBarTItle}}
       />
       <HomeNavStack.Screen
         name="AturAkunPage"
         component={AturAkunPage}
-        options={{title: 'Atur Akun', headerShadowVisible: false}}
+        options={{title: 'Atur Akun', headerShadowVisible: false, headerTitleStyle: GlobalStyles.HeaderBarTItle}}
       />
       <HomeNavStack.Screen
         name="HubungkanAkunPage"
         component={HubungkanAkunPage}
-        options={{title: 'Hubungkan Akun', headerShadowVisible: false}}
+        options={{title: 'Hubungkan Akun', headerShadowVisible: false, headerTitleStyle: GlobalStyles.HeaderBarTItle}}
       />
       <HomeNavStack.Screen
         name="HapusAkunPage"
         component={HapusAkunPage}
-        options={{title: 'Hapus Permanen Akun', headerShadowVisible: false}}
+        options={{title: 'Hapus Permanen Akun', headerShadowVisible: false, headerTitleStyle: GlobalStyles.HeaderBarTItle}}
       />
       <HomeNavStack.Screen
         name="LainnyaPage"
         component={LainnyaPage}
-        options={{title: 'Lainnya', headerShadowVisible: false, headerTitleStyle:{ fontSize: moderateScale(20), fontFamily: 'Poppins-Bold' }}}
+        options={{title: 'Lainnya', headerShadowVisible: false, headerTitleStyle: GlobalStyles.HeaderBarTItle }}
       />
       <HomeNavStack.Screen
         name="BeritaDanEventPage"
         component={BeritaDanEventPage}
-        options={{title: 'Berita & Event', headerShadowVisible: false}}
+        options={{title: 'Berita & Event', headerShadowVisible: false, headerTitleStyle: GlobalStyles.HeaderBarTItle}}
       />
       <HomeNavStack.Screen
         name="BeritaDanEventPageMedanTourismEvent"
         component={BeritaDanEventPageMedanTourismEvent}
-        options={{title: 'Lihat semua', headerShadowVisible: false}}
+        options={{title: 'Lihat semua', headerShadowVisible: false, headerTitleStyle: GlobalStyles.HeaderBarTItle}}
       />
       <HomeNavStack.Screen
         name="BeritaDanEventPageMedanTourismBerita"
         component={BeritaDanEventPageMedanTourismBerita}
-        options={{title: 'Lihat semua', headerShadowVisible: false}}
+        options={{title: 'Lihat semua', headerShadowVisible: false, headerTitleStyle: GlobalStyles.HeaderBarTItle}}
       />
       <HomeNavStack.Screen
         name="DisimpanPage"
         component={DisimpanPage}
-        options={{title: 'Disimpan', headerShadowVisible: false, headerTitleStyle: { color: COLORS.black4, fontSize: moderateScale(20), fontFamily: 'Poppins-Bold' }}}
+        options={{title: 'Disimpan', headerShadowVisible: false, headerTitleStyle: GlobalStyles.HeaderBarTItle }}
       />
       <HomeNavStack.Screen
         name="LayananPage"
         component={LayananPage}
-        options={{title: 'Layanan', headerShadowVisible: false, headerTitleStyle: { color: COLORS.black4, fontSize: moderateScale(20), fontFamily: 'Poppins-Bold' }}}
+        options={{title: 'Layanan', headerShadowVisible: false, headerTitleStyle: GlobalStyles.HeaderBarTItle }}
       />
       <HomeNavStack.Screen
         name="MicePage"
         component={MicePage}
-        options={{title: 'M I C E', headerShadowVisible: false, headerTitleStyle: { color: COLORS.black4, fontSize: moderateScale(20), fontFamily: 'Poppins-Bold' }}}
+        options={{title: 'M I C E', headerShadowVisible: false, headerTitle: () => <MiceHeader title='M I C E' /> }}
       />
     </HomeNavStack.Navigator>
   );

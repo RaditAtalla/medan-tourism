@@ -1,4 +1,4 @@
-import { FlatList, Image, View } from 'react-native'
+import { FlatList, Image, TouchableOpacity } from 'react-native'
 import { horizontalScale, verticalScale } from '../../theme/responsive'
 
 const DATA = [
@@ -18,7 +18,9 @@ const DATA = [
 
 const Item = ({ image }) => {
     return(
-        <Image source={image} style={{ borderRadius: 12, width: horizontalScale(282), height: verticalScale(192), objectFit: 'cover', marginRight: horizontalScale(24) }} />
+        <TouchableOpacity>
+            <Image source={image} style={{ borderRadius: 12, width: horizontalScale(282), height: verticalScale(192), objectFit: 'cover', marginRight: horizontalScale(24) }} />
+        </TouchableOpacity>
     )
 }
 
