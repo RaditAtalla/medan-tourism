@@ -27,6 +27,7 @@ import { horizontalScale, moderateScale, verticalScale } from '../theme/responsi
 import LainnyaPage from '../view/lainnya/LainnyaPage';
 import DisimpanPage from '../view/aktifitas/DisimpanPage'
 import LayananPage from '../view/layanan/LayananPage';
+import MicePage from '../view/mice/MicePage';
 
 const HomeTabStack = createBottomTabNavigator();
 const HomeNavStack = createNativeStackNavigator();
@@ -98,6 +99,11 @@ export const HomeNavStackScreen = () => {
         name="LayananPage"
         component={LayananPage}
         options={{title: 'Layanan', headerShadowVisible: false, headerTitleStyle: { color: COLORS.black4, fontSize: moderateScale(20), fontFamily: 'Poppins-Bold' }}}
+      />
+      <HomeNavStack.Screen
+        name="MicePage"
+        component={MicePage}
+        options={{title: 'M I C E', headerShadowVisible: false, headerTitleStyle: { color: COLORS.black4, fontSize: moderateScale(20), fontFamily: 'Poppins-Bold' }}}
       />
     </HomeNavStack.Navigator>
   );
