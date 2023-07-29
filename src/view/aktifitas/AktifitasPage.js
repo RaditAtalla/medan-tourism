@@ -19,7 +19,7 @@ const AktifitasPage = ({ navigation }) => {
     />
     <View style={Styles.buttonContainer}>
       <AktifitasButton icon={ICONS.saveFill} label='Disimpan' action={() => navigation.navigate('HomeNavStackScreen', {screen: 'DisimpanPage'}) } />
-      <AktifitasButton icon={ICONS.globe} label='Terakhir Dilihat' />
+      <AktifitasButton icon={ICONS.globe} label='Terakhir Dilihat' action={() => navigation.navigate('HomeNavStackScreen', {screen: 'TerakhirDilihatPage'}) } />
     </View>
   </SafeAreaView>
 };

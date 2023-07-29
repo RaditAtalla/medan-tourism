@@ -35,6 +35,7 @@ import LayananPage from '../view/layanan/LayananPage';
 import MicePage from '../view/mice/MicePage';
 import GlobalStyles from '../styles/GlobalStyles';
 import MiceHeader from '../components/atoms/MiceHeader';
+import TerakhirDilihatPage from '../view/aktifitas/TerakhirDilihatPage';
 
 const HomeTabStack = createBottomTabNavigator();
 const HomeNavStack = createNativeStackNavigator();
@@ -116,6 +117,11 @@ export const HomeNavStackScreen = () => {
         name="MicePage"
         component={MicePage}
         options={{title: 'M I C E', headerShadowVisible: false, headerTitle: () => <MiceHeader title='M I C E' /> }}
+      />
+      <HomeNavStack.Screen
+        name="TerakhirDilihatPage"
+        component={TerakhirDilihatPage}
+        options={{title: 'Terakhir Dilihat', headerShadowVisible: false, headerTitleStyle: GlobalStyles.HeaderBarTItle }}
       />
     </HomeNavStack.Navigator>
   );
