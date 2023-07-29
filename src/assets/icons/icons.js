@@ -30,6 +30,7 @@ const ICONS = {
 
     connect: require('./connect.png'),
     caret: require('./caret.png'),
+    copy: require('./copy.png'),
     trashCan: require('./trachCan.png'),
     logOut: require('./logOut.png'),
     danger: require('./danger.png'),
