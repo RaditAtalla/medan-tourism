@@ -2,6 +2,10 @@ import {View, Text, Image, StatusBar} from 'react-native';
 import COLORS from '../../theme/colors';
 
 const LandingPage = ({ navigation }) => {
+    setTimeout(() => {
+        navigation.navigate('TransitionPage')
+    }, 1000)
+
     return (
         <View
         style={{
@@ -16,8 +20,8 @@ const LandingPage = ({ navigation }) => {
         <StatusBar barStyle={'dark-content'} backgroundColor={COLORS.white} />
             <Image source={require('../../assets/icons/plane.png')} />
             <View>
-                <Text style={{ fontSize: 40, fontWeight: 700, color: COLORS.black3 }} onPress={() => navigation.navigate('OnBoardingPage')}>Medan</Text>
-                <Text style={{ fontSize: 40, fontWeight: 700, color: COLORS.blue }} onPress={() => navigation.navigate('OnBoardingPage')}>Tourism</Text>
+                <Text style={{ fontSize: 40, fontWeight: 700, color: COLORS.black3 }}>Medan</Text>
+                <Text style={{ fontSize: 40, fontWeight: 700, color: COLORS.blue }}>Tourism</Text>
             </View>
         </View>
     );

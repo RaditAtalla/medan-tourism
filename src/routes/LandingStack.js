@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import LandingPage from '../view/landing/LandingPage';
 import OnBoardingPage from '../view/landing/OnBoardingPage';
+import TransitionPage from '../view/landing/TransitionPage';
 
 const LandingStack = createNativeStackNavigator()
 
@@ -12,6 +13,13 @@ const LandingStackScreen = () => {
             <LandingStack.Screen
             name="LandingPage"
             component={LandingPage}
+            options={{
+                headerShown: false,
+            }}
+            />
+            <LandingStack.Screen
+            name="TransitionPage"
+            component={TransitionPage}
             options={{
                 headerShown: false,
             }}

@@ -1,4 +1,4 @@
-import { Image, View, Text, FlatList } from 'react-native'
+import { Image, View, Text, FlatList, TouchableOpacity } from 'react-native'
 import COLORS from '../../theme/colors'
 import { verticalScale, horizontalScale, moderateScale } from '../../theme/responsive'
 import StarDisplay from './StarDisplay'
@@ -27,9 +27,9 @@ const DATA = [
     },
 ]
 
-const Item = ({ image, name, distance, rating, price }) => {
+const Item = ({ image, name, distance, rating, price, action }) => {
     return(
-        <View style={{ width: horizontalScale(199), height: verticalScale(274), borderRadius: 16, marginRight: horizontalScale(24) }}>
+        <TouchableOpacity style={{ width: horizontalScale(199), height: verticalScale(274), borderRadius: 16, marginRight: horizontalScale(24) }} onPress={action}>
             <Image source={image} style={{ width: horizontalScale(199), height: verticalScale(156), objectFit: 'cover', borderTopLeftRadius: 16, borderTopRightRadius: 16 }} />
             <View style={{ paddingHorizontal: horizontalScale(12), paddingVertical: verticalScale(12), backgroundColor: COLORS.white, gap: 10, borderBottomRightRadius: 16, borderBottomLeftRadius: 16, width: horizontalScale(199) }}>
                 <View style={{ gap: verticalScale(4) }}>
@@ -39,7 +39,7 @@ const Item = ({ image, name, distance, rating, price }) => {
                 </View>
                 <Text style={{ color: COLORS.black3, fontWeight: '500' }}>IDR {price}<Text style={{ fontSize: moderateScale(12), fontWeight: '400' }}>/malam</Text></Text>
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 
