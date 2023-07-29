@@ -20,8 +20,7 @@ const LandingPage = ({ navigation }) => {
         <StatusBar barStyle={'dark-content'} backgroundColor={COLORS.white} />
             <Image source={require('../../assets/icons/plane.png')} />
             <View>
-                <Text style={{ fontSize: 40, fontWeight: 700, color: COLORS.black3 }}>Medan</Text>
-                <Text style={{ fontSize: 40, fontWeight: 700, color: COLORS.blue }}>Tourism</Text>
+                <Text style={{ fontSize: 40, fontFamily: 'Poppins-Bold', color: COLORS.black3 }}>Medan{'\n'}<Text style={{ color: COLORS.blue }}>Tourism</Text></Text>
             </View>
         </View>
     );

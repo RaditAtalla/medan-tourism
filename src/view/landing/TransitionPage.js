@@ -5,7 +5,7 @@ import { moderateScale } from '../../theme/responsive'
 const TransitionPage = ({ navigation }) => {
     setTimeout(() => {
         navigation.navigate('OnBoardingPage')
-    }, 1000)
+    }, 500)
     return(
         <View style={{ flex: 1, backgroundColor: COLORS.white, alignItems: 'center', justifyContent: 'center', }}>
             <Text style={{ color: COLORS.black3, fontSize: moderateScale(40), fontFamily: 'Poppins-Bold' }}>Medan{'\n'}<Text style={{ color: COLORS.blue }}>Tourism</Text></Text>
