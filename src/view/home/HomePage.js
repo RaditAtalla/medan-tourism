@@ -62,7 +62,7 @@ const HomePage = ({navigation}) => {
             <MenuButton
               icon={ICONS.transportIcon}
               label="Transport"
-              action={() => navigation.navigate('TransportPage')}
+              action={() => navigation.navigate('HomeNavStackScreen', {screen: 'TransportPage'})}
             />
             <MenuButton
               icon={ICONS.rekreasiIcon}

@@ -1,4 +1,4 @@
-import {FlatList, View, Text, StyleSheet} from 'react-native';
+import {FlatList, View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import { horizontalScale, moderateScale, verticalScale } from '../../theme/responsive';
 import COLORS from '../../theme/colors';
 
@@ -17,13 +17,13 @@ const DATA = [
 
 const Item = ({ username, date, tweet }) => {
   return (
-    <View style={Styles.container}>
+    <TouchableOpacity style={Styles.container}>
       <View style={Styles.metaData}>
         <Text style={Styles.username}>@{username}</Text>
         <Text style={Styles.date}>{date}</Text>
       </View>
       <Text style={Styles.tweet}>{tweet}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

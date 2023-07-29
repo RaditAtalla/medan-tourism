@@ -33,19 +33,21 @@ const DATA = [
 
 const Item = ({image, name, distance, rating, navigation}) => {
   return (
-    <TouchableOpacity style={Styles.container} onPress={() => navigation.navigate(name + 'Page')}>
+    <View style={Styles.container} onPress={() => navigation.navigate(name)}>
       <ImageBackground
         source={image}
         style={Styles.thumbnail}
         imageStyle={{borderTopLeftRadius: 8, borderTopRightRadius: 8, }}>
-        <Image source={ICONS.saveCircle} style={Styles.saveButton} />
+        <TouchableOpacity>
+          <Image source={ICONS.saveCircle} style={Styles.saveButton} />
+        </TouchableOpacity>
       </ImageBackground>
-      <View style={Styles.metaData}>
+      <TouchableOpacity style={Styles.metaData}>
         <Text style={Styles.distance}>{distance}</Text>
         <Text style={Styles.name}>{name}</Text>
         <StarDisplay rating={rating} />
-      </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
+    </View>
   );
 };
 
