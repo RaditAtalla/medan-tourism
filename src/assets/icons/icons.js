@@ -71,7 +71,8 @@ const ICONS = {
     sar: require('./sar.png'),
     pln: require('./pln.png'),
     ambulans: require('./ambulans.png'),
-    pemadamKebakaran: require('./pemadamKebakaran.png')
+    pemadamKebakaran: require('./pemadamKebakaran.png'),
+    information: require('./information.png')
 }
 
 export default ICONS

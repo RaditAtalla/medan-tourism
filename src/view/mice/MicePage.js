@@ -10,8 +10,15 @@ import Styles from '../../styles/MicePageStyles';
 import MicePopulerCarousel from '../../components/atoms/MicePopulerCarousel';
 import MiceDekatCarousel from '../../components/atoms/MiceDekatCarousel';
 import IMAGES from '../../assets/img/images';
+import Modal from 'react-native-modal'
+import { useState } from 'react'
 
 const MicePage = () => {
+  const [isModalVisible, setModalVisible] = useState(false);
+
+  const toggleModal = () => {
+      setModalVisible(!isModalVisible);
+  };
   return (
     <SafeAreaView style={Styles.container}>
       <StatusBar
