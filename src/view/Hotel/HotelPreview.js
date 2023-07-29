@@ -1,4 +1,6 @@
 import { Text, View } from 'react-native'
+import Styles from '../../styles/HotelPreviewStyles'
+import { DATA } from '../../components/atoms/HotelCarousel'
 
 const HotelPreview = () => {
     return(

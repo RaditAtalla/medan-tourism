@@ -36,6 +36,7 @@ import MicePage from '../view/mice/MicePage';
 import GlobalStyles from '../styles/GlobalStyles';
 import MiceHeader from '../components/atoms/MiceHeader';
 import TerakhirDilihatPage from '../view/aktifitas/TerakhirDilihatPage';
+import HotelPreview from '../view/Hotel/HotelPreview';
 
 const HomeTabStack = createBottomTabNavigator();
 const HomeNavStack = createNativeStackNavigator();
@@ -122,6 +123,11 @@ export const HomeNavStackScreen = () => {
         name="TerakhirDilihatPage"
         component={TerakhirDilihatPage}
         options={{title: 'Terakhir Dilihat', headerShadowVisible: false, headerTitleStyle: GlobalStyles.HeaderBarTItle }}
+      />
+      <HomeNavStack.Screen
+        name="HotelPreview"
+        component={HotelPreview}
+        options={{ headerTitleStyle:{ display: 'none', }, headerTintColor: COLORS.white }}
       />
     </HomeNavStack.Navigator>
   );
