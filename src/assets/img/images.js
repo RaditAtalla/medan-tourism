@@ -29,6 +29,9 @@ const IMAGES = {
     event2: require('./secondEvent2.png'),
     event3: require('./secondEvent3.png'),
     event4: require('./secondEvent4.png'),
+
+    salin: require('./salin.png'),
+    wa: require('./wa.png')
 }
 
 export default IMAGES;
