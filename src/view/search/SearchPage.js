@@ -53,7 +53,7 @@ const SearchPage = ({navigation}) => {
               <Text style={Styles.lihatSemua}>Lihat semua</Text>
             </TouchableOpacity>
           </View>
-          <HotelCarousel />
+          <HotelCarousel action={() => navigation.navigate('HotelPreview')} />
         </View>
         <View
           style={[Styles.sectionContainer, {marginBottom: verticalScale(77)}]}>

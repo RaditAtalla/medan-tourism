@@ -9,13 +9,13 @@ import {
 } from 'react-native';
 import ICONS from '../../assets/icons/icons';
 import IMAGES from '../../assets/img/images';
-import Styles from '../../styles/DisimpanPageStyles';
+import Styles from '../../styles/TerakhirDilihatPageStyles';
 import HotelCarousel from '../../components/atoms/HotelCarousel';
 import EventDanBeritaCarousel from '../../components/atoms/EventDanBeritaCarousel';
 import TempatWisataDetailCarousel from '../../components/atoms/TempatWisataDetailCarousel';
 import { verticalScale } from '../../theme/responsive';
 
-const DisimpanPage = () => {
+const TerakhirDilihatPage = () => {
   return (
     <SafeAreaView style={Styles.container}>
       <StatusBar
@@ -56,4 +56,4 @@ const DisimpanPage = () => {
   );
 };
 
-export default DisimpanPage;
+export default TerakhirDilihatPage;

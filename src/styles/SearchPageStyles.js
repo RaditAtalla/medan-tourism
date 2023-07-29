@@ -62,7 +62,7 @@ const Styles = StyleSheet.create({
         justifyContent: 'space-between',
         paddingLeft: horizontalScale(24),
         paddingRight: horizontalScale(25),
-    }
+    },
 })
 
 export default Styles

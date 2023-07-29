@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   },
   dangerText: {
     fontSize: 20,
-    fontWeight: '600',
+    fontFamily: 'Poppins-SemiBold',
     color: COLORS.black4,
     textAlign: 'center',
     width: 236,
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 15,
-    fontWeight: '700',
+    fontFamily: 'Poppins-Bold',
     color: '#eb5757',
   },
   yaKeluarText: {

@@ -62,7 +62,7 @@ const HomePage = ({navigation}) => {
             <MenuButton
               icon={ICONS.transportIcon}
               label="Transport"
-              action={() => navigation.navigate('TransportPage')}
+              action={() => navigation.navigate('HomeNavStackScreen', {screen: 'TransportPage'})}
             />
             <MenuButton
               icon={ICONS.rekreasiIcon}
@@ -72,12 +72,12 @@ const HomePage = ({navigation}) => {
             <MenuButton
               icon={ICONS.layananIcon}
               label="Layanan"
-              action={() => navigation.navigate('LayananPage')}
+              action={() => navigation.navigate('HomeNavStackScreen', {screen: 'LayananPage'})}
             />
             <MenuButton
               icon={ICONS.miceIcon}
               label="M I C E"
-              action={() => navigation.navigate('MicePage')}
+              action={() => navigation.navigate('HomeNavStackScreen', {screen: 'MicePage'})}
             />
             <MenuButton
               icon={ICONS.stasiunIcon}

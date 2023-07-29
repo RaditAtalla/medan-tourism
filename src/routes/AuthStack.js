@@ -11,6 +11,7 @@ import UbahPasswordPage from '../view/auth/UbahPasswordPage';
 import DaftarPage from '../view/auth/DaftarPage';
 import DaftarNomorHpPage from '../view/auth/DaftarNomorHpPage';
 import VerifikasiHpPage from '../view/auth/VerfikasiHpPage';
+import GlobalStyles from '../styles/GlobalStyles';
 
 const AuthStack = createNativeStackNavigator()
 
@@ -23,12 +24,8 @@ const AuthStackScreen = () => {
             headerShadowVisible: false,
             headerTransparent: true,
             headerTitleAlign: 'center',
-            headerTitleStyle: {
-                color: 'white',
-                fontWeight: '700',
-                fontSize: moderateScale(24),
-            },
-            headerTintColor: 'white',
+            headerTitleStyle: GlobalStyles.AuthHeaderBarTitle,
+            headerTintColor: COLORS.white,
             }}
             />
             <AuthStack.Screen
@@ -39,12 +36,8 @@ const AuthStackScreen = () => {
                 headerShadowVisible: false,
                 headerTransparent: true,
                 headerTitleAlign: 'center',
-                headerTitleStyle: {
-                color: '#252525',
-                fontWeight: '700',
-                fontSize: moderateScale(24),
-                },
-                headerTintColor: '#252525',
+                headerTitleStyle: GlobalStyles.HeaderBarTItle,
+                headerTintColor: COLORS.black4,
             }}
             />
             <AuthStack.Screen
@@ -55,12 +48,8 @@ const AuthStackScreen = () => {
                 headerShadowVisible: false,
                 headerTransparent: true,
                 headerTitleAlign: 'center',
-                headerTitleStyle: {
-                color: '#252525',
-                fontWeight: '700',
-                fontSize: moderateScale(24),
-                },
-                headerTintColor: '#252525',
+                headerTitleStyle: GlobalStyles.HeaderBarTItle,
+                headerTintColor: COLORS.black4,
             }}
             />
             <AuthStack.Screen
@@ -71,11 +60,7 @@ const AuthStackScreen = () => {
                 headerShadowVisible: false,
                 headerTransparent: true,
                 headerTitleAlign: 'center',
-                headerTitleStyle: {
-                color: '#252525',
-                fontWeight: '700',
-                fontSize: moderateScale(24),
-                },
+                headerTitleStyle: GlobalStyles.HeaderBarTItle,
                 headerTintColor: '#252525',
             }}
             />
@@ -86,11 +71,7 @@ const AuthStackScreen = () => {
                 title: 'Verifikasi',
                 headerShadowVisible: false,
                 headerTitleAlign: 'center',
-                headerTitleStyle: {
-                color: '#252525',
-                fontWeight: '700',
-                fontSize: moderateScale(24),
-                },
+                headerTitleStyle: GlobalStyles.HeaderBarTItle,
                 headerTintColor: '#252525',
             }}
             />
@@ -101,11 +82,7 @@ const AuthStackScreen = () => {
                 title: 'Ubah Password',
                 headerShadowVisible: false,
                 headerTitleAlign: 'center',
-                headerTitleStyle: {
-                color: '#252525',
-                fontWeight: '700',
-                fontSize: moderateScale(24),
-                },
+                headerTitleStyle: GlobalStyles.HeaderBarTItle,
                 headerTintColor: '#252525',
             }}
             />
@@ -115,11 +92,7 @@ const AuthStackScreen = () => {
             headerShadowVisible: false,
             headerTransparent: true,
             headerTitleAlign: 'center',
-            headerTitleStyle: {
-                color: 'white',
-                fontWeight: '700',
-                fontSize: moderateScale(24),
-            },
+            headerTitleStyle: GlobalStyles.AuthHeaderBarTitle,
             headerTintColor: 'white',
             }}
             />
@@ -129,11 +102,7 @@ const AuthStackScreen = () => {
             headerShadowVisible: false,
             headerTransparent: true,
             headerTitleAlign: 'center',
-            headerTitleStyle: {
-                color: COLORS.black4,
-                fontWeight: '700',
-                fontSize: moderateScale(24),
-            },
+            headerTitleStyle: GlobalStyles.HeaderBarTItle,
             headerTintColor: COLORS.black4,
             }}
             />

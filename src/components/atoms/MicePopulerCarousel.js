@@ -9,22 +9,22 @@ const SLIDER_WIDTH = Dimensions.get('window').width
 const ITEM_WIDTH = horizontalScale(298)
 const ITEM_HEIGHT = verticalScale(173)
 
-const dataTempatWisata = [
+const DATA = [
     {
-        label: 'Danau Toba',
-        imgSrc: require("../../assets/img/danauToba.png"),
+        label: 'Medan International Convention Center',
+        imgSrc: require("../../assets/img/micc.png"),
     },
     {
-        label: 'Si Piso-Piso',
-        imgSrc: require("../../assets/img/sipisoPiso.png"),
+        label: 'Wisma Satya Bakti',
+        imgSrc: require("../../assets/img/wismaSatyaBakti.png"),
     },
     {
-        label: 'Bukit Holbung',
-        imgSrc: require("../../assets/img/bukitHolbung.png"),
+        label: 'RAZ Plaza Convection',
+        imgSrc: require("../../assets/img/razPlazaConvection.png"),
     },
 ];
 
-const TempatWisataCarouselCard = ({ image, label }) => {
+const MicePopulerCard = ({ image, label }) => {
     return(
         <TouchableOpacity style={{
             position: 'relative',
@@ -54,7 +54,7 @@ const TempatWisataCarouselCard = ({ image, label }) => {
 
 const CarouselCardItem = ({ item, index }) => {
     return (
-        <TempatWisataCarouselCard image={item.imgSrc} label={item.label} />
+        <MicePopulerCard image={item.imgSrc} label={item.label} />
     )
 }
 
@@ -70,7 +70,7 @@ const InactiveDot = () => {
     )
 }
 
-const CarouselTempatWisata = () => {
+const MicePopulerCarousel = () => {
     const isCarousel = React.useRef(null)
     const [index, setIndex] = React.useState(0)
 
@@ -79,7 +79,7 @@ const CarouselTempatWisata = () => {
             <Carousel
             layout="default"
             ref={isCarousel}
-            data={dataTempatWisata}
+            data={DATA}
             renderItem={CarouselCardItem}
             sliderWidth={SLIDER_WIDTH}
             itemWidth={ITEM_WIDTH}
@@ -91,7 +91,7 @@ const CarouselTempatWisata = () => {
             inactiveSlideScale={1}
             />
             <Pagination
-            dotsLength={dataTempatWisata.length}
+            dotsLength={DATA.length}
             activeDotIndex={index}
             carouselRef={isCarousel}
             dotStyle={{
@@ -110,4 +110,4 @@ const CarouselTempatWisata = () => {
         )
     }
 
-export default CarouselTempatWisata
+export default MicePopulerCarousel
