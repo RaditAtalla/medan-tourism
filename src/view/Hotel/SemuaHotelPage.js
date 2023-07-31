@@ -1,27 +1,13 @@
-import {
-  View,
-  SafeAreaView,
-  ScrollView,
-  Text,
-  Image,
-  TouchableOpacity,
-  StatusBar,
-} from 'react-native';
-import ICONS from '../../assets/icons/icons';
-import IMAGES from '../../assets/img/images';
-import Styles from '../../styles/TerakhirDilihatPageStyles';
-import HotelCarousel from '../../components/atoms/HotelCarousel';
-import EventDanBeritaCarousel from '../../components/atoms/EventDanBeritaCarousel';
-import TempatWisataDetailCarousel from '../../components/atoms/TempatWisataDetailCarousel';
-import { verticalScale } from '../../theme/responsive';
-import LihatSemuaButton from '../../components/atoms/LihatSemuaButton';
+import { SafeAreaView, ScrollView, StatusBar } from 'react-native'
+import Styles from '../../styles/SemuaHotelPageStyles'
+import { HotelCard, HOTELDATA } from '../../components/atoms/HotelCarousel'
 
 const SemuaHotelPage = () => {
-  return (
+  return(
     <SafeAreaView style={Styles.container}>
       <Text>Semua Hotel Page</Text>
     </SafeAreaView>
-  );
-};
+  )
+}
 
-export default SemuaHotelPage;
+export default SemuaHotelPage
