@@ -26,7 +26,7 @@ const DisimpanPage = () => {
       <ScrollView style={Styles.wrapper}>
         <View style={Styles.sectionContainer}>
           <View style={Styles.sectionTitleContainer}>
-            <Text style={Styles.sectionTitle}>Event & Berita</Text>
+            <Text style={Styles.sectionTitle}>Hotel</Text>
             <TouchableOpacity>
               <Text style={Styles.lihatSemua}>Lihat semua</Text>
             </TouchableOpacity>
@@ -35,7 +35,7 @@ const DisimpanPage = () => {
         </View>
         <View style={Styles.sectionContainer}>
           <View style={Styles.sectionTitleContainer}>
-            <Text style={Styles.sectionTitle}>Hotel</Text>
+            <Text style={Styles.sectionTitle}>Berita & Event</Text>
             <TouchableOpacity>
               <Text style={Styles.lihatSemua}>Lihat semua</Text>
             </TouchableOpacity>

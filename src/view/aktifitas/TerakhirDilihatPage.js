@@ -27,14 +27,14 @@ const TerakhirDilihatPage = ({ navigation }) => {
       <ScrollView style={Styles.wrapper}>
         <View style={Styles.sectionContainer}>
           <View style={Styles.sectionTitleContainer}>
-            <Text style={Styles.sectionTitle}>Event & Berita</Text>
+            <Text style={Styles.sectionTitle}>Hotel</Text>
             <LihatSemuaButton action={() => navigation.navigate('SemuaHotelPage')} />
           </View>
           <HotelCarousel />
         </View>
         <View style={Styles.sectionContainer}>
           <View style={Styles.sectionTitleContainer}>
-            <Text style={Styles.sectionTitle}>Hotel</Text>
+            <Text style={Styles.sectionTitle}>Berita & Event</Text>
             <LihatSemuaButton action={() => navigation.navigate('SemuaHotelPage')} />
           </View>
           <EventDanBeritaCarousel />

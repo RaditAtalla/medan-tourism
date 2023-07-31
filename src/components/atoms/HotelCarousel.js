@@ -7,7 +7,7 @@ import {
 } from '../../theme/responsive';
 import StarDisplay from './StarDisplay';
 
-export const HOTELDATA = [
+export const DATA = [
   {
     name: 'Arya Duta Medan',
     image: require('../../assets/img/aryaDuta.png'),
@@ -29,13 +29,34 @@ export const HOTELDATA = [
     rating: 4,
     price: '918,000',
   },
+  {
+    name: 'Arya Duta Medan 2',
+    image: require('../../assets/img/aryaDuta.png'),
+    distance: '2,5 Km',
+    rating: 4,
+    price: '540,550',
+  },
+  {
+    name: 'Adi Mulia Medan 2',
+    image: require('../../assets/img/adimulia.png'),
+    distance: '3,5 Km',
+    rating: 5,
+    price: '918,000',
+  },
+  {
+    name: 'Emerald Hotel 2',
+    image: require('../../assets/img/emeraldHotel.png'),
+    distance: '5 Km',
+    rating: 4,
+    price: '918,000',
+  },
 ];
 
-export const HotelCard = ({image, name, distance, rating, price, action }) => {
+export const Item = ({image, name, distance, rating, price, action, width} ) => {
   return (
     <TouchableOpacity
       style={{
-        width: horizontalScale(199),
+        width: horizontalScale(`${width}`),
         height: verticalScale(274),
         borderRadius: 16,
         marginRight: horizontalScale(24),
@@ -44,7 +65,7 @@ export const HotelCard = ({image, name, distance, rating, price, action }) => {
       <Image
         source={image}
         style={{
-          width: horizontalScale(199),
+          width: horizontalScale(`${width}`),
           height: verticalScale(156),
           objectFit: 'cover',
           borderTopLeftRadius: 16,
@@ -59,7 +80,7 @@ export const HotelCard = ({image, name, distance, rating, price, action }) => {
           gap: 10,
           borderBottomRightRadius: 16,
           borderBottomLeftRadius: 16,
-          width: horizontalScale(199),
+          width: horizontalScale(`${width}`),
         }}>
         <View style={{gap: verticalScale(4)}}>
           <Text style={{color: COLORS.secondary, fontSize: moderateScale(10)}}>
@@ -82,14 +103,15 @@ export const HotelCard = ({image, name, distance, rating, price, action }) => {
 const HotelCarousel = () => {
   return (
     <FlatList
-      data={HOTELDATA}
+      data={DATA}
       renderItem={({item}) => (
-        <HotelCard
+        <Item
           image={item.image}
           name={item.name}
           distance={item.distance}
           rating={item.rating}
           price={item.price}
+          width={199}
         />
       )}
       keyExtractor={item => item.name}
