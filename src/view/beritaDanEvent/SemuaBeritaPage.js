@@ -1,9 +1,9 @@
 import { SafeAreaView, StatusBar, View, FlatList } from 'react-native'
-import Styles from '../../styles/SemuaHotelPageStyles'
-import { Item, DATA } from '../../components/atoms/HotelCarousel'
+import Styles from '../../styles/SemuaBeritaPageStyles'
+import { Item, DATA } from '../../components/atoms/EventDanBeritaCarousel'
 import { verticalScale } from '../../theme/responsive'
 
-const SemuaHotelPage = () => {
+const SemuaBeritaPage = () => {
   return(
     <SafeAreaView style={Styles.container}>
       <StatusBar
@@ -13,8 +13,8 @@ const SemuaHotelPage = () => {
       />
       <FlatList
         data={DATA}
-        renderItem={ ({item}) => <Item image={item.image} name={item.name} distance={item.distance} rating={item.rating} price={item.price} width={180} />}
-        numColumns={2}
+        renderItem={ ({item}) => <Item image={item.image} title={item.title} content={item.content} time={item.time} price={item.price} />}
+        numColumns={1}
         ItemSeparatorComponent={<View style={{height: verticalScale(24)}} />}
         showsVerticalScrollIndicator={false}
         style={Styles.wrapper}
@@ -23,4 +23,4 @@ const SemuaHotelPage = () => {
   )
 }
 
-export default SemuaHotelPage
+export default SemuaBeritaPage

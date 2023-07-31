@@ -35,7 +35,7 @@ const TerakhirDilihatPage = ({ navigation }) => {
         <View style={Styles.sectionContainer}>
           <View style={Styles.sectionTitleContainer}>
             <Text style={Styles.sectionTitle}>Berita & Event</Text>
-            <LihatSemuaButton action={() => navigation.navigate('SemuaHotelPage')} />
+            <LihatSemuaButton action={() => navigation.navigate('SemuaBeritaPage')} />
           </View>
           <EventDanBeritaCarousel />
         </View>

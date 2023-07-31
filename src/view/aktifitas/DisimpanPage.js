@@ -14,8 +14,9 @@ import HotelCarousel from '../../components/atoms/HotelCarousel';
 import EventDanBeritaCarousel from '../../components/atoms/EventDanBeritaCarousel';
 import TempatWisataDetailCarousel from '../../components/atoms/TempatWisataDetailCarousel';
 import { verticalScale } from '../../theme/responsive';
+import LihatSemuaButton from '../../components/atoms/LihatSemuaButton';
 
-const DisimpanPage = () => {
+const DisimpanPage = ({ navigation }) => {
   return (
     <SafeAreaView style={Styles.container}>
       <StatusBar
@@ -27,27 +28,21 @@ const DisimpanPage = () => {
         <View style={Styles.sectionContainer}>
           <View style={Styles.sectionTitleContainer}>
             <Text style={Styles.sectionTitle}>Hotel</Text>
-            <TouchableOpacity>
-              <Text style={Styles.lihatSemua}>Lihat semua</Text>
-            </TouchableOpacity>
+            <LihatSemuaButton action={() => navigation.navigate('SemuaHotelPage')} />
           </View>
           <HotelCarousel />
         </View>
         <View style={Styles.sectionContainer}>
           <View style={Styles.sectionTitleContainer}>
             <Text style={Styles.sectionTitle}>Berita & Event</Text>
-            <TouchableOpacity>
-              <Text style={Styles.lihatSemua}>Lihat semua</Text>
-            </TouchableOpacity>
+            <LihatSemuaButton action={() => navigation.navigate('SemuaBeritaPage')} />
           </View>
           <EventDanBeritaCarousel />
         </View>
         <View style={[Styles.sectionContainer, { marginBottom: verticalScale(70)}]}>
           <View style={Styles.sectionTitleContainer}>
             <Text style={Styles.sectionTitle}>Tempat Wisata</Text>
-            <TouchableOpacity>
-              <Text style={Styles.lihatSemua}>Lihat semua</Text>
-            </TouchableOpacity>
+            <LihatSemuaButton action={() => navigation.navigate('SemuaHotelPage')} />
           </View>
           <TempatWisataDetailCarousel />
         </View>

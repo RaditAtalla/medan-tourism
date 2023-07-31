@@ -38,6 +38,7 @@ import MiceHeader from '../components/atoms/MiceHeader';
 import TerakhirDilihatPage from '../view/aktifitas/TerakhirDilihatPage';
 import HotelPreview from '../view/Hotel/HotelPreview';
 import SemuaHotelPage from '../view/Hotel/SemuaHotelPage';
+import SemuaBeritaPage from '../view/beritaDanEvent/SemuaBeritaPage';
 
 const HomeTabStack = createBottomTabNavigator();
 const HomeNavStack = createNativeStackNavigator();
@@ -128,12 +129,17 @@ export const HomeNavStackScreen = () => {
       <HomeNavStack.Screen
         name="HotelPreview"
         component={HotelPreview}
-        options={{ headerTitleStyle:{ display: 'none', }, headerTintColor: COLORS.white }}
+        options={{ headerTitleStyle:{ display: 'none', }, headerTintColor: COLORS.white, headerShadowVisible: false, }}
       />
       <HomeNavStack.Screen
         name="SemuaHotelPage"
         component={SemuaHotelPage}
-        options={{ title: 'Hotel', headerTitleStyle: GlobalStyles.HeaderBarTItle }}
+        options={{ title: 'Hotel', headerTitleStyle: GlobalStyles.HeaderBarTItle, headerShadowVisible: false, }}
+      />
+      <HomeNavStack.Screen
+        name="SemuaBeritaPage"
+        component={SemuaBeritaPage}
+        options={{ title: 'Berita', headerTitleStyle: GlobalStyles.HeaderBarTItle, headerShadowVisible: false, }}
       />
     </HomeNavStack.Navigator>
   );

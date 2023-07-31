@@ -15,7 +15,7 @@ import {
   moderateScale,
 } from '../../theme/responsive';
 
-const DATA = [
+export const DATA = [
   {
     id: 1,
     image: require('../../assets/img/berita1.png'),
@@ -32,9 +32,41 @@ const DATA = [
       'Buat kamu warga Kota Medan yang punya hobi jalan-jalan dan mengabadikan momen',
     time: '30 menit yang lalu',
   },
+  {
+    id: 3,
+    image: require('../../assets/img/berita1.png'),
+    title: 'Kuliner Medan Menggugah Selera',
+    content: 'Salah satunya, Rumah Makan Nasi Kapau Uni EMI di Jalan Rotan, Medan Petisah......',
+    time: '30 menit yang lalu',
+  },
+  {
+    id: 4,
+    image: require('../../assets/img/berita2.png'),
+    title:
+      'Ikuti Medan Tourism Video Contest, Menangkan Hadiah Puluhan Juta Rupiah!',
+    content:
+      'Buat kamu warga Kota Medan yang punya hobi jalan-jalan dan mengabadikan momen',
+    time: '30 menit yang lalu',
+  },
+  {
+    id: 5,
+    image: require('../../assets/img/berita1.png'),
+    title: 'Kuliner Medan Menggugah Selera',
+    content: 'Salah satunya, Rumah Makan Nasi Kapau Uni EMI di Jalan Rotan, Medan Petisah......',
+    time: '30 menit yang lalu',
+  },
+  {
+    id: 6,
+    image: require('../../assets/img/berita2.png'),
+    title:
+      'Ikuti Medan Tourism Video Contest, Menangkan Hadiah Puluhan Juta Rupiah!',
+    content:
+      'Buat kamu warga Kota Medan yang punya hobi jalan-jalan dan mengabadikan momen',
+    time: '30 menit yang lalu',
+  },
 ];
 
-const Item = ({image, title, content, time, navigation }) => {
+export const Item = ({image, title, content, time, navigation }) => {
   return (
     <TouchableOpacity onPress={() => navigation.navigate(title)} style={Styles.container}>
       <ImageBackground source={image} style={Styles.thumbnail} imageStyle={{ borderRadius: 4, }} >
