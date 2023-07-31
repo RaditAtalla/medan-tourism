@@ -35,7 +35,7 @@ export const HotelCard = ({image, name, distance, rating, price, action, width})
   return (
     <TouchableOpacity
       style={{
-        width: horizontalScale(width),
+        width: horizontalScale({width}),
         height: verticalScale(274),
         borderRadius: 16,
         marginRight: horizontalScale(24),

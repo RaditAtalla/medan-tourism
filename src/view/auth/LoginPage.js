@@ -7,8 +7,15 @@ import AltLogin from '../../components/molecules/AltLogin';
 import LupaPasswordBtn from '../../components/atoms/LupaPasswordBtn';
 import MyButton from '../../components/atoms/MyButton';
 import InputGroup from '../../components/atoms/InputGroup';
+import React, {useState} from 'react'
+import HandleLogin from '../../api/HandleLogin';
 
 const LoginPage = ({ navigation }) => {
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+
+
+
     return (
         <View style={Styles.container}>
         <StatusBar barStyle='light-content' translucent backgroundColor='transparent' />
@@ -17,13 +24,13 @@ const LoginPage = ({ navigation }) => {
                 <View>
                     <View style={ Styles.inputContainer }>
                         <View style={ Styles.inputField }>
-                            <InputGroup label='Email' placeholder='example123@gmail.com' placeholderTextColor={COLORS.black4} />
-                            <InputGroup label='Password' placeholder='password123' placeholderTextColor={COLORS.black4} type='password' />
+                            <InputGroup label='Email' value={email} setValue={setEmail} placeholder='example123@gmail.com' placeholderTextColor={COLORS.black4} />
+                            <InputGroup label='Password' value={password} setValue={setPassword} placeholder='password123' placeholderTextColor={COLORS.black4} type='password' />
                         </View>
                         <LupaPasswordBtn action={() => navigation.navigate('LupaPasswordPage')} />
                     </View>
                     <View style={ Styles.altLogin }>
-                        <MyButton text='Log in' action={() => navigation.navigate('HomeStackScreen')} />
+                        <MyButton text='Log in' action={() => HandleLogin(email, password, navigation)} />
                         <Text style={ Styles.atau }>Atau</Text>
                         <AltLogin />
                     </View>

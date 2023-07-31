@@ -4,6 +4,7 @@ import {styles} from '../../styles/AturAkunPage.Style';
 import AturAkunCard from '../../components/atoms/aturAkunCard';
 import ICONS from '../../assets/icons/icons';
 import Modal from 'react-native-modal';
+import HandleLogout from '../../api/HandleLogout';
 
 export default function AturAkunPage({navigation}) {
   const [modal, setModal] = useState(false);
@@ -62,7 +63,7 @@ export default function AturAkunPage({navigation}) {
               </View>
               <View style={[styles.box, styles.yaKeluarWrapper]}>
                 <TouchableOpacity
-                  onPress={() => navigation.navigate('LoginPage')}>
+                  onPress={() => HandleLogout(navigation)}>
                   <Text style={[styles.buttonText, styles.yaKeluarText]}>
                     Ya, Keluar
                   </Text>
