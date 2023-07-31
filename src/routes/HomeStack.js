@@ -39,6 +39,7 @@ import TerakhirDilihatPage from '../view/aktifitas/TerakhirDilihatPage';
 import HotelPreview from '../view/Hotel/HotelPreview';
 import SemuaHotelPage from '../view/Hotel/SemuaHotelPage';
 import SemuaBeritaPage from '../view/beritaDanEvent/SemuaBeritaPage';
+import Map from '../view/map/Map';
 
 const HomeTabStack = createBottomTabNavigator();
 const HomeNavStack = createNativeStackNavigator();
@@ -140,6 +141,11 @@ export const HomeNavStackScreen = () => {
         name="SemuaBeritaPage"
         component={SemuaBeritaPage}
         options={{ title: 'Berita', headerTitleStyle: GlobalStyles.HeaderBarTItle, headerShadowVisible: false, }}
+      />
+      <HomeNavStack.Screen
+        name="Map"
+        component={Map}
+        options={{ headerShown: false }}
       />
     </HomeNavStack.Navigator>
   );

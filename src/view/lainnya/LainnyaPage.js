@@ -11,7 +11,7 @@ import { AccordionWisataLainnya, AccordionKuliner, AccordionHeritage } from '../
 import Styles from '../../styles/LainnyaPageStyles'
 import ICONS from '../../assets/icons/icons';
 
-const LainnyaPage = () => {
+const LainnyaPage = ({ navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <StatusBar
@@ -20,7 +20,7 @@ const LainnyaPage = () => {
         backgroundColor="transparent"
       />
       <ScrollView style={Styles.container}>
-        <AccordionWisataLainnya title='Wisata Lainnya' />
+        <AccordionWisataLainnya title='Wisata Lainnya' action={() => navigation.navigate('HomeNavStackScreen', {screen: 'Map'})} />
         <AccordionKuliner title='Kuliner' />
         <AccordionHeritage title='Kuliner' />
       </ScrollView>
