@@ -30,7 +30,8 @@ const LoginPage = ({ navigation }) => {
                         <LupaPasswordBtn action={() => navigation.navigate('LupaPasswordPage')} />
                     </View>
                     <View style={ Styles.altLogin }>
-                        <MyButton text='Log in' action={() => HandleLogin(email, password, navigation)} />
+                        {/* <MyButton text='Log in' action={() => HandleLogin(email, password, navigation)} /> */}
+                        <MyButton text='Log in' action={() => navigation.navigate('HomeStackScreen')} />
                         <Text style={ Styles.atau }>Atau</Text>
                         <AltLogin />
                     </View>

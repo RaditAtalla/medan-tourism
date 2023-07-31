@@ -31,11 +31,11 @@ export const HOTELDATA = [
   },
 ];
 
-export const HotelCard = ({image, name, distance, rating, price, action, width}) => {
+export const HotelCard = ({image, name, distance, rating, price, action }) => {
   return (
     <TouchableOpacity
       style={{
-        width: horizontalScale({width}),
+        width: horizontalScale(199),
         height: verticalScale(274),
         borderRadius: 16,
         marginRight: horizontalScale(24),
@@ -44,7 +44,7 @@ export const HotelCard = ({image, name, distance, rating, price, action, width})
       <Image
         source={image}
         style={{
-          width: horizontalScale(width),
+          width: horizontalScale(199),
           height: verticalScale(156),
           objectFit: 'cover',
           borderTopLeftRadius: 16,
@@ -59,7 +59,7 @@ export const HotelCard = ({image, name, distance, rating, price, action, width})
           gap: 10,
           borderBottomRightRadius: 16,
           borderBottomLeftRadius: 16,
-          width: horizontalScale(width),
+          width: horizontalScale(199),
         }}>
         <View style={{gap: verticalScale(4)}}>
           <Text style={{color: COLORS.secondary, fontSize: moderateScale(10)}}>
