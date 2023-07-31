@@ -35,7 +35,7 @@ const ProfilePage = ({navigation}) => (
         />
         <ProfileMenuBtn 
         icon={ICONS.perjalananCircle} 
-        text="Perjalanan" 
+        text="Aktivitas" 
         action={() => navigation.navigate('AktifitasPage')}
         />
         <ProfileMenuBtn

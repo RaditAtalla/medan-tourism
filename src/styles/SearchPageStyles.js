@@ -53,10 +53,6 @@ const Styles = StyleSheet.create({
     sectionContainer: {
         gap: verticalScale(16),
     },
-    lihatSemua: {
-        color: COLORS.blue,
-        fontSize: moderateScale(12),
-    },
     sectionTitleContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',

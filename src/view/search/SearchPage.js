@@ -14,6 +14,7 @@ import CarouselTempatWisata from '../../components/atoms/CarouselTempatWisata';
 import BandaraCarousel from '../../components/atoms/BandaraCarousel';
 import HotelCarousel from '../../components/atoms/HotelCarousel';
 import {verticalScale} from '../../theme/responsive';
+import LihatSemuaButton from '../../components/atoms/LihatSemuaButton';
 
 const SearchPage = ({navigation}) => {
   return (
@@ -49,19 +50,15 @@ const SearchPage = ({navigation}) => {
         <View style={Styles.sectionContainer}>
           <View style={Styles.sectionTitleContainer}>
             <Text style={Styles.sectionTitle}>Hotel</Text>
-            <TouchableOpacity>
-              <Text style={Styles.lihatSemua}>Lihat semua</Text>
-            </TouchableOpacity>
+            <LihatSemuaButton />
           </View>
           <HotelCarousel action={() => navigation.navigate('HotelPreview')} />
         </View>
         <View
-          style={[Styles.sectionContainer, {marginBottom: verticalScale(77)}]}>
+          style={[Styles.sectionContainer, {marginBottom: verticalScale(77), marginTop: verticalScale(16)}]}>
           <View style={Styles.sectionTitleContainer}>
             <Text style={Styles.sectionTitle}>Bandara</Text>
-            <TouchableOpacity>
-              <Text style={Styles.lihatSemua}>Lihat semua</Text>
-            </TouchableOpacity>
+            <LihatSemuaButton />
           </View>
           <BandaraCarousel />
         </View>

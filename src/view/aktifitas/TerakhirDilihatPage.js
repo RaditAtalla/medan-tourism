@@ -14,6 +14,7 @@ import HotelCarousel from '../../components/atoms/HotelCarousel';
 import EventDanBeritaCarousel from '../../components/atoms/EventDanBeritaCarousel';
 import TempatWisataDetailCarousel from '../../components/atoms/TempatWisataDetailCarousel';
 import { verticalScale } from '../../theme/responsive';
+import LihatSemuaButton from '../../components/atoms/LihatSemuaButton';
 
 const TerakhirDilihatPage = () => {
   return (
@@ -27,27 +28,21 @@ const TerakhirDilihatPage = () => {
         <View style={Styles.sectionContainer}>
           <View style={Styles.sectionTitleContainer}>
             <Text style={Styles.sectionTitle}>Event & Berita</Text>
-            <TouchableOpacity>
-              <Text style={Styles.lihatSemua}>Lihat semua</Text>
-            </TouchableOpacity>
+            <LihatSemuaButton />
           </View>
           <HotelCarousel />
         </View>
         <View style={Styles.sectionContainer}>
           <View style={Styles.sectionTitleContainer}>
             <Text style={Styles.sectionTitle}>Hotel</Text>
-            <TouchableOpacity>
-              <Text style={Styles.lihatSemua}>Lihat semua</Text>
-            </TouchableOpacity>
+            <LihatSemuaButton />
           </View>
           <EventDanBeritaCarousel />
         </View>
         <View style={[Styles.sectionContainer, { marginBottom: verticalScale(70)}]}>
           <View style={Styles.sectionTitleContainer}>
             <Text style={Styles.sectionTitle}>Tempat Wisata</Text>
-            <TouchableOpacity>
-              <Text style={Styles.lihatSemua}>Lihat semua</Text>
-            </TouchableOpacity>
+            <LihatSemuaButton />
           </View>
           <TempatWisataDetailCarousel />
         </View>

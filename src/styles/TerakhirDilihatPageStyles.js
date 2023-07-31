@@ -27,10 +27,6 @@ const Styles = StyleSheet.create({
     fontFamily: 'Poppins-Bold',
     color: COLORS.black3,
   },
-  lihatSemua: {
-    color: COLORS.blue,
-    fontSize: moderateScale(12),
-  },
 });
 
 export default Styles;
