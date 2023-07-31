@@ -129,7 +129,7 @@ export const HomeNavStackScreen = () => {
       <HomeNavStack.Screen
         name="HotelPreview"
         component={HotelPreview}
-        options={{ headerTitleStyle:{ display: 'none', }, headerTintColor: COLORS.white, headerShadowVisible: false, }}
+        options={{ headerTitleStyle:{ display: 'none', }, headerTintColor: COLORS.white, headerShadowVisible: false, headerShown: false }}
       />
       <HomeNavStack.Screen
         name="SemuaHotelPage"
