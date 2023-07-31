@@ -16,7 +16,7 @@ import TempatWisataDetailCarousel from '../../components/atoms/TempatWisataDetai
 import { verticalScale } from '../../theme/responsive';
 import LihatSemuaButton from '../../components/atoms/LihatSemuaButton';
 
-const TerakhirDilihatPage = () => {
+const TerakhirDilihatPage = ({ navigation }) => {
   return (
     <SafeAreaView style={Styles.container}>
       <StatusBar
@@ -28,21 +28,21 @@ const TerakhirDilihatPage = () => {
         <View style={Styles.sectionContainer}>
           <View style={Styles.sectionTitleContainer}>
             <Text style={Styles.sectionTitle}>Event & Berita</Text>
-            <LihatSemuaButton />
+            <LihatSemuaButton action={() => navigation.navigate('SemuaHotelPage')} />
           </View>
           <HotelCarousel />
         </View>
         <View style={Styles.sectionContainer}>
           <View style={Styles.sectionTitleContainer}>
             <Text style={Styles.sectionTitle}>Hotel</Text>
-            <LihatSemuaButton />
+            <LihatSemuaButton action={() => navigation.navigate('SemuaHotelPage')} />
           </View>
           <EventDanBeritaCarousel />
         </View>
         <View style={[Styles.sectionContainer, { marginBottom: verticalScale(70)}]}>
           <View style={Styles.sectionTitleContainer}>
             <Text style={Styles.sectionTitle}>Tempat Wisata</Text>
-            <LihatSemuaButton />
+            <LihatSemuaButton action={() => navigation.navigate('SemuaHotelPage')} />
           </View>
           <TempatWisataDetailCarousel />
         </View>

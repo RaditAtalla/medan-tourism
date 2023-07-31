@@ -35,7 +35,7 @@ const Styles = StyleSheet.create({
     paddingVertical: verticalScale(12),
     gap: verticalScale(12),
     borderRadius: 12,
-    marginRight: horizontalScale(24)
+    marginRight: horizontalScale(24),
   },
   metaData: {
     flexDirection: 'row',

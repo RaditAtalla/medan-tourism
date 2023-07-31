@@ -37,6 +37,7 @@ import GlobalStyles from '../styles/GlobalStyles';
 import MiceHeader from '../components/atoms/MiceHeader';
 import TerakhirDilihatPage from '../view/aktifitas/TerakhirDilihatPage';
 import HotelPreview from '../view/Hotel/HotelPreview';
+import SemuaHotelPage from '../view/Hotel/SemuaHotelPage';
 
 const HomeTabStack = createBottomTabNavigator();
 const HomeNavStack = createNativeStackNavigator();
@@ -128,6 +129,11 @@ export const HomeNavStackScreen = () => {
         name="HotelPreview"
         component={HotelPreview}
         options={{ headerTitleStyle:{ display: 'none', }, headerTintColor: COLORS.white }}
+      />
+      <HomeNavStack.Screen
+        name="SemuaHotelPage"
+        component={SemuaHotelPage}
+        options={{ title: 'Hotel', headerTitleStyle: GlobalStyles.HeaderBarTItle }}
       />
     </HomeNavStack.Navigator>
   );

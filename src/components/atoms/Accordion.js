@@ -18,7 +18,9 @@ export const AccordionWisataLainnya = (props) => {
         <View style={stylesWisataLainnya.accordionHeader}>
           <View style={stylesWisataLainnya.accordionTitle}>
             <Text style={stylesWisataLainnya.accordionHeaderText}>{props.title}</Text>
-            <Text style={stylesWisataLainnya.headerBadge}>Lihat Map</Text>
+            <TouchableOpacity onPress={props.action}>
+              <Text style={stylesWisataLainnya.headerBadge}>Lihat Map</Text>
+            </TouchableOpacity>
           </View>
           <Image source={ICONS.downArrow} />
         </View>
@@ -123,7 +125,9 @@ export const AccordionKuliner = (props) => {
         <View style={stylesWisataLainnya.accordionHeader}>
           <View style={stylesWisataLainnya.accordionTitle}>
             <Text style={stylesWisataLainnya.accordionHeaderText}>{props.title}</Text>
-            <Text style={stylesWisataLainnya.headerBadge}>Lihat Map</Text>
+            <TouchableOpacity onPress={props.action}>
+              <Text style={stylesWisataLainnya.headerBadge}>Lihat Map</Text>
+            </TouchableOpacity>
           </View>
           <Image source={ICONS.downArrow} />
         </View>
@@ -170,7 +174,9 @@ export const AccordionHeritage = (props) => {
         <View style={stylesWisataLainnya.accordionHeader}>
           <View style={stylesWisataLainnya.accordionTitle}>
             <Text style={stylesWisataLainnya.accordionHeaderText}>{props.title}</Text>
-            <Text style={stylesWisataLainnya.headerBadge}>Lihat Map</Text>
+            <TouchableOpacity onPress={props.action}>
+              <Text style={stylesWisataLainnya.headerBadge}>Lihat Map</Text>
+            </TouchableOpacity>
           </View>
           <Image source={ICONS.downArrow} />
         </View>

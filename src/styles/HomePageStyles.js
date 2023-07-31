@@ -53,6 +53,7 @@ const Styles = StyleSheet.create({
     top: 40,
     paddingVertical: verticalScale(51),
     gap: verticalScale(48),
+    backgroundColor: COLORS.white
   },
   menuContainer: {
     flexWrap: 'wrap',

@@ -7,7 +7,7 @@ import {
 } from '../../theme/responsive';
 import StarDisplay from './StarDisplay';
 
-const DATA = [
+export const HOTELDATA = [
   {
     name: 'Arya Duta Medan',
     image: require('../../assets/img/aryaDuta.png'),
@@ -31,11 +31,11 @@ const DATA = [
   },
 ];
 
-const Item = ({image, name, distance, rating, price, action}) => {
+export const HotelCard = ({image, name, distance, rating, price, action, width}) => {
   return (
     <TouchableOpacity
       style={{
-        width: horizontalScale(199),
+        width: horizontalScale(width),
         height: verticalScale(274),
         borderRadius: 16,
         marginRight: horizontalScale(24),
@@ -44,7 +44,7 @@ const Item = ({image, name, distance, rating, price, action}) => {
       <Image
         source={image}
         style={{
-          width: horizontalScale(199),
+          width: horizontalScale(width),
           height: verticalScale(156),
           objectFit: 'cover',
           borderTopLeftRadius: 16,
@@ -59,7 +59,7 @@ const Item = ({image, name, distance, rating, price, action}) => {
           gap: 10,
           borderBottomRightRadius: 16,
           borderBottomLeftRadius: 16,
-          width: horizontalScale(199),
+          width: horizontalScale(width),
         }}>
         <View style={{gap: verticalScale(4)}}>
           <Text style={{color: COLORS.secondary, fontSize: moderateScale(10)}}>
@@ -82,9 +82,9 @@ const Item = ({image, name, distance, rating, price, action}) => {
 const HotelCarousel = () => {
   return (
     <FlatList
-      data={DATA}
+      data={HOTELDATA}
       renderItem={({item}) => (
-        <Item
+        <HotelCard
           image={item.image}
           name={item.name}
           distance={item.distance}
