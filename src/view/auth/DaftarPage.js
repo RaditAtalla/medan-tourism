@@ -7,8 +7,13 @@ import IMAGES from '../../assets/img/images';
 import AltLogin from '../../components/molecules/AltLogin';
 import MyButton from '../../components/atoms/MyButton';
 import InputGroup from '../../components/atoms/InputGroup';
+import {useState} from 'react'
+import HandleRegister from '../../api/HandleRegister';
 
 const DaftarPage = ({ navigation }) => {
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+    const [cpassword, setcpassword] = useState('')
     return (
         <View style={Styles.container}>
         <StatusBar barStyle='light-content' translucent backgroundColor='transparent' />
@@ -17,13 +22,13 @@ const DaftarPage = ({ navigation }) => {
                 <View>
                     <View style={ Styles.inputContainer }>
                         <View style={ Styles.inputField }>
-                            <InputGroup label='Email' placeholder='example123@gmail.com' placeholderTextColor={COLORS.black4} />
-                            <InputGroup label='Password' placeholder='password123' placeholderTextColor={COLORS.black4} type='password' />
-                            <InputGroup label='Konfirmasi Password' placeholder='password123' placeholderTextColor={COLORS.black4} type='password' />
+                            <InputGroup label='Username' placeholder='example123@gmail.com' placeholderTextColor={COLORS.black4} setValue={setUsername} value={username} />
+                            <InputGroup label='Password' placeholder='password123' placeholderTextColor={COLORS.black4} type='password' setValue={setPassword} value={password} />
+                            <InputGroup label='Konfirmasi Password' placeholder='password123' placeholderTextColor={COLORS.black4} type='password' setValue={setcpassword} value={cpassword} />
                         </View>
                     </View>
                     <View style={ Styles.altLogin }>
-                        <MyButton text='Daftar' action={() => navigation.navigate('DaftarNomorHpPage')} />
+                        <MyButton text='Daftar' action={() => HandleRegister(username, password, cpassword, navigation)} />
                         <Text style={ Styles.atau }>Atau</Text>
                         <AltLogin />
                     </View>

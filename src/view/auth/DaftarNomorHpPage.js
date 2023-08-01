@@ -31,7 +31,7 @@ const DaftarNomorHpPage = ({ navigation }) => {
                                 <TextInput
                                 style={{width: 255}}
                                 placeholder="Masukkan Nomor HP"
-                                value="812456789"
+                                keyboardType='number-pad'
                                 />
                             </View>
                         </View>
