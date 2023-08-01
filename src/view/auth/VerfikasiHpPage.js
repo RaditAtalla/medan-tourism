@@ -1,4 +1,4 @@
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Text, Image, TouchableOpacity, TextInput} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {styles} from '../../styles/VerifikasiPage.style';
 
@@ -17,10 +17,11 @@ export default function VerifikasiHpPage({navigation}) {
             </Text>
         </View>
         <View style={styles.otpWrapper}>
-            <View style={[styles.otpBox1, styles.otpBox]}>
+            {/* <View style={[styles.otpBox1, styles.otpBox]}>
             <Text style={styles.otp}>1</Text>
-            </View>
-            <View style={[styles.otpBox2, styles.otpBox]}>
+            </View> */}
+            <TextInput style={[styles.otpBox1, styles.otpBox]} keyboardType="numeric" placeholder='****' maxLength={4}/>
+            {/* <View style={[styles.otpBox2, styles.otpBox]}>
             <Text style={styles.otp}>2</Text>
             </View>
             <View style={[styles.otpBox3, styles.otpBox]}>
@@ -28,7 +29,7 @@ export default function VerifikasiHpPage({navigation}) {
             </View>
             <View style={[styles.otpBox4, styles.otpBox]}>
             <Text style={styles.otp}>4</Text>
-            </View>
+            </View> */}
         </View>
         <View style={styles.verifikasiAlternativeWrapper}>
             <Text style={styles.verifikasiAlternativeText}>Kirim Ulang Kode</Text>

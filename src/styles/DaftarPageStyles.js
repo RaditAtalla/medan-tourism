@@ -11,7 +11,7 @@ const Styles = StyleSheet.create({
         flex: 1
     },
     actionContainer: {
-        flex: 6,
+        flex: 5,
         justifyContent: 'space-between',
         backgroundColor: COLORS.white,
         borderTopStartRadius: 50,

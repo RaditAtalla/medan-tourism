@@ -74,7 +74,10 @@ const ICONS = {
     ambulans: require('./ambulans.png'),
     pemadamKebakaran: require('./pemadamKebakaran.png'),
     moreInformation: require('./moreInformation.png'),
-    saveFill: require('./saveFill.png')
+    saveFill: require('./saveFill.png'),
+    xButton: require('./xButton.png'),
+    clockBlue: require('./clockBlue.png'),
+    routeBlue: require('./routeBlue.png'),
 }
 
 export default ICONS

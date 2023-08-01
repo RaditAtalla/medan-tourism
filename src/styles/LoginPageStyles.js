@@ -10,7 +10,7 @@ const Styles = StyleSheet.create({
         flex: 1
     },
     actionContainer: {
-        flex: 5,
+        flex: 4,
         justifyContent: 'space-between',
         backgroundColor: COLORS.white,
         borderTopStartRadius: 50,
