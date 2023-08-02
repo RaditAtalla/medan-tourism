@@ -15,37 +15,39 @@ import {
   moderateScale,
   verticalScale,
 } from '../../theme/responsive';
+import {useState, useRef} from 'react';
 
 const {width, height} = Dimensions.get('window');
 
-const DATA = [
-  {
-    title: 'Cari tempat\nternyamanmu!',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
-    image: IMAGES.onBoardingImg1,
-  },
-  {
-    title: 'Booking dengan\nmudah!',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
-    image: IMAGES.onBoardingImg2,
-  },
-  {
-    title: 'Nikmati liburan\nanda!',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
-    image: IMAGES.onBoardingImg3,
-  },
-];
-
-const OBPTest = () => {
-
-  const scrollX = new Animated.Value(0)
+const OBPTest = ({navigation}) => {
+  const scrollViewRef = useRef();
+  const scrollX = new Animated.Value(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [data, setData] = useState([
+    {
+      title: 'Cari tempat\nternyamanmu!',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
+      image: IMAGES.onBoardingImg1,
+    },
+    {
+      title: 'Booking dengan\nmudah!',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
+      image: IMAGES.onBoardingImg2,
+    },
+    {
+      title: 'Nikmati liburan\nanda!',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
+      image: IMAGES.onBoardingImg3,
+    },
+  ]);
 
   function renderContent() {
     return (
       <Animated.ScrollView
+        ref={scrollViewRef}
         horizontal
         pagingEnabled
         scrollEnabled
@@ -53,11 +55,11 @@ const OBPTest = () => {
         showsHorizontalScrollIndicator={false}
         decelerationRate={0}
         scrollEventThrottle={16}
-        onScroll={Animated.event([
-          {nativeEvent: {contentOffset: {x: scrollX}}},
-        ], {useNativeDriver: false})}
-        >
-        {DATA.map((item, index) => {
+        onScroll={Animated.event(
+          [{nativeEvent: {contentOffset: {x: scrollX}}}],
+          {useNativeDriver: false},
+        )}>
+        {data.map((item, index) => {
           return (
             <View key={index} style={Styles.contentContainer}>
               <View style={Styles.imageContainer}>
@@ -79,12 +81,29 @@ const OBPTest = () => {
   }
 
   function renderButton() {
+    const handleNextPress = () => {
+      const nextIndex = currentIndex + 1;
+      const isLastItem = nextIndex === data.length;
+
+      if (isLastItem) {
+        // If it's the last item, execute handleSkipPress after a small delay to allow the ScrollView to settle in the new position
+        setTimeout(() => {
+          handleSkipPress();
+        }, 50);
+      } else {
+        setCurrentIndex(nextIndex);
+        scrollViewRef.current.scrollTo({x: nextIndex * width, animated: true});
+      }
+    };
+    const handleSkipPress = () => {
+      navigation.navigate('AuthStackScreen');
+    };
     return (
       <View style={Styles.buttonContainer}>
-        <TouchableOpacity style={Styles.nextButton}>
+        <TouchableOpacity style={Styles.nextButton} onPress={handleNextPress}>
           <Text style={Styles.nextText}>Selanjutnya</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={Styles.skipButton}>
+        <TouchableOpacity style={Styles.skipButton} onPress={handleSkipPress}>
           <Text style={Styles.skipText}>Nanti dulu deh</Text>
         </TouchableOpacity>
       </View>
@@ -92,24 +111,32 @@ const OBPTest = () => {
   }
 
   function renderDot() {
-    const dotPosition = Animated.divide(scrollX, width)
+    const dotPosition = Animated.divide(scrollX, width);
+    // Update currentIndex whenever the dotPosition changes
+    dotPosition.addListener(({value}) => {
+      const index = Math.round(value / width);
+      setCurrentIndex(index);
+    });
     return (
       <View style={Styles.dotContainer}>
-        {DATA.map((item, index) => {
+        {data.map((item, index) => {
           const opacity = dotPosition.interpolate({
             inputRange: [index - 1, index, index + 2],
             outputRange: [0.3, 1, 0.3],
             extrapolate: 'clamp',
-          })
+          });
 
           const dotSize = dotPosition.interpolate({
             inputRange: [index - 1, index, index + 2],
             outputRange: [10, 12, 10],
             extrapolate: 'clamp',
-          })
-          return(
-            <Animated.View style={[Styles.dot, { width: dotSize, height: dotSize }]} key={`dot-${index}`} opacity={opacity}></Animated.View>
-          )
+          });
+          return (
+            <Animated.View
+              style={[Styles.dot, {width: dotSize, height: dotSize}]}
+              key={`dot-${index}`}
+              opacity={opacity}></Animated.View>
+          );
         })}
       </View>
     );
@@ -196,7 +223,7 @@ const Styles = StyleSheet.create({
   buttonRootContainer: {
     position: 'absolute',
     bottom: verticalScale(80),
-  }
+  },
 });
 
 export default OBPTest;
