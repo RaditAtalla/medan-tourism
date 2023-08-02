@@ -28,8 +28,8 @@ const DaftarPage = ({ navigation }) => {
                         </View>
                     </View>
                     <View style={ Styles.altLogin }>
-                        {/* <MyButton text='Daftar' action={() => HandleRegister(username, password, cpassword, navigation)} /> */}
-                        <MyButton text='Daftar' action={() => navigation.navigate('AuthStackScreen', {screen: 'DaftarNomorHpPage'})} />
+                        <MyButton text='Daftar' action={() => HandleRegister(username, password, cpassword, navigation)} />
+                        {/* <MyButton text='Daftar' action={() => navigation.navigate('AuthStackScreen', {screen: 'DaftarNomorHpPage'})} /> */}
                         <Text style={ Styles.atau }>Atau</Text>
                         <AltLogin />
                     </View>

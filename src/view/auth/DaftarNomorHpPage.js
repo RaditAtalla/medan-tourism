@@ -43,8 +43,8 @@ const DaftarNomorHpPage = ({ navigation }) => {
                     </View>
                 </View>
             </View>
-            {/* <MyButton text='Kirim' action={() => HandleSendOTP(phone, navigation)} /> */}
-            <MyButton text='Kirim' action={() => navigation.navigate('AuthStackScreen', {screen: 'VerifikasiHpPage'})} />
+            <MyButton text='Kirim' action={() => HandleSendOTP(phone, navigation)} />
+            {/* <MyButton text='Kirim' action={() => navigation.navigate('AuthStackScreen', {screen: 'VerifikasiHpPage'})} /> */}
         </View>
     )
 }

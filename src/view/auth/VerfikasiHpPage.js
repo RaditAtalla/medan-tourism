@@ -35,8 +35,8 @@ export default function VerifikasiHpPage({navigation}) {
       <View style={styles.buttonWrapper}>
         <TouchableOpacity
           style={styles.verifikasiBtn}
-          // onPress={() => HandleVerifikasiOTP(otp_code, navigation)}>
-          onPress={() => navigation.navigate('HomeStackScreen')}>
+          onPress={() => HandleVerifikasiOTP(otp_code, navigation)}>
+          {/* onPress={() => navigation.navigate('HomeStackScreen')}> */}
           <Text style={styles.verifikasiText}>Verifikasi </Text>
         </TouchableOpacity>
       </View>
