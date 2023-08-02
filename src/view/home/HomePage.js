@@ -52,7 +52,7 @@ const HomePage = ({navigation}) => {
             <MenuButton
               icon={ICONS.travelIcon}
               label="Travel"
-              action={() => navigation.navigate('TravelPage')}
+              action={() => navigation.navigate('HomeNavStackScreen', {screen: 'OBPTest'})}
             />
             <MenuButton
               icon={ICONS.hotelIcon}

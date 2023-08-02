@@ -40,6 +40,7 @@ import HotelPreview from '../view/Hotel/HotelPreview';
 import SemuaHotelPage from '../view/Hotel/SemuaHotelPage';
 import SemuaBeritaPage from '../view/beritaDanEvent/SemuaBeritaPage';
 import Map from '../view/map/Map';
+import OBPTest from '../view/landing/OBPTest';
 
 const HomeTabStack = createBottomTabNavigator();
 const HomeNavStack = createNativeStackNavigator();
@@ -145,6 +146,11 @@ export const HomeNavStackScreen = () => {
       <HomeNavStack.Screen
         name="Map"
         component={Map}
+        options={{ headerShown: false }}
+      />
+      <HomeNavStack.Screen
+        name="OBPTest"
+        component={OBPTest}
         options={{ headerShown: false }}
       />
     </HomeNavStack.Navigator>
