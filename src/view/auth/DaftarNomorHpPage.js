@@ -2,8 +2,11 @@ import { Text, View, Image, StatusBar, TextInput } from 'react-native'
 import MyButton from '../../components/atoms/MyButton'
 import Styles from '../../styles/DaftarNomorHpStyles'
 import COLORS from '../../theme/colors'
+import {useState} from 'react'
+import {HandleSendOTP} from '../../api/HandleOTP'
 
 const DaftarNomorHpPage = ({ navigation }) => {
+  const [phone, setPhone] = useState('')
     return(
         <View style={Styles.container}>
             <StatusBar barStyle={'dark-content'} backgroundColor={COLORS.white} />
@@ -32,13 +35,16 @@ const DaftarNomorHpPage = ({ navigation }) => {
                                 style={{width: 255}}
                                 placeholder="Masukkan Nomor HP"
                                 keyboardType='number-pad'
+                                value={phone}
+                                onChangeText={setPhone}
                                 />
                             </View>
                         </View>
                     </View>
                 </View>
             </View>
-            <MyButton text='Kirim' action={() => navigation.navigate('VerifikasiHpPage')} />
+            {/* <MyButton text='Kirim' action={() => HandleSendOTP(phone, navigation)} /> */}
+            <MyButton text='Kirim' action={() => navigation.navigate('AuthStackScreen', {screen: 'VerifikasiHpPage'})} />
         </View>
     )
 }

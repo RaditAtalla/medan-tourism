@@ -12,7 +12,7 @@ export default HandleRegister = async(username, password, cpassword, navigation)
     })
     const data = response.data
     if (response.status === 200 || response.status === 201) {
-      AsyncStorage.setItem('userId', JSON.stringify(data.userId))
+      AsyncStorage.setItem('userId', JSON.stringify(data.data))
       navigation.navigate('AuthStackScreen', {screen: 'DaftarNomorHpPage'})
     }
   } catch (error) {
