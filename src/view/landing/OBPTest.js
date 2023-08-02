@@ -40,6 +40,9 @@ const DATA = [
 ];
 
 const OBPTest = () => {
+
+  const scrollX = new Animated.Value(0)
+
   function renderContent() {
     return (
       <Animated.ScrollView
@@ -47,7 +50,13 @@ const OBPTest = () => {
         pagingEnabled
         scrollEnabled
         snapToAlignment="center"
-        showsHorizontalScrollIndicator={false}>
+        showsHorizontalScrollIndicator={false}
+        decelerationRate={0}
+        scrollEventThrottle={16}
+        onScroll={Animated.event([
+          {nativeEvent: {contentOffset: {x: scrollX}}},
+        ], {useNativeDriver: false})}
+        >
         {DATA.map((item, index) => {
           return (
             <View key={index} style={Styles.contentContainer}>
@@ -83,11 +92,23 @@ const OBPTest = () => {
   }
 
   function renderDot() {
+    const dotPosition = Animated.divide(scrollX, width)
     return (
       <View style={Styles.dotContainer}>
         {DATA.map((item, index) => {
+          const opacity = dotPosition.interpolate({
+            inputRange: [index - 1, index, index + 2],
+            outputRange: [0.3, 1, 0.3],
+            extrapolate: 'clamp',
+          })
+
+          const dotSize = dotPosition.interpolate({
+            inputRange: [index - 1, index, index + 2],
+            outputRange: [10, 12, 10],
+            extrapolate: 'clamp',
+          })
           return(
-            <View style={Styles.dot} key={`dot-${index}`}></View>
+            <Animated.View style={[Styles.dot, { width: dotSize, height: dotSize }]} key={`dot-${index}`} opacity={opacity}></Animated.View>
           )
         })}
       </View>
@@ -161,8 +182,6 @@ const Styles = StyleSheet.create({
     textAlign: 'center',
   },
   dot: {
-    width: 12,
-    height: 12,
     backgroundColor: COLORS.blue,
     borderRadius: 100,
   },
