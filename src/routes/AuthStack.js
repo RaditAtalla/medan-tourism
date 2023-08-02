@@ -26,6 +26,7 @@ const AuthStackScreen = () => {
             headerTitleAlign: 'center',
             headerTitleStyle: GlobalStyles.AuthHeaderBarTitle,
             headerTintColor: COLORS.white,
+            headerBackVisible: false,
             }}
             />
             <AuthStack.Screen
