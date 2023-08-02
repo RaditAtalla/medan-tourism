@@ -40,7 +40,6 @@ import HotelPreview from '../view/Hotel/HotelPreview';
 import SemuaHotelPage from '../view/Hotel/SemuaHotelPage';
 import SemuaBeritaPage from '../view/beritaDanEvent/SemuaBeritaPage';
 import Map from '../view/map/Map';
-import OBPTest from '../view/landing/OBPTest';
 
 const HomeTabStack = createBottomTabNavigator();
 const HomeNavStack = createNativeStackNavigator();
