@@ -95,7 +95,8 @@ const OBPTest = () => {
   return (
     <SafeAreaView style={Styles.container}>
       <View>{renderContent()}</View>
-      <View>{renderButton()}</View>
+      <View style={Styles.buttonRootContainer}>{renderButton()}</View>
+      <View style={Styles.dotRootContainer}>{renderDot()}</View>
     </SafeAreaView>
   );
 };
@@ -171,6 +172,10 @@ const Styles = StyleSheet.create({
     position: 'absolute',
     bottom: height > 700 ? '30%' : '16%',
   },
+  buttonRootContainer: {
+    position: 'absolute',
+    bottom: verticalScale(80),
+  }
 });
 
 export default OBPTest;
