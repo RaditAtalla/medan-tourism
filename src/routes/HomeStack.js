@@ -147,11 +147,6 @@ export const HomeNavStackScreen = () => {
         component={Map}
         options={{ headerShown: false }}
       />
-      <HomeNavStack.Screen
-        name="OBPTest"
-        component={OBPTest}
-        options={{ headerShown: false }}
-      />
     </HomeNavStack.Navigator>
   );
 };

@@ -82,14 +82,10 @@ const OnBoardingPage = ({navigation}) => {
 
   function renderButton() {
     const handleNextPress = () => {
-      const nextIndex = currentIndex + 1;
-      const isLastItem = nextIndex === data.length;
+      const nextIndex = (currentIndex + 1) % data.length;
 
-      if (isLastItem) {
-        // If it's the last item, execute handleSkipPress after a small delay to allow the ScrollView to settle in the new position
-        setTimeout(() => {
-          handleSkipPress();
-        }, 50);
+      if (nextIndex === 0) {
+        navigation.navigate('AuthStackScreen')
       } else {
         setCurrentIndex(nextIndex);
         scrollViewRef.current.scrollTo({x: nextIndex * width, animated: true});
