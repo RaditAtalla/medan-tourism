@@ -86,7 +86,9 @@ const OBPTest = () => {
     return (
       <View style={Styles.dotContainer}>
         {DATA.map((item, index) => {
-          <View style={Styles.dot} key={`dot-${index}`}></View>;
+          return(
+            <View style={Styles.dot} key={`dot-${index}`}></View>
+          )
         })}
       </View>
     );
@@ -170,7 +172,7 @@ const Styles = StyleSheet.create({
   },
   dotRootContainer: {
     position: 'absolute',
-    bottom: height > 700 ? '30%' : '16%',
+    bottom: height > 700 ? '45%' : '16%',
   },
   buttonRootContainer: {
     position: 'absolute',
