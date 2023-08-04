@@ -42,7 +42,7 @@ const TerakhirDilihatPage = ({ navigation }) => {
         <View style={[Styles.sectionContainer, { marginBottom: verticalScale(70)}]}>
           <View style={Styles.sectionTitleContainer}>
             <Text style={Styles.sectionTitle}>Tempat Wisata</Text>
-            <LihatSemuaButton action={() => navigation.navigate('SemuaHotelPage')} />
+            <LihatSemuaButton action={() => navigation.navigate('SemuaTempatWisataPage')} />
           </View>
           <TempatWisataDetailCarousel />
         </View>

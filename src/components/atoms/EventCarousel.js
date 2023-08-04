@@ -1,5 +1,6 @@
 import { FlatList, Image, TouchableOpacity } from 'react-native'
 import { horizontalScale, verticalScale } from '../../theme/responsive'
+import { useNavigation } from '@react-navigation/native'
 
 const DATA = [
     {
@@ -17,8 +18,9 @@ const DATA = [
 ]
 
 const Item = ({ image }) => {
+    const navigation = useNavigation()
     return(
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('HomeNavStackScreen', {screen: 'eventDetail1'})}>
             <Image source={image} style={{ borderRadius: 12, width: horizontalScale(282), height: verticalScale(192), objectFit: 'cover', marginRight: horizontalScale(24) }} />
         </TouchableOpacity>
     )

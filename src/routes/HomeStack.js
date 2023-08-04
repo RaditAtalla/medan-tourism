@@ -43,6 +43,7 @@ import Map from '../view/map/Map';
 import SemuaPopulerMicePage from '../view/mice/SemuaPopulerMice';
 import SemuaDekatMicePage from '../view/mice/SemuaDekatMicePage';
 import SemuaUntukmuMicePage from '../view/mice/SemuaUntukmuMicePage';
+import SemuaTempatWisataPage from '../view/wisata/semuaTempatWisata';
 
 const HomeTabStack = createBottomTabNavigator();
 const HomeNavStack = createNativeStackNavigator();
@@ -164,6 +165,11 @@ export const HomeNavStackScreen = () => {
         name="SemuaUntukmuMicePage"
         component={SemuaUntukmuMicePage}
         options={{ title: 'M I C E untuk kamu', headerTitleStyle: GlobalStyles.HeaderBarTItle, headerShadowVisible: false, }}
+      />
+      <HomeNavStack.Screen
+        name="SemuaTempatWisataPage"
+        component={SemuaTempatWisataPage}
+        options={{ title: 'Tempat Wisata', headerTitleStyle: GlobalStyles.HeaderBarTItle, headerShadowVisible: false, }}
       />
     </HomeNavStack.Navigator>
   );
