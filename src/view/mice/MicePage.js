@@ -13,7 +13,7 @@ import IMAGES from '../../assets/img/images';
 import Modal from 'react-native-modal'
 import { useState } from 'react'
 
-const MicePage = () => {
+const MicePage = ({ navigation}) => {
   const [isModalVisible, setModalVisible] = useState(false);
 
   const toggleModal = () => {
@@ -22,7 +22,7 @@ const MicePage = () => {
   return (
     <SafeAreaView style={Styles.container}>
       <StatusBar
-        barStyle="light-content"
+        barStyle="dark-content"
         translucent
         backgroundColor="transparent"
       />
@@ -30,7 +30,7 @@ const MicePage = () => {
         <View style={Styles.sectionContainer}>
           <View style={Styles.sectionTitleContainer}>
             <Text style={Styles.sectionTitle}>Populer</Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('SemuaPopulerMicePage')}>
               <Text style={Styles.lihatSemua}>Lihat semua</Text>
             </TouchableOpacity>
           </View>

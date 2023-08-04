@@ -40,6 +40,7 @@ import HotelPreviewPage from '../view/Hotel/HotelPreviewPage';
 import SemuaHotelPage from '../view/Hotel/SemuaHotelPage';
 import SemuaBeritaPage from '../view/beritaDanEvent/SemuaBeritaPage';
 import Map from '../view/map/Map';
+import SemuaPopulerMicePage from '../view/mice/SemuaPopulerMice';
 
 const HomeTabStack = createBottomTabNavigator();
 const HomeNavStack = createNativeStackNavigator();
@@ -146,6 +147,11 @@ export const HomeNavStackScreen = () => {
         name="Map"
         component={Map}
         options={{ headerShown: false }}
+      />
+      <HomeNavStack.Screen
+        name="SemuaPopulerMicePage"
+        component={SemuaPopulerMicePage}
+        options={{ title: 'M I C E', headerTitleStyle: GlobalStyles.HeaderBarTItle, headerShadowVisible: false, }}
       />
     </HomeNavStack.Navigator>
   );

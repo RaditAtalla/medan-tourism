@@ -9,22 +9,31 @@ const SLIDER_WIDTH = Dimensions.get('window').width
 const ITEM_WIDTH = horizontalScale(298)
 const ITEM_HEIGHT = verticalScale(173)
 
-const DATA = [
+export const DATA = [
     {
-        label: 'Medan International Convention Center',
-        imgSrc: require("../../assets/img/micc.png"),
+        name: 'Medan International Convention Center',
+        image: require("../../assets/img/micc.png"),
+        distance: '2,5 Km',
+        rating: 4,
+        price: '540,550',
     },
     {
-        label: 'Wisma Satya Bakti',
-        imgSrc: require("../../assets/img/wismaSatyaBakti.png"),
+        name: 'Wisma Satya Bakti',
+        image: require("../../assets/img/wismaSatyaBakti.png"),
+        distance: '2,5 Km',
+        rating: 4,
+        price: '540,550',
     },
     {
-        label: 'RAZ Plaza Convection',
-        imgSrc: require("../../assets/img/razPlazaConvection.png"),
+        name: 'RAZ Plaza Convection',
+        image: require("../../assets/img/razPlazaConvection.png"),
+        distance: '2,5 Km',
+        rating: 4,
+        price: '540,550',
     },
 ];
 
-const MicePopulerCard = ({ image, label }) => {
+const MicePopulerCard = ({ image, name }) => {
     return(
         <TouchableOpacity style={{
             position: 'relative',
@@ -46,15 +55,15 @@ const MicePopulerCard = ({ image, label }) => {
                 flexDirection: 'row',
             }}>
                 <Image source={ICONS.locationPin} />
-                <Text style={{ color: COLORS.white, fontSize: 10, fontWeight: 500, }}>{label}</Text>
+                <Text style={{ color: COLORS.white, fontSize: 10, fontWeight: 500, }}>{name}</Text>
             </ImageBackground>
         </TouchableOpacity>
     )
 }
 
-const CarouselCardItem = ({ item, index }) => {
+export const CarouselCardItem = ({ item, index }) => {
     return (
-        <MicePopulerCard image={item.imgSrc} label={item.label} />
+        <MicePopulerCard image={item.image} name={item.name} />
     )
 }
 

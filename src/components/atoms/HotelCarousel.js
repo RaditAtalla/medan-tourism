@@ -86,7 +86,7 @@ export const Item = ({image, name, distance, rating, price, action, width} ) => 
           <Text style={{color: COLORS.secondary, fontSize: moderateScale(10)}}>
             {distance}
           </Text>
-          <Text style={{color: COLORS.black3, fontWeight: '500'}}>{name}</Text>
+          <Text style={{color: COLORS.black3, fontWeight: '500'}} numberOfLines={1}>{name}</Text>
           <StarDisplay rating={rating} />
         </View>
         <Text style={{color: COLORS.black3, fontWeight: '500'}}>
