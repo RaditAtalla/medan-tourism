@@ -39,7 +39,7 @@ const MicePage = ({ navigation}) => {
         <View style={Styles.sectionContainer}>
           <View style={Styles.sectionTitleContainer}>
             <Text style={Styles.sectionTitle}>Dekat Dengan Kamu</Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('SemuaDekatMicePage')}>
               <Text style={Styles.lihatSemua}>Lihat semua</Text>
             </TouchableOpacity>
           </View>
@@ -48,7 +48,7 @@ const MicePage = ({ navigation}) => {
         <View style={Styles.sectionContainer}>
           <View style={Styles.sectionTitleContainer}>
             <Text style={Styles.sectionTitle}>Untuk Kamu</Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('SemuaUntukmuMicePage')}>
               <Text style={Styles.lihatSemua}>Lihat semua</Text>
             </TouchableOpacity>
           </View>

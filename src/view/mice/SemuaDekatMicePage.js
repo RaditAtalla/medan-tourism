@@ -4,7 +4,7 @@ import { Item } from '../../components/atoms/HotelCarousel'
 import { DATA } from '../../components/atoms/MicePopulerCarousel'
 import { verticalScale } from '../../theme/responsive'
 
-const SemuaPopulerMicePage = () => {
+const SemuaDekatMicePage = () => {
   return(
     <SafeAreaView style={Styles.container}>
       <StatusBar
@@ -24,4 +24,4 @@ const SemuaPopulerMicePage = () => {
   )
 }
 
-export default SemuaPopulerMicePage
+export default SemuaDekatMicePage

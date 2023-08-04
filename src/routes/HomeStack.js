@@ -41,6 +41,8 @@ import SemuaHotelPage from '../view/Hotel/SemuaHotelPage';
 import SemuaBeritaPage from '../view/beritaDanEvent/SemuaBeritaPage';
 import Map from '../view/map/Map';
 import SemuaPopulerMicePage from '../view/mice/SemuaPopulerMice';
+import SemuaDekatMicePage from '../view/mice/SemuaDekatMicePage';
+import SemuaUntukmuMicePage from '../view/mice/SemuaUntukmuMicePage';
 
 const HomeTabStack = createBottomTabNavigator();
 const HomeNavStack = createNativeStackNavigator();
@@ -151,7 +153,17 @@ export const HomeNavStackScreen = () => {
       <HomeNavStack.Screen
         name="SemuaPopulerMicePage"
         component={SemuaPopulerMicePage}
-        options={{ title: 'M I C E', headerTitleStyle: GlobalStyles.HeaderBarTItle, headerShadowVisible: false, }}
+        options={{ title: 'M I C E populer', headerTitleStyle: GlobalStyles.HeaderBarTItle, headerShadowVisible: false, }}
+      />
+      <HomeNavStack.Screen
+        name="SemuaDekatMicePage"
+        component={SemuaDekatMicePage}
+        options={{ title: 'M I C E dekat dengan kamu', headerTitleStyle: GlobalStyles.HeaderBarTItle, headerShadowVisible: false, }}
+      />
+      <HomeNavStack.Screen
+        name="SemuaUntukmuMicePage"
+        component={SemuaUntukmuMicePage}
+        options={{ title: 'M I C E untuk kamu', headerTitleStyle: GlobalStyles.HeaderBarTItle, headerShadowVisible: false, }}
       />
     </HomeNavStack.Navigator>
   );
