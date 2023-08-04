@@ -19,6 +19,7 @@ const Styles = StyleSheet.create({
   },
   sectionContainer: {
     gap: verticalScale(16),
+    marginBottom: verticalScale(32)
   },
   lihatSemua: {
     color: COLORS.blue,

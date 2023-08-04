@@ -26,7 +26,7 @@ const MicePage = () => {
         translucent
         backgroundColor="transparent"
       />
-      <ScrollView>
+      <ScrollView style={Styles.contentContainer}>
         <View style={Styles.sectionContainer}>
           <View style={Styles.sectionTitleContainer}>
             <Text style={Styles.sectionTitle}>Populer</Text>
@@ -39,6 +39,15 @@ const MicePage = () => {
         <View style={Styles.sectionContainer}>
           <View style={Styles.sectionTitleContainer}>
             <Text style={Styles.sectionTitle}>Dekat Dengan Kamu</Text>
+            <TouchableOpacity>
+              <Text style={Styles.lihatSemua}>Lihat semua</Text>
+            </TouchableOpacity>
+          </View>
+          <MiceDekatCarousel />
+        </View>
+        <View style={Styles.sectionContainer}>
+          <View style={Styles.sectionTitleContainer}>
+            <Text style={Styles.sectionTitle}>Untuk Kamu</Text>
             <TouchableOpacity>
               <Text style={Styles.lihatSemua}>Lihat semua</Text>
             </TouchableOpacity>
