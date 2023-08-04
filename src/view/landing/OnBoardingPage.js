@@ -22,21 +22,23 @@ const {width, height} = Dimensions.get('window');
 const OnBoardingPage = ({navigation}) => {
   const scrollViewRef = useRef();
   const scrollX = new Animated.Value(0);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [data, setData] = useState([
     {
+      idx: 1,
       title: 'Cari tempat\nternyamanmu!',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
       image: IMAGES.onBoardingImg1,
     },
     {
+      idx: 2,
       title: 'Booking dengan\nmudah!',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
       image: IMAGES.onBoardingImg2,
     },
     {
+      idx: 3,
       title: 'Nikmati liburan\nanda!',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.',
@@ -80,20 +82,24 @@ const OnBoardingPage = ({navigation}) => {
     );
   }
 
+  // THIS WORKS, DO NOT TOUCH!! | INI BEKERJA, JANGAN DISENTUH
+  const [currentIndex, setCurrentIndex] = useState(-1);
   function renderButton() {
     const handleNextPress = () => {
-      const nextIndex = (currentIndex + 1) % data.length;
+      const nextIndex = currentIndex + 2;
+      
+      setCurrentIndex(nextIndex);
+      scrollViewRef.current.scrollTo({x: nextIndex * width, animated: true});
 
-      if (nextIndex === 0) {
-        navigation.navigate('AuthStackScreen')
-      } else {
-        setCurrentIndex(nextIndex);
-        scrollViewRef.current.scrollTo({x: nextIndex * width, animated: true});
+      if (currentIndex >= 2) {
+        handleSkipPress();
       }
     };
+
     const handleSkipPress = () => {
       navigation.navigate('AuthStackScreen');
     };
+
     return (
       <View style={Styles.buttonContainer}>
         <TouchableOpacity style={Styles.nextButton} onPress={handleNextPress}>
@@ -155,15 +161,15 @@ const Styles = StyleSheet.create({
     backgroundColor: COLORS.white,
   },
   image: {
-    width: 309,
-    height: 309,
+    width: horizontalScale(309),
+    height: verticalScale(309),
   },
   contentContainer: {
     width: width,
     justifyContent: 'flex-start',
     alignItems: 'center',
     gap: verticalScale(96),
-    paddingTop: verticalScale(91),
+    paddingTop: verticalScale(65),
   },
   imageContainer: {},
   textContainer: {
@@ -214,7 +220,7 @@ const Styles = StyleSheet.create({
   },
   dotRootContainer: {
     position: 'absolute',
-    bottom: height > 700 ? '45%' : '16%',
+    bottom: height > 700 ? '50%' : '16%',
   },
   buttonRootContainer: {
     position: 'absolute',
