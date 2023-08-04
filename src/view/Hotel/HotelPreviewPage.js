@@ -1,16 +1,17 @@
-import {Text, View} from 'react-native';
+import {Text, View, SafeAreaView} from 'react-native';
 import Styles from '../../styles/HotelPreviewStyles';
 import IMAGES from '../../assets/img/images';
 import ICONS from '../../assets/icons/icons';
+import HotelPreview from '../../components/atoms/HotelPreview';
 
 const DATA = [
   {
     images: [
-      require('../../assets/img/aryaDuta.png'),
-      require('../../assets/img/adimulia.png'),
-      require('../../assets/img/emeraldHotel.png'),
-      require('../../assets/img/aryaDuta.png'),
-      require('../../assets/img/adimulia.png'),
+      require('../../assets/img/aryaDutaFull.png'),
+      require('../../assets/img/hotelHd.png'),
+      require('../../assets/img/aryaDutaFull.png'),
+      require('../../assets/img/hotelHd.png'),
+      require('../../assets/img/aryaDutaFull.png'),
     ],
     name: 'Aryaduta Medan',
     description:
@@ -38,9 +39,9 @@ const DATA = [
 
 const HotelPreviewPage = () => {
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Hotel Preview Page</Text>
-    </View>
+    <SafeAreaView style={Styles.container}>
+      <HotelPreview data={DATA} />
+    </SafeAreaView>
   );
 };
 

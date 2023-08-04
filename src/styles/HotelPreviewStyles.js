@@ -3,7 +3,10 @@ import COLORS from '../theme/colors'
 import { horizontalScale, verticalScale, moderateScale } from '../theme/responsive'
 
 const Styles = StyleSheet.create({
-
+  container: {
+    flex: 1,
+    backgroundColor: COLORS.white,
+  }
 })
 
 export default Styles

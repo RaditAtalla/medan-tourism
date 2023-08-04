@@ -78,6 +78,8 @@ const ICONS = {
     xButton: require('./xButton.png'),
     clockBlue: require('./clockBlue.png'),
     routeBlue: require('./routeBlue.png'),
+    leftArrow: require('./leftArrow.png'),
+    rightArrow: require('./rightArrow.png'),
 }
 
 export default ICONS
