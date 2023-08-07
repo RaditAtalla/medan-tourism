@@ -40,7 +40,7 @@ const DATA = [
 const HotelPreviewPage = () => {
   return (
     <SafeAreaView style={Styles.container}>
-      <HotelPreview data={DATA} />
+      <HotelPreview data={DATA} images={DATA[0].images} />
     </SafeAreaView>
   );
 };

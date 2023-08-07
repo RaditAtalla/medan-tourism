@@ -22,7 +22,7 @@ import ICONS from '../../assets/icons/icons';
 
 const {width, height} = Dimensions.get('window');
 
-const HotelPreview = ({data}) => {
+const HotelPreview = ({data, images}) => {
   const scrollViewRef = useRef();
   const scrollX = new Animated.Value(0);
 
@@ -42,11 +42,12 @@ const HotelPreview = ({data}) => {
           {useNativeDriver: false},
         )}>
         {data.map((item, index) => {
+          console.log(item.images[currentIndex])
           return (
             <Image
               key={index}
               style={Styles.carouselContainer}
-              source={item.images[index]}
+              source={item.images[currentIndex]}
             />
           );
         })}
@@ -57,17 +58,17 @@ const HotelPreview = ({data}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   function renderButton() {
     const handleNextPress = () => {
-      const nextIndex = (currentIndex + 1) % data.length;
+      const nextIndex = (currentIndex + 1) % images.length;
 
       setCurrentIndex(nextIndex);
       scrollViewRef.current.scrollTo({x: nextIndex * width, animated: true});
     };
 
     const handlePrevPress = () => {
-      const prevIndex = (currentIndex - 1) % data.length;
+      const prevIndex = (currentIndex - 1) % images.length;
 
       setCurrentIndex(prevIndex);
-      scrollViewRef.current.scrollTo({x: nextIndex * width, animated: true});
+      scrollViewRef.current.scrollTo({x: prevIndex * width, animated: true});
     };
 
     return (
@@ -117,7 +118,7 @@ const HotelPreview = ({data}) => {
     <View>
       <View style={Styles.carouselRootContainer}>
         <View>{renderImage()}</View>
-        <View style={Styles.arrowRootContainer}>{renderButton}</View>
+        <View style={Styles.arrowRootContainer}>{renderButton()}</View>
         <View style={Styles.dotRootContainer}>{renderDot()}</View>
       </View>
     </View>
@@ -132,11 +133,11 @@ const Styles = StyleSheet.create({
     borderBottomRightRadius: 20,
   },
   carouselRootContainer: {
-    position: 'relative',
     width: width,
     height: verticalScale(456),
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
+    alignItems: 'center',
   },
   arrowRootContainer: {
     position: 'absolute',
@@ -145,6 +146,8 @@ const Styles = StyleSheet.create({
   arrowContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    width: width,
+    paddingHorizontal: horizontalScale(24)
   },
   dot: {
     backgroundColor: COLORS.blue,
