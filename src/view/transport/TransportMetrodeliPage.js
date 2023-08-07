@@ -14,10 +14,14 @@ import KoridorCard from '../../components/atoms/KoridorCard';
 import {useState} from 'react';
 import Modal from 'react-native-modal';
 import { SlideInDown } from 'react-native-reanimated';
+import { useNavigation } from '@react-navigation/native';
+import CtaButton from '../../components/atoms/CtaButton';
+import COLORS from '../../theme/colors';
+import { verticalScale, moderateScale, horizontalScale } from '../../theme/responsive';
 
-export default TransportMetrodeliPage = ({navigation}) => {
+export default TransportMetrodeliPage = () => {
   const [modal, setModal] = useState(false);
-
+  const navigation = useNavigation()
   return (
     <SafeAreaView>
       <KeyboardAvoidingView
@@ -34,7 +38,7 @@ export default TransportMetrodeliPage = ({navigation}) => {
                 <View style={styles.menuTitleWrapper}>
                   <View>
                     <Text style={styles.menuTitle}>
-                      Pilih jenis transportasi anda
+                      Pilih halte yang tersedia
                     </Text>
                   </View>
                   <View>
@@ -110,11 +114,7 @@ export default TransportMetrodeliPage = ({navigation}) => {
                 <Text style={styles.popUpJamOperasiDanTarif}>
                   Jam operasi : 04.30 WIB - 19.41 WIB Tarif : Rp 4.300
                 </Text>
-                <TouchableOpacity
-                  style={styles.popUpButtonWrapper}
-                  onPress={() => setModal(false)}>
-                  <Text style={styles.popUpButtonText}>Mengerti</Text>
-                </TouchableOpacity>
+                <CtaButton backgroundColor={COLORS.blue} borderRadius={12} vPadding={verticalScale(12)} hPadding={horizontalScale(82)} fFamily='Poppins-Bold' fSize={moderateScale(16)} fColor={COLORS.white} text='Log In' action={() => setModal(false)} style={{marginTop: verticalScale(21)}} />
               </View>
             </View>
           </View>

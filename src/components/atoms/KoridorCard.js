@@ -1,5 +1,8 @@
 import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
 import COLORS from '../../theme/colors';
+import CtaButton from '../../components/atoms/CtaButton';
+import { verticalScale, moderateScale, horizontalScale } from '../../theme/responsive';
+import { useNavigation } from '@react-navigation/native';
 
 export default function KoridorCard({
   koridorNumber,
@@ -7,6 +10,7 @@ export default function KoridorCard({
   halteImage,
   action,
 }) {
+  const navigation = useNavigation()
   const styles = StyleSheet.create({
     menu: {
       width: 406,
@@ -55,9 +59,10 @@ export default function KoridorCard({
         <View style={styles.trekTextWrapper}>
           <Text style={styles.trekText}>{trekText}</Text>
         </View>
-        <TouchableOpacity style={styles.button} onPress={action}>
+        {/* <TouchableOpacity style={styles.button} onPress={action}>
           <Text style={styles.buttonText}>Lihat Halte</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
+        <CtaButton backgroundColor={COLORS.white} borderRadius={4} vPadding={verticalScale(8)} hPadding={horizontalScale(12)} fFamily='Poppins-Bold' fSize={moderateScale(12)} fColor={COLORS.black1} text='Lihat halte' action={action} style={{marginTop: verticalScale(32)}} />
       </View>
       <View>
         <Image source={halteImage} />

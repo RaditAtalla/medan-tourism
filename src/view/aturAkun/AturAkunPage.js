@@ -5,6 +5,9 @@ import AturAkunCard from '../../components/atoms/aturAkunCard';
 import ICONS from '../../assets/icons/icons';
 import Modal from 'react-native-modal';
 import HandleLogout from '../../api/HandleLogout';
+import CtaButton from '../../components/atoms/CtaButton';
+import COLORS from '../../theme/colors';
+import { horizontalScale, moderateScale, verticalScale } from '../../theme/responsive';
 
 export default function AturAkunPage({navigation}) {
   const [modal, setModal] = useState(false);
@@ -54,21 +57,8 @@ export default function AturAkunPage({navigation}) {
               Apakah anda yakin ingin keluar?
             </Text>
             <View style={styles.buttonWrapper}>
-              <View style={[styles.box, styles.nantiDuluWrapper]}>
-                <TouchableOpacity onPress={() => setModal(false)}>
-                  <Text style={[styles.buttonText, styles.nantiDuluText]}>
-                    Nanti dulu
-                  </Text>
-                </TouchableOpacity>
-              </View>
-              <View style={[styles.box, styles.yaKeluarWrapper]}>
-                <TouchableOpacity
-                  onPress={() => HandleLogout(navigation)}>
-                  <Text style={[styles.buttonText, styles.yaKeluarText]}>
-                    Ya, Keluar
-                  </Text>
-                </TouchableOpacity>
-              </View>
+                <CtaButton backgroundColor={COLORS.white} borderRadius={12} vPadding={verticalScale(10)} hPadding={horizontalScale(17)} borderWidth={1} borderColor={COLORS.warning} fColor={COLORS.warning} fSize={moderateScale(15)} fFamily='Poppins-Bold' text='Nanti dulu' action={() => setModal(false)} />
+                <CtaButton backgroundColor={COLORS.warning} borderRadius={12} vPadding={verticalScale(10)} hPadding={horizontalScale(17)} fColor={COLORS.white} fSize={moderateScale(15)} fFamily='Poppins-Bold' text='Ya, Keluar' action={() => HandleLogout(navigation)} />
             </View>
           </View>
         </View>

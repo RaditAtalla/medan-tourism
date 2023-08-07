@@ -3,6 +3,9 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {styles} from '../../styles/UbahPasswordPage.style';
 import { useState } from 'react';
 import Modal from 'react-native-modal';
+import CtaButton from '../../components/atoms/CtaButton';
+import { verticalScale, moderateScale } from '../../theme/responsive';
+import COLORS from '../../theme/colors';
 
 export default function VerifikasiPage({navigation}) {
   const [isSecureEntry, setIsSecureEntry] = useState();
@@ -88,13 +91,7 @@ export default function VerifikasiPage({navigation}) {
         </View>
       </View>
       <View style={styles.buttonWrapper}>
-        <TouchableOpacity style={styles.button}>
-          <Text
-            style={styles.buttonText}
-            onPress={() => setModal(true)}>
-            Ubah Password
-          </Text>
-        </TouchableOpacity>
+        <CtaButton backgroundColor={COLORS.blue} borderRadius={20} vPadding={verticalScale(14)} fFamily='Poppins-SemiBold' fSize={moderateScale(18)} fColor={COLORS.white} text='Ubah Password' action={() => setModal(true)} />
       </View>
       <Modal isVisible={modal} style={{marginHorizontal: -20, marginVertical: 0}}>
         <View style={styles.popUpWrapper}>
@@ -118,13 +115,7 @@ export default function VerifikasiPage({navigation}) {
               </View>
             </View>
             <View style={styles.buttonWrapper2}>
-              <TouchableOpacity style={styles.button}>
-                <Text
-                  style={styles.buttonText}
-                  onPress={() => navigation.navigate('LoginPage')}>
-                  Login
-                </Text>
-              </TouchableOpacity>
+              <CtaButton backgroundColor={COLORS.blue} borderRadius={20} vPadding={verticalScale(14)} fFamily='Poppins-SemiBold' fSize={moderateScale(18)} fColor={COLORS.white} text='Log In' action={() => navigation.navigate('HomeStackScreen')} />
             </View>
           </View>
         </View>

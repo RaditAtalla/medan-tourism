@@ -3,6 +3,7 @@ import {useState} from 'react'
 import COLORS from '../../theme/colors'
 import ICONS from '../../assets/icons/icons'
 import { verticalScale, horizontalScale, moderateScale } from '../../theme/responsive'
+import CtaButton from '../../components/atoms/CtaButton';
 
 export const AccordionWisataLainnya = (props) => {
   const [expanded, setExpanded] = useState(false);
@@ -18,16 +19,14 @@ export const AccordionWisataLainnya = (props) => {
         <View style={stylesWisataLainnya.accordionHeader}>
           <View style={stylesWisataLainnya.accordionTitle}>
             <Text style={stylesWisataLainnya.accordionHeaderText}>{props.title}</Text>
-            <TouchableOpacity onPress={props.action}>
-              <Text style={stylesWisataLainnya.headerBadge}>Lihat Map</Text>
-            </TouchableOpacity>
+            <CtaButton backgroundColor={COLORS.blue} borderRadius={50} vPadding={verticalScale(4)} hPadding={horizontalScale(12)} fFamily='Poppins-Bold' fColor={COLORS.white} text='Lihat map' action={props.action} />
           </View>
           <Image source={ICONS.downArrow} />
         </View>
       </TouchableOpacity>
       <Animated.View style={{ height: animatedHeight }}>
         <View style={stylesWisataLainnya.buttonContainer}>
-          <View style={stylesWisataLainnya.buttonLabel}>
+          <View style={stylesWisataLainnya.buttonLabel}>  
             <Image source={ICONS.belanjaIcon} style={stylesWisataLainnya.icon} />
             <Text style={stylesWisataLainnya.label}>Wisata{'\n'}Belanja</Text>
           </View>
@@ -94,7 +93,7 @@ const stylesWisataLainnya = StyleSheet.create({
     fontSize: moderateScale(12),
     color: COLORS.black4,
     textAlign: 'center',
-    fontFamily: 'Poppins-Regular',
+    fontFamily: 'Poppins-Bold',
   },
   headerBadge: {
     fontFamily: 'Poppins-SemiBold',
@@ -125,9 +124,7 @@ export const AccordionKuliner = (props) => {
         <View style={stylesWisataLainnya.accordionHeader}>
           <View style={stylesWisataLainnya.accordionTitle}>
             <Text style={stylesWisataLainnya.accordionHeaderText}>{props.title}</Text>
-            <TouchableOpacity onPress={props.action}>
-              <Text style={stylesWisataLainnya.headerBadge}>Lihat Map</Text>
-            </TouchableOpacity>
+            <CtaButton backgroundColor={COLORS.blue} borderRadius={50} vPadding={verticalScale(4)} hPadding={horizontalScale(12)} fFamily='Poppins-Bold' fColor={COLORS.white} text='Lihat map' action={props.action} />
           </View>
           <Image source={ICONS.downArrow} />
         </View>
@@ -174,9 +171,7 @@ export const AccordionHeritage = (props) => {
         <View style={stylesWisataLainnya.accordionHeader}>
           <View style={stylesWisataLainnya.accordionTitle}>
             <Text style={stylesWisataLainnya.accordionHeaderText}>{props.title}</Text>
-            <TouchableOpacity onPress={props.action}>
-              <Text style={stylesWisataLainnya.headerBadge}>Lihat Map</Text>
-            </TouchableOpacity>
+            <CtaButton backgroundColor={COLORS.blue} borderRadius={50} vPadding={verticalScale(4)} hPadding={horizontalScale(12)} fFamily='Poppins-Bold' fColor={COLORS.white} text='Lihat map' action={props.action} />
           </View>
           <Image source={ICONS.downArrow} />
         </View>

@@ -16,6 +16,7 @@ import {
   verticalScale,
 } from '../../theme/responsive';
 import {useState, useRef} from 'react';
+import CtaButton from '../../components/atoms/CtaButton';
 
 const {width, height} = Dimensions.get('window');
 
@@ -102,12 +103,14 @@ const OnBoardingPage = ({navigation}) => {
 
     return (
       <View style={Styles.buttonContainer}>
-        <TouchableOpacity style={Styles.nextButton} onPress={handleNextPress}>
+        {/* <TouchableOpacity style={Styles.nextButton} onPress={handleNextPress}>
           <Text style={Styles.nextText}>Selanjutnya</Text>
         </TouchableOpacity>
         <TouchableOpacity style={Styles.skipButton} onPress={handleSkipPress}>
           <Text style={Styles.skipText}>Nanti dulu deh</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
+        <CtaButton backgroundColor={COLORS.blue} borderRadius={10} vPadding={verticalScale(10)} hPadding={horizontalScale(40)} fFamily='Poppins-Medium' fSize={moderateScale(16)} fColor={COLORS.white} text='Selanjutnya' action={handleNextPress} />
+        <CtaButton backgroundColor={COLORS.white} fFamily='Poppins-Regular' fSize={moderateScale(16)} fColor={COLORS.black3} text='Nanti dulu deh' action={handleSkipPress} />
       </View>
     );
   }

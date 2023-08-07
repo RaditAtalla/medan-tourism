@@ -9,6 +9,9 @@ import {
 import {styles} from '../../styles/Transport.style.js';
 import TransportInputGroup from '../../components/atoms/TransportInputGroup.js';
 import IMAGES from '../../assets/img/images.js';
+import CtaButton from '../../components/atoms/CtaButton.js';
+import COLORS from '../../theme/colors.js';
+import { verticalScale, moderateScale, horizontalScale } from '../../theme/responsive.js';
 
 export default TransportPage = ({navigation}) => {
   return (
@@ -41,13 +44,7 @@ export default TransportPage = ({navigation}) => {
                       ]}>
                       METRODELI
                     </Text>
-                    <TouchableOpacity
-                      style={styles.button}
-                      onPress={() =>
-                        navigation.navigate('TransportMetrodeliPage')
-                      }>
-                      <Text style={styles.buttonText}>Lihat Jadwal</Text>
-                    </TouchableOpacity>
+                    <CtaButton backgroundColor={COLORS.blue} borderRadius={4} vPadding={verticalScale(8)} hPadding={horizontalScale(12)} fFamily='Poppins-Bold' fSize={moderateScale(12)} fColor={COLORS.white} text='Lihat jadwal' action={() => navigation.navigate('TransportMetrodeliPage')} style={{marginTop: verticalScale(32)}} />
                   </View>
                   <View>
                     <Image source={require('../../assets/img/bus.png')} />

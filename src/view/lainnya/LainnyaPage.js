@@ -9,7 +9,8 @@ import {
 } from 'react-native';
 import { AccordionWisataLainnya, AccordionKuliner, AccordionHeritage } from '../../components/atoms/Accordion';
 import Styles from '../../styles/LainnyaPageStyles'
-import ICONS from '../../assets/icons/icons';
+import CtaButton from '../../components/atoms/CtaButton';
+import { verticalScale, moderateScale } from '../../theme/responsive';
 
 const LainnyaPage = ({ navigation }) => {
   return (
@@ -22,7 +23,7 @@ const LainnyaPage = ({ navigation }) => {
       <ScrollView style={Styles.container}>
         <AccordionWisataLainnya title='Wisata Lainnya' action={() => navigation.navigate('HomeNavStackScreen', {screen: 'Map'})} />
         <AccordionKuliner title='Kuliner' />
-        <AccordionHeritage title='Kuliner' />
+        <AccordionHeritage title='Heritage' />
       </ScrollView>
     </SafeAreaView>
   );

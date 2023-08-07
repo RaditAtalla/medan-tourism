@@ -9,6 +9,8 @@ import MyButton from '../../components/atoms/MyButton';
 import InputGroup from '../../components/atoms/InputGroup';
 import {useState} from 'react'
 import HandleRegister from '../../api/HandleRegister';
+import CtaButton from '../../components/atoms/CtaButton';
+import { verticalScale, moderateScale } from '../../theme/responsive';
 
 const DaftarPage = ({ navigation }) => {
     const [username, setUsername] = useState('')
@@ -28,8 +30,8 @@ const DaftarPage = ({ navigation }) => {
                         </View>
                     </View>
                     <View style={ Styles.altLogin }>
-                        <MyButton text='Daftar' action={() => HandleRegister(username, password, cpassword, navigation)} />
-                        {/* <MyButton text='Daftar' action={() => navigation.navigate('AuthStackScreen', {screen: 'DaftarNomorHpPage'})} /> */}
+                        {/* <CtaButton backgroundColor={COLORS.blue} borderRadius={20} vPadding={verticalScale(14)} fFamily='Poppins-SemiBold' fSize={moderateScale(18)} fColor={COLORS.white} text='Daftar' action={() => HandleRegister(username, password, cpassword, navigation)} /> */}
+                        <CtaButton backgroundColor={COLORS.blue} borderRadius={20} vPadding={verticalScale(14)} fFamily='Poppins-SemiBold' fSize={moderateScale(18)} fColor={COLORS.white} text='Daftar' action={() => navigation.navigate('AuthStackScreen', {screen: 'DaftarNomorHpPage'})} />
                         <Text style={ Styles.atau }>Atau</Text>
                         <AltLogin />
                     </View>

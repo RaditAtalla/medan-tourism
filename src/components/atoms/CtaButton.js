@@ -16,11 +16,12 @@ const CtaButton = ({
   borderWidth,
   fColor,
   text,
+  style
 }) => {
   return (
     <TouchableOpacity
       onPress={action}
-      style={{
+      style={[{
         backgroundColor: backgroundColor,
         width: width,
         borderRadius: borderRadius,
@@ -28,8 +29,9 @@ const CtaButton = ({
         paddingHorizontal: hPadding,
         borderColor: borderColor,
         borderWidth: borderWidth,
-      }}>
-      <Image source={icon} style={Styles.icon} />
+        alignItems: 'center',
+      }, style ]}>
+      <Image source={icon} />
       <Text style={{ fontSize: fSize, fontFamily: fFamily, color: fColor, }}>{text}</Text>
     </TouchableOpacity>
   );

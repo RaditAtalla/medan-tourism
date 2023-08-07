@@ -9,6 +9,8 @@ import MyButton from '../../components/atoms/MyButton';
 import InputGroup from '../../components/atoms/InputGroup';
 import React, {useState} from 'react'
 import HandleLogin from '../../api/HandleLogin';
+import CtaButton from '../../components/atoms/CtaButton';
+import { moderateScale, verticalScale } from '../../theme/responsive';
 
 const LoginPage = ({ navigation }) => {
     const [email, setEmail] = useState("")
@@ -30,8 +32,8 @@ const LoginPage = ({ navigation }) => {
                         <LupaPasswordBtn action={() => navigation.navigate('LupaPasswordPage')} />
                     </View>
                     <View style={ Styles.altLogin }>
-                        {/* <MyButton text='Log in' action={() => HandleLogin(email, password, navigation)} /> */}
-                        <MyButton text='Log in' action={() => navigation.navigate('HomeStackScreen')} />
+                        {/* <CtaButton backgroundColor={COLORS.blue} borderRadius={20} vPadding={verticalScale(14)} fFamily='Poppins-SemiBold' fSize={moderateScale(18)} fColor={COLORS.white} text='Log In' action={() => HandleLogin(email, password, navigation)} /> */}
+                        <CtaButton backgroundColor={COLORS.blue} borderRadius={20} vPadding={verticalScale(14)} fFamily='Poppins-SemiBold' fSize={moderateScale(18)} fColor={COLORS.white} text='Log In' action={() => navigation.navigate('HomeStackScreen')} />
                         <Text style={ Styles.atau }>Atau</Text>
                         <AltLogin />
                     </View>

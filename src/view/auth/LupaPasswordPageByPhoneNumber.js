@@ -9,6 +9,8 @@ import {
 import {SafeAreaView} from 'react-native-safe-area-context';
 import styles from '../../styles/LupaPasswordPageByPhoneNumber.style';
 import COLORS from '../../theme/colors';
+import CtaButton from '../../components/atoms/CtaButton';
+import { verticalScale, moderateScale } from '../../theme/responsive';
 
 export default function LupaPasswordPage({navigation}) {
   return (
@@ -54,21 +56,10 @@ export default function LupaPasswordPage({navigation}) {
           </View>
         </View>
         <View style={styles.lupaPasswordAlternativeWrapper}>
-          <TouchableOpacity
-            onPress={() =>
-              navigation.navigate('LupaPasswordPage')
-            }>
-            <Text style={styles.lupaPasswordAlternativeText}>
-              Coba cara lain
-            </Text>
-          </TouchableOpacity>
+          <CtaButton backgroundColor={COLORS.white} fFamily='Poppins-Medium' fColor={COLORS.blue} text='Coba cara lain' action={() => navigation.navigate('LupaPasswordPage')} />
         </View>
         <View style={styles.buttonWrapper}>
-          <TouchableOpacity
-            style={styles.loginBtn}
-            onPress={() => navigation.navigate('VerifikasiHpPage')}>
-            <Text style={styles.loginText}>Kirim</Text>
-          </TouchableOpacity>
+          <CtaButton backgroundColor={COLORS.blue} borderRadius={20} vPadding={verticalScale(14)} fFamily='Poppins-SemiBold' fSize={moderateScale(18)} fColor={COLORS.white} text='Kirim' action={() => navigation.navigate('VerifikasiPage')} />
         </View>
       </View>
     </SafeAreaView>

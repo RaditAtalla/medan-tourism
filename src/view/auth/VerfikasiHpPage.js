@@ -3,6 +3,9 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {styles} from '../../styles/VerifikasiPage.style';
 import {useState} from 'react'
 import {HandleVerifikasiOTP} from '../../api/HandleOTP';
+import CtaButton from '../../components/atoms/CtaButton';
+import { verticalScale, moderateScale } from '../../theme/responsive';
+import COLORS from '../../theme/colors';
 
 export default function VerifikasiHpPage({navigation}) {
   const[otp_code, setOtpCode] = useState('')
@@ -30,15 +33,10 @@ export default function VerifikasiHpPage({navigation}) {
         />
       </View>
       <View style={styles.verifikasiAlternativeWrapper}>
-        <Text style={styles.verifikasiAlternativeText}>Kirim Ulang Kode</Text>
+        <CtaButton backgroundColor={COLORS.white} fFamily='Poppins-Medium' fColor={COLORS.blue} text='Kirim ulang kode' />
       </View>
       <View style={styles.buttonWrapper}>
-        <TouchableOpacity
-          style={styles.verifikasiBtn}
-          onPress={() => HandleVerifikasiOTP(otp_code, navigation)}>
-          {/* onPress={() => navigation.navigate('HomeStackScreen')}> */}
-          <Text style={styles.verifikasiText}>Verifikasi </Text>
-        </TouchableOpacity>
+        <CtaButton backgroundColor={COLORS.blue} borderRadius={20} vPadding={verticalScale(14)} fFamily='Poppins-SemiBold' fSize={moderateScale(18)} fColor={COLORS.white} text='Verifikasi' action={() => navigation.navigate('HomeStackScreen')} />
       </View>
     </SafeAreaView>
   );

@@ -4,6 +4,8 @@ import Styles from '../../styles/DaftarNomorHpStyles'
 import COLORS from '../../theme/colors'
 import {useState} from 'react'
 import {HandleSendOTP} from '../../api/HandleOTP'
+import CtaButton from '../../components/atoms/CtaButton'
+import { verticalScale, moderateScale } from '../../theme/responsive'
 
 const DaftarNomorHpPage = ({ navigation }) => {
   const [phone, setPhone] = useState('')
@@ -43,8 +45,8 @@ const DaftarNomorHpPage = ({ navigation }) => {
                     </View>
                 </View>
             </View>
-            <MyButton text='Kirim' action={() => HandleSendOTP(phone, navigation)} />
-            {/* <MyButton text='Kirim' action={() => navigation.navigate('AuthStackScreen', {screen: 'VerifikasiHpPage'})} /> */}
+            {/* <CtaButton backgroundColor={COLORS.blue} borderRadius={20} vPadding={verticalScale(14)} fFamily='Poppins-SemiBold' fSize={moderateScale(18)} fColor={COLORS.white} text='Kirim' action={() => HandleSendOTP(phone, navigation)} /> */}
+            <CtaButton backgroundColor={COLORS.blue} borderRadius={20} vPadding={verticalScale(14)} fFamily='Poppins-SemiBold' fSize={moderateScale(18)} fColor={COLORS.white} text='Kirim' action={() => navigation.navigate('AuthStackScreen', {screen: 'VerifikasiHpPage'})} />
         </View>
     )
 }

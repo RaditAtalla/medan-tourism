@@ -1,9 +1,13 @@
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, TextInput} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {styles} from '../../styles/VerifikasiPage.style';
-import MyButton from '../../components/atoms/MyButton';
+import { useState } from 'react'
+import CtaButton from '../../components/atoms/CtaButton';
+import { verticalScale, moderateScale, } from '../../theme/responsive';
+import COLORS from '../../theme/colors';
 
 export default function VerifikasiPage({navigation}) {
+  const[otp_code, setOtpCode] = useState('')
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.iconWrapper}>
@@ -18,24 +22,20 @@ export default function VerifikasiPage({navigation}) {
         </Text>
       </View>
       <View style={styles.otpWrapper}>
-        <View style={[styles.otpBox1, styles.otpBox]}>
-          <Text style={styles.otp}>1</Text>
-        </View>
-        <View style={[styles.otpBox2, styles.otpBox]}>
-          <Text style={styles.otp}>2</Text>
-        </View>
-        <View style={[styles.otpBox3, styles.otpBox]}>
-          <Text style={styles.otp}>3</Text>
-        </View>
-        <View style={[styles.otpBox4, styles.otpBox]}>
-          <Text style={styles.otp}>4</Text>
-        </View>
+        <TextInput
+          style={[styles.otpBox1, styles.otpBox]}
+          keyboardType="numeric"
+          placeholder="****"
+          maxLength={4}
+          value={otp_code}
+          onChangeText={setOtpCode}
+        />
       </View>
       <View style={styles.verifikasiAlternativeWrapper}>
-        <Text style={styles.verifikasiAlternativeText}>Kirim Ulang Kode</Text>
+        <CtaButton backgroundColor={COLORS.white} fFamily='Poppins-Medium' fColor={COLORS.blue} text='Kirim ulang kode' />
       </View>
       <View style={styles.buttonWrapper}>
-        <MyButton text='Verifikasi' action={() => navigation.navigate('UbahPasswordPage')} />
+        <CtaButton backgroundColor={COLORS.blue} borderRadius={20} vPadding={verticalScale(14)} fFamily='Poppins-SemiBold' fSize={moderateScale(18)} fColor={COLORS.white} text='Verifikasi' action={() => navigation.navigate('UbahPasswordPage')} />
       </View>
     </SafeAreaView>
   );

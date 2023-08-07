@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import COLORS from '../theme/colors';
+import { horizontalScale, verticalScale } from '../theme/responsive';
 
 const styles = StyleSheet.create({
   container: {
@@ -54,10 +55,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Poppins-Regular',
     color: '#3b4949',
+    paddingHorizontal: horizontalScale(24)
   },
   buttonWrapper: {
     width: 358,
     marginTop: 48,
+    gap: verticalScale(16)
   },
   box: {
     justifyContent: 'center',
@@ -115,7 +118,8 @@ const styles = StyleSheet.create({
   },
   buttonPopUpWrapper: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
+    gap: horizontalScale(16),
     width: '100%',
   },
   boxPopUp: {

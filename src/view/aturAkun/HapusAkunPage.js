@@ -3,6 +3,10 @@ import {View, Text, TouchableOpacity, SafeAreaView, Image} from 'react-native';
 import {styles} from '../../styles/HapusAkun.Style';
 import Modal from 'react-native-modal';
 import ICONS from '../../assets/icons/icons';
+import MyButton from '../../components/atoms/MyButton';
+import CtaButton from '../../components/atoms/CtaButton';
+import COLORS from '../../theme/colors';
+import { moderateScale, verticalScale, horizontalScale } from '../../theme/responsive';
 
 export default function HapusAkun({navigation}) {
   const [check, setCheck] = useState(false);
@@ -57,27 +61,8 @@ export default function HapusAkun({navigation}) {
           </Text>
         </View>
         <View style={styles.buttonWrapper}>
-          <TouchableOpacity
-            style={[
-              styles.hapusAkunWrapper,
-              styles.box,
-              check
-                ? {backgroundColor: 'rgba(235, 87, 87, 1)'}
-                : {backgroundColor: '#828282'},
-            ]}>
-            <TouchableOpacity onPress={() => setModal(true)}>
-              <Text style={[styles.hapusAkunText, styles.buttonText]}>
-                Hapus Akun
-              </Text>
-            </TouchableOpacity>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('AturAkunPage')}
-            style={[styles.gakJadiWrapper, styles.box]}>
-            <Text style={[styles.gakJadiText, styles.buttonText]}>
-              Gak jadi
-            </Text>
-          </TouchableOpacity>
+          <CtaButton style={ check ? {backgroundColor: 'rgba(235, 87, 87, 1)'} : {backgroundColor: COLORS.secondary} } vPadding={verticalScale(16)} borderRadius={50} fFamily='Poppins-Bold' fSize={moderateScale(15)} fColor={COLORS.white} text='Hapus Akun' action={() => setModal(true)} />
+          <CtaButton backgroundColor={COLORS.white} vPadding={verticalScale(16)} borderRadius={50} borderWidth={1} borderColor={COLORS.warning} fFamily='Poppins-Bold' fSize={moderateScale(15)} fColor={COLORS.warning} text='Gak jadi' action={() => navigation.navigate('AturAkunPage')} />
         </View>
       </View>
       {check ? (
@@ -89,22 +74,8 @@ export default function HapusAkun({navigation}) {
                 Apakah anda yakin ingin menghapus akun?
               </Text>
               <View style={styles.buttonPopUpWrapper}>
-                <View style={[styles.boxPopUp, styles.nantiDuluWrapper]}>
-                  <TouchableOpacity onPress={() => setModal(false)}>
-                    <Text
-                      style={[styles.buttonPopUpText, styles.nantiDuluText]}>
-                      Tidak
-                    </Text>
-                  </TouchableOpacity>
-                </View>
-                <View style={[styles.boxPopUp, styles.yaKeluarWrapper]}>
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate('LoginPage')}>
-                    <Text style={[styles.buttonPopUpText, styles.yaKeluarText]}>
-                      Ya, hapus
-                    </Text>
-                  </TouchableOpacity>
-                </View>
+                  <CtaButton backgroundColor={COLORS.white} borderRadius={12} vPadding={verticalScale(10)} hPadding={horizontalScale(17)} borderWidth={1} borderColor={COLORS.warning} fColor={COLORS.warning} fSize={moderateScale(15)} fFamily='Poppins-Bold' text='Tidak' action={() => setModal(false)} />
+                  <CtaButton backgroundColor={COLORS.warning} borderRadius={12} vPadding={verticalScale(10)} hPadding={horizontalScale(17)} fColor={COLORS.white} fSize={moderateScale(15)} fFamily='Poppins-Bold' text='Ya, hapus' action={() => navigation.navigate('LoginPage')} />
               </View>
             </View>
           </View>
