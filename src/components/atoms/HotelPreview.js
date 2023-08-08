@@ -20,7 +20,8 @@ import {useState, useRef} from 'react';
 import IMAGES from '../../assets/img/images';
 import COLORS from '../../theme/colors';
 import ICONS from '../../assets/icons/icons';
-import { StarOnlyDisplay } from './StarDisplayDetail';
+import {StarOnlyDisplay} from './StarDisplayDetail';
+import CtaButton from './CtaButton';
 
 const {width, height} = Dimensions.get('window');
 
@@ -131,7 +132,7 @@ const HotelPreview = ({data, images}) => {
         fontSize: moderateScale(16),
         fontFamily: 'Poppins-SemiBold',
       },
-    })
+    });
     return (
       <View style={idStyle.topWrapper}>
         <Text style={idStyle.name}>{data[0].name}</Text>
@@ -146,9 +147,7 @@ const HotelPreview = ({data, images}) => {
         color: COLORS.black3,
       },
     });
-    return (
-      <Text style={detailStyle.description}>{data[0].description}</Text>
-    );
+    return <Text style={detailStyle.description}>{data[0].description}</Text>;
   };
 
   const Review = () => {
@@ -183,52 +182,138 @@ const HotelPreview = ({data, images}) => {
       comment: {
         color: COLORS.black3,
         fontSize: moderateScale(12),
-      }
-    })
-    return(
+      },
+    });
+    return (
       <View style={reviewStyles.container}>
         <View style={reviewStyles.userData}>
-          <Image style={reviewStyles.profilePic} source={data[0].comments[0].profilePic} />
+          <Image
+            style={reviewStyles.profilePic}
+            source={data[0].comments[0].profilePic}
+          />
           <View style={reviewStyles.usernameAndRating}>
-            <Text style={reviewStyles.username}>{data[0].comments[0].username}</Text>
+            <Text style={reviewStyles.username}>
+              {data[0].comments[0].username}
+            </Text>
             <StarOnlyDisplay rating={data[0].comments[0].rating} />
           </View>
         </View>
         <Text style={reviewStyles.comment}>{data[0].comments[0].comment}</Text>
       </View>
-    )
+    );
   };
 
-  const [isDetailActive, setIsDetailActive] = useState(true)
-  const [isReviewActive, setIsReviewActive] = useState(false)
+  const [isDetailActive, setIsDetailActive] = useState(true);
+  const [isReviewActive, setIsReviewActive] = useState(false);
 
   const ActiveComponent = () => {
-    if (isReviewActive) {return <Review />}
-    return <Details />  
+    if (isReviewActive) {
+      return <Review />;
+    }
+    return <Details />;
+  };
+
+  const MenuButton = () => {
+    const menuStyles = StyleSheet.create({
+      buttonUnderline: {
+        width: '100%',
+        height: verticalScale(3),
+        backgroundColor: COLORS.blue,
+        borderRadius: 10,
+      },
+      noButtonUnderline: {
+        display: 'none',
+      },
+    });
+    return (
+      <View>
+        <View style={Styles.sectionButtonContainer}>
+          <View>
+            <TouchableOpacity
+              style={Styles.sectionButton}
+              onPress={() => {
+                setIsDetailActive(true);
+                setIsReviewActive(false);
+              }}>
+              <Text style={isDetailActive ? Styles.sectionButtonTextActive : Styles.sectionButtonTextInactive}>Details</Text>
+            </TouchableOpacity>
+            <View
+              style={
+                isDetailActive
+                  ? menuStyles.buttonUnderline
+                  : menuStyles.noButtonUnderline
+              }
+            />
+          </View>
+          <View>
+            <TouchableOpacity
+              style={Styles.sectionButton}
+              onPress={() => {
+                setIsReviewActive(true);
+                setIsDetailActive(false);
+              }}>
+              <Text style={isReviewActive ? Styles.sectionButtonTextActive : Styles.sectionButtonTextInactive}>Review</Text>
+            </TouchableOpacity>
+            <View
+              style={
+                isReviewActive
+                  ? menuStyles.buttonUnderline
+                  : menuStyles.noButtonUnderline
+              }
+            />
+          </View>
+        </View>
+      </View>
+    );
+  };
+
+  const ActionMenu = () => {
+    const ActionMenuStyles = StyleSheet.create({
+      container: {
+        backgroundColor: COLORS.white,
+        paddingVertical: verticalScale(16),
+        paddingHorizontal: horizontalScale(20),
+        // width: width,
+        borderRadius: 16,
+        alignItems: 'center',
+        gap: horizontalScale(16),
+        flexDirection: 'row',
+        elevation: 12,
+      },
+      price: {
+        color: COLORS.blue,
+        fontSize: moderateScale(16),
+        fontFamily: 'Poppins-Bold',
+      }
+    })
+    return(
+      <View style={ActionMenuStyles.container}>
+        <Text style={ActionMenuStyles.price}>IDR {data[0].price}<Text style={{ color: COLORS.black3, fontSize: moderateScale(10), fontFamily: 'Poppins-Regular', }}>/malam</Text></Text>
+        <CtaButton backgroundColor={COLORS.blue} fColor={COLORS.white} fFamily='Poppins-Medium' vPadding={verticalScale(8)} hPadding={horizontalScale(12)} borderRadius={8} text='Telepon Sekarang' />
+      </View>
+    )
   }
 
   return (
-    <ScrollView style={Styles.rootContainer}>
-      <View style={Styles.carouselRootContainer}>
-        <View>{renderImage()}</View>
-        <View style={Styles.arrowRootContainer}>{renderButton()}</View>
-        <View style={Styles.dotRootContainer}>{renderDot()}</View>
-      </View>
-      <View style={Styles.contentContainer}>
+    <View style={{ flex: 1, alignItems: 'center' }}>
+      <ScrollView style={Styles.rootContainer} showsVerticalScrollIndicator={false}>
+        <View style={Styles.carouselRootContainer}>
+          <View>{renderImage()}</View>
+          <View style={Styles.arrowRootContainer}>{renderButton()}</View>
+          <View style={Styles.dotRootContainer}>{renderDot()}</View>
+        </View>
+        <View style={Styles.contentContainer}>
           <View style={Styles.contentWrapper}>
-            <View style={Styles.sectionButtonContainer}>
-              <TouchableOpacity style={Styles.sectionButton} onPress={() => {setIsDetailActive(true); setIsReviewActive(false)} }>
-                <Text style={Styles.sectionButtonText}>Details</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={Styles.sectionButton} onPress={() => {setIsReviewActive(true); setIsDetailActive(false)}}>
-                <Text style={Styles.sectionButtonText}>Review</Text>
-              </TouchableOpacity>
-            </View>
+            <MenuButton />
             <HotelId />
             <ActiveComponent />
           </View>
+        </View>
+      </ScrollView>
+      <View style={Styles.actionMenuRootContainer}>
+        <ActionMenu />
       </View>
-    </ScrollView>
+    </View>
   );
 };
 
@@ -282,14 +367,24 @@ const Styles = StyleSheet.create({
     gap: horizontalScale(32),
     alignItems: 'flex-start',
   },
-  sectionButtonText: {
+  sectionButtonTextActive: {
     color: COLORS.black3,
+    fontSize: moderateScale(20),
+    fontFamily: 'Poppins-Bold',
+  },
+  sectionButtonTextInactive: {
+    color: COLORS.black3,
+    opacity: 0.5,
     fontSize: moderateScale(20),
     fontFamily: 'Poppins-Bold',
   },
   contentWrapper: {
     gap: verticalScale(29),
   },
+  actionMenuRootContainer: {
+    position: 'absolute',
+    bottom: '10%',
+  }
 });
 
 export default HotelPreview;
