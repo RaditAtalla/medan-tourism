@@ -93,7 +93,7 @@ const HotelPreview = ({data, images}) => {
     });
     return (
       <View style={Styles.dotContainer}>
-        {data.map((item, index) => {
+        {data[0].images.map((item, index) => {
           const opacity = dotPosition.interpolate({
             inputRange: [index - 1, index, index + 2],
             outputRange: [0.3, 1, 0.3],
