@@ -67,4 +67,58 @@ const StarDisplayDetail = ({ rating, raters }) => {
     }
 }
 
+export const StarOnlyDisplay = ({ rating }) => {
+    if(rating == 1){
+        return(
+            <View style={{ flexDirection: 'row', gap: 4, alignItems: 'center', }}>
+                <Image source={ICONS.star} />
+                <Image source={ICONS.starEmpty} />
+                <Image source={ICONS.starEmpty} />
+                <Image source={ICONS.starEmpty} />
+                <Image source={ICONS.starEmpty} />
+            </View>
+        )
+    } else if(rating == 2){
+        return(
+            <View style={{ flexDirection: 'row', gap: 4, alignItems: 'center', }}>
+                <Image source={ICONS.star} />
+                <Image source={ICONS.star} />
+                <Image source={ICONS.starEmpty} />
+                <Image source={ICONS.starEmpty} />
+                <Image source={ICONS.starEmpty} />
+            </View>
+        )
+    } else if(rating == 3){
+        return(
+            <View style={{ flexDirection: 'row', gap: 4, alignItems: 'center', }}>
+                <Image source={ICONS.star} />
+                <Image source={ICONS.star} />
+                <Image source={ICONS.star} />
+                <Image source={ICONS.starEmpty} />
+                <Image source={ICONS.starEmpty} />
+            </View>
+        )
+    } else if(rating == 4){
+        return(
+            <View style={{ flexDirection: 'row', gap: 4, alignItems: 'center', }}>
+                <Image source={ICONS.star} />
+                <Image source={ICONS.star} />
+                <Image source={ICONS.star} />
+                <Image source={ICONS.star} />
+                <Image source={ICONS.starEmpty} />
+            </View>
+        )
+    } else if(rating == 5){
+        return(
+            <View style={{ flexDirection: 'row', gap: 4, alignItems: 'center', }}>
+                <Image source={ICONS.star} />
+                <Image source={ICONS.star} />
+                <Image source={ICONS.star} />
+                <Image source={ICONS.star} />
+                <Image source={ICONS.star} />
+            </View>
+        )
+    }
+}
+
 export default StarDisplayDetail

@@ -9,6 +9,7 @@ import {
   Animated,
   Dimensions,
   ImageBackground,
+  ScrollView,
 } from 'react-native';
 import {
   verticalScale,
@@ -19,6 +20,7 @@ import {useState, useRef} from 'react';
 import IMAGES from '../../assets/img/images';
 import COLORS from '../../theme/colors';
 import ICONS from '../../assets/icons/icons';
+import { StarOnlyDisplay } from './StarDisplayDetail';
 
 const {width, height} = Dimensions.get('window');
 
@@ -42,7 +44,6 @@ const HotelPreview = ({data, images}) => {
           {useNativeDriver: false},
         )}>
         {data.map((item, index) => {
-          console.log(item.images[currentIndex])
           return (
             <Image
               key={index}
@@ -114,18 +115,127 @@ const HotelPreview = ({data, images}) => {
     );
   };
 
+  const HotelId = () => {
+    const idStyle = StyleSheet.create({
+      topWrapper: {
+        gap: verticalScale(16),
+      },
+      name: {
+        color: COLORS.black3,
+        fontSize: moderateScale(24),
+        fontFamily: 'Poppins-Bold',
+      },
+      rating: {
+        color: COLORS.black3,
+        opacity: 0.5,
+        fontSize: moderateScale(16),
+        fontFamily: 'Poppins-SemiBold',
+      },
+    })
+    return (
+      <View style={idStyle.topWrapper}>
+        <Text style={idStyle.name}>{data[0].name}</Text>
+        <Text style={idStyle.rating}>Hotel {data[0].rating} Star</Text>
+      </View>
+    );
+  };
+
+  const Details = () => {
+    const detailStyle = StyleSheet.create({
+      description: {
+        color: COLORS.black3,
+      },
+    });
+    return (
+      <Text style={detailStyle.description}>{data[0].description}</Text>
+    );
+  };
+
+  const Review = () => {
+    const reviewStyles = StyleSheet.create({
+      container: {
+        backgroundColor: COLORS.white,
+        borderRadius: 26,
+        gap: verticalScale(26),
+        paddingVertical: verticalScale(16),
+        paddingHorizontal: horizontalScale(12),
+        width: '100%',
+        marginBottom: verticalScale(24),
+      },
+      userData: {
+        flexDirection: 'row',
+        gap: horizontalScale(10),
+        alignItems: 'center',
+      },
+      profilePic: {
+        width: horizontalScale(28),
+        height: verticalScale(28),
+        borderRadius: 100,
+      },
+      usernameAndRating: {
+        gap: verticalScale(4),
+      },
+      username: {
+        color: COLORS.black3,
+        fontSize: moderateScale(12),
+        fontFamily: 'Poppins-SemiBold',
+      },
+      comment: {
+        color: COLORS.black3,
+        fontSize: moderateScale(12),
+      }
+    })
+    return(
+      <View style={reviewStyles.container}>
+        <View style={reviewStyles.userData}>
+          <Image style={reviewStyles.profilePic} source={data[0].comments[0].profilePic} />
+          <View style={reviewStyles.usernameAndRating}>
+            <Text style={reviewStyles.username}>{data[0].comments[0].username}</Text>
+            <StarOnlyDisplay rating={data[0].comments[0].rating} />
+          </View>
+        </View>
+        <Text style={reviewStyles.comment}>{data[0].comments[0].comment}</Text>
+      </View>
+    )
+  };
+
+  const [isDetailActive, setIsDetailActive] = useState(true)
+  const [isReviewActive, setIsReviewActive] = useState(false)
+
+  const ActiveComponent = () => {
+    if (isReviewActive) {return <Review />}
+    return <Details />  
+  }
+
   return (
-    <View>
+    <ScrollView style={Styles.rootContainer}>
       <View style={Styles.carouselRootContainer}>
         <View>{renderImage()}</View>
         <View style={Styles.arrowRootContainer}>{renderButton()}</View>
         <View style={Styles.dotRootContainer}>{renderDot()}</View>
       </View>
-    </View>
+      <View style={Styles.contentContainer}>
+          <View style={Styles.contentWrapper}>
+            <View style={Styles.sectionButtonContainer}>
+              <TouchableOpacity style={Styles.sectionButton} onPress={() => {setIsDetailActive(true); setIsReviewActive(false)} }>
+                <Text style={Styles.sectionButtonText}>Details</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={Styles.sectionButton} onPress={() => {setIsReviewActive(true); setIsDetailActive(false)}}>
+                <Text style={Styles.sectionButtonText}>Review</Text>
+              </TouchableOpacity>
+            </View>
+            <HotelId />
+            <ActiveComponent />
+          </View>
+      </View>
+    </ScrollView>
   );
 };
 
 const Styles = StyleSheet.create({
+  rootContainer: {
+    flex: 1,
+  },
   carouselContainer: {
     width: width,
     height: verticalScale(456),
@@ -147,7 +257,7 @@ const Styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: width,
-    paddingHorizontal: horizontalScale(24)
+    paddingHorizontal: horizontalScale(24),
   },
   dot: {
     backgroundColor: COLORS.blue,
@@ -160,6 +270,25 @@ const Styles = StyleSheet.create({
   dotRootContainer: {
     position: 'absolute',
     bottom: verticalScale(50),
+  },
+  contentContainer: {
+    paddingVertical: verticalScale(48),
+    paddingHorizontal: horizontalScale(24),
+    backgroundColor: COLORS.gray5,
+    flex: 1,
+  },
+  sectionButtonContainer: {
+    flexDirection: 'row',
+    gap: horizontalScale(32),
+    alignItems: 'flex-start',
+  },
+  sectionButtonText: {
+    color: COLORS.black3,
+    fontSize: moderateScale(20),
+    fontFamily: 'Poppins-Bold',
+  },
+  contentWrapper: {
+    gap: verticalScale(29),
   },
 });
 

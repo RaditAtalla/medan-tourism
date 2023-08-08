@@ -3,7 +3,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import ICONS from '../assets/icons/icons';
 import COLORS from '../theme/colors';
 
-import {Image} from 'react-native';
+import {Image, TouchableOpacity} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import HomePage from '../view/home/HomePage';
@@ -44,11 +44,20 @@ import SemuaPopulerMicePage from '../view/mice/SemuaPopulerMice';
 import SemuaDekatMicePage from '../view/mice/SemuaDekatMicePage';
 import SemuaUntukmuMicePage from '../view/mice/SemuaUntukmuMicePage';
 import SemuaTempatWisataPage from '../view/wisata/semuaTempatWisata';
+import IMAGES from '../assets/img/images';
 
 const HomeTabStack = createBottomTabNavigator();
 const HomeNavStack = createNativeStackNavigator();
 
-export const HomeNavStackScreen = () => {
+const BackButton = ({ action }) => {
+  return(
+    <TouchableOpacity onPress={action} style={{ paddingTop: verticalScale(57), paddingLeft: horizontalScale(24) }}>
+      <Image source={IMAGES.backButton} />
+    </TouchableOpacity>
+  )
+}
+
+export const HomeNavStackScreen = ({ navigation }) => {
   return (
     <HomeNavStack.Navigator>
       <HomeNavStack.Screen
@@ -134,7 +143,7 @@ export const HomeNavStackScreen = () => {
       <HomeNavStack.Screen
         name="HotelPreviewPage"
         component={HotelPreviewPage}
-        options={{ headerTitleStyle:{ display: 'none', }, headerTintColor: COLORS.white, headerShadowVisible: false, headerShown: false }}
+        options={{ header: () => <BackButton action={() => navigation.goBack()} />, headerTransparent: true }}
       />
       <HomeNavStack.Screen
         name="SemuaHotelPage"
