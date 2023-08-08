@@ -31,7 +31,7 @@ const DATA = [
         username: 'Raditya Atalla',
         rating: 5,
         comment:
-          'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.',
+          'Gacor kang',
       },
     ],
   },

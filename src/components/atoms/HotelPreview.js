@@ -159,7 +159,6 @@ const HotelPreview = ({data, images}) => {
         paddingVertical: verticalScale(16),
         paddingHorizontal: horizontalScale(12),
         width: '100%',
-        marginBottom: verticalScale(24),
       },
       userData: {
         flexDirection: 'row',
@@ -184,23 +183,31 @@ const HotelPreview = ({data, images}) => {
         fontSize: moderateScale(12),
       },
     });
-    return (
-      <View style={reviewStyles.container}>
-        <View style={reviewStyles.userData}>
-          <Image
-            style={reviewStyles.profilePic}
-            source={data[0].comments[0].profilePic}
-          />
-          <View style={reviewStyles.usernameAndRating}>
-            <Text style={reviewStyles.username}>
-              {data[0].comments[0].username}
-            </Text>
-            <StarOnlyDisplay rating={data[0].comments[0].rating} />
-          </View>
-        </View>
-        <Text style={reviewStyles.comment}>{data[0].comments[0].comment}</Text>
+    
+    return(
+      <View style={{ gap: verticalScale(24) }}>
+        {data[0].comments.map((item, index) => {
+          console.log(item.username)
+          return (
+            <View style={reviewStyles.container} key={index}>
+              <View style={reviewStyles.userData}>
+                <Image
+                  style={reviewStyles.profilePic}
+                  source={item.profilePic}
+                />
+                <View style={reviewStyles.usernameAndRating}>
+                  <Text style={reviewStyles.username}>
+                    {item.username}
+                  </Text>
+                  <StarOnlyDisplay rating={item.rating} />
+                </View>
+              </View>
+              <Text style={reviewStyles.comment}>{item.comment}</Text>
+            </View>
+          )
+        })}
       </View>
-    );
+    )
   };
 
   const [isDetailActive, setIsDetailActive] = useState(true);
@@ -320,6 +327,7 @@ const HotelPreview = ({data, images}) => {
 const Styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
+    backgroundColor: COLORS.gray5
   },
   carouselContainer: {
     width: width,
