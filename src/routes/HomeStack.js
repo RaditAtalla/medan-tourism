@@ -40,6 +40,7 @@ import HotelPreviewPage from '../view/Hotel/HotelPreviewPage';
 import SemuaHotelPage from '../view/Hotel/SemuaHotelPage';
 import SemuaBeritaPage from '../view/beritaDanEvent/SemuaBeritaPage';
 import MapHotel from '../view/map/MapHotel';
+import MapMice from '../view/map/MapMice';
 import SemuaPopulerMicePage from '../view/mice/SemuaPopulerMice';
 import SemuaDekatMicePage from '../view/mice/SemuaDekatMicePage';
 import SemuaUntukmuMicePage from '../view/mice/SemuaUntukmuMicePage';
@@ -156,8 +157,13 @@ export const HomeNavStackScreen = ({ navigation }) => {
         options={{ title: 'Berita', headerTitleStyle: GlobalStyles.HeaderBarTItle, headerShadowVisible: false, }}
       />
       <HomeNavStack.Screen
-        name="Map"
+        name="MapHotel"
         component={MapHotel}
+        options={{ headerShown: false }}
+      />
+      <HomeNavStack.Screen
+        name="MapMice"
+        component={MapMice}
         options={{ headerShown: false }}
       />
       <HomeNavStack.Screen

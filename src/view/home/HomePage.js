@@ -57,7 +57,7 @@ const HomePage = ({navigation}) => {
             <MenuButton
               icon={ICONS.hotelIcon}
               label="Hotel"
-              action={() => navigation.navigate('HomeNavStackScreen', {screen: 'Map'})}
+              action={() => navigation.navigate('HomeNavStackScreen', {screen: 'MapHotel'})}
             />
             <MenuButton
               icon={ICONS.transportIcon}
@@ -77,7 +77,7 @@ const HomePage = ({navigation}) => {
             <MenuButton
               icon={ICONS.miceIcon}
               label="M I C E"
-              action={() => navigation.navigate('HomeNavStackScreen', {screen: 'MicePage'})}
+              action={() => navigation.navigate('HomeNavStackScreen', {screen: 'MapMice'})}
             />
             <MenuButton
               icon={ICONS.stasiunIcon}
