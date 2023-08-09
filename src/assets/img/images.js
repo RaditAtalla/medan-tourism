@@ -37,6 +37,8 @@ const IMAGES = {
     mapMice: require('../../assets/img/mapMice.png'),
     mapRekreasi: require('../../assets/img/mapRekreasi.png'),
     mapKuliner: require('../../assets/img/mapKuliner.png'),
+    mapHeritage: require('../../assets/img/mapHeritage.png'),
+    mapStasiun: require('../../assets/img/mapStasiun.png'),
 }
 
 export default IMAGES;
