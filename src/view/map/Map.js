@@ -15,6 +15,7 @@ import PlaceInforamationCard from '../../components/atoms/PlaceInformationCard';
 import ICONS from '../../assets/icons/icons';
 import {horizontalScale, verticalScale} from '../../theme/responsive';
 import COLORS from '../../theme/colors';
+import MapHeader from '../../components/atoms/MapHeader';
 
 const {width, height} = Dimensions.get('window');
 const mapWidth = width * 4.3;
@@ -43,31 +44,7 @@ const Map = ({navigation}) => {
         translucent
         backgroundColor="transparent"
       />
-      <View style={Styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()} style={{ justifyContent: 'center', alignItems: 'center' }}>
-          <Image
-            source={ICONS.backButtonBlack}
-            style={{width: horizontalScale(24), objectFit: 'contain' }}
-          />
-          <View style={{ backgroundColor: COLORS.white, width: horizontalScale(50), height: verticalScale(50), objectFit: 'contain', borderRadius: 100, position: 'absolute', zIndex: -1 }} />
-        </TouchableOpacity>
-        <TouchableOpacity style={Styles.inputContainer}>
-          <Image
-            source={ICONS.search}
-            style={{
-              width: horizontalScale(20),
-              height: verticalScale(20),
-              objectFit: 'contain',
-            }}
-          />
-          <TextInput
-            placeholder="Cari Hotel"
-            placeholderTextColor={COLORS.black3}
-            selectionColor={COLORS.blue}
-            style={Styles.inputField}
-          />
-        </TouchableOpacity>
-      </View>
+      <MapHeader placeholder='Cari hotel' />
       <View style={{position: 'absolute'}}>
         <MapSplashInfo />
       </View>
