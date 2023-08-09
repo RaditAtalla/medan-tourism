@@ -39,6 +39,7 @@ const IMAGES = {
     mapKuliner: require('../../assets/img/mapKuliner.png'),
     mapHeritage: require('../../assets/img/mapHeritage.png'),
     mapStasiun: require('../../assets/img/mapStasiun.png'),
+    adiMulia: require('../../assets/img/adimulia.png')
 }
 
 export default IMAGES;

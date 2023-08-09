@@ -13,8 +13,8 @@ const width = Dimensions.get('window').width;
 
 export default function MapText({top, left, text, action, image}) {
   return (
-    <View style={Styles.container}>
-      <Image source={image} style={[Styles.image, {top: top, left: left}]} />
+    <View style={[Styles.container, {top: top, left: left}]}>
+      <Image source={image} style={Styles.image} />
       <View style={Styles.info}>
         <Text style={Styles.mapText}>{text}</Text>
         <CtaButton text='Lihat' action={action} backgroundColor={COLORS.blue} fColor={COLORS.white} hPadding={horizontalScale(6)} vPadding={verticalScale(6)} borderRadius={8} fSize={moderateScale(8)} fFamily='Poppins-Bold' />
@@ -26,7 +26,7 @@ export default function MapText({top, left, text, action, image}) {
 const Styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    width: width / 3.8,
+    // width: width,
     paddingVertical: verticalScale(6),
     paddingHorizontal: horizontalScale(8),
     alignItems: 'center',
@@ -38,7 +38,7 @@ const Styles = StyleSheet.create({
   mapText: {
     fontSize: moderateScale(10),
     fontFamily: 'Poppins-Bold',
-    color: COLORS.white,
+    color: COLORS.black3,
   },
   image: {
     width: horizontalScale(64),

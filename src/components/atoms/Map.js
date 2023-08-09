@@ -5,10 +5,10 @@ const {width, height} = Dimensions.get('window');
 const mapWidth = width * 4.3;
 const mapHeight = height * 1.05;
 
-const Map = ({ navigation, map }) => {
+const Map = (props) => {
   useEffect(() => {
     const image = Image.resolveAssetSource(
-      map,
+      props.map,
     );
     Image.prefetch(image.uri)
       .then(() => {
@@ -26,10 +26,11 @@ const Map = ({ navigation, map }) => {
         <View style={{width: mapWidth, height: mapHeight}}>
           <Image
             key={new Date().getTime()}
-            source={map}
+            source={props.map}
             style={{width: '100%', height: '100%'}}
             resizeMode={'stretch'}
           />
+          {props.children}
         </View>
       </ScrollView>
     </View>
