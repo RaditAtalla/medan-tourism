@@ -67,7 +67,7 @@ const HomePage = ({navigation}) => {
             <MenuButton
               icon={ICONS.rekreasiIcon}
               label="Rekreasi"
-              action={() => navigation.navigate('RekreasiPage')}
+              action={() => navigation.navigate('HomeNavStackScreen', {screen: 'MapRekreasi'})}
             />
             <MenuButton
               icon={ICONS.layananIcon}
