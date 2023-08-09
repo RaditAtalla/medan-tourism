@@ -7,17 +7,17 @@ import MapHeader from '../../components/atoms/MapHeader';
 import Map from '../../components/atoms/Map';
 import IMAGES from '../../assets/img/images';
 
-const HotelMap = ({navigation}) => {
+const MapHotel = ({navigation}) => {
   return (
     <SafeAreaView style={Styles.container}>
       <StatusBar
         translucent
         backgroundColor="transparent"
       />
-      <MapHeader placeholder='Cari hotel' />
+      <MapHeader placeholder='Cari hotel' action={() => navigation.goBack()} />
       <Map map={IMAGES.mapHotel} />
     </SafeAreaView>
   );
 };
 
-export default HotelMap;
+export default MapHotel;

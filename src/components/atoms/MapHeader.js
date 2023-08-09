@@ -10,11 +10,11 @@ import { horizontalScale, verticalScale, moderateScale } from '../../theme/respo
 import ICONS from '../../assets/icons/icons';
 import COLORS from '../../theme/colors';
 
-const MapHeader = ({ placeholder }) => {
+const MapHeader = ({ placeholder, action }) => {
   return (
     <View style={Styles.header}>
       <TouchableOpacity
-        onPress={() => navigation.goBack()}
+        onPress={action}
         style={{justifyContent: 'center', alignItems: 'center'}}>
         <Image
           source={ICONS.backButtonBlack}
