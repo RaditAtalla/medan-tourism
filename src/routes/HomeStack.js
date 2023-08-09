@@ -39,7 +39,7 @@ import TerakhirDilihatPage from '../view/aktifitas/TerakhirDilihatPage';
 import HotelPreviewPage from '../view/Hotel/HotelPreviewPage';
 import SemuaHotelPage from '../view/Hotel/SemuaHotelPage';
 import SemuaBeritaPage from '../view/beritaDanEvent/SemuaBeritaPage';
-import Map from '../view/map/Map';
+import HotelMap from '../view/map/HotelMap';
 import SemuaPopulerMicePage from '../view/mice/SemuaPopulerMice';
 import SemuaDekatMicePage from '../view/mice/SemuaDekatMicePage';
 import SemuaUntukmuMicePage from '../view/mice/SemuaUntukmuMicePage';
@@ -157,7 +157,7 @@ export const HomeNavStackScreen = ({ navigation }) => {
       />
       <HomeNavStack.Screen
         name="Map"
-        component={Map}
+        component={HotelMap}
         options={{ headerShown: false }}
       />
       <HomeNavStack.Screen

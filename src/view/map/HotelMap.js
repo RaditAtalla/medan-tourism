@@ -16,26 +16,28 @@ import ICONS from '../../assets/icons/icons';
 import {horizontalScale, verticalScale} from '../../theme/responsive';
 import COLORS from '../../theme/colors';
 import MapHeader from '../../components/atoms/MapHeader';
+import Map from '../../components/atoms/Map';
+import IMAGES from '../../assets/img/images';
 
 const {width, height} = Dimensions.get('window');
 const mapWidth = width * 4.3;
 const mapHeight = height * 1.1;
 
-const Map = ({navigation}) => {
-  useEffect(() => {
-    const image = Image.resolveAssetSource(
-      require('../../assets/img/mapHotel.png'),
-    );
-    Image.prefetch(image.uri)
-      .then(() => {
-        setImageLoaded(true);
-      })
-      .catch(error => {
-        console.log('Error prefetching image:', error);
-      });
-  }, []);
+const HotelMap = ({navigation}) => {
+  // useEffect(() => {
+  //   const image = Image.resolveAssetSource(
+  //     require('../../assets/img/mapHotel.png'),
+  //   );
+  //   Image.prefetch(image.uri)
+  //     .then(() => {
+  //       setImageLoaded(true);
+  //     })
+  //     .catch(error => {
+  //       console.log('Error prefetching image:', error);
+  //     });
+  // }, []);
 
-  const [imageLoaded, setImageLoaded] = useState(false);
+  // const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <SafeAreaView style={Styles.container}>
@@ -45,7 +47,8 @@ const Map = ({navigation}) => {
         backgroundColor="transparent"
       />
       <MapHeader placeholder='Cari hotel' />
-      <View style={{position: 'absolute'}}>
+      <Map map={IMAGES.mapHotel} />
+      {/* <View style={{position: 'absolute'}}>
         <MapSplashInfo />
       </View>
       <View style={Styles.mapRootContainer}>
@@ -59,7 +62,7 @@ const Map = ({navigation}) => {
             />
           </View>
         </ScrollView>
-      </View>
+      </View> */}
       {/* <View style={{ position: 'absolute', bottom: 0 }}>
         <PlaceInforamationCard
           image={require('../../assets/img/maimun.png')}
@@ -77,4 +80,4 @@ const Map = ({navigation}) => {
   );
 };
 
-export default Map;
+export default HotelMap;

@@ -33,6 +33,7 @@ const IMAGES = {
     salin: require('./salin.png'),
     wa: require('./wa.png'),
     
+    mapHotel: require('../../assets/img/mapHotel.png')
 }
 
 export default IMAGES;
