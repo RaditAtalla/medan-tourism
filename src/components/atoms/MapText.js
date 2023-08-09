@@ -36,10 +36,9 @@ const Styles = StyleSheet.create({
     flexDirection: 'row',
   },
   mapText: {
-    fontSize: 14,
+    fontSize: moderateScale(10),
     fontFamily: 'Poppins-Bold',
-    textAlign: 'center',
-    color: '#fff',
+    color: COLORS.white,
   },
   image: {
     width: horizontalScale(64),
