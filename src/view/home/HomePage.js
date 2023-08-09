@@ -82,7 +82,7 @@ const HomePage = ({navigation}) => {
             <MenuButton
               icon={ICONS.stasiunIcon}
               label="Stasiun"
-              action={() => navigation.navigate('StasiunPage')}
+              action={() => navigation.navigate('HomeNavStackScreen', {screen: 'MapStasiun'})}
             />
             <MenuButton
               icon={ICONS.lainnyaIcon}
