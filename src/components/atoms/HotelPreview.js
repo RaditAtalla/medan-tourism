@@ -89,7 +89,7 @@ const HotelPreview = ({data, images}) => {
     const dotPosition = Animated.divide(scrollX, width);
     dotPosition.addListener(({value}) => {
       const index = Math.round(value / width);
-      setCurrentIndex(index);
+      // setCurrentIndex(index);
     });
     return (
       <View style={Styles.dotContainer}>

@@ -52,7 +52,7 @@ const SearchPage = ({navigation}) => {
             <Text style={Styles.sectionTitle}>Hotel</Text>
             <LihatSemuaButton />
           </View>
-          <HotelCarousel action={() => navigation.navigate('HotelPreview')} width={175} />
+          <HotelCarousel action={() => navigation.navigate('HomeNavStackScreen', {screen: 'HotelPreviewPage'})} width={175} />
         </View>
         <View
           style={[Styles.sectionContainer, {marginBottom: verticalScale(77), marginTop: verticalScale(16)}]}>
