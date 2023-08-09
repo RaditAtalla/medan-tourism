@@ -42,6 +42,7 @@ import SemuaBeritaPage from '../view/beritaDanEvent/SemuaBeritaPage';
 import MapHotel from '../view/map/MapHotel';
 import MapMice from '../view/map/MapMice';
 import MapRekreasi from '../view/map/MapRekreasi';
+import MapKuliner from '../view/map/MapKuliner';
 import SemuaPopulerMicePage from '../view/mice/SemuaPopulerMice';
 import SemuaDekatMicePage from '../view/mice/SemuaDekatMicePage';
 import SemuaUntukmuMicePage from '../view/mice/SemuaUntukmuMicePage';
@@ -170,6 +171,11 @@ export const HomeNavStackScreen = ({ navigation }) => {
       <HomeNavStack.Screen
         name="MapRekreasi"
         component={MapRekreasi}
+        options={{ headerShown: false }}
+      />
+      <HomeNavStack.Screen
+        name="MapKuliner"
+        component={MapKuliner}
         options={{ headerShown: false }}
       />
       <HomeNavStack.Screen

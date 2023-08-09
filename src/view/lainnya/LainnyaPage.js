@@ -21,9 +21,9 @@ const LainnyaPage = ({ navigation }) => {
         backgroundColor="transparent"
       />
       <ScrollView style={Styles.container}>
-        <AccordionWisataLainnya title='Wisata Lainnya' action={() => navigation.navigate('HomeNavStackScreen', {screen: 'Map'})} />
-        <AccordionKuliner title='Kuliner' />
-        <AccordionHeritage title='Heritage' />
+        <AccordionWisataLainnya title='Wisata Lainnya' action={() => navigation.navigate('HomeNavStackScreen', {screen: 'MapWisata'})} />
+        <AccordionKuliner title='Kuliner' action={() => navigation.navigate('HomeNavStackScreen', {screen: 'MapKuliner'})} />
+        <AccordionHeritage title='Heritage' action={() => navigation.navigate('HomeNavStackScreen', {screen: 'MapHeritage'})} />
       </ScrollView>
     </SafeAreaView>
   );

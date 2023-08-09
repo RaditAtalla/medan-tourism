@@ -36,6 +36,7 @@ const IMAGES = {
     mapHotel: require('../../assets/img/mapHotel.png'),
     mapMice: require('../../assets/img/mapMice.png'),
     mapRekreasi: require('../../assets/img/mapRekreasi.png'),
+    mapKuliner: require('../../assets/img/mapKuliner.png'),
 }
 
 export default IMAGES;
