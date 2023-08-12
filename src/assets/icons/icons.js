@@ -82,6 +82,11 @@ const ICONS = {
     rightArrow: require('./rightArrow.png'),
     backButtonCircle: require('./backButtonCircle.png'),
     backButtonBlack: require('./backButtonBlack.png'),
+    locationPinBlue: require('./locationPinBlue.png'),
+    saveButton: require('./saveButton.png'),
+    saveButtonFill: require('./saveButtonFill.png'),
+    handReceive: require('./handReceive.png'),
+    routeWhite: require('./routeWhite.png'),
 }
 
 export default ICONS

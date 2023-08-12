@@ -21,11 +21,13 @@ const PlaceInforamationCard = ({
   close,
   rating,
   raters,
+  closeAction,
+  detailAction,
 }) => {
   return (
     <View style={Styles.container}>
       <ImageBackground source={image} style={Styles.image} imageStyle={{ borderTopLeftRadius: 50, borderTopRightRadius: 50, }}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={closeAction}>
           <Image
             source={ICONS.xButton}
             style={Styles.xButton}
@@ -62,7 +64,7 @@ const PlaceInforamationCard = ({
               <Text style={Styles.ruteText}>Rute</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={Styles.detailButton}>
+          <TouchableOpacity style={Styles.detailButton} onPress={detailAction} >
             <Text style={Styles.detailText}>Lihat Detail</Text>
           </TouchableOpacity>
         </View>
@@ -79,6 +81,8 @@ const Styles = StyleSheet.create({
     width: CARD_WIDTH,
     borderTopLeftRadius: 50,
     borderTopRightRadius: 50,
+    position: 'absolute',
+    bottom: 0
   },
   image: {
     width: CARD_WIDTH,
@@ -98,6 +102,9 @@ const Styles = StyleSheet.create({
     color: COLORS.white,
     fontSize: moderateScale(30),
     fontFamily: 'Poppins-SemiBold',
+    position: 'absolute',
+    bottom: 0,
+    alignSelf: 'center'
   },
   contentContainer: {
     width: CARD_WIDTH,

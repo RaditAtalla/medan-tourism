@@ -196,6 +196,7 @@ const Styles = StyleSheet.create({
   },
   buttonContainer: {
     gap: verticalScale(16),
+    alignItems: 'center'
   },
   nextButton: {
     backgroundColor: COLORS.blue,

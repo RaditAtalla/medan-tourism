@@ -16,7 +16,7 @@ const CtaButton = ({
   borderWidth,
   fColor,
   text,
-  style
+  style,
 }) => {
   return (
     <TouchableOpacity
