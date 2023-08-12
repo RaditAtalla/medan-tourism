@@ -13,13 +13,13 @@ import AktifitasButton from '../../components/atoms/AktifitasButton';
 const AktifitasPage = ({ navigation }) => {
   return <SafeAreaView style={Styles.container}>
     <StatusBar
-        barStyle="light-content"
-        translucent
-        backgroundColor="transparent"
+      barStyle="light-content"
+      translucent
+      backgroundColor="transparent"
     />
     <View style={Styles.buttonContainer}>
-      <AktifitasButton icon={ICONS.saveFill} label='Disimpan' action={() => navigation.navigate('HomeNavStackScreen', {screen: 'DisimpanPage'}) } />
-      <AktifitasButton icon={ICONS.globe} label='Terakhir Dilihat' action={() => navigation.navigate('HomeNavStackScreen', {screen: 'TerakhirDilihatPage'}) } />
+      <AktifitasButton icon={ICONS.saveFill} label='Disimpan' action={() => navigation.navigate('HomeNavStackScreen', { screen: 'DisimpanPage' })} />
+      <AktifitasButton icon={ICONS.globe} label='Terakhir Dilihat' action={() => navigation.navigate('HomeNavStackScreen', { screen: 'TerakhirDilihatPage' })} />
     </View>
   </SafeAreaView>
 };

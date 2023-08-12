@@ -3,11 +3,11 @@ import { moderateScale, verticalScale, horizontalScale } from '../../theme/respo
 import COLORS from '../../theme/colors'
 import IMAGES from '../../assets/img/images'
 
-const ImgBtn = ({ icon }) => {
+const ImgBtn = ({ icon, action }) => {
     let iconSrc = (icon == 'facebook') ? IMAGES.facebook : IMAGES.google
     
     return(
-        <TouchableOpacity style={Styles.imgBtnWrapper}>
+        <TouchableOpacity onPress={() => action()} style={Styles.imgBtnWrapper}>
             <Image source={iconSrc} style={Styles.imgButton} />
         </TouchableOpacity>
     );

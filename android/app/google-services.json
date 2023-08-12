@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "127100120369",
+    "project_id": "medan-tourism-2f0f3",
+    "storage_bucket": "medan-tourism-2f0f3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:127100120369:android:39bd6712dc04b490ee5410",
+        "android_client_info": {
+          "package_name": "com.medantourism"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "127100120369-s2p6ogokorbv4cieubml9r23ss3u8ofp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.medantourism",
+            "certificate_hash": "e506ffafcb4a6b1bebc98e99392a9fc4efd861a4"
+          }
+        },
+        {
+          "client_id": "127100120369-d8jh7h8pn7fmf6nsjj26bus608vou34b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfNR-BJXOiX0uGgrBoic3cMGdbF2jR4cU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "127100120369-6eii4lj9e5hgvp4lbfbugtav9v9hlfdq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
