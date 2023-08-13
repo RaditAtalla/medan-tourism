@@ -13,11 +13,11 @@ const Routes = () => {
 	return (
 		<NavigationContainer>
 		<Stack.Navigator>
-			{/* <Stack.Screen
+			<Stack.Screen
 			name="LandingStackScreen"
 			component={LandingStackScreen}
 			options={{headerShown: false}}
-			/> */}
+			/>
 			<Stack.Screen
 			name="AuthStackScreen"
 			component={AuthStackScreen}
