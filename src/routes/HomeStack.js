@@ -51,6 +51,7 @@ import SemuaUntukmuMicePage from '../view/mice/SemuaUntukmuMicePage';
 import SemuaTempatWisataPage from '../view/wisata/semuaTempatWisata';
 import IMAGES from '../assets/img/images';
 import DetailAdiMulia from '../view/map/DetailAdiMulia';
+import TravelPage from '../view/travel/TravelPage';
 
 const HomeTabStack = createBottomTabNavigator();
 const HomeNavStack = createNativeStackNavigator();
@@ -223,6 +224,15 @@ export const HomeNavStackScreen = ({navigation}) => {
           title: 'M I C E',
           headerShadowVisible: false,
           headerTitle: () => <MiceHeader title="M I C E" />,
+        }}
+      />
+      <HomeNavStack.Screen
+        name="TravelPage"
+        component={TravelPage}
+        options={{
+          title: 'Travel',
+          headerShadowVisible: false,
+          headerTitle: () => <MiceHeader title="Travel" />,
         }}
       />
       <HomeNavStack.Screen
