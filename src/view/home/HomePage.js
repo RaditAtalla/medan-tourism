@@ -34,7 +34,7 @@ const HomePage = ({navigation}) => {
               <Image source={ICONS.notif} />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => navigation.navigate('ProfilePage')}>
+              onPress={() => navigation.navigate('ProfilePage')} style={Styles.profilePicWrapper} >
               <Image
                 source={require('../../assets/img/profilePic.png')}
                 style={Styles.profilePic}

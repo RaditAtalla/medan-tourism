@@ -25,12 +25,20 @@ const Styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },  
+  profilePicWrapper: {
+    backgroundColor: COLORS.gray3,
+    borderRadius: 45/2,
+    padding: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+    objectFit: 'contain',
+  },
   profilePic: {
-    width: horizontalScale(43),
-    height: verticalScale(43),
-    borderWidth: moderateScale(2),
-    borderColor: COLORS.gray3,
-    borderRadius: 100,
+    position: 'relative',
+    width: 43,
+    height: 43,
+    borderRadius: 43/2,
+    objectFit: 'contain'
   },
   title: {
     color: COLORS.white,
