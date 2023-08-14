@@ -2,7 +2,7 @@ import {StyleSheet, SafeAreaView, ScrollView, StatusBar, Dimensions, View, Image
 import {useEffect, useState} from 'react'
 
 const {width, height} = Dimensions.get('window');
-const mapWidth = width * 4.3;
+const mapWidth = width * 3.3;
 const mapHeight = height * 1.05;
 
 const Map = (props) => {
