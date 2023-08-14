@@ -31,7 +31,7 @@ const ICONS = {
     connect: require('./connect.png'),
     caret: require('./caret.png'),
     copy: require('./copy.png'),
-    trashCan: require('./trachCan.png'),
+    trashCan: require('./trashCan.png'),
     logOut: require('./logOut.png'),
     danger: require('./danger.png'),
     perjalananCircle: require('./perjalananCircle.png'),
@@ -87,6 +87,7 @@ const ICONS = {
     saveButtonFill: require('./saveButtonFill.png'),
     handReceive: require('./handReceive.png'),
     routeWhite: require('./routeWhite.png'),
+    photoIcon: require('./photoIcon.png')
 }
 
 export default ICONS
