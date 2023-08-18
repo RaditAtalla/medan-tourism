@@ -15,10 +15,10 @@ const MapHeader = ({ placeholder, action }) => {
     <View style={Styles.header}>
       <TouchableOpacity
         onPress={action}
-        style={{justifyContent: 'center', alignItems: 'center'}}>
+        style={{ justifyContent: 'center', alignItems: 'center' }}>
         <Image
           source={ICONS.backButtonBlack}
-          style={{width: horizontalScale(24), objectFit: 'contain'}}
+          style={{ width: horizontalScale(24), objectFit: 'contain' }}
         />
         <View
           style={{

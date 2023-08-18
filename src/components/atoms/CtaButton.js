@@ -1,6 +1,6 @@
 // Button (bgColor, width, bRadius, vPadding, hPadding, fWeight, fSize, icon, text, action, bColor)
 
-import {TouchableOpacity, Text, Image} from 'react-native';
+import { TouchableOpacity, Text, Image } from 'react-native'
 
 const CtaButton = ({
   backgroundColor,
@@ -16,25 +16,29 @@ const CtaButton = ({
   borderWidth,
   fColor,
   text,
-  style,
+  style
 }) => {
   return (
     <TouchableOpacity
       onPress={action}
-      style={[{
-        backgroundColor: backgroundColor,
-        width: width,
-        borderRadius: borderRadius,
-        paddingVertical: vPadding,
-        paddingHorizontal: hPadding,
-        borderColor: borderColor,
-        borderWidth: borderWidth,
-        alignItems: 'center',
-      }, style ]}>
+      style={[
+        {
+          backgroundColor: backgroundColor,
+          width: width,
+          borderRadius: borderRadius,
+          paddingVertical: vPadding,
+          paddingHorizontal: hPadding,
+          borderColor: borderColor,
+          borderWidth: borderWidth,
+          alignItems: 'center'
+        },
+        style
+      ]}
+    >
       <Image source={icon} />
-      <Text style={{ fontSize: fSize, fontFamily: fFamily, color: fColor, }}>{text}</Text>
+      <Text style={{ fontSize: fSize, fontFamily: fFamily, color: fColor }}>{text}</Text>
     </TouchableOpacity>
-  );
-};
+  )
+}
 
 export default CtaButton

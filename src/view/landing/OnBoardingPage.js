@@ -88,7 +88,7 @@ const OnBoardingPage = ({navigation}) => {
   function renderButton() {
     const handleNextPress = () => {
       const nextIndex = currentIndex + 2;
-      
+
       setCurrentIndex(nextIndex);
       scrollViewRef.current.scrollTo({x: nextIndex * width, animated: true});
 
@@ -103,8 +103,25 @@ const OnBoardingPage = ({navigation}) => {
 
     return (
       <View style={Styles.buttonContainer}>
-        <CtaButton backgroundColor={COLORS.blue} borderRadius={10} vPadding={verticalScale(10)} hPadding={horizontalScale(40)} fFamily='Poppins-Medium' fSize={moderateScale(16)} fColor={COLORS.white} text='Selanjutnya' action={handleNextPress} />
-        <CtaButton backgroundColor={COLORS.white} fFamily='Poppins-Regular' fSize={moderateScale(16)} fColor={COLORS.black3} text='Nanti dulu deh' action={handleSkipPress} />
+        <CtaButton
+          backgroundColor={COLORS.blue}
+          borderRadius={10}
+          vPadding={verticalScale(10)}
+          hPadding={horizontalScale(40)}
+          fFamily="Poppins-Medium"
+          fSize={moderateScale(16)}
+          fColor={COLORS.white}
+          text="Selanjutnya"
+          action={handleNextPress}
+        />
+        <CtaButton
+          backgroundColor={COLORS.white}
+          fFamily="Poppins-Regular"
+          fSize={moderateScale(16)}
+          fColor={COLORS.black3}
+          text="Nanti dulu deh"
+          action={handleSkipPress}
+        />
       </View>
     );
   }
@@ -190,7 +207,7 @@ const Styles = StyleSheet.create({
   },
   buttonContainer: {
     gap: verticalScale(16),
-    alignItems: 'center'
+    alignItems: 'center',
   },
   nextButton: {
     backgroundColor: COLORS.blue,

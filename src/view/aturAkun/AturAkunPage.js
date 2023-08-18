@@ -1,16 +1,17 @@
-import {useState} from 'react';
-import {View, SafeAreaView, Image, Text, TouchableOpacity} from 'react-native';
-import {styles} from '../../styles/AturAkunPage.Style';
-import AturAkunCard from '../../components/atoms/aturAkunCard';
-import ICONS from '../../assets/icons/icons';
-import Modal from 'react-native-modal';
-import HandleLogout from '../../api/HandleLogout';
-import CtaButton from '../../components/atoms/CtaButton';
-import COLORS from '../../theme/colors';
-import { horizontalScale, moderateScale, verticalScale } from '../../theme/responsive';
+import { View, SafeAreaView, Image, Text } from 'react-native'
+import { useState } from 'react'
 
-export default function AturAkunPage({navigation}) {
-  const [modal, setModal] = useState(false);
+import { horizontalScale, moderateScale, verticalScale } from '../../theme/responsive'
+import AturAkunCard from '../../components/atoms/aturAkunCard'
+import { styles } from '../../styles/AturAkunPage.Style'
+import CtaButton from '../../components/atoms/CtaButton'
+import HandleLogout from '../../api/HandleLogout'
+import ICONS from '../../assets/icons/icons'
+import COLORS from '../../theme/colors'
+import Modal from 'react-native-modal'
+
+export default function AturAkunPage({ navigation }) {
+  const [modal, setModal] = useState(false)
 
   return (
     <SafeAreaView>
@@ -32,9 +33,7 @@ export default function AturAkunPage({navigation}) {
           LeftIcon={ICONS.logOut}
           RightIcon={ICONS.caret}
           CardTitle={'Keluar'}
-          CardDescription={
-            'Kamu akan keluar dari akun dan kembali ke halaman login'
-          }
+          CardDescription={'Kamu akan keluar dari akun dan kembali ke halaman login'}
         />
         <View style={styles.line}></View>
         <AturAkunCard
@@ -44,25 +43,43 @@ export default function AturAkunPage({navigation}) {
           LeftIcon={ICONS.trashCan}
           RightIcon={ICONS.caret}
           CardTitle={'Hapus Akun'}
-          CardDescription={
-            'Seluruh informasi akun akan dihapus secara permanen'
-          }
+          CardDescription={'Seluruh informasi akun akan dihapus secara permanen'}
         />
       </View>
       <Modal isVisible={modal}>
         <View style={styles.popUpWrapper}>
           <View style={styles.popUp}>
             <Image source={ICONS.danger} />
-            <Text style={styles.dangerText}>
-              Apakah anda yakin ingin keluar?
-            </Text>
+            <Text style={styles.dangerText}>Apakah anda yakin ingin keluar?</Text>
             <View style={styles.buttonWrapper}>
-                <CtaButton backgroundColor={COLORS.white} borderRadius={12} vPadding={verticalScale(10)} hPadding={horizontalScale(17)} borderWidth={1} borderColor={COLORS.warning} fColor={COLORS.warning} fSize={moderateScale(15)} fFamily='Poppins-Bold' text='Nanti dulu' action={() => setModal(false)} />
-                <CtaButton backgroundColor={COLORS.warning} borderRadius={12} vPadding={verticalScale(10)} hPadding={horizontalScale(17)} fColor={COLORS.white} fSize={moderateScale(15)} fFamily='Poppins-Bold' text='Ya, Keluar' action={() => HandleLogout(navigation)} />
+              <CtaButton
+                backgroundColor={COLORS.white}
+                borderRadius={12}
+                vPadding={verticalScale(10)}
+                hPadding={horizontalScale(17)}
+                borderWidth={1}
+                borderColor={COLORS.warning}
+                fColor={COLORS.warning}
+                fSize={moderateScale(15)}
+                fFamily="Poppins-Bold"
+                text="Nanti dulu"
+                action={() => setModal(false)}
+              />
+              <CtaButton
+                backgroundColor={COLORS.warning}
+                borderRadius={12}
+                vPadding={verticalScale(10)}
+                hPadding={horizontalScale(17)}
+                fColor={COLORS.white}
+                fSize={moderateScale(15)}
+                fFamily="Poppins-Bold"
+                text="Ya, Keluar"
+                action={() => HandleLogout(navigation)}
+              />
             </View>
           </View>
         </View>
       </Modal>
     </SafeAreaView>
-  );
+  )
 }

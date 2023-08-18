@@ -1,8 +1,8 @@
-import {Text, View, SafeAreaView} from 'react-native';
-import Styles from '../../styles/HotelPreviewStyles';
-import IMAGES from '../../assets/img/images';
-import ICONS from '../../assets/icons/icons';
-import HotelPreview from '../../components/atoms/HotelPreview';
+import { Text, View, SafeAreaView } from 'react-native'
+import Styles from '../../styles/HotelPreviewStyles'
+import IMAGES from '../../assets/img/images'
+import ICONS from '../../assets/icons/icons'
+import HotelPreview from '../../components/atoms/HotelPreview'
 
 const DATA = [
   {
@@ -11,7 +11,7 @@ const DATA = [
       require('../../assets/img/hotelHd.png'),
       require('../../assets/img/aryaDutaFull.png'),
       require('../../assets/img/hotelHd.png'),
-      require('../../assets/img/aryaDutaFull.png'),
+      require('../../assets/img/aryaDutaFull.png')
     ],
     name: 'Aryaduta Medan',
     description:
@@ -23,24 +23,20 @@ const DATA = [
         profilePic: IMAGES.profilePic,
         username: 'Ibnu Rusyid',
         rating: 5,
-        comment:
-          'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.',
+        comment: 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.'
       },
       {
         profilePic: IMAGES.profilePic,
         username: 'Raditya Atalla',
         rating: 5,
-        comment:
-          'Gacor kang',
-      },
-    ],
-  },
-];
+        comment: 'Gacor kang'
+      }
+    ]
+  }
+]
 
 const HotelPreviewPage = () => {
-  return (
-    <HotelPreview data={DATA} images={DATA[0].images} />
-  );
-};
+  return <HotelPreview data={DATA} images={DATA[0].images} />
+}
 
-export default HotelPreviewPage;
+export default HotelPreviewPage

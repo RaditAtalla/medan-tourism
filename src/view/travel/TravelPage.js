@@ -1,37 +1,27 @@
-import {
-  Text,
-  View,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  TouchableOpacity,
-} from 'react-native';
-import Styles from '../../styles/MicePageStyles';
-import MicePopulerCarousel from '../../components/atoms/MicePopulerCarousel';
-import MiceDekatCarousel from '../../components/atoms/MiceDekatCarousel';
-import IMAGES from '../../assets/img/images';
-import Modal from 'react-native-modal';
-import {useState} from 'react';
+import { Text, View, SafeAreaView, ScrollView, StatusBar, TouchableOpacity } from 'react-native'
+import Modal from 'react-native-modal'
+import { useState } from 'react'
 
-const TravelPage = ({navigation}) => {
-  const [isModalVisible, setModalVisible] = useState(false);
+import MicePopulerCarousel from '../../components/atoms/MicePopulerCarousel'
+import MiceDekatCarousel from '../../components/atoms/MiceDekatCarousel'
+import Styles from '../../styles/MicePageStyles'
+import IMAGES from '../../assets/img/images'
+
+const TravelPage = ({ navigation }) => {
+  const [isModalVisible, setModalVisible] = useState(false)
 
   const toggleModal = () => {
-    setModalVisible(!isModalVisible);
-  };
+    setModalVisible(!isModalVisible)
+  }
+
   return (
     <SafeAreaView style={Styles.container}>
-      <StatusBar
-        barStyle="dark-content"
-        translucent
-        backgroundColor="transparent"
-      />
+      <StatusBar barStyle="dark-content" translucent backgroundColor="transparent" />
       <ScrollView style={Styles.contentContainer}>
         <View style={Styles.sectionContainer}>
           <View style={Styles.sectionTitleContainer}>
             <Text style={Styles.sectionTitle}>Populer</Text>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('SemuaPopulerMicePage')}>
+            <TouchableOpacity onPress={() => navigation.navigate('SemuaPopulerMicePage')}>
               <Text style={Styles.lihatSemua}>Lihat semua</Text>
             </TouchableOpacity>
           </View>
@@ -40,8 +30,7 @@ const TravelPage = ({navigation}) => {
         <View style={Styles.sectionContainer}>
           <View style={Styles.sectionTitleContainer}>
             <Text style={Styles.sectionTitle}>Dekat Dengan Kamu</Text>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('SemuaDekatMicePage')}>
+            <TouchableOpacity onPress={() => navigation.navigate('SemuaDekatMicePage')}>
               <Text style={Styles.lihatSemua}>Lihat semua</Text>
             </TouchableOpacity>
           </View>
@@ -50,8 +39,7 @@ const TravelPage = ({navigation}) => {
         <View style={Styles.sectionContainer}>
           <View style={Styles.sectionTitleContainer}>
             <Text style={Styles.sectionTitle}>Untuk Kamu</Text>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('SemuaUntukmuMicePage')}>
+            <TouchableOpacity onPress={() => navigation.navigate('SemuaUntukmuMicePage')}>
               <Text style={Styles.lihatSemua}>Lihat semua</Text>
             </TouchableOpacity>
           </View>
@@ -59,7 +47,7 @@ const TravelPage = ({navigation}) => {
         </View>
       </ScrollView>
     </SafeAreaView>
-  );
-};
+  )
+}
 
-export default TravelPage;
+export default TravelPage

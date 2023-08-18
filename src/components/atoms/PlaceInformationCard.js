@@ -10,9 +10,9 @@ import {
 import COLORS from '../../theme/colors';
 import ICONS from '../../assets/icons/icons';
 import IMAGES from '../../assets/img/images';
-import {useState} from 'react';
+import { useState } from 'react';
 import Modal from 'react-native-modal';
-import {horizontalScale, moderateScale, verticalScale} from '../../theme/responsive';
+import { horizontalScale, moderateScale, verticalScale } from '../../theme/responsive';
 
 const PlaceInforamationCard = ({
   image,
@@ -148,8 +148,10 @@ const Styles = StyleSheet.create({
     backgroundColor: COLORS.white,
     borderColor: '#d9d9d9',
     borderRadius: 16,
-    paddingHorizontal: horizontalScale(8),
-    paddingVertical: verticalScale(20),
+    // paddingHorizontal: horizontalScale(8),
+    // paddingVertical: verticalScale(20),
+    paddingHorizontal: horizontalScale(10),
+    paddingVertical: verticalScale(4),
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -158,7 +160,7 @@ const Styles = StyleSheet.create({
   ruteButton: {},
   ruteButtonWrapper: {
     flexDirection: 'row',
-    paddingHorizontal:  verticalScale(8),
+    paddingHorizontal: verticalScale(8),
     paddingVertical: verticalScale(14),
     alignItems: 'center',
     justifyContent: 'space-between',

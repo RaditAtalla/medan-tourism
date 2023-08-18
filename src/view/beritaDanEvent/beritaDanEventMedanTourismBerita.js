@@ -1,25 +1,58 @@
-import {View, Text, SafeAreaView, TextInput, Image} from 'react-native';
-import {styles} from '../../styles/beritaDanEventMedanTourismEvent.Style';
-import BeritaDanEventCard from '../../components/atoms/BeritaDanEventCard';
-import ICONS from '../../assets/icons/icons';
-import IMAGES from '../../assets/img/images';
+import { View, Text, SafeAreaView, TextInput, Image, FlatList, ScrollView } from 'react-native'
+import { styles } from '../../styles/beritaDanEventMedanTourismEvent.Style'
+import BeritaDanEventCard from '../../components/atoms/BeritaDanEventCard'
+import ICONS from '../../assets/icons/icons'
+import IMAGES from '../../assets/img/images'
 
-export default function BeritaDanEventPageMedanTourismEvent({navigation}) {
+export default function BeritaDanEventPageMedanTourismEvent({ navigation }) {
+  const DATA = [
+    {
+      title: 'Kuliner Medan Menggugah Selera',
+      description: 'Salah satunya, Rumah Makan Nasi Kapau Uni EMI di Jalan Rotan, Medan Petisah......',
+      image: IMAGES.news1,
+      created_at: '10 menit yang lalu'
+    },
+    {
+      title: 'Stadion Teladan Pernah Jadi Stadion Paling Membanggakan.',
+      description: 'Stadion Teladan Medan adalah salah satu stadion olahraga yang pernah dibangg..',
+      image: IMAGES.news2,
+      created_at: '31 menit yang lalu'
+    },
+    {
+      title: 'Wisata Sejarah Kantor Pos di Kota Medan Yang Multikultural',
+      description: 'Bagi Anda yang sedang berada di Sumatera Utara khususnya kota Medan, tidaklah lengkap jika.....',
+      image: IMAGES.news3,
+      created_at: '40 menit yang lalu'
+    },
+    {
+      title: 'Merdeka Walk, Pusat Kuliner dan Wisata Malam',
+      description: 'Merdeka Walk dikenal sebagai pusat kuliner dan wisata malam di Kota Medan. ',
+      image: IMAGES.news4,
+      created_at: '2 jam yang lalu'
+    }
+  ]
   return (
     <SafeAreaView>
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <View style={styles.inputWrapper}>
-            <Image source={ICONS.search2} />
-            <TextInput
-              style={styles.input}
-              placeholder="Cari berita"
-              autoComplete="off"
-            />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={styles.container}>
+          <View style={styles.header}>
+            <View style={styles.inputWrapper}>
+              <Image source={ICONS.search2} />
+              <TextInput style={styles.input} placeholder="Cari berita" autoComplete="off" />
+            </View>
+            <Text style={styles.title}>MedanTourism Event</Text>
           </View>
-          <Text style={styles.title}>MedanTourism Event</Text>
-        </View>
-        <View>
+          {DATA.map((item, index) => (
+            <BeritaDanEventCard
+              key={index}
+              CardHeight={120}
+              CardImage={item.image}
+              CardTitle={item.title}
+              CardDescription={item.description}
+              CardDate={item.created_at}
+            />
+          ))}
+          {/* <View>
           <BeritaDanEventCard
             CardHeight={120}
             CardImage={IMAGES.news1}
@@ -60,8 +93,9 @@ export default function BeritaDanEventPageMedanTourismEvent({navigation}) {
             }
             CardDate={'2 jam yang lalu'}
           />
+        </View> */}
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
-  );
+  )
 }

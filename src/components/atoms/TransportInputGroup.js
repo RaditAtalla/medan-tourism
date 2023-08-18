@@ -1,27 +1,15 @@
-import {
-  StyleSheet,
-  View,
-  Image,
-  TextInput,
-  TouchableOpacity,
-} from 'react-native';
+import { StyleSheet, View, Image, TextInput, TouchableOpacity } from 'react-native'
 
-export default function TransportInputGroup({HeroImage, Placeholder, Value}) {
+export default function TransportInputGroup({ HeroImage, Placeholder, Value }) {
   return (
     <View style={styles.hero}>
       <View>
-        <Image
-          style={styles.city}
-          source={HeroImage}
-        />
+        <Image style={styles.city} source={HeroImage} />
       </View>
       <View style={styles.box}>
         <View style={styles.inputGroup}>
           <View>
-            <TextInput
-              placeholder={Placeholder}
-              value={Value}
-            />
+            <TextInput placeholder={Placeholder} value={Value} />
           </View>
           <View>
             <TouchableOpacity style={styles.searchIconWrapper}>
@@ -31,17 +19,17 @@ export default function TransportInputGroup({HeroImage, Placeholder, Value}) {
         </View>
       </View>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   hero: {
     alignItems: 'center',
-    marginTop: -200,
+    marginTop: -200
   },
   city: {
     width: 184,
-    height: 183,
+    height: 183
   },
   box: {
     width: '100%',
@@ -51,7 +39,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(232, 243, 244, 1)',
     borderRadius: 24,
     marginTop: -25,
-    paddingHorizontal: 22,
+    paddingHorizontal: 22
   },
   inputGroup: {
     width: '100%',
@@ -61,7 +49,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 24,
     height: 53,
-    paddingHorizontal: 15,
+    paddingHorizontal: 15
   },
   searchIconWrapper: {
     width: 56,
@@ -69,6 +57,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#36C9C1',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 50,
-  },
-});
+    borderRadius: 50
+  }
+})
