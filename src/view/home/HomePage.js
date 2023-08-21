@@ -6,8 +6,11 @@ import MenuButton from '../../components/atoms/MenuButton'
 import { verticalScale } from '../../theme/responsive'
 import Styles from '../../styles/HomePageStyles'
 import ICONS from '../../assets/icons/icons'
+import { useSelector } from 'react-redux'
 
 const HomePage = ({ navigation }) => {
+  const { address } = useSelector((state) => state.location.location)
+
   return (
     <SafeAreaView style={Styles.container}>
       <StatusBar barStyle="light-content" translucent backgroundColor="transparent" />
@@ -25,7 +28,7 @@ const HomePage = ({ navigation }) => {
           <Text style={Styles.title}>Temukan tempat{'\n'}untuk anda!</Text>
           <View style={Styles.locationContainer}>
             <Image source={ICONS.locationPin} />
-            <Text style={Styles.location}>Medan Polonia</Text>
+            <Text style={Styles.location}>{address.city}</Text>
           </View>
         </View>
         <View style={Styles.contentContainer}>

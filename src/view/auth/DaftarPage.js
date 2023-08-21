@@ -1,4 +1,4 @@
-import { Text, View, StatusBar, ImageBackground } from 'react-native'
+import { Text, View, StatusBar, ImageBackground, Platform, ToastAndroid, Alert } from 'react-native'
 import { useState } from 'react'
 
 import Styles from '../../styles/DaftarPageStyles'
@@ -9,13 +9,30 @@ import { verticalScale, moderateScale } from '../../theme/responsive'
 import AltLogin from '../../components/molecules/AltLogin'
 import InputGroup from '../../components/atoms/InputGroup'
 import CtaButton from '../../components/atoms/CtaButton'
-import MyButton from '../../components/atoms/MyButton'
-import HandleRegister from '../../api/HandleRegister'
+import { useRegisterMutation } from '../../api/auth.api'
+import { checkFormValid } from '../../services/auth.service'
 
 const DaftarPage = ({ navigation }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [cpassword, setcpassword] = useState('')
+
+  const [register, { isLoading }] = useRegisterMutation()
+
+  const handleSubmit = async () => {
+    checkFormValid(!username || !password || !cpassword, 'Mohon isi semua form')
+    checkFormValid(password !== cpassword, 'Password tidak sama')
+
+    try {
+      const { data } = await register({ username, password, cpassword })
+      navigation.navigate('AuthStackScreen', {
+        screen: 'DaftarNomorHpPage',
+        params: { userId: data.data.user_id }
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <View style={Styles.container}>
@@ -51,7 +68,6 @@ const DaftarPage = ({ navigation }) => {
             </View>
           </View>
           <View style={Styles.altLogin}>
-            {/* <CtaButton backgroundColor={COLORS.blue} borderRadius={20} vPadding={verticalScale(14)} fFamily='Poppins-SemiBold' fSize={moderateScale(18)} fColor={COLORS.white} text='Daftar' action={() => HandleRegister(username, password, cpassword, navigation)} /> */}
             <CtaButton
               backgroundColor={COLORS.blue}
               borderRadius={20}
@@ -60,7 +76,8 @@ const DaftarPage = ({ navigation }) => {
               fSize={moderateScale(18)}
               fColor={COLORS.white}
               text="Daftar"
-              action={() => navigation.navigate('AuthStackScreen', { screen: 'DaftarNomorHpPage' })}
+              action={handleSubmit}
+              isLoading={isLoading}
             />
             <Text style={Styles.atau}>Atau</Text>
             <AltLogin />

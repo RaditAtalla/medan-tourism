@@ -3,13 +3,32 @@ import { useState } from 'react'
 
 import { verticalScale, moderateScale } from '../../theme/responsive'
 import CtaButton from '../../components/atoms/CtaButton'
-import MyButton from '../../components/atoms/MyButton'
 import Styles from '../../styles/DaftarNomorHpStyles'
 import { HandleSendOTP } from '../../api/HandleOTP'
 import COLORS from '../../theme/colors'
+import { useSendOTPMutation } from '../../api/auth.api'
+import { checkFormValid } from '../../services/auth.service'
 
-const DaftarNomorHpPage = ({ navigation }) => {
+const DaftarNomorHpPage = ({ navigation, route }) => {
+  const { userId } = route.params
   const [phone, setPhone] = useState('')
+  const [sendOTP, { isLoading }] = useSendOTPMutation()
+
+  const handleSubmit = async () => {
+    checkFormValid(!phone, 'Mohon isi nomor telepon anda')
+    checkFormValid(phone.length < 10, 'Nomor telepon valid minimal 10 digit')
+
+    try {
+      const { data } = await sendOTP({ phone, user_id: userId })
+      navigation.navigate('AuthStackScreen', {
+        screen: 'VerifikasiHpPage',
+        params: { userId, data, phone }
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <View style={Styles.container}>
       <StatusBar barStyle={'dark-content'} backgroundColor={COLORS.white} />
@@ -45,7 +64,6 @@ const DaftarNomorHpPage = ({ navigation }) => {
           </View>
         </View>
       </View>
-      {/* <CtaButton backgroundColor={COLORS.blue} borderRadius={20} vPadding={verticalScale(14)} fFamily='Poppins-SemiBold' fSize={moderateScale(18)} fColor={COLORS.white} text='Kirim' action={() => HandleSendOTP(phone, navigation)} /> */}
       <CtaButton
         backgroundColor={COLORS.blue}
         borderRadius={20}
@@ -54,7 +72,8 @@ const DaftarNomorHpPage = ({ navigation }) => {
         fSize={moderateScale(18)}
         fColor={COLORS.white}
         text="Kirim"
-        action={() => navigation.navigate('AuthStackScreen', { screen: 'VerifikasiHpPage' })}
+        isLoading={isLoading}
+        action={handleSubmit}
       />
     </View>
   )
