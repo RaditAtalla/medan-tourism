@@ -1,15 +1,28 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export const getUserId = async () => {
   try {
-    const value = await AsyncStorage.getItem('userId');
-    const user_id = JSON.parse(value);
+    const value = await AsyncStorage.getItem('userId')
+    const user_id = JSON.parse(value)
     if (user_id !== null) {
-      console.log(user_id);
-      return user_id;
+      console.log(user_id)
+      return user_id
     }
-    return null;
+    return null
   } catch (error) {
-    return null;
+    return null
   }
-};
+}
+
+export const isFirstOpen = async () => {
+  try {
+    const value = await AsyncStorage.getItem('isFirstOpen')
+    const isFirstOpen = JSON.parse(value)
+    if (isFirstOpen !== null) {
+      return isFirstOpen
+    }
+    return null
+  } catch (error) {
+    return null
+  }
+}

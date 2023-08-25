@@ -1,10 +1,19 @@
-import React from 'react';
-import Routes from './src/routes/routes';
+import React from 'react'
+import Routes from './src/routes/routes'
+import { Provider } from 'react-redux'
+import { store } from './src/store/store'
+import LocationPermission from './src/services/LocationPermission'
+import { AuthContextProvider } from './src/store/features/authContext'
 
 const App = () => {
   return (
-    <Routes />
-  );
-};
+    <Provider store={store}>
+      <AuthContextProvider>
+        <Routes />
+        <LocationPermission />
+      </AuthContextProvider>
+    </Provider>
+  )
+}
 
-export default App;
+export default App

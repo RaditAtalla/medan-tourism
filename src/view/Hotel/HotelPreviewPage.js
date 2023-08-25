@@ -1,8 +1,8 @@
-import {Text, View, SafeAreaView} from 'react-native';
-import Styles from '../../styles/HotelPreviewStyles';
-import IMAGES from '../../assets/img/images';
-import ICONS from '../../assets/icons/icons';
-import HotelPreview from '../../components/atoms/HotelPreview';
+import { useGetPlaceDetailQuery } from '../../api/place.api'
+import IMAGES from '../../assets/img/images'
+import HotelPreview from '../../components/atoms/HotelPreview'
+import { ActivityIndicator, View } from 'react-native'
+import COLORS from '../../theme/colors'
 
 const DATA = [
   {
@@ -11,7 +11,7 @@ const DATA = [
       require('../../assets/img/hotelHd.png'),
       require('../../assets/img/aryaDutaFull.png'),
       require('../../assets/img/hotelHd.png'),
-      require('../../assets/img/aryaDutaFull.png'),
+      require('../../assets/img/aryaDutaFull.png')
     ],
     name: 'Aryaduta Medan',
     description:
@@ -23,24 +23,44 @@ const DATA = [
         profilePic: IMAGES.profilePic,
         username: 'Ibnu Rusyid',
         rating: 5,
-        comment:
-          'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.',
+        comment: 'Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.'
       },
       {
         profilePic: IMAGES.profilePic,
         username: 'Raditya Atalla',
         rating: 5,
-        comment:
-          'Gacor kang',
-      },
-    ],
-  },
-];
+        comment: 'Gacor kang'
+      }
+    ]
+  }
+]
 
-const HotelPreviewPage = () => {
+const HotelPreviewPage = ({ route }) => {
+  const { placeId } = route.params
+  const { data: hotel, isSuccess } = useGetPlaceDetailQuery(placeId)
+
+  if (!isSuccess) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size="large" color={COLORS.blue} />
+      </View>
+    )
+  }
+
   return (
-    <HotelPreview data={DATA} images={DATA[0].images} />
-  );
-};
+    <HotelPreview
+      // data={DATA}
+      name={hotel.result.name}
+      description={
+        hotel.result?.editorial_summary?.overview ? hotel.result?.editorial_summary?.overview : 'No description'
+      }
+      price={'535,550'}
+      reviews={hotel.result.reviews}
+      rating={Math.round(hotel.result.rating)}
+      photos={hotel.result.photos}
+      // images={DATA[0].images}
+    />
+  )
+}
 
-export default HotelPreviewPage;
+export default HotelPreviewPage

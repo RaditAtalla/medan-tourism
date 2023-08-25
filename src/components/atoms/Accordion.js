@@ -1,32 +1,42 @@
-import { View, Text, StyleSheet, Image, Animated, TouchableOpacity, ScrollView } from 'react-native'
-import {useState} from 'react'
-import COLORS from '../../theme/colors'
-import ICONS from '../../assets/icons/icons'
+import { View, Text, StyleSheet, Image, Animated, TouchableOpacity } from 'react-native'
+import { useState } from 'react'
+
 import { verticalScale, horizontalScale, moderateScale } from '../../theme/responsive'
-import CtaButton from '../../components/atoms/CtaButton';
+import CtaButton from '../../components/atoms/CtaButton'
+import ICONS from '../../assets/icons/icons'
+import COLORS from '../../theme/colors'
 
 export const AccordionWisataLainnya = (props) => {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(false)
   const toggleAccordion = () => {
-    setExpanded(!expanded);
-  };
+    setExpanded(!expanded)
+  }
 
-  const animatedHeight = new Animated.Value(expanded ? verticalScale(120) : 0);
+  const animatedHeight = new Animated.Value(expanded ? verticalScale(120) : 0)
 
-  return(
+  return (
     <View style={stylesWisataLainnya.accordionContainer}>
       <TouchableOpacity onPress={toggleAccordion}>
         <View style={stylesWisataLainnya.accordionHeader}>
           <View style={stylesWisataLainnya.accordionTitle}>
             <Text style={stylesWisataLainnya.accordionHeaderText}>{props.title}</Text>
-            <CtaButton backgroundColor={COLORS.blue} borderRadius={50} vPadding={verticalScale(4)} hPadding={horizontalScale(12)} fFamily='Poppins-Bold' fColor={COLORS.white} text='Lihat map' action={props.action} />
+            <CtaButton
+              backgroundColor={COLORS.blue}
+              borderRadius={50}
+              vPadding={verticalScale(4)}
+              hPadding={horizontalScale(12)}
+              fFamily="Poppins-Bold"
+              fColor={COLORS.white}
+              text="Lihat map"
+              action={props.action}
+            />
           </View>
           <Image source={ICONS.downArrow} />
         </View>
       </TouchableOpacity>
       <Animated.View style={{ height: animatedHeight }}>
         <View style={stylesWisataLainnya.buttonContainer}>
-          <View style={stylesWisataLainnya.buttonLabel}>  
+          <View style={stylesWisataLainnya.buttonLabel}>
             <Image source={ICONS.belanjaIcon} style={stylesWisataLainnya.icon} />
             <Text style={stylesWisataLainnya.label}>Wisata{'\n'}Belanja</Text>
           </View>
@@ -45,7 +55,7 @@ export const AccordionWisataLainnya = (props) => {
         </View>
       </Animated.View>
     </View>
-  );
+  )
 }
 
 const stylesWisataLainnya = StyleSheet.create({
@@ -54,7 +64,7 @@ const stylesWisataLainnya = StyleSheet.create({
     backgroundColor: COLORS.white,
     borderRadius: 5,
     overflow: 'hidden',
-    gap: verticalScale(16),
+    gap: verticalScale(16)
   },
   accordionHeader: {
     paddingRight: horizontalScale(26),
@@ -62,7 +72,7 @@ const stylesWisataLainnya = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: COLORS.white,
+    backgroundColor: COLORS.white
   },
   accordionHeaderText: {
     fontSize: moderateScale(20),
@@ -71,7 +81,7 @@ const stylesWisataLainnya = StyleSheet.create({
   },
   accordionContentText: {
     padding: 10,
-    fontSize: 16,
+    fontSize: 16
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -83,17 +93,17 @@ const stylesWisataLainnya = StyleSheet.create({
   icon: {
     width: horizontalScale(60),
     height: verticalScale(60),
-    objectFit: 'contain',
+    objectFit: 'contain'
   },
   buttonLabel: {
     alignItems: 'center',
-    gap: verticalScale(8),
+    gap: verticalScale(8)
   },
   label: {
     fontSize: moderateScale(12),
     color: COLORS.black4,
     textAlign: 'center',
-    fontFamily: 'Poppins-Bold',
+    fontFamily: 'Poppins-Bold'
   },
   headerBadge: {
     fontFamily: 'Poppins-SemiBold',
@@ -101,30 +111,39 @@ const stylesWisataLainnya = StyleSheet.create({
     backgroundColor: COLORS.blue,
     borderRadius: 50,
     paddingVertical: verticalScale(4),
-    paddingHorizontal: horizontalScale(12),
+    paddingHorizontal: horizontalScale(12)
   },
   accordionTitle: {
     flexDirection: 'row',
     gap: horizontalScale(10),
-    alignItems: 'center',
+    alignItems: 'center'
   }
-});
+})
 
 export const AccordionKuliner = (props) => {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(false)
   const toggleAccordion = () => {
-    setExpanded(!expanded);
-  };
+    setExpanded(!expanded)
+  }
 
-  const animatedHeight = new Animated.Value(expanded ? verticalScale(268) : 0);
+  const animatedHeight = new Animated.Value(expanded ? verticalScale(268) : 0)
 
-  return(
+  return (
     <View style={stylesWisataLainnya.accordionContainer}>
       <TouchableOpacity onPress={toggleAccordion}>
         <View style={stylesWisataLainnya.accordionHeader}>
           <View style={stylesWisataLainnya.accordionTitle}>
             <Text style={stylesWisataLainnya.accordionHeaderText}>{props.title}</Text>
-            <CtaButton backgroundColor={COLORS.blue} borderRadius={50} vPadding={verticalScale(4)} hPadding={horizontalScale(12)} fFamily='Poppins-Bold' fColor={COLORS.white} text='Lihat map' action={props.action} />
+            <CtaButton
+              backgroundColor={COLORS.blue}
+              borderRadius={50}
+              vPadding={verticalScale(4)}
+              hPadding={horizontalScale(12)}
+              fFamily="Poppins-Bold"
+              fColor={COLORS.white}
+              text="Lihat map"
+              action={props.action}
+            />
           </View>
           <Image source={ICONS.downArrow} />
         </View>
@@ -154,24 +173,33 @@ export const AccordionKuliner = (props) => {
         </View>
       </Animated.View>
     </View>
-  );
+  )
 }
 
 export const AccordionHeritage = (props) => {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(false)
   const toggleAccordion = () => {
-    setExpanded(!expanded);
-  };
+    setExpanded(!expanded)
+  }
 
-  const animatedHeight = new Animated.Value(expanded ? verticalScale(130) : 0);
+  const animatedHeight = new Animated.Value(expanded ? verticalScale(130) : 0)
 
-  return(
+  return (
     <View style={stylesWisataLainnya.accordionContainer}>
       <TouchableOpacity onPress={toggleAccordion}>
         <View style={stylesWisataLainnya.accordionHeader}>
           <View style={stylesWisataLainnya.accordionTitle}>
             <Text style={stylesWisataLainnya.accordionHeaderText}>{props.title}</Text>
-            <CtaButton backgroundColor={COLORS.blue} borderRadius={50} vPadding={verticalScale(4)} hPadding={horizontalScale(12)} fFamily='Poppins-Bold' fColor={COLORS.white} text='Lihat map' action={props.action} />
+            <CtaButton
+              backgroundColor={COLORS.blue}
+              borderRadius={50}
+              vPadding={verticalScale(4)}
+              hPadding={horizontalScale(12)}
+              fFamily="Poppins-Bold"
+              fColor={COLORS.white}
+              text="Lihat map"
+              action={props.action}
+            />
           </View>
           <Image source={ICONS.downArrow} />
         </View>
@@ -197,5 +225,5 @@ export const AccordionHeritage = (props) => {
         </View>
       </Animated.View>
     </View>
-  );
+  )
 }

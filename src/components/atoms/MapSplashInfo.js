@@ -1,10 +1,10 @@
-import {View, StyleSheet, Image, Text, TouchableOpacity} from 'react-native';
-import IMAGES from '../../assets/img/images';
-import COLORS from '../../theme/colors';
-import PhoneSwipe from '../../assets/gif/gif';
-import { horizontalScale, moderateScale, verticalScale } from '../../theme/responsive';
-import React, {useState} from 'react'
-import Modal from 'react-native-modal';
+import { View, StyleSheet, Image, Text, TouchableOpacity } from 'react-native'
+import IMAGES from '../../assets/img/images'
+import COLORS from '../../theme/colors'
+import PhoneSwipe from '../../assets/gif/gif'
+import { horizontalScale, moderateScale, verticalScale } from '../../theme/responsive'
+import React, { useState } from 'react'
+import Modal from 'react-native-modal'
 
 const MapSplashInfo = () => {
   const [modal, setModal] = useState(true)
@@ -20,40 +20,40 @@ const MapSplashInfo = () => {
         </View>
       </View>
     </Modal>
-  );
-};
+  )
+}
 
 const Styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.2)',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   wrapper: {
     width: horizontalScale(292),
     height: verticalScale(430),
     alignItems: 'center',
-    gap: verticalScale(24),
+    gap: verticalScale(24)
   },
   text: {
     textAlign: 'center',
     fontSize: moderateScale(24),
     fontFamily: 'Poppins-SemiBold',
-    color: COLORS.white,
+    color: COLORS.white
   },
   button: {
     paddingHorizontal: horizontalScale(89),
     paddingVertical: verticalScale(10),
     textAlign: 'center',
     backgroundColor: COLORS.blue,
-    borderRadius: 10,
+    borderRadius: 10
   },
   buttonText: {
     color: COLORS.white,
     fontSize: moderateScale(16),
     fontFamily: 'Poppins-Bold'
   }
-});
+})
 
 export default MapSplashInfo

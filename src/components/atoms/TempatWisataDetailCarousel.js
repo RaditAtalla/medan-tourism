@@ -1,43 +1,22 @@
-import {
-  View,
-  Image,
-  Text,
-  FlatList,
-  StyleSheet,
-  TouchableOpacity,
-  ImageBackground
-} from 'react-native';
-import COLORS from '../../theme/colors';
-import ICONS from '../../assets/icons/icons';
-import {
-  verticalScale,
-  horizontalScale,
-  moderateScale,
-} from '../../theme/responsive';
-import StarDisplay from './StarDisplay';
+import { View, Image, Text, FlatList, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native'
 
-const DATA = [
-  {
-    image: require('../../assets/img/danauToba.png'),
-    name: 'Danau Toba',
-    distance: '2,5 Km',
-    rating: 5,
-  },
-  {
-    image: require('../../assets/img/sipisoPiso.png'),
-    name: 'Sipiso piso',
-    distance: '2,5 Km',
-    rating: 4,
-  },
-];
+import { verticalScale, horizontalScale, moderateScale } from '../../theme/responsive'
+import { tempatWisataDetailData as DATA } from '../../utils/dataDummy'
+import ICONS from '../../assets/icons/icons'
+import COLORS from '../../theme/colors'
+import StarDisplay from './StarDisplay'
 
-const Item = ({image, name, distance, rating, navigation}) => {
+const Item = ({ image, name, distance, rating, navigation, isFirst, isLast }) => {
+  gap = verticalScale(24)
+
+  console.log({ isLast })
+
   return (
-    <View style={Styles.container} onPress={() => navigation.navigate(name)}>
-      <ImageBackground
-        source={image}
-        style={Styles.thumbnail}
-        imageStyle={{borderTopLeftRadius: 8, borderTopRightRadius: 8, }}>
+    <View
+      onPress={() => navigation.navigate(name)}
+      style={[Styles.container, isFirst && { marginLeft: gap }, isLast && { marginRight: gap }]}
+    >
+      <ImageBackground source={image} style={Styles.thumbnail} imageStyle={Styles.imgBackground}>
         <TouchableOpacity>
           <Image source={ICONS.saveCircle} style={Styles.saveButton} />
         </TouchableOpacity>
@@ -48,24 +27,45 @@ const Item = ({image, name, distance, rating, navigation}) => {
         <StarDisplay rating={rating} />
       </TouchableOpacity>
     </View>
-  );
-};
+  )
+}
+
+const TempatWisataDetailCarousel = () => {
+  return (
+    <FlatList
+      data={DATA}
+      keyExtractor={(item, index) => index.toString()}
+      renderItem={({ item, index }) => (
+        <Item
+          image={item.image}
+          name={item.name}
+          distance={item.distance}
+          rating={item.rating}
+          isFirst={index === 0}
+          isLast={index === (DATA.length || 0) - 1}
+        />
+      )}
+      horizontal={true}
+      showsHorizontalScrollIndicator={false}
+      contentContainerStyle={{ gap: verticalScale(24) }}
+    />
+  )
+}
 
 const Styles = StyleSheet.create({
   container: {
     width: horizontalScale(298),
-    borderRadius: 8,
-    marginRight: horizontalScale(24),
+    borderRadius: 8
   },
   thumbnail: {
     width: horizontalScale(298),
     height: verticalScale(173),
-    objectFit: 'cover',
+    objectFit: 'cover'
   },
   saveButton: {
     position: 'absolute',
     top: 6,
-    right: 8,
+    right: 8
   },
   metaData: {
     backgroundColor: COLORS.white,
@@ -73,32 +73,21 @@ const Styles = StyleSheet.create({
     paddingHorizontal: horizontalScale(12),
     width: horizontalScale(298),
     alignItems: 'flex-start',
-    gap: verticalScale(4),
+    gap: verticalScale(4)
   },
   distance: {
     color: COLORS.secondary,
     fontSize: moderateScale(18),
-    fontFamily: 'Poppins-Regular',
+    fontFamily: 'Poppins-Regular'
   },
   name: {
     color: COLORS.black3,
-    fontFamily: 'Poppins-Medium',
+    fontFamily: 'Poppins-Medium'
   },
-});
-
-const TempatWisataDetailCarousel = () => {
-  return(
-    <FlatList
-      data={DATA}
-      renderItem={({item}) => <Item image={item.image} name={item.name} distance={item.distance} rating={item.rating} /> } 
-      keyExtractor={item => item.name}
-      horizontal={true}
-      showsHorizontalScrollIndicator={false}
-      style={{
-        paddingLeft: horizontalScale(24)
-      }}
-    />
-  )
-}
+  imgBackground: {
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8
+  }
+})
 
 export default TempatWisataDetailCarousel

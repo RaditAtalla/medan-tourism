@@ -4,26 +4,26 @@ import COLORS from '../../theme/colors'
 import IMAGES from '../../assets/img/images'
 
 const ImgBtn = ({ icon, action }) => {
-    let iconSrc = (icon == 'facebook') ? IMAGES.facebook : IMAGES.google
-    
-    return(
-        <TouchableOpacity onPress={() => action()} style={Styles.imgBtnWrapper}>
-            <Image source={iconSrc} style={Styles.imgButton} />
-        </TouchableOpacity>
-    );
+  let iconSrc = icon == 'facebook' ? IMAGES.facebook : IMAGES.google
+
+  return (
+    <TouchableOpacity onPress={() => action()} style={Styles.imgBtnWrapper}>
+      <Image source={iconSrc} style={Styles.imgButton} />
+    </TouchableOpacity>
+  )
 }
 
 const Styles = StyleSheet.create({
-    imgButton: {
-        height: verticalScale(39),
-        width: horizontalScale(40),
-        objectFit: 'contain',
-    },
-    imgBtnWrapper: {
-        padding: moderateScale(10),
-        borderRadius: 16,
-        backgroundColor: COLORS.gray4,
-    },
+  imgButton: {
+    height: verticalScale(39),
+    width: horizontalScale(40),
+    objectFit: 'contain'
+  },
+  imgBtnWrapper: {
+    padding: moderateScale(10),
+    borderRadius: 16,
+    backgroundColor: COLORS.gray4
+  }
 })
 
-export default ImgBtn;
+export default ImgBtn

@@ -1,29 +1,17 @@
-import {
-  View,
-  SafeAreaView,
-  ScrollView,
-  Text,
-  Image,
-  TouchableOpacity,
-  StatusBar,
-} from 'react-native';
-import ICONS from '../../assets/icons/icons';
-import IMAGES from '../../assets/img/images';
-import Styles from '../../styles/TerakhirDilihatPageStyles';
-import HotelCarousel from '../../components/atoms/HotelCarousel';
-import EventDanBeritaCarousel from '../../components/atoms/EventDanBeritaCarousel';
-import TempatWisataDetailCarousel from '../../components/atoms/TempatWisataDetailCarousel';
-import { verticalScale } from '../../theme/responsive';
-import LihatSemuaButton from '../../components/atoms/LihatSemuaButton';
+import { View, SafeAreaView, ScrollView, Text, StatusBar } from 'react-native'
+import TempatWisataDetailCarousel from '../../components/atoms/TempatWisataDetailCarousel'
+import EventDanBeritaCarousel from '../../components/atoms/EventDanBeritaCarousel'
+import LihatSemuaButton from '../../components/atoms/LihatSemuaButton'
+import HotelCarousel from '../../components/atoms/HotelCarousel'
+import Styles from '../../styles/TerakhirDilihatPageStyles'
+import { verticalScale } from '../../theme/responsive'
+import ICONS from '../../assets/icons/icons'
+import IMAGES from '../../assets/img/images'
 
 const TerakhirDilihatPage = ({ navigation }) => {
   return (
     <SafeAreaView style={Styles.container}>
-      <StatusBar
-        barStyle="light-content"
-        translucent
-        backgroundColor="transparent"
-      />
+      <StatusBar barStyle="light-content" translucent backgroundColor="transparent" />
       <ScrollView style={Styles.wrapper}>
         <View style={Styles.sectionContainer}>
           <View style={Styles.sectionTitleContainer}>
@@ -39,7 +27,7 @@ const TerakhirDilihatPage = ({ navigation }) => {
           </View>
           <EventDanBeritaCarousel />
         </View>
-        <View style={[Styles.sectionContainer, { marginBottom: verticalScale(70)}]}>
+        <View style={[Styles.sectionContainer, { marginBottom: verticalScale(70) }]}>
           <View style={Styles.sectionTitleContainer}>
             <Text style={Styles.sectionTitle}>Tempat Wisata</Text>
             <LihatSemuaButton action={() => navigation.navigate('SemuaTempatWisataPage')} />
@@ -48,7 +36,7 @@ const TerakhirDilihatPage = ({ navigation }) => {
         </View>
       </ScrollView>
     </SafeAreaView>
-  );
-};
+  )
+}
 
-export default TerakhirDilihatPage;
+export default TerakhirDilihatPage

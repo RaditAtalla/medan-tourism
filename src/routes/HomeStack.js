@@ -1,10 +1,10 @@
-import {useState} from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { useState } from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ICONS from '../assets/icons/icons';
 import COLORS from '../theme/colors';
 
-import {Image, TouchableOpacity, View, Text} from 'react-native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { Image, TouchableOpacity, View, Text } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomePage from '../view/home/HomePage';
 import SearchPage from '../view/search/SearchPage';
@@ -56,11 +56,11 @@ import TravelPage from '../view/travel/TravelPage';
 const HomeTabStack = createBottomTabNavigator();
 const HomeNavStack = createNativeStackNavigator();
 
-const BackButton = ({action}) => {
+const BackButton = ({ action }) => {
   return (
     <TouchableOpacity
       onPress={action}
-      style={{paddingTop: verticalScale(57), paddingLeft: horizontalScale(24)}}>
+      style={{ paddingTop: verticalScale(57), paddingLeft: horizontalScale(24) }}>
       <Image source={IMAGES.backButton} />
     </TouchableOpacity>
   );
@@ -86,13 +86,13 @@ const MapDetailHeader = ({ action }) => {
         <Text style={{ color: COLORS.black4, fontSize: moderateScale(20), fontFamily: 'Poppins-Bold' }}>Detail</Text>
       </View>
       <TouchableOpacity style={{ borderWidth: 1, borderColor: 'rgba(130, 130, 130, 0.50)', borderRadius: 12, alignItems: 'center', justifyContent: 'center', paddingHorizontal: horizontalScale(14), paddingVertical: verticalScale(13) }}>
-        <Image source={ICONS.saveButton} style={{height: verticalScale(25), objectFit: 'contain'}} />
+        <Image source={ICONS.saveButton} style={{ height: verticalScale(25), objectFit: 'contain' }} />
       </TouchableOpacity>
     </View>
   );
 };
 
-export const HomeNavStackScreen = ({navigation}) => {
+export const HomeNavStackScreen = ({ navigation }) => {
   return (
     <HomeNavStack.Navigator>
       <HomeNavStack.Screen
@@ -197,7 +197,7 @@ export const HomeNavStackScreen = ({navigation}) => {
       <HomeNavStack.Screen
         name="eventDetail1"
         component={eventDetail1}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <HomeNavStack.Screen
         name="DisimpanPage"
@@ -273,32 +273,32 @@ export const HomeNavStackScreen = ({navigation}) => {
       <HomeNavStack.Screen
         name="MapHotel"
         component={MapHotel}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <HomeNavStack.Screen
         name="MapMice"
         component={MapMice}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <HomeNavStack.Screen
         name="MapRekreasi"
         component={MapRekreasi}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <HomeNavStack.Screen
         name="MapKuliner"
         component={MapKuliner}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <HomeNavStack.Screen
         name="MapHeritage"
         component={MapHeritage}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <HomeNavStack.Screen
         name="MapStasiun"
         component={MapStasiun}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <HomeNavStack.Screen
         name="SemuaPopulerMicePage"
@@ -352,8 +352,8 @@ export const HomeNavStackScreen = ({navigation}) => {
 const HomeStackScreen = () => {
   return (
     <HomeTabStack.Navigator
-      screenOptions={({route}) => ({
-        tabBarIcon: ({focused}) => {
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused }) => {
           let iconName;
 
           if (route.name === 'HomePage') {
@@ -370,7 +370,7 @@ const HomeStackScreen = () => {
           return (
             <Image
               source={iconName}
-              style={{width: horizontalScale(30), height: verticalScale(30)}}
+              style={{ width: horizontalScale(30), height: verticalScale(30) }}
             />
           );
         },
@@ -442,7 +442,7 @@ export const SearchStackScreen = () => {
         component={SearchHistoryPage}
         options={{
           title: 'Pencarian',
-          headerStyle: {backgroundColor: COLORS.white},
+          headerStyle: { backgroundColor: COLORS.white },
           headerShadowVisible: false,
           headerTitleStyle: {
             color: COLORS.black4,

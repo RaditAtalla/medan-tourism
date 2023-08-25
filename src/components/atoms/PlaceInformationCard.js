@@ -1,51 +1,62 @@
-import {
-  StyleSheet,
-  View,
-  Image,
-  Text,
-  TouchableOpacity,
-  ImageBackground,
-  Dimensions,
-} from 'react-native';
-import COLORS from '../../theme/colors';
-import ICONS from '../../assets/icons/icons';
-import IMAGES from '../../assets/img/images';
-import {useState} from 'react';
-import Modal from 'react-native-modal';
-import {horizontalScale, moderateScale, verticalScale} from '../../theme/responsive';
+import { StyleSheet, View, Image, Text, TouchableOpacity, ImageBackground, Dimensions } from 'react-native'
+import { Fragment } from 'react'
 
-const PlaceInforamationCard = ({
-  image,
-  name,
-  open,
-  close,
-  rating,
-  raters,
-  closeAction,
-  detailAction,
-}) => {
+import { horizontalScale, moderateScale, verticalScale } from '../../theme/responsive'
+import { useGetPlaceDetailQuery } from '../../api/place.api'
+import { getTimePlace } from '../../utils/tranformData'
+import ICONS from '../../assets/icons/icons'
+import COLORS from '../../theme/colors'
+
+const Period = ({ children, title }) => {
+  return (
+    <Fragment>
+      <View style={Styles.sectionTitle}>
+        <Image source={ICONS.clockBlue} />
+        <Text style={Styles.title}>{title}</Text>
+      </View>
+      <Text style={Styles.sectionInfo} numberOfLines={1}>
+        {children}
+      </Text>
+    </Fragment>
+  )
+}
+
+const PlaceInforamationCard = ({ image, name, rating, raters, closeAction, detailAction, placeId }) => {
+  const { data, isSuccess } = useGetPlaceDetailQuery(placeId)
+
+  let content
+  if (isSuccess) {
+    if (data.result.current_opening_hours) {
+      content = (
+        <Period title="Buka Pada">
+          {getTimePlace(data.result.current_opening_hours.periods[0].open.time)} -{' '}
+          {getTimePlace(data.result.current_opening_hours.periods[0].close.time)} WIB
+        </Period>
+      )
+    } else {
+      content = (
+        <Period title={data.result.international_phone_number ? 'No. Telepon' : 'Alamat'}>
+          {data.result.international_phone_number || data.result.vicinity}
+        </Period>
+      )
+    }
+  }
+
   return (
     <View style={Styles.container}>
-      <ImageBackground source={image} style={Styles.image} imageStyle={{ borderTopLeftRadius: 50, borderTopRightRadius: 50, }}>
+      <ImageBackground
+        source={{ uri: image }}
+        style={Styles.image}
+        imageStyle={{ borderTopLeftRadius: 50, borderTopRightRadius: 50 }}
+      >
         <TouchableOpacity onPress={closeAction}>
-          <Image
-            source={ICONS.xButton}
-            style={Styles.xButton}
-          />
+          <Image source={ICONS.xButton} style={Styles.xButton} />
         </TouchableOpacity>
         <Text style={Styles.name}>{name}</Text>
       </ImageBackground>
       <View style={Styles.contentContainer}>
         <View style={Styles.metaDataContainer}>
-          <View style={Styles.sectionContainer}>
-            <View style={Styles.sectionTitle}>
-              <Image source={ICONS.clockBlue} />
-              <Text style={Styles.title}>Buka Pada</Text>
-            </View>
-            <Text style={Styles.sectionInfo}>
-              {open}-{close} WIB
-            </Text>
-          </View>
+          <View style={Styles.sectionContainer}>{content}</View>
           <View style={Styles.border} />
           <View style={Styles.sectionContainer}>
             <View style={Styles.sectionTitle}>
@@ -64,14 +75,14 @@ const PlaceInforamationCard = ({
               <Text style={Styles.ruteText}>Rute</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={Styles.detailButton} onPress={detailAction} >
+          <TouchableOpacity style={Styles.detailButton} onPress={detailAction}>
             <Text style={Styles.detailText}>Lihat Detail</Text>
           </TouchableOpacity>
         </View>
       </View>
     </View>
-  );
-};
+  )
+}
 
 const CARD_WIDTH = Dimensions.get('screen').width
 const IMAGE_HEIGHT = verticalScale(248)
@@ -87,7 +98,7 @@ const Styles = StyleSheet.create({
   image: {
     width: CARD_WIDTH,
     height: IMAGE_HEIGHT,
-    paddingBottom: verticalScale(19),
+    paddingBottom: verticalScale(19)
   },
   xButton: {
     position: 'absolute',
@@ -95,7 +106,7 @@ const Styles = StyleSheet.create({
     right: horizontalScale(24),
     width: horizontalScale(50),
     height: verticalScale(50),
-    objectFit: 'contain',
+    objectFit: 'contain'
   },
   name: {
     textAlign: 'center',
@@ -112,72 +123,78 @@ const Styles = StyleSheet.create({
     alignItems: 'center',
     gap: verticalScale(29),
     paddingTop: verticalScale(30),
-    paddingBottom: verticalScale(35),
+    paddingBottom: verticalScale(35)
   },
   metaDataContainer: {
     flexDirection: 'row',
     gap: horizontalScale(16),
     alignItems: 'center',
+    maxWidth: '100%'
   },
   sectionContainer: {
     paddingHorizontal: horizontalScale(10),
     paddingVertical: verticalScale(10),
     alignItems: 'flex-start',
+    alignSelf: 'flex-start',
+    maxWidth: 200,
+    backgroundColor: COLORS.white
   },
   sectionTitle: {
     flexDirection: 'row',
     gap: horizontalScale(8),
-    alignItems: 'center',
+    alignItems: 'center'
   },
   title: {
     color: COLORS.black4,
-    fontSize: moderateScale(12),
+    fontSize: moderateScale(12)
   },
   sectionInfo: {
     color: COLORS.black4,
-    fontFamily: 'Poppins-Medium',
+    fontFamily: 'Poppins-Medium'
   },
   border: {
     width: horizontalScale(2),
     height: verticalScale(36),
     backgroundColor: '#D9D9D9',
-    borderRadius: 50,
+    borderRadius: 50
   },
   buttonContainer: {
     elevation: 5,
     backgroundColor: COLORS.white,
     borderColor: '#d9d9d9',
     borderRadius: 16,
-    paddingHorizontal: horizontalScale(8),
-    paddingVertical: verticalScale(20),
+    // paddingHorizontal: horizontalScale(8),
+    // paddingVertical: verticalScale(20),
+    paddingHorizontal: horizontalScale(10),
+    paddingVertical: verticalScale(4),
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    gap: horizontalScale(32),
+    gap: horizontalScale(32)
   },
   ruteButton: {},
   ruteButtonWrapper: {
     flexDirection: 'row',
-    paddingHorizontal:  verticalScale(8),
+    paddingHorizontal: verticalScale(8),
     paddingVertical: verticalScale(14),
     alignItems: 'center',
     justifyContent: 'space-between',
-    gap: horizontalScale(12),
+    gap: horizontalScale(12)
   },
   ruteText: {
     color: COLORS.blue,
-    fontFamily: 'Poppins-Medium',
+    fontFamily: 'Poppins-Medium'
   },
   detailButton: {
     paddingVertical: verticalScale(8),
     paddingHorizontal: horizontalScale(12),
     backgroundColor: COLORS.blue,
-    borderRadius: 8,
+    borderRadius: 8
   },
   detailText: {
     color: COLORS.white,
-    fontFamily: 'Poppins-Medium',
+    fontFamily: 'Poppins-Medium'
   }
-});
+})
 
-export default PlaceInforamationCard;
+export default PlaceInforamationCard

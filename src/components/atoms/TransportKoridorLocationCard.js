@@ -1,7 +1,7 @@
-import {View, Image, Text, StyleSheet} from 'react-native';
-import COLORS from '../../theme/colors';
+import { View, Image, Text, StyleSheet } from 'react-native'
+import COLORS from '../../theme/colors'
 
-export default function KoridorLocationCard({halteName, halteLocation}) {
+export default function KoridorLocationCard({ halteName, halteLocation }) {
   const styles = StyleSheet.create({
     halteCard: {
       width: 340,
@@ -13,27 +13,27 @@ export default function KoridorLocationCard({halteName, halteLocation}) {
       alignItems: 'center',
       justifyContent: 'space-between',
       paddingHorizontal: 15,
-      marginTop: 24,
+      marginTop: 24
     },
     wrapper: {
       flexDirection: 'row',
       justifyContent: 'center',
-      alignItems: 'center',
+      alignItems: 'center'
     },
     halteLocationWrapper: {
-      marginLeft: 24,
+      marginLeft: 24
     },
     halteName: {
       fontSize: 16,
       fontWeight: '500',
-      color: COLORS.black4,
+      color: COLORS.black4
     },
     halteLocation: {
       fontSize: 12,
       fontFamily: 'Poppins-Regular',
-      color: '#3b4949',
-    },
-  });
+      color: '#3b4949'
+    }
+  })
 
   return (
     <View style={styles.halteCard}>
@@ -50,5 +50,5 @@ export default function KoridorLocationCard({halteName, halteLocation}) {
         <Image source={require('../../assets/icons/caretRight.png')} />
       </View>
     </View>
-  );
+  )
 }

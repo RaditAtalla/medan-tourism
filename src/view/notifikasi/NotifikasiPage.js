@@ -1,46 +1,40 @@
-import {View, Text, SafeAreaView, Image, TouchableOpacity} from 'react-native';
-import {styles} from '../../styles/NotifikasiPage.styles';
-import React, {useState} from 'react';
+import { View, Text, SafeAreaView, Image, TouchableOpacity } from 'react-native'
+import React, { useState } from 'react'
+
+import { styles } from '../../styles/NotifikasiPage.styles'
 
 export default function NotifikasiPage() {
   const [tabContent, setTabContent] = useState([
     {
       date: '13 Jul 2023',
       status: 'Transaksi berhasil',
-      informasi:
-        'Pembayaran hotel Aryaduta Medan sebesar IDR555,000 berhasil terkirim',
-      id: 1,
+      informasi: 'Pembayaran hotel Aryaduta Medan sebesar IDR555,000 berhasil terkirim',
+      id: 1
     },
     {
       date: '13 Jul 2023',
       status: 'Transaksi gagal',
-      informasi:
-        'Pembayaran hotel Aryaduta Medan sebesar IDR555,000 gagal di kirim',
-      id: 2,
-    },
-  ]);
+      informasi: 'Pembayaran hotel Aryaduta Medan sebesar IDR555,000 gagal di kirim',
+      id: 2
+    }
+  ])
 
-  const handleRemove = id => {
-    setTabContent(prevTabContent =>
-      prevTabContent.filter(item => item.id !== id),
-    );
-  };
+  const handleRemove = (id) => {
+    setTabContent((prevTabContent) => prevTabContent.filter((item) => item.id !== id))
+  }
 
   return (
     <SafeAreaView>
       <View style={styles.container}>
         <View style={styles.notifikasi}>
-          {tabContent.map(e => (
+          {tabContent.map((e) => (
             <View style={styles.notifikasi} key={e.id}>
               <View style={styles.date}>
                 <View>
                   <Text style={styles.dateText}>{e.date}</Text>
                 </View>
                 <TouchableOpacity onPress={() => handleRemove(e.id)}>
-                  <Image
-                    style={styles.exit}
-                    source={require('../../assets/icons/exit.png')}
-                  />
+                  <Image style={styles.exit} source={require('../../assets/icons/exit.png')} />
                 </TouchableOpacity>
               </View>
               <View style={styles.statusTransaksi}>
@@ -54,5 +48,5 @@ export default function NotifikasiPage() {
         </View>
       </View>
     </SafeAreaView>
-  );
+  )
 }

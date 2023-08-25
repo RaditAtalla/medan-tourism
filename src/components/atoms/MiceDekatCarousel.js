@@ -1,51 +1,38 @@
-import {
-  View,
-  Image,
-  Text,
-  FlatList,
-  StyleSheet,
-  TouchableOpacity,
-  ImageBackground,
-} from 'react-native';
-import COLORS from '../../theme/colors';
-import ICONS from '../../assets/icons/icons';
-import {
-  verticalScale,
-  horizontalScale,
-  moderateScale,
-} from '../../theme/responsive';
-import StarDisplay from './StarDisplay';
+import { View, Image, Text, FlatList, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native'
+import COLORS from '../../theme/colors'
+import ICONS from '../../assets/icons/icons'
+import { verticalScale, horizontalScale, moderateScale } from '../../theme/responsive'
+import StarDisplay from './StarDisplay'
 
 const DATA = [
   {
     image: require('../../assets/img/selecta.png'),
     name: 'Selecta',
     distance: '2,5 Km',
-    rating: 5,
+    rating: 5
   },
   {
     image: require('../../assets/img/nagaHall.png'),
     name: 'Naga Hall Medan',
     distance: '2,5 Km',
-    rating: 4,
+    rating: 4
   },
   {
     image: require('../../assets/img/hotelBukitPermai.png'),
     name: 'Hotel Bukit Permai',
     distance: '2,5 Km',
-    rating: 3,
-  },
-];
+    rating: 3
+  }
+]
 
-const Item = ({image, name, distance, rating, navigation}) => {
+const Item = ({ image, name, distance, rating, navigation }) => {
   return (
-    <TouchableOpacity
-      style={Styles.container}
-      onPress={() => navigation.navigate(name + 'Page')}>
+    <TouchableOpacity style={Styles.container} onPress={() => navigation.navigate(name + 'Page')}>
       <ImageBackground
         source={image}
         style={Styles.thumbnail}
-        imageStyle={{borderTopLeftRadius: 8, borderTopRightRadius: 8}}>
+        imageStyle={{ borderTopLeftRadius: 8, borderTopRightRadius: 8 }}
+      >
         <Image source={ICONS.saveCircle} style={Styles.saveButton} />
       </ImageBackground>
       <View style={Styles.metaData}>
@@ -54,24 +41,24 @@ const Item = ({image, name, distance, rating, navigation}) => {
         <StarDisplay rating={rating} />
       </View>
     </TouchableOpacity>
-  );
-};
+  )
+}
 
 const Styles = StyleSheet.create({
   container: {
     width: horizontalScale(199),
     borderRadius: 8,
-    marginRight: horizontalScale(24),
+    marginRight: horizontalScale(24)
   },
   thumbnail: {
     width: horizontalScale(199),
     height: verticalScale(173),
-    objectFit: 'cover',
+    objectFit: 'cover'
   },
   saveButton: {
     position: 'absolute',
     top: 6,
-    right: 8,
+    right: 8
   },
   metaData: {
     backgroundColor: COLORS.white,
@@ -79,39 +66,34 @@ const Styles = StyleSheet.create({
     paddingHorizontal: horizontalScale(12),
     width: horizontalScale(199),
     alignItems: 'flex-start',
-    gap: verticalScale(4),
+    gap: verticalScale(4)
   },
   distance: {
     color: COLORS.secondary,
     fontSize: moderateScale(10),
-    fontFamily: 'Poppins-Regular',
+    fontFamily: 'Poppins-Regular'
   },
   name: {
     color: COLORS.black3,
-    fontFamily: 'Poppins-Medium',
-  },
-});
+    fontFamily: 'Poppins-Medium'
+  }
+})
 
 const MiceDekatCarousel = () => {
   return (
     <FlatList
       data={DATA}
-      renderItem={({item}) => (
-        <Item
-          image={item.image}
-          name={item.name}
-          distance={item.distance}
-          rating={item.rating}
-        />
+      renderItem={({ item }) => (
+        <Item image={item.image} name={item.name} distance={item.distance} rating={item.rating} />
       )}
-      keyExtractor={item => item.name}
+      keyExtractor={(item) => item.name}
       horizontal={true}
       showsHorizontalScrollIndicator={false}
       style={{
-        paddingLeft: horizontalScale(24),
+        paddingLeft: horizontalScale(24)
       }}
     />
-  );
-};
+  )
+}
 
-export default MiceDekatCarousel;
+export default MiceDekatCarousel

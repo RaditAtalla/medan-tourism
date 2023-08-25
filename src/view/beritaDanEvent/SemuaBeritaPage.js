@@ -4,18 +4,16 @@ import { Item, DATA } from '../../components/atoms/EventDanBeritaCarousel'
 import { verticalScale } from '../../theme/responsive'
 
 const SemuaBeritaPage = () => {
-  return(
+  return (
     <SafeAreaView style={Styles.container}>
-      <StatusBar
-        barStyle="dark-content"
-        translucent
-        backgroundColor="transparent"
-      />
+      <StatusBar barStyle="dark-content" translucent backgroundColor="transparent" />
       <FlatList
         data={DATA}
-        renderItem={ ({item}) => <Item image={item.image} title={item.title} content={item.content} time={item.time} price={item.price} />}
+        renderItem={({ item }) => (
+          <Item image={item.image} title={item.title} content={item.content} time={item.time} price={item.price} />
+        )}
         numColumns={1}
-        ItemSeparatorComponent={<View style={{height: verticalScale(24)}} />}
+        ItemSeparatorComponent={<View style={{ height: verticalScale(24) }} />}
         showsVerticalScrollIndicator={false}
         style={Styles.wrapper}
       />

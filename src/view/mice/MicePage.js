@@ -1,31 +1,22 @@
-import {
-  Text,
-  View,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  TouchableOpacity,
-} from 'react-native';
-import Styles from '../../styles/MicePageStyles';
-import MicePopulerCarousel from '../../components/atoms/MicePopulerCarousel';
-import MiceDekatCarousel from '../../components/atoms/MiceDekatCarousel';
-import IMAGES from '../../assets/img/images';
+import { Text, View, SafeAreaView, ScrollView, StatusBar, TouchableOpacity } from 'react-native'
 import Modal from 'react-native-modal'
 import { useState } from 'react'
 
-const MicePage = ({ navigation}) => {
-  const [isModalVisible, setModalVisible] = useState(false);
+import MicePopulerCarousel from '../../components/atoms/MicePopulerCarousel'
+import MiceDekatCarousel from '../../components/atoms/MiceDekatCarousel'
+import Styles from '../../styles/MicePageStyles'
+import IMAGES from '../../assets/img/images'
+
+const MicePage = ({ navigation }) => {
+  const [isModalVisible, setModalVisible] = useState(false)
 
   const toggleModal = () => {
-      setModalVisible(!isModalVisible);
-  };
+    setModalVisible(!isModalVisible)
+  }
+
   return (
     <SafeAreaView style={Styles.container}>
-      <StatusBar
-        barStyle="dark-content"
-        translucent
-        backgroundColor="transparent"
-      />
+      <StatusBar barStyle="dark-content" translucent backgroundColor="transparent" />
       <ScrollView style={Styles.contentContainer}>
         <View style={Styles.sectionContainer}>
           <View style={Styles.sectionTitleContainer}>
@@ -56,7 +47,7 @@ const MicePage = ({ navigation}) => {
         </View>
       </ScrollView>
     </SafeAreaView>
-  );
-};
+  )
+}
 
-export default MicePage;
+export default MicePage

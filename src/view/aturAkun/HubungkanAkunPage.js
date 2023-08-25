@@ -1,8 +1,9 @@
-import {View, SafeAreaView} from 'react-native';
-import {styles} from '../../styles/HubungkanAkun.Style';
-import AturAkunCard from '../../components/atoms/hubungkanAkunCard';
-import ICONS from '../../assets/icons/icons';
-import IMAGES from '../../assets/img/images';
+import { View, SafeAreaView } from 'react-native'
+
+import AturAkunCard from '../../components/atoms/hubungkanAkunCard'
+import { styles } from '../../styles/HubungkanAkun.Style'
+import ICONS from '../../assets/icons/icons'
+import IMAGES from '../../assets/img/images'
 
 export default function HubungkanAkunPage() {
   return (
@@ -27,12 +28,10 @@ export default function HubungkanAkunPage() {
           AddIcon={ICONS.greenAddButton}
           MinusIcon={ICONS.minusButton}
           CardTitle={'Facebook'}
-          CardDescription={
-            'Kamu akan keluar dari akun dan kembali ke halaman login'
-          }
+          CardDescription={'Kamu akan keluar dari akun dan kembali ke halaman login'}
           ConnectedAcc={'Ibnu Rusyid'}
         />
       </View>
     </SafeAreaView>
-  );
+  )
 }

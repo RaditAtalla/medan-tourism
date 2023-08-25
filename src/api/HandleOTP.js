@@ -5,33 +5,32 @@ import { getPhone, getUserId } from '../utils/Sessions'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export const HandleSendOTP = async (phone, navigation) => {
-  await getUserId().then(async value => {
+  await getUserId().then(async (value) => {
     try {
       const response = await axios.post(`${sendOTPApi}`, {
         phone: phone,
-        user_id: value,
-      });
-      const data = response.data;
+        user_id: value
+      })
+      const data = response.data
       if (response.status === 200) {
-        AsyncStorage.setItem('userId', JSON.stringify(data.data));
-        navigation.replace('AuthStackScreen', { screen: 'VerifikasiHpPage' });
+        AsyncStorage.setItem('userId', JSON.stringify(data.data))
+        navigation.replace('AuthStackScreen', { screen: 'VerifikasiHpPage' })
       }
     } catch (error) {
       if (error.response) {
-        Alert.alert('Perhatian', error.response.data.message);
+        Alert.alert('Perhatian', error.response.data.message)
       }
     }
   })
-};
+}
 
-
-export const HandleVerifikasiOTP = async(otp_code, navigation) => {
-  await getUserId().then(async value=>{
-    if(value != null) {
+export const HandleVerifikasiOTP = async (otp_code, navigation) => {
+  await getUserId().then(async (value) => {
+    if (value != null) {
       try {
         const response = await axios.post(`${verifikasiOTPApi}`, {
           otp_code: otp_code,
-          user_id: value,
+          user_id: value
         })
         const data = response.data
         if (response.status === 200) {
@@ -40,11 +39,10 @@ export const HandleVerifikasiOTP = async(otp_code, navigation) => {
           navigation.replace('HomeStackScreen')
         }
       } catch (error) {
-          if (error.response) {
-            Alert.alert('Perhatian', error.response.data.message)
-          }
+        if (error.response) {
+          Alert.alert('Perhatian', error.response.data.message)
+        }
       }
     }
   })
-  
 }
