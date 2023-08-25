@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity, TextInput } from 'react-native'
+import { View, Text, Image, TextInput } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useContext, useState } from 'react'
 
@@ -8,16 +8,12 @@ import CtaButton from '../../components/atoms/CtaButton'
 import COLORS from '../../theme/colors'
 import { checkFormValid } from '../../services/auth.service'
 import { useVerifyOTPMutation } from '../../api/auth.api'
-import { useDispatch } from 'react-redux'
-import { setIsLoading } from '../../store/features/authSlice'
 import { AuthContext } from '../../store/features/authContext'
 
 export default function VerifikasiHpPage({ navigation, route }) {
   const { userId } = route.params
   const [otp_code, setOtpCode] = useState('')
-
-  const dispatch = useDispatch()
-  const isLoading = useSelector((state) => state.auth.loading)
+  const [isLoading, setIsLoading] = useState(false)
 
   const { storeToken } = useContext(AuthContext)
   const [verifyOTP] = useVerifyOTPMutation()
@@ -25,12 +21,12 @@ export default function VerifikasiHpPage({ navigation, route }) {
   const handleSubmit = async () => {
     checkFormValid(!otp_code, 'Mohon isi kode verifikasi anda')
     checkFormValid(otp_code.length < 4, 'Kode verifikasi minimal 4 digit')
-    dispatch(setIsLoading(true))
+    setIsLoading(true)
 
     try {
       const { data } = await verifyOTP({ otp_code, user_id: userId })
       await storeToken(data.token)
-      await dispatch(setIsLoading(true)).unwrap()
+      setIsLoading(false)
       navigation.replace('HomeStackScreen', { screen: 'HomePage' })
     } catch (error) {
       console.log(error)
