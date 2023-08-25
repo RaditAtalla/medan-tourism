@@ -4,6 +4,9 @@ import { useNavigation } from '@react-navigation/native'
 import { verticalScale, horizontalScale, moderateScale } from '../../theme/responsive'
 import COLORS from '../../theme/colors'
 import StarDisplay from './StarDisplay'
+import { useGetPlacesQuery } from '../../api/place.api'
+import { ActivityIndicator } from 'react-native-paper'
+import { getImagePlace } from '../../utils/tranformData'
 
 export const Item = ({ image, name, distance, rating, price, action, width }) => {
   width = horizontalScale(width)
@@ -29,7 +32,7 @@ export const Item = ({ image, name, distance, rating, price, action, width }) =>
 }
 
 const HotelCarousel = () => {
-  const Item = ({ isFirst, isLast, action, width, data }) => {
+  const Item = ({ isFirst, isLast, action, width, image, distance, name, rating, price }) => {
     width = horizontalScale(width)
 
     return (
@@ -42,17 +45,17 @@ const HotelCarousel = () => {
         ]}
         onPress={action}
       >
-        <Image source={data.image} style={[styles.image, { width }]} />
+        <Image source={{ uri: image }} style={[styles.image, { width }]} />
         <View style={[styles.details, { width }]}>
           <View style={{ gap: verticalScale(4) }}>
-            <Text style={styles.distance}>{data.distance}</Text>
+            <Text style={styles.distance}>{distance}</Text>
             <Text style={styles.subText} numberOfLines={1}>
-              {data.name}
+              {name}
             </Text>
-            <StarDisplay rating={data.rating} />
+            <StarDisplay rating={rating} />
           </View>
           <Text style={styles.subText}>
-            IDR {data.price}
+            IDR {price}
             <Text style={styles.date}>/malam</Text>
           </Text>
         </View>
@@ -107,20 +110,46 @@ const HotelCarousel = () => {
       price: '918,000'
     }
   ]
+
+  const { data, isSuccess } = useGetPlacesQuery('hotel')
+
+  if (!isSuccess) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingVertical: verticalScale(16) }}>
+        <ActivityIndicator size="small" color={COLORS.blue} />
+      </View>
+    )
+  }
+
+  const transformData = (data) => {
+    return data.results.filter((item) => item.photos && item.rating && item.user_ratings_total && item.opening_hours)
+  }
+
+  const hotels = transformData(data).slice(0, 6)
+
   return (
     <FlatList
-      data={DATA}
+      data={hotels}
       horizontal={true}
-      keyExtractor={(item) => item.name}
+      keyExtractor={(item, index) => index.toString()}
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={{ gap: horizontalScale(24) }}
       renderItem={({ item, index }) => (
         <Item
           isFirst={index === 0}
-          isLast={index === (DATA.length || 0) - 1}
-          action={item.action}
+          isLast={index === hotels.length - 1}
+          action={() =>
+            navigation.navigate('HomeNavStackScreen', {
+              screen: 'HotelPreviewPage',
+              params: { placeId: item.place_id }
+            })
+          }
           width={199}
-          data={item}
+          image={getImagePlace(item.photos[0].photo_reference)}
+          name={item.name}
+          distance={'2,5 Km'}
+          price={'540,550'}
+          rating={Math.round(item.rating)}
         />
       )}
     />

@@ -111,35 +111,48 @@ export const transportMetrodeliData = [
 
 export const mapHeritageData = [
   {
-    top: 1.5,
-    left: 20
+    topPosition: 1.5,
+    leftPosition: 20
   },
   {
-    top: 4,
-    left: 6
+    topPosition: 4,
+    leftPosition: 6
   },
   {
-    top: 2.4,
-    left: 2.8
+    topPosition: 2.4,
+    leftPosition: 2.8
   },
   {
-    top: 1.8,
-    left: 2.2
+    topPosition: 1.8,
+    leftPosition: 2.2
   },
   {
-    top: 7,
-    left: 2.9
+    topPosition: 7,
+    leftPosition: 2.9
   },
   {
-    top: 1.35,
-    left: 1.6
+    topPosition: 1.35,
+    leftPosition: 1.6
   },
   {
-    top: 2.7,
-    left: 1.6
+    topPosition: 2.7,
+    leftPosition: 1.6
   },
   {
-    top: 1.7,
-    left: 1.15
+    topPosition: 1.7,
+    leftPosition: 1.15
   }
+]
+
+export const mapHotelPosition = [
+  { topPosition: 1.9, leftPosition: 90 },
+  { topPosition: 6, leftPosition: 20 },
+  { topPosition: 7, leftPosition: 6 },
+  { topPosition: 2.8, leftPosition: 6 },
+  { topPosition: 5, leftPosition: 3.3 },
+  { topPosition: 8, leftPosition: 2.3 },
+  { topPosition: 1.6, leftPosition: 2.5 },
+  { topPosition: 2, leftPosition: 1.8 },
+  { topPosition: 5, leftPosition: 1.71 },
+  { topPosition: 2.5, leftPosition: 1.2 }
 ]

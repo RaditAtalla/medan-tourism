@@ -2,7 +2,7 @@ import { TextInput, View, Text, StyleSheet } from 'react-native'
 import { verticalScale, horizontalScale, moderateScale } from '../../theme/responsive'
 import COLORS from '../../theme/colors'
 
-const InputGroup = ({ label, placeholder, placeholderTextColor, type, value, setValue }) => {
+const InputGroup = ({ label, placeholder, placeholderTextColor, type, value, setValue, keyboardType }) => {
   let isPassword = type == 'password' ? true : false
   return (
     <View style={Styles.inputGroup}>
@@ -14,6 +14,7 @@ const InputGroup = ({ label, placeholder, placeholderTextColor, type, value, set
         onChangeText={setValue}
         placeholderTextColor={placeholderTextColor}
         secureTextEntry={isPassword}
+        keyboardType={keyboardType ? keyboardType : 'default'}
       />
     </View>
   )

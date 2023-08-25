@@ -7,8 +7,27 @@ import HotelCarousel from '../../components/atoms/HotelCarousel'
 import { verticalScale } from '../../theme/responsive'
 import Styles from '../../styles/SearchPageStyles'
 import ICONS from '../../assets/icons/icons'
+import { useGetPlacesQuery } from '../../api/place.api'
+import COLORS from '../../theme/colors'
+import { ActivityIndicator } from 'react-native-paper'
+
+const Loading = () => {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingVertical: verticalScale(16) }}>
+      <ActivityIndicator size="small" color={COLORS.blue} />
+    </View>
+  )
+}
 
 const SearchPage = ({ navigation }) => {
+  const { data: wisata, isSuccess } = useGetPlacesQuery('nature tourism')
+
+  const transformData = (data) => {
+    return data.filter((item) => {
+      if (item.photos) return item
+    })
+  }
+
   return (
     <SafeAreaView style={Styles.container}>
       <StatusBar barStyle="light-content" translucent backgroundColor="transparent" />
@@ -30,7 +49,7 @@ const SearchPage = ({ navigation }) => {
           <View style={Styles.sectionTitleContainer}>
             <Text style={Styles.sectionTitle}>Tempat Wisata</Text>
           </View>
-          <CarouselTempatWisata />
+          {isSuccess ? <CarouselTempatWisata wisata={transformData(wisata.results).slice(0, 4)} /> : <Loading />}
         </View>
         <View style={Styles.sectionContainer}>
           <View style={Styles.sectionTitleContainer}>

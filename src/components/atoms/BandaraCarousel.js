@@ -1,8 +1,10 @@
-import { Image, View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native'
+import { Image, View, Text, FlatList, TouchableOpacity, StyleSheet, ActivityIndicator } from 'react-native'
 
 import { verticalScale, horizontalScale } from '../../theme/responsive'
 import StarDisplayDetail from './StarDisplayDetail'
 import COLORS from '../../theme/colors'
+import { useGetPlacesQuery } from '../../api/place.api'
+import { getImagePlace } from '../../utils/tranformData'
 
 const DATA = [
   {
@@ -23,10 +25,12 @@ const Item = ({ image, name, rating, raters, isFirst, isLast }) => {
   const gap = verticalScale(24)
   return (
     <View style={[styles.container, isFirst && { marginLeft: gap }, isLast && { marginRight: gap }]}>
-      <Image source={image} style={styles.image} />
+      <Image source={{ uri: image }} style={styles.image} />
       <View style={{ gap: verticalScale(16) }}>
         <View style={{ gap: verticalScale(4), width: '90%' }}>
-          <Text style={{ fontWeight: '700', color: COLORS.black3 }}>{name}</Text>
+          <Text style={{ fontWeight: '700', color: COLORS.black3, maxWidth: 200 }} numberOfLines={1}>
+            {name}
+          </Text>
           <StarDisplayDetail rating={rating} raters={raters} />
         </View>
         <View style={{ flexDirection: 'row', gap: horizontalScale(16) }}>
@@ -43,21 +47,41 @@ const Item = ({ image, name, rating, raters, isFirst, isLast }) => {
 }
 
 const BandaraCarousel = () => {
+  const { data, isSuccess } = useGetPlacesQuery('bandara')
+
+  if (!isSuccess) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingVertical: verticalScale(16) }}>
+        <ActivityIndicator size="small" color={COLORS.blue} />
+      </View>
+    )
+  }
+
+  const transformData = (data) => {
+    return data.results.filter((item) => {
+      if (item.photos && item.rating && item.user_ratings_total) {
+        return item
+      }
+    })
+  }
+
+  const bandara = transformData(data).slice(0, 2)
+
   return (
     <FlatList
-      data={DATA}
+      data={bandara}
       horizontal={true}
-      keyExtractor={(item) => item.name}
+      keyExtractor={(item, index) => index.toString()}
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={{ gap: horizontalScale(24) }}
       renderItem={({ item, index }) => (
         <Item
-          image={item.image}
+          image={getImagePlace(item.photos[0].photo_reference)}
           name={item.name}
-          rating={item.rating}
-          raters={item.raters}
+          rating={Math.round(item.rating)}
+          raters={item.user_ratings_total}
           isFirst={index === 0}
-          isLast={index === (DATA.length || 0) - 1}
+          isLast={index === bandara.length - 1}
         />
       )}
     />

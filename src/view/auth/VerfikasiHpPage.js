@@ -1,29 +1,37 @@
 import { View, Text, Image, TouchableOpacity, TextInput } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 
 import { verticalScale, moderateScale } from '../../theme/responsive'
 import { styles } from '../../styles/VerifikasiPage.style'
-import { HandleVerifikasiOTP } from '../../api/HandleOTP'
 import CtaButton from '../../components/atoms/CtaButton'
 import COLORS from '../../theme/colors'
 import { checkFormValid } from '../../services/auth.service'
 import { useVerifyOTPMutation } from '../../api/auth.api'
+import { useDispatch } from 'react-redux'
+import { setIsLoading } from '../../store/features/authSlice'
+import { AuthContext } from '../../store/features/authContext'
 
 export default function VerifikasiHpPage({ navigation, route }) {
-  console.log({ params: route.params })
   const { userId } = route.params
   const [otp_code, setOtpCode] = useState('')
-  const [verifyOTP, { isLoading }] = useVerifyOTPMutation()
+
+  const dispatch = useDispatch()
+  const isLoading = useSelector((state) => state.auth.loading)
+
+  const { storeToken } = useContext(AuthContext)
+  const [verifyOTP] = useVerifyOTPMutation()
 
   const handleSubmit = async () => {
     checkFormValid(!otp_code, 'Mohon isi kode verifikasi anda')
     checkFormValid(otp_code.length < 4, 'Kode verifikasi minimal 4 digit')
+    dispatch(setIsLoading(true))
 
     try {
       const { data } = await verifyOTP({ otp_code, user_id: userId })
-      console.log(data)
-      // navigation.navigate('HomeStackScreen')
+      await storeToken(data.token)
+      await dispatch(setIsLoading(true)).unwrap()
+      navigation.replace('HomeStackScreen', { screen: 'HomePage' })
     } catch (error) {
       console.log(error)
     }
@@ -63,8 +71,9 @@ export default function VerifikasiHpPage({ navigation, route }) {
           fFamily="Poppins-SemiBold"
           fSize={moderateScale(18)}
           fColor={COLORS.white}
+          isLoading={isLoading}
           text="Verifikasi"
-          action={() => navigation.navigate('HomeStackScreen')}
+          action={handleSubmit}
         />
       </View>
     </SafeAreaView>

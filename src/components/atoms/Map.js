@@ -37,7 +37,8 @@ const Map = (props) => {
 
 const Styles = StyleSheet.create({
   mapRootContainer: {
-    flex: 1
+    flex: 1,
+    position: 'relative'
   }
 })
 

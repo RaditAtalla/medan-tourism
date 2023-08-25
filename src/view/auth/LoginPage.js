@@ -1,30 +1,39 @@
-import { Text, View, StatusBar, ImageBackground } from 'react-native'
+import { Text, View, StatusBar, ImageBackground, Alert } from 'react-native'
+import { useContext, useEffect, useState } from 'react'
 
 import Styles from '../../styles/LoginPageStyles'
 import COLORS from '../../theme/colors'
 
-import AltLogin from '../../components/molecules/AltLogin'
-import LupaPasswordBtn from '../../components/atoms/LupaPasswordBtn'
-import InputGroup from '../../components/atoms/InputGroup'
-import React, { useState } from 'react'
-import CtaButton from '../../components/atoms/CtaButton'
 import { moderateScale, verticalScale } from '../../theme/responsive'
-import { useLoginMutation } from '../../api/auth.api'
+import LupaPasswordBtn from '../../components/atoms/LupaPasswordBtn'
+import { AuthContext } from '../../store/features/authContext'
 import { checkFormValid } from '../../services/auth.service'
+import AltLogin from '../../components/molecules/AltLogin'
+import InputGroup from '../../components/atoms/InputGroup'
+import CtaButton from '../../components/atoms/CtaButton'
+import { useLoginMutation } from '../../api/auth.api'
 
 const LoginPage = ({ navigation }) => {
-  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
   const [password, setPassword] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
 
-  const [login, { isLoading }] = useLoginMutation()
+  const { storeToken } = useContext(AuthContext)
+  const [login, { error, isError }] = useLoginMutation()
+
+  useEffect(() => {
+    if (isError) Alert.alert('Error', error.message)
+  }, [isError])
 
   const handleSubmit = async () => {
-    checkFormValid(!email || !password, 'Mohon isi semua form')
+    checkFormValid(!phone || !password, 'Mohon isi semua form')
+    setIsLoading(true)
 
     try {
-      const { data } = await login({ email, password })
-      console.log({ data })
-      // navigation.replace('HomeStackScreen', { screen: 'HomePage' })
+      const { data } = await login({ phone, password })
+      await storeToken(data.token)
+      setIsLoading(false)
+      navigation.replace('HomeStackScreen', { screen: 'HomePage' })
     } catch (error) {
       console.log(error)
     }
@@ -39,11 +48,12 @@ const LoginPage = ({ navigation }) => {
           <View style={Styles.inputContainer}>
             <View style={Styles.inputField}>
               <InputGroup
-                label="Email atau Username"
-                value={email}
-                setValue={setEmail}
-                placeholder="example123@gmail.com"
+                label="No. Handphone"
+                value={phone}
+                setValue={setPhone}
+                placeholder="08123456789"
                 placeholderTextColor={COLORS.black4}
+                keyboardType="number-pad"
               />
               <InputGroup
                 label="Password"
@@ -57,7 +67,6 @@ const LoginPage = ({ navigation }) => {
             <LupaPasswordBtn action={() => navigation.navigate('LupaPasswordPage')} />
           </View>
           <View style={Styles.altLogin}>
-            {/* <CtaButton backgroundColor={COLORS.blue} borderRadius={20} vPadding={verticalScale(14)} fFamily='Poppins-SemiBold' fSize={moderateScale(18)} fColor={COLORS.white} text='Log In' action={() => HandleLogin(email, password, navigation)} /> */}
             <CtaButton
               backgroundColor={COLORS.blue}
               borderRadius={20}

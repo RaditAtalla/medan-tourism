@@ -1,16 +1,16 @@
 import { View, Image, Text, TouchableOpacity, StyleSheet, Animated, Dimensions, ScrollView } from 'react-native'
 import { verticalScale, horizontalScale, moderateScale } from '../../theme/responsive'
 import { useState, useRef } from 'react'
-import IMAGES from '../../assets/img/images'
 import COLORS from '../../theme/colors'
 import ICONS from '../../assets/icons/icons'
 import { StarOnlyDisplay } from './StarDisplayDetail'
 import CtaButton from './CtaButton'
 import { useNavigation } from '@react-navigation/native'
+import { getImagePlace } from '../../utils/tranformData'
 
 const { width, height } = Dimensions.get('window')
 
-const HotelPreview = ({ data, images }) => {
+const HotelPreview = ({ name, rating, description, reviews, price, photos }) => {
   const scrollViewRef = useRef()
   const scrollX = new Animated.Value(0)
 
@@ -27,9 +27,10 @@ const HotelPreview = ({ data, images }) => {
         scrollEventThrottle={16}
         onScroll={Animated.event([{ nativeEvent: { contentOffset: { x: scrollX } } }], { useNativeDriver: false })}
       >
-        {data.map((item, index) => {
+        {/* {data.map((item, index) => {
           return <Image key={index} style={Styles.carouselContainer} source={item.images[currentIndex]} />
-        })}
+        })} */}
+        <Image style={Styles.carouselContainer} source={{ uri: getImagePlace(photos[currentIndex].photo_reference) }} />
       </Animated.ScrollView>
     )
   }
@@ -37,14 +38,16 @@ const HotelPreview = ({ data, images }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   function renderButton() {
     const handleNextPress = () => {
-      const nextIndex = (currentIndex + 1) % images.length
+      // const nextIndex = (currentIndex + 1) % images.length
+      const nextIndex = (currentIndex + 1) % photos.length
 
       setCurrentIndex(nextIndex)
       scrollViewRef.current.scrollTo({ x: nextIndex * width, animated: true })
     }
 
     const handlePrevPress = () => {
-      const prevIndex = (currentIndex - 1) % images.length
+      // const prevIndex = (currentIndex - 1) % images.length
+      const prevIndex = (currentIndex - 1) % photos.length
 
       setCurrentIndex(prevIndex)
       scrollViewRef.current.scrollTo({ x: prevIndex * width, animated: true })
@@ -62,37 +65,37 @@ const HotelPreview = ({ data, images }) => {
     )
   }
 
-  const renderDot = () => {
-    const dotPosition = Animated.divide(scrollX, width)
-    dotPosition.addListener(({ value }) => {
-      const index = Math.round(value / width)
-      setCurrentIndex(index)
-    })
-    return (
-      <View style={Styles.dotContainer}>
-        {images.map((item, index) => {
-          const opacity = dotPosition.interpolate({
-            inputRange: [index - 1, index, index + 2],
-            outputRange: [0.3, 1, 0.3],
-            extrapolate: 'clamp'
-          })
+  // const renderDot = () => {
+  //   const dotPosition = Animated.divide(scrollX, width)
+  //   dotPosition.addListener(({ value }) => {
+  //     const index = Math.round(value / width)
+  //     setCurrentIndex(index)
+  //   })
+  //   return (
+  //     <View style={Styles.dotContainer}>
+  //       {photos.map((item, index) => {
+  //         const opacity = dotPosition.interpolate({
+  //           inputRange: [index - 1, index, index + 2],
+  //           outputRange: [0.3, 1, 0.3],
+  //           extrapolate: 'clamp'
+  //         })
 
-          const dotSize = dotPosition.interpolate({
-            inputRange: [index - 1, index, index + 2],
-            outputRange: [10, 10, 10],
-            extrapolate: 'clamp'
-          })
-          return (
-            <Animated.View
-              style={[Styles.dot, { width: dotSize, height: dotSize }]}
-              key={`dot-${index}`}
-              opacity={opacity}
-            />
-          )
-        })}
-      </View>
-    )
-  }
+  //         const dotSize = dotPosition.interpolate({
+  //           inputRange: [index - 1, index, index + 2],
+  //           outputRange: [10, 10, 10],
+  //           extrapolate: 'clamp'
+  //         })
+  //         return (
+  //           <Animated.View
+  //             style={[Styles.dot, { width: dotSize, height: dotSize }]}
+  //             key={`dot-${index}`}
+  //             opacity={opacity}
+  //           />
+  //         )
+  //       })}
+  //     </View>
+  //   )
+  // }
 
   const HotelId = () => {
     const idStyle = StyleSheet.create({
@@ -113,8 +116,8 @@ const HotelPreview = ({ data, images }) => {
     })
     return (
       <View style={idStyle.topWrapper}>
-        <Text style={idStyle.name}>{data[0].name}</Text>
-        <Text style={idStyle.rating}>Hotel {data[0].rating} Star</Text>
+        <Text style={idStyle.name}>{name}</Text>
+        <Text style={idStyle.rating}>Hotel {rating} Star</Text>
       </View>
     )
   }
@@ -125,7 +128,7 @@ const HotelPreview = ({ data, images }) => {
         color: COLORS.black3
       }
     })
-    return <Text style={detailStyle.description}>{data[0].description}</Text>
+    return <Text style={detailStyle.description}>{description}</Text>
   }
 
   const Review = () => {
@@ -164,18 +167,18 @@ const HotelPreview = ({ data, images }) => {
 
     return (
       <View style={{ gap: verticalScale(24) }}>
-        {data[0].comments.map((item, index) => {
+        {reviews.map((item, index) => {
           console.log(item.username)
           return (
             <View style={reviewStyles.container} key={index}>
               <View style={reviewStyles.userData}>
-                <Image style={reviewStyles.profilePic} source={item.profilePic} />
+                <Image style={reviewStyles.profilePic} source={{ uri: item.profile_photo_url }} />
                 <View style={reviewStyles.usernameAndRating}>
-                  <Text style={reviewStyles.username}>{item.username}</Text>
+                  <Text style={reviewStyles.username}>{item.author_name}</Text>
                   <StarOnlyDisplay rating={item.rating} />
                 </View>
               </View>
-              <Text style={reviewStyles.comment}>{item.comment}</Text>
+              <Text style={reviewStyles.comment}>{item.text}</Text>
             </View>
           )
         })}
@@ -263,7 +266,7 @@ const HotelPreview = ({ data, images }) => {
     return (
       <View style={ActionMenuStyles.container}>
         <Text style={ActionMenuStyles.price}>
-          IDR {data[0].price}
+          IDR {price}
           <Text
             style={{
               color: COLORS.black3,
@@ -295,7 +298,7 @@ const HotelPreview = ({ data, images }) => {
         <View style={Styles.carouselRootContainer}>
           <View>{renderImage()}</View>
           <View style={Styles.arrowRootContainer}>{renderButton()}</View>
-          <View style={Styles.dotRootContainer}>{renderDot()}</View>
+          {/* <View style={Styles.dotRootContainer}>{renderDot()}</View> */}
           <View
             style={{
               position: 'absolute',

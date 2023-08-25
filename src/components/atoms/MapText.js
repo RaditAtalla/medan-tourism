@@ -7,7 +7,8 @@ const width = Dimensions.get('window').width
 export default function MapText({ top, left, text, action, image }) {
   return (
     <View style={[Styles.container, { top: top, left: left }]}>
-      <Image source={image} style={Styles.image} />
+      {/* <Image source={image} style={Styles.image} /> */}
+      <Image source={{ uri: image }} style={Styles.image} />
       <View style={Styles.info}>
         <Text style={Styles.mapText}>{text}</Text>
         <CtaButton

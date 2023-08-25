@@ -6,28 +6,32 @@ import { horizontalScale, moderateScale, verticalScale } from '../../theme/respo
 
 const { width } = Dimensions.get('window')
 
-const MapDetail = ({ image, name, address, open, close, minPrice, maxPrice, description }) => {
+const MapDetail = ({ image, name, address, open, close, minPrice, maxPrice, description, leftTitle, leftText }) => {
   return (
     <SafeAreaView style={Styles.container}>
       <StatusBar barStyle="dark-content" translucent backgroundColor="transparent" />
       <ScrollView style={Styles.scrollContainer}>
-        <Image source={image} style={Styles.image} />
+        <Image source={{ uri: image }} style={Styles.image} />
         <View style={Styles.contentContainer}>
           <View style={Styles.nameAndAddress}>
             <Text style={Styles.name}>{name}</Text>
-            <View style={Styles.addressContainer}>
+            <View style={[Styles.addressContainer, { maxWidth: '100%' }]}>
               <Image source={ICONS.locationPinBlue} style={Styles.icon} />
-              <Text style={Styles.address}>{address}</Text>
+              <Text style={[Styles.address, { maxWidth: width - horizontalScale(48) }]} numberOfLines={1}>
+                {address}
+              </Text>
             </View>
           </View>
           <View style={Styles.entryInformation}>
             <View style={Styles.entrySection}>
               <View style={Styles.entryHeader}>
                 <Image style={Styles.icon} source={ICONS.clockBlue} />
-                <Text style={Styles.entryTitle}>Buka pada</Text>
+                {/* <Text style={Styles.entryTitle}>Buka pada</Text> */}
+                <Text style={Styles.entryTitle}>{leftTitle}</Text>
               </View>
-              <Text style={Styles.entryContent}>
-                {open} - {close} WIB
+              <Text style={[Styles.entryContent, { maxWidth: width / 2 - horizontalScale(48) }]} numberOfLines={1}>
+                {/* {open} - {close} WIB */}
+                {leftText}
               </Text>
             </View>
             <View
@@ -43,7 +47,7 @@ const MapDetail = ({ image, name, address, open, close, minPrice, maxPrice, desc
                 <Image style={Styles.icon} source={ICONS.handReceive} />
                 <Text style={Styles.entryTitle}>Tiket masuk</Text>
               </View>
-              <Text style={Styles.entryContent}>
+              <Text style={[Styles.entryContent, { maxWidth: width / 2 - horizontalScale(48) }]} numberOfLines={1}>
                 IDR {minPrice} - IDR {maxPrice}
               </Text>
             </View>
@@ -133,7 +137,7 @@ const Styles = StyleSheet.create({
   description: {
     color: COLORS.black3,
     fontFamily: 'Poppins-Medium',
-    paddingBottom: verticalScale(64)
+    paddingBottom: verticalScale(32) + 49
   },
   ruteButtonContainer: {
     backgroundColor: COLORS.white,

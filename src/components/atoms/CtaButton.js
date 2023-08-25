@@ -34,7 +34,8 @@ const CtaButton = ({
           borderColor: borderColor,
           borderWidth: borderWidth,
           alignItems: 'center',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          position: 'relative'
         },
         style
       ]}
@@ -47,6 +48,7 @@ const CtaButton = ({
             right: 0,
             top: 0,
             bottom: 0,
+            zIndex: 1,
             alignItems: 'center',
             justifyContent: 'center',
             backgroundColor: backgroundColor

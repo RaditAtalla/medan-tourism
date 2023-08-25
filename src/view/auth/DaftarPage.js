@@ -44,7 +44,7 @@ const DaftarPage = ({ navigation }) => {
             <View style={Styles.inputField}>
               <InputGroup
                 label="Username"
-                placeholder="example123@gmail.com"
+                placeholder="name123"
                 placeholderTextColor={COLORS.black4}
                 setValue={setUsername}
                 value={username}
