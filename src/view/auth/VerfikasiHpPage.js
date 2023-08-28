@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { View, Text, Image, TextInput, Alert } from 'react-native'
+=======
+import { View, Text, Image, TextInput } from 'react-native'
+>>>>>>> origin/ferdinan
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useContext, useEffect, useState } from 'react'
 
@@ -7,7 +11,11 @@ import { styles } from '../../styles/VerifikasiPage.style'
 import CtaButton from '../../components/atoms/CtaButton'
 import COLORS from '../../theme/colors'
 import { checkFormValid } from '../../services/auth.service'
+<<<<<<< HEAD
 import { useSendOTPMutation, useVerifyOTPMutation } from '../../api/auth.api'
+=======
+import { useVerifyOTPMutation } from '../../api/auth.api'
+>>>>>>> origin/ferdinan
 import { AuthContext } from '../../store/features/authContext'
 
 export default function VerifikasiHpPage({ navigation, route }) {
@@ -36,11 +44,19 @@ export default function VerifikasiHpPage({ navigation, route }) {
     checkFormValid(!otp_code, 'Mohon isi kode verifikasi anda')
     checkFormValid(otp_code.length < 4, 'Kode verifikasi minimal 4 digit')
     setIsLoading(true)
+<<<<<<< HEAD
     11
     try {
       const { data } = await verifyOTP({ otp_code, user_id: userId })
       await storeToken(data.token)
       setIsLoading(true)
+=======
+
+    try {
+      const { data } = await verifyOTP({ otp_code, user_id: userId })
+      await storeToken(data.token)
+      setIsLoading(false)
+>>>>>>> origin/ferdinan
       navigation.replace('HomeStackScreen', { screen: 'HomePage' })
     } catch (error) {
       console.log(error)
