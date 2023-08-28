@@ -9,8 +9,6 @@ import StarDisplay from './StarDisplay'
 const Item = ({ image, name, distance, rating, navigation, isFirst, isLast }) => {
   gap = verticalScale(24)
 
-  console.log({ isLast })
-
   return (
     <View
       onPress={() => navigation.navigate(name)}

@@ -1,5 +1,6 @@
 import { Image, View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import { getDistance } from 'geolib'
 
 import { verticalScale, horizontalScale, moderateScale } from '../../theme/responsive'
 import COLORS from '../../theme/colors'
@@ -7,16 +8,27 @@ import StarDisplay from './StarDisplay'
 import { useGetPlacesQuery } from '../../api/place.api'
 import { ActivityIndicator } from 'react-native-paper'
 import { getImagePlace } from '../../utils/tranformData'
+import { useSelector } from 'react-redux'
 
-export const Item = ({ image, name, distance, rating, price, action, width }) => {
+export const Item = ({ image, name, distance, rating, price, action, width, containerStyle }) => {
   width = horizontalScale(width)
 
+  const location = useSelector((state) => state.location.location)
+
+  const getDistanceInfo = (destination) => {
+    const distanceInMeters = getDistance(
+      { latitude: location.address.location.lat, longitude: location.address.location.lng },
+      { latitude: destination?.lat, longitude: destination?.lng }
+    )
+    return (distanceInMeters / 1000).toFixed(1) + ' km'
+  }
+
   return (
-    <TouchableOpacity style={[styles.container, { width }]} onPress={action}>
-      <Image source={image} style={[styles.image, { width }]} />
+    <TouchableOpacity style={[styles.container, { width }, containerStyle]} onPress={action}>
+      <Image source={{ uri: image }} style={[styles.image, { width }]} />
       <View style={[styles.details, { width }]}>
         <View style={{ gap: verticalScale(4) }}>
-          <Text style={styles.distance}>{distance}</Text>
+          <Text style={styles.distance}>{getDistanceInfo(distance)}</Text>
           <Text style={styles.subText} numberOfLines={1}>
             {name}
           </Text>
@@ -64,52 +76,6 @@ const HotelCarousel = () => {
   }
 
   const navigation = useNavigation()
-
-  const DATA = [
-    {
-      name: 'Arya Duta Medan',
-      image: require('../../assets/img/aryaDuta.png'),
-      distance: '2,5 Km',
-      rating: 4,
-      price: '540,550',
-      action: () => navigation.navigate('HomeNavStackScreen', { screen: 'HotelPreviewPage' })
-    },
-    {
-      name: 'Adi Mulia Medan',
-      image: require('../../assets/img/adimulia.png'),
-      distance: '3,5 Km',
-      rating: 5,
-      price: '918,000'
-    },
-    {
-      name: 'Emerald Hotel',
-      image: require('../../assets/img/emeraldHotel.png'),
-      distance: '5 Km',
-      rating: 4,
-      price: '918,000'
-    },
-    {
-      name: 'Arya Duta Medan 2',
-      image: require('../../assets/img/aryaDuta.png'),
-      distance: '2,5 Km',
-      rating: 4,
-      price: '540,550'
-    },
-    {
-      name: 'Adi Mulia Medan 2',
-      image: require('../../assets/img/adimulia.png'),
-      distance: '3,5 Km',
-      rating: 5,
-      price: '918,000'
-    },
-    {
-      name: 'Emerald Hotel 2',
-      image: require('../../assets/img/emeraldHotel.png'),
-      distance: '5 Km',
-      rating: 4,
-      price: '918,000'
-    }
-  ]
 
   const { data, isSuccess } = useGetPlacesQuery('hotel')
 

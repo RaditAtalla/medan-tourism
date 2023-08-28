@@ -6,7 +6,8 @@ import { googleLogin } from '../../utils/GoogleLogin'
 const AltLogin = () => {
   return (
     <View style={Styles.loginImgBtn}>
-      <ImgBtn action={() => googleLogin()} icon={'google'} />
+      {/* <ImgBtn action={() => googleLogin()} icon={'google'} /> */}
+      <ImgBtn action={() => {}} icon={'google'} />
       <ImgBtn icon={'facebook'} />
     </View>
   )

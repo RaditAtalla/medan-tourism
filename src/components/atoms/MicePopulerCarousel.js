@@ -4,36 +4,16 @@ import Carousel, { Pagination } from 'react-native-snap-carousel'
 import { verticalScale, horizontalScale } from '../../theme/responsive'
 import COLORS from '../../theme/colors'
 import ICONS from '../../assets/icons/icons'
+import { getImagePlace } from '../../utils/tranformData'
+import { useNavigation } from '@react-navigation/native'
 
 const SLIDER_WIDTH = Dimensions.get('window').width
 const ITEM_WIDTH = horizontalScale(298)
 const ITEM_HEIGHT = verticalScale(173)
 
-export const DATA = [
-  {
-    name: 'Medan International Convention Center',
-    image: require('../../assets/img/micc.png'),
-    distance: '2,5 Km',
-    rating: 4,
-    price: '540,550'
-  },
-  {
-    name: 'Wisma Satya Bakti',
-    image: require('../../assets/img/wismaSatyaBakti.png'),
-    distance: '2,5 Km',
-    rating: 4,
-    price: '540,550'
-  },
-  {
-    name: 'RAZ Plaza Convection',
-    image: require('../../assets/img/razPlazaConvection.png'),
-    distance: '2,5 Km',
-    rating: 4,
-    price: '540,550'
-  }
-]
+const MicePopulerCard = ({ image, name, placeId, type }) => {
+  const navigation = useNavigation()
 
-const MicePopulerCard = ({ image, name }) => {
   return (
     <TouchableOpacity
       style={{
@@ -43,8 +23,9 @@ const MicePopulerCard = ({ image, name }) => {
         borderRadius: 12,
         paddingLeft: horizontalScale(25)
       }}
+      onPress={() => navigation.navigate('DetailAdiMulia', { placeId, type })}
     >
-      <Image source={image} style={{ width: '100%', height: '100%', borderRadius: 12 }} />
+      <Image source={{ uri: image }} style={{ width: '100%', height: '100%', borderRadius: 12 }} />
       <ImageBackground
         source={require('../../assets/img/backgroundBlur.png')}
         style={{
@@ -67,7 +48,14 @@ const MicePopulerCard = ({ image, name }) => {
 }
 
 export const CarouselCardItem = ({ item, index }) => {
-  return <MicePopulerCard image={item.image} name={item.name} />
+  return (
+    <MicePopulerCard
+      image={getImagePlace(item.photos[0].photo_reference)}
+      name={item.name}
+      placeId={item.place_id}
+      type={item.type}
+    />
+  )
 }
 
 const ActiveDot = () => {
@@ -78,7 +66,7 @@ const InactiveDot = () => {
   return <View style={{ backgroundColor: COLORS.black3, width: 8, height: 5, marginRight: 4 }}></View>
 }
 
-const MicePopulerCarousel = () => {
+const MicePopulerCarousel = ({ data }) => {
   const isCarousel = React.useRef(null)
   const [index, setIndex] = React.useState(0)
 
@@ -87,7 +75,7 @@ const MicePopulerCarousel = () => {
       <Carousel
         layout="default"
         ref={isCarousel}
-        data={DATA}
+        data={data}
         renderItem={CarouselCardItem}
         sliderWidth={SLIDER_WIDTH}
         itemWidth={ITEM_WIDTH}
@@ -99,7 +87,7 @@ const MicePopulerCarousel = () => {
         inactiveSlideScale={1}
       />
       <Pagination
-        dotsLength={DATA.length}
+        dotsLength={data.length}
         activeDotIndex={index}
         carouselRef={isCarousel}
         dotStyle={{

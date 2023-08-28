@@ -1,5 +1,5 @@
 import { View, SafeAreaView, Image, Text } from 'react-native'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 
 import { horizontalScale, moderateScale, verticalScale } from '../../theme/responsive'
 import AturAkunCard from '../../components/atoms/aturAkunCard'
@@ -9,9 +9,21 @@ import HandleLogout from '../../api/HandleLogout'
 import ICONS from '../../assets/icons/icons'
 import COLORS from '../../theme/colors'
 import Modal from 'react-native-modal'
+import { AuthContext } from '../../store/features/authContext'
 
 export default function AturAkunPage({ navigation }) {
   const [modal, setModal] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const { removeToken } = useContext(AuthContext)
+
+  const handleLogout = async () => {
+    setIsLoading(true)
+    await removeToken()
+    setIsLoading(false)
+    setModal(false)
+    navigation.replace('AuthStackScreen', { screen: 'LoginPage' })
+  }
 
   return (
     <SafeAreaView>
@@ -74,7 +86,8 @@ export default function AturAkunPage({ navigation }) {
                 fSize={moderateScale(15)}
                 fFamily="Poppins-Bold"
                 text="Ya, Keluar"
-                action={() => HandleLogout(navigation)}
+                isLoading={isLoading}
+                action={() => handleLogout()}
               />
             </View>
           </View>

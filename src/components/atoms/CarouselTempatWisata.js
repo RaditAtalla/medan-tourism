@@ -2,19 +2,29 @@ import { View, Text, Dimensions, Image, ImageBackground, TouchableOpacity, Style
 import Carousel, { Pagination } from 'react-native-snap-carousel'
 
 import { verticalScale, horizontalScale } from '../../theme/responsive'
-import { dataTempatWisata as DATA } from '../../utils/dataDummy'
 import { getImagePlace } from '../../utils/tranformData'
 import ICONS from '../../assets/icons/icons'
 import COLORS from '../../theme/colors'
 import { useRef, useState } from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 const SLIDER_WIDTH = Dimensions.get('window').width
 const ITEM_WIDTH = horizontalScale(298)
 const ITEM_HEIGHT = verticalScale(173)
 
-const TempatWisataCarouselCard = ({ image, name }) => {
+const TempatWisataCarouselCard = ({ image, name, placeId }) => {
+  const navigation = useNavigation()
+
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() =>
+        navigation.navigate('HomeNavStackScreen', {
+          screen: 'DetailAdiMulia',
+          params: { placeId, type: 'travel' }
+        })
+      }
+    >
       <Image source={{ uri: image }} style={{ width: '100%', height: '100%', borderRadius: 12 }} />
       <ImageBackground source={require('../../assets/img/backgroundBlur.png')} style={styles.imageBackground}>
         <Image source={ICONS.locationPin} />
@@ -27,7 +37,11 @@ const TempatWisataCarouselCard = ({ image, name }) => {
 const CarouselCardItem = ({ item, index }) => {
   return (
     // <TempatWisataCarouselCard image={item.image} name={item.name} />
-    <TempatWisataCarouselCard image={getImagePlace(item.photos[0].photo_reference)} name={item.name} />
+    <TempatWisataCarouselCard
+      image={getImagePlace(item.photos[0].photo_reference)}
+      name={item.name}
+      placeId={item.place_id}
+    />
   )
 }
 

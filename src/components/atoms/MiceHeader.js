@@ -1,16 +1,17 @@
 import { TouchableOpacity, View, Text, Image, StyleSheet } from 'react-native'
 import COLORS from '../../theme/colors'
 import ICONS from '../../assets/icons/icons'
-import IMAGES from '../../assets/img/images'
 import { horizontalScale, verticalScale, moderateScale } from '../../theme/responsive'
 
-const MiceHeader = ({ title, action }) => {
+const MiceHeader = ({ title, action, type }) => {
   return (
     <View style={Styles.wrapper}>
       <Text style={Styles.title}>{title}</Text>
-      <TouchableOpacity onPress={action}>
-        <Image source={ICONS.moreInformation} style={Styles.icon} />
-      </TouchableOpacity>
+      {type === 'mice' && (
+        <TouchableOpacity onPress={action}>
+          <Image source={ICONS.moreInformation} style={Styles.icon} />
+        </TouchableOpacity>
+      )}
     </View>
   )
 }

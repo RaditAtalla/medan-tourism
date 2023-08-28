@@ -3,18 +3,12 @@ import { SafeAreaView, StatusBar, View, FlatList, ActivityIndicator } from 'reac
 import { Item } from '../../components/atoms/HotelCarousel'
 import { verticalScale } from '../../theme/responsive'
 import Styles from '../../styles/SemuaMicePageStyles'
-import { useGetDekatPlacesQuery } from '../../api/place.api'
+import { useGetPlacesQuery } from '../../api/place.api'
 import { getImagePlace } from '../../utils/tranformData'
 import COLORS from '../../theme/colors'
-import { useSelector } from 'react-redux'
 
-const SemuaDekatMicePage = ({ navigation }) => {
-  const location = useSelector((state) => state.location.location)
-  const { data, isSuccess } = useGetDekatPlacesQuery({
-    keyword: 'meeting room',
-    lat: location.address.location.lat,
-    lng: location.address.location.lng
-  })
+const SemuaPopulerTravelPage = ({ navigation }) => {
+  const { data, isSuccess } = useGetPlacesQuery('wisata populer')
 
   if (!isSuccess) {
     return (
@@ -28,13 +22,13 @@ const SemuaDekatMicePage = ({ navigation }) => {
     return data.filter((item) => item.photos && item.rating && item.user_ratings_total && item.opening_hours)
   }
 
-  const dekat = transformData(data.results)
+  const popular = transformData(data.results)
 
   return (
     <SafeAreaView style={Styles.container}>
       <StatusBar barStyle="dark-content" translucent backgroundColor="transparent" />
       <FlatList
-        data={dekat}
+        data={popular}
         renderItem={({ item, index }) => (
           <Item
             image={getImagePlace(item.photos[0].photo_reference)}
@@ -47,7 +41,7 @@ const SemuaDekatMicePage = ({ navigation }) => {
             containerStyle={
               index + (1 % 2) === 0 ? { marginLeft: verticalScale(24) } : { marginRight: verticalScale(24) }
             }
-            action={() => navigation.navigate('DetailAdiMulia', { placeId: item.place_id, type: 'mice' })}
+            action={() => navigation.navigate('DetailAdiMulia', { placeId: item.place_id, type: 'travel' })}
           />
         )}
         numColumns={2}
@@ -59,4 +53,4 @@ const SemuaDekatMicePage = ({ navigation }) => {
   )
 }
 
-export default SemuaDekatMicePage
+export default SemuaPopulerTravelPage

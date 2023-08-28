@@ -1,28 +1,18 @@
 import { Image, View, Text, FlatList, TouchableOpacity, StyleSheet, ActivityIndicator } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
 import { verticalScale, horizontalScale } from '../../theme/responsive'
 import StarDisplayDetail from './StarDisplayDetail'
 import COLORS from '../../theme/colors'
 import { useGetPlacesQuery } from '../../api/place.api'
 import { getImagePlace } from '../../utils/tranformData'
+import { useSelector } from 'react-redux'
 
-const DATA = [
-  {
-    name: 'KUALANAMU INTERNATIONAL AIRPORT',
-    image: require('../../assets/img/kualanamu.png'),
-    rating: 5,
-    raters: '17.505'
-  },
-  {
-    name: 'Silangit International Airport',
-    image: require('../../assets/img/silangit.png'),
-    rating: 4,
-    raters: '17.505'
-  }
-]
-
-const Item = ({ image, name, rating, raters, isFirst, isLast }) => {
+const Item = ({ image, name, rating, raters, isFirst, isLast, destination }) => {
   const gap = verticalScale(24)
+  const navigation = useNavigation()
+  const location = useSelector((state) => state.location.location)
+
   return (
     <View style={[styles.container, isFirst && { marginLeft: gap }, isLast && { marginRight: gap }]}>
       <Image source={{ uri: image }} style={styles.image} />
@@ -34,7 +24,24 @@ const Item = ({ image, name, rating, raters, isFirst, isLast }) => {
           <StarDisplayDetail rating={rating} raters={raters} />
         </View>
         <View style={{ flexDirection: 'row', gap: horizontalScale(16) }}>
-          <TouchableOpacity style={styles.secondaryBtn}>
+          <TouchableOpacity
+            style={styles.secondaryBtn}
+            onPress={() =>
+              navigation.navigate('HomeNavStackScreen', {
+                screen: 'Rute',
+                params: {
+                  origin: {
+                    latitude: parseFloat(location?.address?.location?.lat),
+                    longitude: parseFloat(location?.address?.location?.lng)
+                  },
+                  destination: {
+                    latitude: parseFloat(destination?.lat),
+                    longitude: parseFloat(destination?.lng)
+                  }
+                }
+              })
+            }
+          >
             <Text style={{ color: COLORS.blue, fontWeight: '700' }}>Rute</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.primaryBtn}>
@@ -80,6 +87,7 @@ const BandaraCarousel = () => {
           name={item.name}
           rating={Math.round(item.rating)}
           raters={item.user_ratings_total}
+          destination={item.geometry.location}
           isFirst={index === 0}
           isLast={index === bandara.length - 1}
         />

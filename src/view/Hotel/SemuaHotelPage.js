@@ -14,7 +14,7 @@ const SemuaHotelPage = () => {
           <Item
             image={item.image}
             name={item.name}
-            distance={item.distance}
+            distance={item.geometry.location}
             rating={item.rating}
             price={item.price}
             width={180}

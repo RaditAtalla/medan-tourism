@@ -14,7 +14,7 @@ const PopUp = ({ title, description, action }) => {
   return (
     <Modal style={Styles.container}>
       <View style={Styles.contentContainer}>
-        <Image source={ICONS.information} style={Styles.icon} />
+        <Image source={ICONS.moreInformation} style={Styles.icon} />
         <Text style={Styles.title}>{title}</Text>
         <Text style={Styles.description}>{description}</Text>
       </View>

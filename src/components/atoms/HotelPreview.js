@@ -1,4 +1,14 @@
-import { View, Image, Text, TouchableOpacity, StyleSheet, Animated, Dimensions, ScrollView } from 'react-native'
+import {
+  View,
+  Image,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Animated,
+  Dimensions,
+  ScrollView,
+  Linking
+} from 'react-native'
 import { verticalScale, horizontalScale, moderateScale } from '../../theme/responsive'
 import { useState, useRef } from 'react'
 import COLORS from '../../theme/colors'
@@ -10,7 +20,7 @@ import { getImagePlace } from '../../utils/tranformData'
 
 const { width, height } = Dimensions.get('window')
 
-const HotelPreview = ({ name, rating, description, reviews, price, photos }) => {
+const HotelPreview = ({ name, rating, description, reviews, price, photos, phone }) => {
   const scrollViewRef = useRef()
   const scrollX = new Animated.Value(0)
 
@@ -168,7 +178,6 @@ const HotelPreview = ({ name, rating, description, reviews, price, photos }) => 
     return (
       <View style={{ gap: verticalScale(24) }}>
         {reviews.map((item, index) => {
-          console.log(item.username)
           return (
             <View style={reviewStyles.container} key={index}>
               <View style={reviewStyles.userData}>
@@ -285,6 +294,7 @@ const HotelPreview = ({ name, rating, description, reviews, price, photos }) => 
           hPadding={horizontalScale(12)}
           borderRadius={8}
           text="Telepon Sekarang"
+          action={() => Linking.openURL(`tel:${phone}`)}
         />
       </View>
     )
@@ -295,7 +305,7 @@ const HotelPreview = ({ name, rating, description, reviews, price, photos }) => 
   return (
     <View style={{ flex: 1, alignItems: 'center' }}>
       <ScrollView style={Styles.rootContainer} showsVerticalScrollIndicator={false}>
-        <View style={Styles.carouselRootContainer}>
+        <View style={[Styles.carouselRootContainer, { position: 'relative' }]}>
           <View>{renderImage()}</View>
           <View style={Styles.arrowRootContainer}>{renderButton()}</View>
           {/* <View style={Styles.dotRootContainer}>{renderDot()}</View> */}

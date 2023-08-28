@@ -12,15 +12,8 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     const bootstrapAsync = async () => {
       let userToken
-
-      try {
-        const value = await AsyncStorage.getItem('userId')
-        userToken = JSON.parse(value)
-        console.log({ userToken })
-      } catch (e) {
-        // Restoring token failed
-      }
-
+      const value = await AsyncStorage.getItem('token')
+      userToken = JSON.parse(value)
       dispatch(setToken(userToken))
     }
 
@@ -33,7 +26,7 @@ export const AuthContextProvider = ({ children }) => {
   }
 
   const removeToken = async () => {
-    await AsyncStorage.removeItem('token')
+    await AsyncStorage.setItem('token', '')
     dispatch(setLogout())
   }
 

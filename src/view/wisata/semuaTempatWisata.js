@@ -13,7 +13,13 @@ const SemuaTempatWisataPage = () => {
       <FlatList
         data={DATA}
         renderItem={({ item, index }) => (
-          <Item image={item.image} name={item.name} distance={item.distance} rating={item.rating} width={180} />
+          <Item
+            image={item.image}
+            name={item.name}
+            distance={item.geometry.location}
+            rating={item.rating}
+            width={180}
+          />
         )}
         numColumns={2}
         ItemSeparatorComponent={<View style={{ height: verticalScale(24) }} />}

@@ -3,7 +3,7 @@ const IMAGES = {
   facebook: require('./facebook.png'),
   background: require('./background.png'),
   editBtn: require('./editBtn.png'),
-  // backButton: require('./backButton.png'),
+  backButton: require('./BackButton.png'),
   onBoardingImg1: require('./onBoardingImg1.png'),
   onBoardingImg2: require('./onBoardingImg2.png'),
   onBoardingImg3: require('./onBoardingImg3.png'),

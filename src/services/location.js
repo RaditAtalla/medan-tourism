@@ -1,4 +1,5 @@
 const GOOGLE_API_KEY = 'AIzaSyBOjDEzc607Ek1olioyI9621YmmU1_ZTVw'
+import { getDistance } from 'geolib'
 
 export const getLocationName = async (lat, lng) => {
   try {
@@ -9,11 +10,12 @@ export const getLocationName = async (lat, lng) => {
 
     const address = {
       detail: data.results[0].formatted_address,
-      city: data.results[0].address_components[5].long_name
+      city: data.results[0].address_components[5].long_name,
+      location: data.results[0].geometry.location
     }
 
     // cth: Jl. Sisingamangaraja Gg. Titi Besi No.20, Siti Rejo I, Kec. Medan Kota, Kota Medan, Sumatera Utara 20216, Indonesia
-    const detail = data.results[0].formatted_address
+    // const detail = data.results[0].formatted_address
 
     // cth: Jalan. Sisingamangaraja
     // klo short_name: Jl. Sisingamangaraja
@@ -37,10 +39,13 @@ export const getLocationName = async (lat, lng) => {
     // // cth: indonesia
     // const nomorPos = data.results[0].address_components[8].long_name
 
-    console.log({ address })
-
     return { ...address }
   } catch (error) {
     console.error(error)
   }
+}
+
+export const distance = (origin, destination) => {
+  const distanceInMeters = getDistance({ ...origin }, { ...destination })
+  return (distanceInMeters / 1000).toFixed(1) + ' km'
 }
