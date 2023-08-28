@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
@@ -7,17 +7,33 @@ import AuthStackScreen from './AuthStack'
 
 import HomeStackScreen, { SearchStackScreen, HomeNavStackScreen } from './HomeStack'
 import { useSelector } from 'react-redux'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const Stack = createNativeStackNavigator()
 
 const Routes = () => {
   const token = useSelector((state) => state.auth.token)
+  const [isFirstOpen, setIsFirstOpen] = useState(true)
+
+  useEffect(() => {
+    const checkFirstOpen = async () => {
+      const value = await AsyncStorage.getItem('isFirstOpen')
+      const isFirstOpen = JSON.parse(value)
+      if (isFirstOpen !== null) {
+        setIsFirstOpen(isFirstOpen)
+      }
+    }
+    checkFirstOpen()
+  }, [])
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
         {!token && (
           <Fragment>
-            <Stack.Screen name="LandingStackScreen" component={LandingStackScreen} options={{ headerShown: false }} />
+            {isFirstOpen && (
+              <Stack.Screen name="LandingStackScreen" component={LandingStackScreen} options={{ headerShown: false }} />
+            )}
             <Stack.Screen name="AuthStackScreen" component={AuthStackScreen} options={{ headerShown: false }} />
           </Fragment>
         )}

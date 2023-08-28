@@ -25,14 +25,6 @@ export const authApi = apiSlice.injectEndpoints({
         body,
         credentials: 'include'
       })
-      // onQueryStarted: async (_, { dispatch, queryFulfilled }) => {
-      //   try {
-      //     const { data } = await queryFulfilled
-      //     dispatch(setUserInfo(data))
-      //   } catch (err) {
-      //     console.log(err)
-      //   }
-      // }
     }),
     login: builder.mutation({
       query: (body) => ({
@@ -42,14 +34,6 @@ export const authApi = apiSlice.injectEndpoints({
         credentials: 'include'
       })
     })
-    // onQueryStarted: async (_, { dispatch, queryFulfilled }) => {
-    //   try {
-    //     const { data } = await queryFulfilled
-    //     await dispatch(setUserInfo(data))
-    //   } catch (err) {
-    //     console.log(err)
-    //   }
-    // }
   })
 })
 

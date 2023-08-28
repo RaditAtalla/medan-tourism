@@ -5,7 +5,6 @@ export const getUserId = async () => {
     const value = await AsyncStorage.getItem('userId')
     const user_id = JSON.parse(value)
     if (user_id !== null) {
-      console.log(user_id)
       return user_id
     }
     return null

@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { setLogout } from '../store/features/authSlice'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const baseQuery = fetchBaseQuery({
   baseUrl: 'https://www.medantourism.pemkomedan.go.id/api',
@@ -15,7 +16,12 @@ const baseQuery = fetchBaseQuery({
 
 const baseQueryWithReauth = async (args, api, extraOptions) => {
   let result = await baseQuery(args, api, extraOptions)
-  if (result?.error?.status === 401) api.dispatch(setLogout())
+
+  if (result?.error?.status === 'PARSING_ERROR') {
+    await AsyncStorage.setItem('token', '')
+    api.dispatch(setLogout())
+  }
+
   return result
 }
 

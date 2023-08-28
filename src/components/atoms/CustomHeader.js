@@ -10,7 +10,7 @@ const CustomHeader = ({ title, action }) => {
     <View style={Styles.wrapper}>
       <Text style={Styles.title}>{title}</Text>
       <TouchableOpacity onPress={action}>
-        <Image source={ICONS.information} />
+        <Image source={ICONS.moreInformation} />
       </TouchableOpacity>
     </View>
   )

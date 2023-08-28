@@ -17,8 +17,13 @@ export const placeApi = apiSlice.injectEndpoints({
       query: (placeId) => ({
         url: `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&key=${API_KEY}`
       })
+    }),
+    getDekatPlaces: builder.query({
+      query: (query) => ({
+        url: `/places?latitude=${query.lat}&longitude=${query.lng}&radius=20000&keyword=${query.keyword}`
+      })
     })
   })
 })
 
-export const { useGetPlacesQuery, useGetPlaceQuery, useGetPlaceDetailQuery } = placeApi
+export const { useGetPlacesQuery, useGetPlaceQuery, useGetPlaceDetailQuery, useGetDekatPlacesQuery } = placeApi

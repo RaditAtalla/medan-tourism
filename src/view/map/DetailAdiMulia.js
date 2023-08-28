@@ -34,6 +34,7 @@ const DetailAdiMulia = ({ route }) => {
         minPrice="500K"
         maxPrice="1.000K"
         description={data.result?.editorial_summary?.overview ?? 'No Description'}
+        destination={data.result?.geometry?.location}
       />
     )
   )

@@ -6,6 +6,8 @@ import { useGetPlaceDetailQuery } from '../../api/place.api'
 import { getTimePlace } from '../../utils/tranformData'
 import ICONS from '../../assets/icons/icons'
 import COLORS from '../../theme/colors'
+import { useNavigation } from '@react-navigation/native'
+import { useSelector } from 'react-redux'
 
 const Period = ({ children, title }) => {
   return (
@@ -21,8 +23,10 @@ const Period = ({ children, title }) => {
   )
 }
 
-const PlaceInforamationCard = ({ image, name, rating, raters, closeAction, detailAction, placeId }) => {
+const PlaceInforamationCard = ({ image, name, rating, raters, closeAction, detailAction, placeId, ruteAction }) => {
+  const navigation = useNavigation()
   const { data, isSuccess } = useGetPlaceDetailQuery(placeId)
+  const location = useSelector((state) => state.location.location)
 
   let content
   if (isSuccess) {
@@ -69,7 +73,21 @@ const PlaceInforamationCard = ({ image, name, rating, raters, closeAction, detai
           </View>
         </View>
         <View style={Styles.buttonContainer}>
-          <TouchableOpacity style={Styles.ruteButton}>
+          <TouchableOpacity
+            style={Styles.ruteButton}
+            onPress={() =>
+              navigation.navigate('Rute', {
+                origin: {
+                  latitude: parseFloat(location?.address?.location?.lat),
+                  longitude: parseFloat(location?.address?.location?.lng)
+                },
+                destination: {
+                  latitude: parseFloat(data?.result?.geometry?.location?.lat),
+                  longitude: parseFloat(data?.result?.geometry?.location?.lng)
+                }
+              })
+            }
+          >
             <View style={Styles.ruteButtonWrapper}>
               <Image source={ICONS.routeBlue} />
               <Text style={Styles.ruteText}>Rute</Text>

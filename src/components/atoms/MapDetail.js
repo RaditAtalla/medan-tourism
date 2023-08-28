@@ -3,10 +3,27 @@ import CtaButton from './CtaButton'
 import ICONS from '../../assets/icons/icons'
 import COLORS from '../../theme/colors'
 import { horizontalScale, moderateScale, verticalScale } from '../../theme/responsive'
+import { useNavigation } from '@react-navigation/native'
+import { useSelector } from 'react-redux'
 
 const { width } = Dimensions.get('window')
 
-const MapDetail = ({ image, name, address, open, close, minPrice, maxPrice, description, leftTitle, leftText }) => {
+const MapDetail = ({
+  image,
+  name,
+  address,
+  open,
+  close,
+  minPrice,
+  maxPrice,
+  description,
+  leftTitle,
+  leftText,
+  destination
+}) => {
+  const navigation = useNavigation()
+  const location = useSelector((state) => state.location.location)
+
   return (
     <SafeAreaView style={Styles.container}>
       <StatusBar barStyle="dark-content" translucent backgroundColor="transparent" />
@@ -66,6 +83,18 @@ const MapDetail = ({ image, name, address, open, close, minPrice, maxPrice, desc
           vPadding={verticalScale(8)}
           borderRadius={8}
           style={{ flexDirection: 'row', gap: horizontalScale(12) }}
+          action={() =>
+            navigation.navigate('Rute', {
+              origin: {
+                latitude: parseFloat(location?.address?.location?.lat),
+                longitude: parseFloat(location?.address?.location?.lng)
+              },
+              destination: {
+                latitude: parseFloat(destination?.lat),
+                longitude: parseFloat(destination?.lng)
+              }
+            })
+          }
         />
       </View>
     </SafeAreaView>

@@ -1,19 +1,19 @@
-import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {moderateScale} from '../theme/responsive';
-import COLORS from '../theme/colors';
+import React from 'react'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { moderateScale } from '../theme/responsive'
+import COLORS from '../theme/colors'
 
-import LoginPage from '../view/auth/LoginPage';
-import LupaPasswordPage from '../view/auth/LupaPasswordPage';
-import LupaPasswordPageByPhoneNumber from '../view/auth/LupaPasswordPageByPhoneNumber';
-import VerifikasiPage from '../view/auth/VerifikasiPage';
-import UbahPasswordPage from '../view/auth/UbahPasswordPage';
-import DaftarPage from '../view/auth/DaftarPage';
-import DaftarNomorHpPage from '../view/auth/DaftarNomorHpPage';
-import VerifikasiHpPage from '../view/auth/VerfikasiHpPage';
-import GlobalStyles from '../styles/GlobalStyles';
+import LoginPage from '../view/auth/LoginPage'
+import LupaPasswordPage from '../view/auth/LupaPasswordPage'
+import LupaPasswordPageByPhoneNumber from '../view/auth/LupaPasswordPageByPhoneNumber'
+import VerifikasiPage from '../view/auth/VerifikasiPage'
+import UbahPasswordPage from '../view/auth/UbahPasswordPage'
+import DaftarPage from '../view/auth/DaftarPage'
+import DaftarNomorHpPage from '../view/auth/DaftarNomorHpPage'
+import VerifikasiHpPage from '../view/auth/VerfikasiHpPage'
+import GlobalStyles from '../styles/GlobalStyles'
 
-const AuthStack = createNativeStackNavigator();
+const AuthStack = createNativeStackNavigator()
 
 const AuthStackScreen = () => {
   return (
@@ -28,7 +28,7 @@ const AuthStackScreen = () => {
           headerTitleAlign: 'center',
           headerTitleStyle: GlobalStyles.AuthHeaderBarTitle,
           headerTintColor: COLORS.white,
-          headerBackVisible: false,
+          headerBackVisible: false
         }}
       />
       <AuthStack.Screen
@@ -40,7 +40,7 @@ const AuthStackScreen = () => {
           headerTransparent: true,
           headerTitleAlign: 'center',
           headerTitleStyle: GlobalStyles.HeaderBarTItle,
-          headerTintColor: COLORS.black4,
+          headerTintColor: COLORS.black4
         }}
       />
       <AuthStack.Screen
@@ -52,7 +52,7 @@ const AuthStackScreen = () => {
           headerTransparent: true,
           headerTitleAlign: 'center',
           headerTitleStyle: GlobalStyles.HeaderBarTItle,
-          headerTintColor: COLORS.black4,
+          headerTintColor: COLORS.black4
         }}
       />
       <AuthStack.Screen
@@ -64,7 +64,7 @@ const AuthStackScreen = () => {
           headerTransparent: true,
           headerTitleAlign: 'center',
           headerTitleStyle: GlobalStyles.HeaderBarTItle,
-          headerTintColor: '#252525',
+          headerTintColor: '#252525'
         }}
       />
       <AuthStack.Screen
@@ -75,7 +75,7 @@ const AuthStackScreen = () => {
           headerShadowVisible: false,
           headerTitleAlign: 'center',
           headerTitleStyle: GlobalStyles.HeaderBarTItle,
-          headerTintColor: '#252525',
+          headerTintColor: '#252525'
         }}
       />
       <AuthStack.Screen
@@ -86,7 +86,7 @@ const AuthStackScreen = () => {
           headerShadowVisible: false,
           headerTitleAlign: 'center',
           headerTitleStyle: GlobalStyles.HeaderBarTItle,
-          headerTintColor: '#252525',
+          headerTintColor: '#252525'
         }}
       />
       <AuthStack.Screen
@@ -98,7 +98,7 @@ const AuthStackScreen = () => {
           headerTransparent: true,
           headerTitleAlign: 'center',
           headerTitleStyle: GlobalStyles.AuthHeaderBarTitle,
-          headerTintColor: 'white',
+          headerTintColor: 'white'
         }}
       />
       <AuthStack.Screen
@@ -110,11 +110,11 @@ const AuthStackScreen = () => {
           headerTransparent: true,
           headerTitleAlign: 'center',
           headerTitleStyle: GlobalStyles.HeaderBarTItle,
-          headerTintColor: COLORS.black4,
+          headerTintColor: COLORS.black4
         }}
       />
     </AuthStack.Navigator>
-  );
-};
+  )
+}
 
-export default AuthStackScreen;
+export default AuthStackScreen

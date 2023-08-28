@@ -18,7 +18,7 @@ const Item = ({ action, width, containerStyle, placeId }) => {
 
   const getDistanceInfo = (destination) => {
     const distanceInMeters = getDistance(
-      { latitude: location?.address?.location?.lat, longitude: location?.address?.location?.lng },
+      { latitude: location.address.location.lat, longitude: location.address.location.lng },
       { latitude: destination.lat, longitude: destination.lng }
     )
     return (distanceInMeters / 1000).toFixed(1) + ' km'
@@ -48,16 +48,16 @@ const Item = ({ action, width, containerStyle, placeId }) => {
   )
 }
 
-const SemuaUntukmuMicePage = ({ navigation }) => {
+const SemuaUntukmuTravelPage = ({ navigation }) => {
   const [recommendation, setRecommendation] = useState([])
 
   useEffect(() => {
-    const getMiceBookmarks = async () => {
+    const getTravelBookmarks = async () => {
       const bookmarks = await getBookmarks()
-      const miceBookmarks = bookmarks.filter((bookmark) => bookmark.type === 'mice')
-      setRecommendation(miceBookmarks)
+      const travelBookmarks = bookmarks.filter((bookmark) => bookmark.type === 'travel')
+      setRecommendation(travelBookmarks)
     }
-    getMiceBookmarks()
+    getTravelBookmarks()
   }, [])
 
   return (
@@ -72,7 +72,7 @@ const SemuaUntukmuMicePage = ({ navigation }) => {
             containerStyle={
               index + (1 % 2) === 0 ? { marginLeft: verticalScale(24) } : { marginRight: verticalScale(24) }
             }
-            action={() => navigation.navigate('DetailAdiMulia', { placeId: item.id, type: 'mice' })}
+            action={() => navigation.navigate('DetailAdiMulia', { placeId: item.id, type: 'travel' })}
           />
         )}
         numColumns={2}
@@ -111,4 +111,4 @@ const styles = StyleSheet.create({
   date: { fontSize: moderateScale(12), fontWeight: '400' }
 })
 
-export default SemuaUntukmuMicePage
+export default SemuaUntukmuTravelPage

@@ -4,6 +4,7 @@ import IMAGES from '../../assets/img/images'
 import { horizontalScale, moderateScale, verticalScale } from '../../theme/responsive'
 import { useState, useRef } from 'react'
 import CtaButton from '../../components/atoms/CtaButton'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const { width, height } = Dimensions.get('window')
 
@@ -78,7 +79,8 @@ const OnBoardingPage = ({ navigation }) => {
       }
     }
 
-    const handleSkipPress = () => {
+    const handleSkipPress = async () => {
+      await AsyncStorage.setItem('isFirstOpen', JSON.stringify(false))
       navigation.navigate('AuthStackScreen')
     }
 

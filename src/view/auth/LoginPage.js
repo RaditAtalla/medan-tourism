@@ -22,7 +22,10 @@ const LoginPage = ({ navigation }) => {
   const [login, { error, isError }] = useLoginMutation()
 
   useEffect(() => {
-    if (isError) Alert.alert('Error', error.message)
+    if (isError) {
+      Alert.alert('Login Failed', error?.data?.message)
+      setIsLoading(false)
+    }
   }, [isError])
 
   const handleSubmit = async () => {

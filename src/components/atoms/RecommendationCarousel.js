@@ -1,15 +1,26 @@
 import { View, Image, Text, FlatList, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native'
+import { getDistance } from 'geolib'
 
 import { verticalScale, horizontalScale, moderateScale } from '../../theme/responsive'
 import { getImagePlace } from '../../utils/tranformData'
 import ICONS from '../../assets/icons/icons'
 import COLORS from '../../theme/colors'
 import StarDisplay from './StarDisplay'
-import { useNavigation } from '@react-navigation/native'
-import { getDistance } from 'geolib'
+import { useGetPlaceDetailQuery } from '../../api/place.api'
 import { useSelector } from 'react-redux'
 
-const Item = ({ image, name, distance, rating, action, isFirst, isLast }) => {
+const Item = ({ action, isFirst, isLast, id }) => {
+  const { data } = useGetPlaceDetailQuery(id)
+  const location = useSelector((state) => state.location.location)
+
+  const distance = (destination) => {
+    const distanceInMeters = getDistance(
+      { latitude: location?.address?.location?.lat, longitude: location?.address?.location?.lng },
+      { latitude: destination?.lat, longitude: destination?.lng }
+    )
+    return (distanceInMeters / 1000).toFixed(1) + ' km'
+  }
+
   return (
     <TouchableOpacity
       style={[
@@ -20,18 +31,16 @@ const Item = ({ image, name, distance, rating, action, isFirst, isLast }) => {
       onPress={action}
     >
       <ImageBackground
-        source={{ uri: image }}
+        source={{ uri: getImagePlace(data?.result?.photos[0]?.photo_reference) }}
         style={Styles.thumbnail}
         imageStyle={{ borderTopLeftRadius: 8, borderTopRightRadius: 8 }}
       >
         <Image source={ICONS.saveCircle} style={Styles.saveButton} />
       </ImageBackground>
       <View style={Styles.metaData}>
-        <Text style={Styles.distance}>{distance}</Text>
-        <Text style={Styles.name} numberOfLines={2}>
-          {name}
-        </Text>
-        <StarDisplay rating={rating} />
+        {/* <Text style={Styles.distance}>{distance(data?.result?.geometry?.location)}</Text> */}
+        <Text style={Styles.name}>{data?.result?.name}</Text>
+        <StarDisplay rating={Math.round(data?.result?.rating)} />
       </View>
     </TouchableOpacity>
   )
@@ -71,31 +80,12 @@ const Styles = StyleSheet.create({
   }
 })
 
-const MiceDekatCarousel = ({ data }) => {
-  const navigation = useNavigation()
-  const location = useSelector((state) => state.location.location)
-
-  const distance = (destination) => {
-    const distanceInMeters = getDistance(
-      { latitude: location?.address?.location?.lat, longitude: location?.address?.location?.lng },
-      { latitude: destination?.lat, longitude: destination?.lng }
-    )
-    return (distanceInMeters / 1000).toFixed(1) + ' km'
-  }
-
+const RecommendationCarousel = ({ data }) => {
   return (
     <FlatList
-      data={data}
+      data={data.slice(0, 4)}
       renderItem={({ item, index }) => (
-        <Item
-          image={getImagePlace(item.photos[0].photo_reference)}
-          name={item.name}
-          distance={distance(item.geometry.location)}
-          rating={Math.round(item.rating)}
-          isFirst={index === 0}
-          isLast={index === data.length - 1}
-          action={() => navigation.navigate('DetailAdiMulia', { placeId: item.place_id, type: item.type })}
-        />
+        <Item id={item.id} isFirst={index === 0} isLast={index === data.length - 1} action={() => {}} />
       )}
       keyExtractor={(item, index) => index.toString()}
       horizontal={true}
@@ -105,4 +95,4 @@ const MiceDekatCarousel = ({ data }) => {
   )
 }
 
-export default MiceDekatCarousel
+export default RecommendationCarousel

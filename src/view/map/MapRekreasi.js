@@ -43,7 +43,7 @@ const MapRekreasi = ({ navigation }) => {
 
   const handleNavigateToDetail = () => {
     setPopUp(false)
-    navigation.navigate('DetailAdiMulia', { placeId: modalData.place_id })
+    navigation.navigate('DetailAdiMulia', { placeId: modalData.place_id, type: 'rekreasi' })
   }
 
   return (

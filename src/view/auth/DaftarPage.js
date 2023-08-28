@@ -1,5 +1,5 @@
-import { Text, View, StatusBar, ImageBackground, Platform, ToastAndroid, Alert } from 'react-native'
-import { useState } from 'react'
+import { Text, View, StatusBar, ImageBackground, Alert } from 'react-native'
+import { useEffect, useState } from 'react'
 
 import Styles from '../../styles/DaftarPageStyles'
 import IMAGES from '../../assets/img/images'
@@ -17,7 +17,11 @@ const DaftarPage = ({ navigation }) => {
   const [password, setPassword] = useState('')
   const [cpassword, setcpassword] = useState('')
 
-  const [register, { isLoading }] = useRegisterMutation()
+  const [register, { isLoading, isError, error }] = useRegisterMutation()
+
+  useEffect(() => {
+    if (isError) Alert.alert('Register Failed', error.data.message)
+  }, [isError])
 
   const handleSubmit = async () => {
     checkFormValid(!username || !password || !cpassword, 'Mohon isi semua form')
